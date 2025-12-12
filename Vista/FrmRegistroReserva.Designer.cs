@@ -48,7 +48,9 @@
             this.txtcontenido = new System.Windows.Forms.TextBox();
             this.cmbNombEvento = new System.Windows.Forms.ComboBox();
             this.cmbClientes = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbDescripcionEvento = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbIdEvento = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,9 +58,10 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(40, 55);
+            this.lblNombre.Location = new System.Drawing.Point(55, 127);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(74, 19);
+            this.lblNombre.Size = new System.Drawing.Size(89, 24);
             this.lblNombre.TabIndex = 1;
             this.lblNombre.Text = "Cliente:";
             // 
@@ -66,9 +69,10 @@
             // 
             this.lblNombreEvento.AutoSize = true;
             this.lblNombreEvento.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreEvento.Location = new System.Drawing.Point(40, 106);
+            this.lblNombreEvento.Location = new System.Drawing.Point(53, 68);
+            this.lblNombreEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreEvento.Name = "lblNombreEvento";
-            this.lblNombreEvento.Size = new System.Drawing.Size(166, 19);
+            this.lblNombreEvento.Size = new System.Drawing.Size(203, 24);
             this.lblNombreEvento.TabIndex = 2;
             this.lblNombreEvento.Text = "Nombre del Evento:";
             // 
@@ -76,9 +80,10 @@
             // 
             this.lblTipoEvento.AutoSize = true;
             this.lblTipoEvento.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoEvento.Location = new System.Drawing.Point(40, 156);
+            this.lblTipoEvento.Location = new System.Drawing.Point(53, 192);
+            this.lblTipoEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipoEvento.Name = "lblTipoEvento";
-            this.lblTipoEvento.Size = new System.Drawing.Size(132, 19);
+            this.lblTipoEvento.Size = new System.Drawing.Size(162, 24);
             this.lblTipoEvento.TabIndex = 3;
             this.lblTipoEvento.Text = "Tipo de Evento:";
             // 
@@ -86,9 +91,10 @@
             // 
             this.lblCantPersonas.AutoSize = true;
             this.lblCantPersonas.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantPersonas.Location = new System.Drawing.Point(450, 55);
+            this.lblCantPersonas.Location = new System.Drawing.Point(600, 68);
+            this.lblCantPersonas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCantPersonas.Name = "lblCantPersonas";
-            this.lblCantPersonas.Size = new System.Drawing.Size(186, 19);
+            this.lblCantPersonas.Size = new System.Drawing.Size(233, 24);
             this.lblCantPersonas.TabIndex = 4;
             this.lblCantPersonas.Text = "Cantidad de Personas:";
             // 
@@ -96,9 +102,10 @@
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(450, 103);
+            this.lblDescripcion.Location = new System.Drawing.Point(600, 127);
+            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(282, 19);
+            this.lblDescripcion.Size = new System.Drawing.Size(347, 24);
             this.lblDescripcion.TabIndex = 5;
             this.lblDescripcion.Text = "Descripcion del Evento (opcional):";
             // 
@@ -106,9 +113,10 @@
             // 
             this.lblFechReserva.AutoSize = true;
             this.lblFechReserva.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechReserva.Location = new System.Drawing.Point(40, 218);
+            this.lblFechReserva.Location = new System.Drawing.Point(53, 268);
+            this.lblFechReserva.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechReserva.Name = "lblFechReserva";
-            this.lblFechReserva.Size = new System.Drawing.Size(166, 19);
+            this.lblFechReserva.Size = new System.Drawing.Size(208, 24);
             this.lblFechReserva.TabIndex = 6;
             this.lblFechReserva.Text = "Fecha de la reserva:";
             // 
@@ -116,9 +124,10 @@
             // 
             this.lblHoraFin.AutoSize = true;
             this.lblHoraFin.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHoraFin.Location = new System.Drawing.Point(40, 289);
+            this.lblHoraFin.Location = new System.Drawing.Point(53, 356);
+            this.lblHoraFin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHoraFin.Name = "lblHoraFin";
-            this.lblHoraFin.Size = new System.Drawing.Size(101, 19);
+            this.lblHoraFin.Size = new System.Drawing.Size(125, 24);
             this.lblHoraFin.TabIndex = 7;
             this.lblHoraFin.Text = "Hora de fin:";
             // 
@@ -126,9 +135,10 @@
             // 
             this.lblHoraInicio.AutoSize = true;
             this.lblHoraInicio.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHoraInicio.Location = new System.Drawing.Point(40, 258);
+            this.lblHoraInicio.Location = new System.Drawing.Point(53, 318);
+            this.lblHoraInicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHoraInicio.Name = "lblHoraInicio";
-            this.lblHoraInicio.Size = new System.Drawing.Size(125, 19);
+            this.lblHoraInicio.Size = new System.Drawing.Size(154, 24);
             this.lblHoraInicio.TabIndex = 8;
             this.lblHoraInicio.Text = "Hora de inicio:";
             // 
@@ -136,9 +146,10 @@
             // 
             this.lblTipoSolicitud.AutoSize = true;
             this.lblTipoSolicitud.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoSolicitud.Location = new System.Drawing.Point(450, 218);
+            this.lblTipoSolicitud.Location = new System.Drawing.Point(590, 278);
+            this.lblTipoSolicitud.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipoSolicitud.Name = "lblTipoSolicitud";
-            this.lblTipoSolicitud.Size = new System.Drawing.Size(149, 19);
+            this.lblTipoSolicitud.Size = new System.Drawing.Size(183, 24);
             this.lblTipoSolicitud.TabIndex = 9;
             this.lblTipoSolicitud.Text = "Tipo de Solicitud:";
             // 
@@ -146,59 +157,65 @@
             // 
             this.cmbTipoEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoEvento.FormattingEnabled = true;
-            this.cmbTipoEvento.Location = new System.Drawing.Point(207, 154);
+            this.cmbTipoEvento.Location = new System.Drawing.Point(276, 190);
+            this.cmbTipoEvento.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTipoEvento.Name = "cmbTipoEvento";
-            this.cmbTipoEvento.Size = new System.Drawing.Size(200, 21);
+            this.cmbTipoEvento.Size = new System.Drawing.Size(265, 24);
             this.cmbTipoEvento.TabIndex = 13;
             // 
             // cmbTipoSolicitud
             // 
             this.cmbTipoSolicitud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoSolicitud.FormattingEnabled = true;
-            this.cmbTipoSolicitud.Location = new System.Drawing.Point(454, 240);
+            this.cmbTipoSolicitud.Location = new System.Drawing.Point(775, 278);
+            this.cmbTipoSolicitud.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTipoSolicitud.Name = "cmbTipoSolicitud";
-            this.cmbTipoSolicitud.Size = new System.Drawing.Size(216, 21);
+            this.cmbTipoSolicitud.Size = new System.Drawing.Size(199, 24);
             this.cmbTipoSolicitud.TabIndex = 14;
             // 
             // dtpFechRerserva
             // 
-            this.dtpFechRerserva.Location = new System.Drawing.Point(207, 218);
+            this.dtpFechRerserva.Location = new System.Drawing.Point(276, 268);
+            this.dtpFechRerserva.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechRerserva.MaxDate = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             this.dtpFechRerserva.MinDate = new System.DateTime(2025, 1, 1, 0, 0, 0, 0);
             this.dtpFechRerserva.Name = "dtpFechRerserva";
-            this.dtpFechRerserva.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechRerserva.Size = new System.Drawing.Size(265, 22);
             this.dtpFechRerserva.TabIndex = 15;
             // 
             // dtpHoraInicio
             // 
             this.dtpHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraInicio.Location = new System.Drawing.Point(207, 256);
+            this.dtpHoraInicio.Location = new System.Drawing.Point(276, 315);
+            this.dtpHoraInicio.Margin = new System.Windows.Forms.Padding(4);
             this.dtpHoraInicio.MaxDate = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             this.dtpHoraInicio.MinDate = new System.DateTime(2025, 1, 1, 0, 0, 0, 0);
             this.dtpHoraInicio.Name = "dtpHoraInicio";
-            this.dtpHoraInicio.Size = new System.Drawing.Size(64, 20);
+            this.dtpHoraInicio.Size = new System.Drawing.Size(84, 22);
             this.dtpHoraInicio.TabIndex = 16;
             // 
             // dtpHoraFin
             // 
             this.dtpHoraFin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraFin.Location = new System.Drawing.Point(207, 288);
+            this.dtpHoraFin.Location = new System.Drawing.Point(276, 354);
+            this.dtpHoraFin.Margin = new System.Windows.Forms.Padding(4);
             this.dtpHoraFin.MaxDate = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             this.dtpHoraFin.MinDate = new System.DateTime(2025, 1, 1, 0, 0, 0, 0);
             this.dtpHoraFin.Name = "dtpHoraFin";
-            this.dtpHoraFin.Size = new System.Drawing.Size(64, 20);
+            this.dtpHoraFin.Size = new System.Drawing.Size(84, 22);
             this.dtpHoraFin.TabIndex = 17;
             // 
             // nudCantPersonas
             // 
-            this.nudCantPersonas.Location = new System.Drawing.Point(642, 54);
+            this.nudCantPersonas.Location = new System.Drawing.Point(856, 66);
+            this.nudCantPersonas.Margin = new System.Windows.Forms.Padding(4);
             this.nudCantPersonas.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudCantPersonas.Name = "nudCantPersonas";
-            this.nudCantPersonas.Size = new System.Drawing.Size(41, 20);
+            this.nudCantPersonas.Size = new System.Drawing.Size(55, 22);
             this.nudCantPersonas.TabIndex = 18;
             this.nudCantPersonas.Value = new decimal(new int[] {
             1,
@@ -211,9 +228,10 @@
             this.btnGuardar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(331, 336);
+            this.btnGuardar.Location = new System.Drawing.Point(441, 414);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(114, 30);
+            this.btnGuardar.Size = new System.Drawing.Size(152, 37);
             this.btnGuardar.TabIndex = 19;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -223,53 +241,83 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(266, 9);
+            this.label1.Location = new System.Drawing.Point(355, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(340, 19);
+            this.label1.Size = new System.Drawing.Size(418, 24);
             this.label1.TabIndex = 20;
             this.label1.Text = "REGISTRO DE RESERVA PARA EVENTOS";
             // 
             // txtcontenido
             // 
-            this.txtcontenido.Location = new System.Drawing.Point(44, 417);
+            this.txtcontenido.Location = new System.Drawing.Point(59, 513);
+            this.txtcontenido.Margin = new System.Windows.Forms.Padding(4);
             this.txtcontenido.Multiline = true;
             this.txtcontenido.Name = "txtcontenido";
-            this.txtcontenido.Size = new System.Drawing.Size(702, 173);
+            this.txtcontenido.Size = new System.Drawing.Size(935, 212);
             this.txtcontenido.TabIndex = 21;
             // 
             // cmbNombEvento
             // 
             this.cmbNombEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNombEvento.FormattingEnabled = true;
-            this.cmbNombEvento.Location = new System.Drawing.Point(212, 106);
+            this.cmbNombEvento.Location = new System.Drawing.Point(283, 68);
+            this.cmbNombEvento.Margin = new System.Windows.Forms.Padding(4);
             this.cmbNombEvento.Name = "cmbNombEvento";
-            this.cmbNombEvento.Size = new System.Drawing.Size(200, 21);
+            this.cmbNombEvento.Size = new System.Drawing.Size(265, 24);
             this.cmbNombEvento.TabIndex = 22;
+            this.cmbNombEvento.SelectedIndexChanged += new System.EventHandler(this.cmbNombreEvento_SelectedIndexChanged);
             // 
             // cmbClientes
             // 
             this.cmbClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbClientes.FormattingEnabled = true;
-            this.cmbClientes.Location = new System.Drawing.Point(207, 43);
+            this.cmbClientes.Location = new System.Drawing.Point(278, 127);
+            this.cmbClientes.Margin = new System.Windows.Forms.Padding(4);
             this.cmbClientes.Name = "cmbClientes";
-            this.cmbClientes.Size = new System.Drawing.Size(200, 21);
+            this.cmbClientes.Size = new System.Drawing.Size(265, 24);
             this.cmbClientes.TabIndex = 23;
             // 
-            // comboBox3
+            // cmbDescripcionEvento
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(454, 138);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(278, 21);
-            this.comboBox3.TabIndex = 24;
+            this.cmbDescripcionEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDescripcionEvento.FormattingEnabled = true;
+            this.cmbDescripcionEvento.Location = new System.Drawing.Point(605, 170);
+            this.cmbDescripcionEvento.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbDescripcionEvento.Name = "cmbDescripcionEvento";
+            this.cmbDescripcionEvento.Size = new System.Drawing.Size(369, 24);
+            this.cmbDescripcionEvento.TabIndex = 24;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(600, 223);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 24);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Id Evento:";
+            // 
+            // cmbIdEvento
+            // 
+            this.cmbIdEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbIdEvento.Enabled = false;
+            this.cmbIdEvento.FormattingEnabled = true;
+            this.cmbIdEvento.Location = new System.Drawing.Point(709, 223);
+            this.cmbIdEvento.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbIdEvento.Name = "cmbIdEvento";
+            this.cmbIdEvento.Size = new System.Drawing.Size(265, 24);
+            this.cmbIdEvento.TabIndex = 26;
             // 
             // FrmRegistroReserva
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 630);
-            this.Controls.Add(this.comboBox3);
+            this.ClientSize = new System.Drawing.Size(1075, 782);
+            this.Controls.Add(this.cmbIdEvento);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cmbDescripcionEvento);
             this.Controls.Add(this.cmbClientes);
             this.Controls.Add(this.cmbNombEvento);
             this.Controls.Add(this.txtcontenido);
@@ -290,6 +338,7 @@
             this.Controls.Add(this.lblTipoEvento);
             this.Controls.Add(this.lblNombreEvento);
             this.Controls.Add(this.lblNombre);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmRegistroReserva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -321,7 +370,9 @@
         private System.Windows.Forms.TextBox txtcontenido;
         private System.Windows.Forms.ComboBox cmbNombEvento;
         private System.Windows.Forms.ComboBox cmbClientes;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbDescripcionEvento;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbIdEvento;
     }
 }
 

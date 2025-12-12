@@ -11,6 +11,7 @@ namespace Modelo
     {
         //metodos get y set
         public int IdReserva { get; set; }
+        public Evento evento { get; set; }
         public DateTime FechaReserva { get; set; }
         public TimeSpan HoraInicio { get; set; }
         public TimeSpan HoraFin { get; set; }
@@ -43,8 +44,10 @@ namespace Modelo
 
         }
 
-        public Reserva(int id, DateTime fecha, TimeSpan horaInicio, TimeSpan horaFin, string tipoSolicitud)
+        public Reserva(int id, Evento even, DateTime fecha, TimeSpan horaInicio, TimeSpan horaFin, string tipoSolicitud)
         {
+            IdReserva = id;
+            evento = even;
             FechaReserva = fecha;
             HoraInicio = horaInicio;
             HoraFin = horaFin;

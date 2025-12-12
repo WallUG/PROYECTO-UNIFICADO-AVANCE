@@ -16,6 +16,8 @@ namespace Controlador
     {
        
         static List<Reserva> listaReservas = new List<Reserva>();
+        List<Evento> listaEvento = AdmEvento.ObtenerTodosLosEventos();
+        Evento even = null;
         //Inicializa la lista de reservas vacia
         public AdmReserva()
         {
@@ -46,7 +48,7 @@ namespace Controlador
                 int id = listaReservas.Count + 1; // Generar ID secuencial
 
                 // Crear la reserva 
-                Reserva nuevaReserva = new Reserva(id,fecha, horaInicio, horaFin, tipoSolicitud);
+                Reserva nuevaReserva = new Reserva(id, even, fecha, horaInicio, horaFin, tipoSolicitud);
 
                 //Se crea el metodo de CrearReserva
                 //nuevaReserva.CrearReserva(fecha, horaInicio, horaFin, tipoSolicitud);
@@ -79,39 +81,40 @@ namespace Controlador
         Reserva reserva = null;
 
 
-        string[] tipsEventos = { "Fiesta", "Reunión Empresarial", "Boda", "Graduación", "Conferencia", "Cumpleaños" };
-        string[] tiposSolicitud = { "Salón Principal", "Salón VIP", "Auditorio", "Espacio para eventos y servicio de alimentos" };
-        string[] nombreClientes = { "Leonardo Pluas", "Josue Chichanda", "Gustavo Garcia", "Daniel Castillo" };
-        string[] nombreEventos = { "Cena Anual de Empresa TechSolutions", "Graduación Promoción 2025", "Fiesta de Fin de Año - Banco Guayaquil", "Despedida de Soltera de Ana" };
+        //string[] tipsEventos = { "Fiesta", "Reunión Empresarial", "Boda", "Graduación", "Conferencia", "Cumpleaños" };
+        //string[] tiposSolicitud = { "Salón Principal", "Salón VIP", "Auditorio", "Espacio para eventos y servicio de alimentos" };
+        //string[] nombreClientes = { "Leonardo Pluas", "Josue Chichanda", "Gustavo Garcia", "Daniel Castillo" };
+        //string[] nombreEventos = { "Cena Anual de Empresa TechSolutions", "Graduación Promoción 2025", "Fiesta de Fin de Año - Banco Guayaquil", "Despedida de Soltera de Ana" };
 
 
-        public void LlenarComboTipoEvento(ComboBox cmbTipoEventos)
+        public void LlenarComboTipoEvento(ComboBox cmbTipoEventos, Evento evem)
         {
-            foreach (string tipEvent in tipsEventos)
-            {
-                cmbTipoEventos.Items.Add(tipEvent);
-            }
+            //foreach (Evento tipEvent in listaEvento)
+            //{
+                cmbTipoEventos.Items.Add(evem.TipoEvento);
+            //}
         }
-        public void LlenarComboTipoSolicitud(ComboBox cmbTipoSolicitud)
+        //public void LlenarComboTipoSolicitud(ComboBox cmbTipoSolicitud, Evento evem)
+        //{
+        //    //foreach (string tipSoli in tiposSolicitud)
+        //    //{
+        //        cmbTipoSolicitud.Items.Add(evem.);
+        //    //}
+        //}
+        public void LlenarComboClientes(ComboBox cmbClientes, Evento evem)
         {
-            foreach (string tipSoli in tiposSolicitud)
-            {
-                cmbTipoSolicitud.Items.Add(tipSoli);
-            }
-        }
-        public void LlenarComboClientes(ComboBox cmbClientes)
-        {
-            foreach (string nomClientes in nombreClientes)
-            {
-                cmbClientes.Items.Add(nomClientes);
-            }
+            //foreach (string nomClientes in nombreClientes)
+            //{
+                cmbClientes.Items.Add(evem.Cliente.Nombre);
+            //}
         }
 
-        public void LlenarComboNombEvento(ComboBox cmbNombEvento)
+        public void LlenarComboNombEvento(ComboBox cmbNombEvento, ComboBox cmbIdEvento)
         {
-            foreach (string nomEven in nombreEventos)
+            foreach (Evento nomEven in listaEvento)
             {
-                cmbNombEvento.Items.Add(nomEven);
+                cmbNombEvento.Items.Add(nomEven.NombreEvento);
+                cmbIdEvento.Items.Add(nomEven.IdEvento);
             }
         }
         public bool EsVacio(string cliente, string nombEvent, string tipEvents,
@@ -184,6 +187,20 @@ namespace Controlador
                     dgvReservas.Rows[indice].Cells["colHoraFin"].Value = r.HoraFin.ToString(@"hh\:mm");
                 }
             }
+        }
+
+        public void MostrarDatosEventoPorNombre(int indexEvento, ComboBox cmbTipoEvento, ComboBox cmbTipoSolicitud, ComboBox cmbClientes, NumericUpDown nudCantPersonas)
+        {
+            even = AdmEvento.ObtenerEventoPorId(indexEvento);
+            LlenarComboTipoEvento(cmbTipoEvento, even);
+            //LlenarComboTipoSolicitud(cmbTipoSolicitud, even);
+            LlenarComboClientes(cmbClientes, even);
+            LlenarNumeroPersonas(nudCantPersonas, even);
+        }
+
+        private void LlenarNumeroPersonas(NumericUpDown nudCantPersonas, Evento even)
+        {
+            nudCantPersonas.Value = even.NumPersonasEvento;
         }
     }
 }

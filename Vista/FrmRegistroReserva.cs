@@ -17,10 +17,7 @@ namespace Visual
         public FrmRegistroReserva()
         {
             InitializeComponent();
-            admReser.LlenarComboTipoEvento(cmbTipoEvento);
-            admReser.LlenarComboTipoSolicitud(cmbTipoSolicitud);
-            admReser.LlenarComboClientes(cmbClientes);
-            admReser.LlenarComboNombEvento(cmbNombEvento);
+            admReser.LlenarComboNombEvento(cmbNombEvento,cmbIdEvento, cmbDescripcionEvento, nudCantPersonas);
         }
         //private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         //{
@@ -50,6 +47,11 @@ namespace Visual
             {
                 MessageBox.Show("ERROR...DEBE LLENAR TODOS LOS CAMPOS");
             }
+        }
+
+        public void cmbNombreEvento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            admReser.MostrarDatosEventoPorNombre(Convert.ToInt16(cmbIdEvento.SelectedItem) , cmbTipoEvento, cmbTipoSolicitud, cmbClientes);
         }
 
     }
