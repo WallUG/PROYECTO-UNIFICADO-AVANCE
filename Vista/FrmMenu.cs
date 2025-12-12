@@ -31,7 +31,7 @@ namespace Visual
             registroInmueble.ShowDialog();
         }
 
-        private void mniListarFacturas_Click(object sender, EventArgs e)
+        private void mniListarInmueble_Click(object sender, EventArgs e)
         {
             FrmListarInmueble frmLisInmueble = new FrmListarInmueble();
             frmLisInmueble.ShowDialog();
