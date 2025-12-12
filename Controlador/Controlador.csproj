@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdmCliente.cs" />
     <Compile Include="AdmEvento.cs" />
     <Compile Include="AdmFactura.cs" />
     <Compile Include="AdmInmueble.cs" />
