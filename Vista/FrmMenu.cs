@@ -37,6 +37,12 @@ namespace Visual
             frmLisInmueble.ShowDialog();
         }
 
+        private void mniListarFactura_Click(object sender, EventArgs e)
+        {
+            FrmListarFactura frmLisFactura = new FrmListarFactura();
+            frmLisFactura.ShowDialog();
+        }
+
         private void mniAutor_Click(object sender, EventArgs e)
         {
 
