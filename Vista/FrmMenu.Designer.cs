@@ -265,7 +265,6 @@
             this.mniAutor.Name = "mniAutor";
             this.mniAutor.Size = new System.Drawing.Size(129, 26);
             this.mniAutor.Text = "Autor";
-            this.mniAutor.Click += new System.EventHandler(this.mniAutor_Click);
             // 
             // toolStripSeparator1
             // 
