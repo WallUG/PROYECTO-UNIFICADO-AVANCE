@@ -76,5 +76,17 @@ namespace Visual
             FrmListarReserva frmListarReserva = new FrmListarReserva();
             frmListarReserva.ShowDialog();
         }
+
+        private void mniRegistrarEvento_Click(object sender, EventArgs e)
+        {
+            FrmRegistrarEvento frmRegistrarEvento = new FrmRegistrarEvento();
+            frmRegistrarEvento.ShowDialog();
+        }
+
+        private void mniListarEvento_Click(object sender, EventArgs e)
+        {
+            FrmListarEvento frmListarEvento = new FrmListarEvento();
+            frmListarEvento.ShowDialog();
+        }
     }
 }
