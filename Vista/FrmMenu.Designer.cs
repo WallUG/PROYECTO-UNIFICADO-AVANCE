@@ -183,7 +183,7 @@
             this.registrarToolStripMenuItem1.Name = "registrarToolStripMenuItem1";
             this.registrarToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.registrarToolStripMenuItem1.Text = "Registrar";
-            this.registrarToolStripMenuItem1.Click += new System.EventHandler(this.mniInmueble_Click);
+            this.registrarToolStripMenuItem1.Click += new System.EventHandler(this.mniRegistrarInmueble_Click);
             // 
             // toolStripSeparator5
             // 
