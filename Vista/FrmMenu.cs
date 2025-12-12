@@ -18,7 +18,7 @@ namespace Visual
             InitializeComponent();
         }
 
-        private void mniRegistrar_Click(object sender, EventArgs e)
+        private void mniRegistrarFactura_Click(object sender, EventArgs e)
         {
             FrmFacturaRegistrar registrar = new FrmFacturaRegistrar();
             registrar.ShowDialog();
@@ -31,7 +31,7 @@ namespace Visual
             registroInmueble.ShowDialog();
         }
 
-        private void mniListar_Click(object sender, EventArgs e)
+        private void mniListarFacturas_Click(object sender, EventArgs e)
         {
             FrmListarInmueble frmLisInmueble = new FrmListarInmueble();
             frmLisInmueble.ShowDialog();
