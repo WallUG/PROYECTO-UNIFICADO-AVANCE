@@ -194,6 +194,7 @@
             this.listarToolStripMenuItem2.Name = "listarToolStripMenuItem2";
             this.listarToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
             this.listarToolStripMenuItem2.Text = "Listar";
+            this.listarToolStripMenuItem2.Click += new System.EventHandler(this.mniListarInmueble_Click);
             // 
             // toolStripSeparator6
             // 
