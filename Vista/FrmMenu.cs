@@ -24,7 +24,7 @@ namespace Visual
             registrar.ShowDialog();
         }
 
-        private void mniReservar_Click(object sender, EventArgs e)
+        private void mniInmueble_Click(object sender, EventArgs e)
         {
             //Inmueble
             FrmRegistroInmueble registroInmueble = new FrmRegistroInmueble();
