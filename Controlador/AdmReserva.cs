@@ -3,6 +3,7 @@ using Modelo;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,17 @@ namespace Controlador
         public AdmReserva()
         {
             
+        }
+
+        public static Reserva ObtenerReservaPorId(int id)
+        {
+            return listaReservas.Find(v => v.IdReserva == id);
+        }
+
+        // Método para obtener todos
+        public static List<Reserva> ObtenerTodosLosClientes()
+        {
+            return listaReservas;
         }
 
         // Metodo para agregar una nueva reserva

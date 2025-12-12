@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="AdmCliente.cs" />
     <Compile Include="AdmEvento.cs" />
+    <Compile Include="AdmEventoInmueble.cs" />
     <Compile Include="AdmFactura.cs" />
     <Compile Include="AdmInmueble.cs" />
     <Compile Include="AdmReserva.cs" />

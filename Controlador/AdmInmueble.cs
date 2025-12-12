@@ -21,7 +21,19 @@ namespace Controlador
         static List<Inmueble> inmuebleL = new List<Inmueble>();
 
         // Array de Inmueble dinamico (Visual)
-        string[] tipoIn = { "Teton de eventos", "Jardin", "Auditorio", "Sala de conferencia" };
+        string[] tipoIn = { "Telon de eventos", "Jardin", "Auditorio", "Sala de conferencia" };
+
+        // Método para obtener un Inmueble
+        public static Inmueble ObtenerInmueblePorId(int idInmueble)
+        {
+            return inmuebleL.Find(i => i.idInmueble == idInmueble);
+        }
+
+        // Método para obtener todos
+        public static List<Inmueble> ObtenerTodosLosInmuebles()
+        {
+            return inmuebleL;
+        }
 
         public void LlenarCombo(ComboBox cmbTipo)
         {

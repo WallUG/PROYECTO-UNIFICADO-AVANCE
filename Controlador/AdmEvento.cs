@@ -26,9 +26,18 @@ namespace Controlador
         private Cliente clienteActual = null;*/
         private Cliente cliente = null;
 
-        // Lista estática de inmuebles (simula módulo inmueble)
-        private static List<Inmueble> inmuebles = new List<Inmueble>();
-        
+        // Método para obtener un Eventos
+        public static Evento ObtenerEventoPorId(int id)
+        {
+            return eventos.Find(v => v.IdEvento == id);
+        }
+
+        // Método para obtener todos
+        public static List<Evento> ObtenerTodosLosEventos()
+        {
+            return eventos;
+        }
+
         // Tipos de evento disponibles
         private string[] tiposEvento = { 
             "Cumpleaños", 
@@ -211,9 +220,10 @@ namespace Controlador
             int cantidadInmueble, 
             DateTime fechaAsignacion)
         {
-            // Paso 2: Buscar inmueble por tipo
+            // Paso 2: rellenar tabla con inmuebles por tipo
             Inmueble inmuebleSeleccionado = null;
-            foreach (Inmueble inm in inmuebles)
+            List<Inmueble> listaInmueble = AdmInmueble.ObtenerTodosLosInmuebles();
+            foreach (Inmueble inm in listaInmueble)
             {
                 if (inm.tipoInmueble == tipoInmueble)
                 {
@@ -224,10 +234,10 @@ namespace Controlador
             
 
             // Si no encuentra, usar el primero disponible
-            if (inmuebleSeleccionado == null && inmuebles.Count > 0)
-            {
-                inmuebleSeleccionado = inmuebles[0];
-            }
+            //if (inmuebleSeleccionado == null && inmuebles.Count > 0)
+            //{
+            //    inmuebleSeleccionado = inmuebles[0];
+            //}
             
             // Paso 3: Crear EventoInmueble
             EventoInmueble eventoInmueble = new EventoInmueble();
