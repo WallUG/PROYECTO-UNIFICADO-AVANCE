@@ -18,7 +18,6 @@ namespace Visual
         public FrmBienvenida(string nombre)
         {
             InitializeComponent();
-            admFactura.AdmFacturaEstatico();
             this.Text += "" + nombre;
             lblIngreso.Text = "Hola " + nombre;
         }

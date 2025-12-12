@@ -19,11 +19,6 @@ namespace Controlador
         public static List<EventoInmueble> listaEventoInmueble = new List<EventoInmueble>();
         public static List<Cliente> listaCliente = new List<Cliente>();
         public static List<Evento> listaEvento = new List<Evento>();
-        //private Cliente cliente = new Cliente(1, "Juan Perez", "Ramirez", "0987654312", "0912735427", "juanperes@gmail.com", "COOP. Monte Sina");
-        //private Inmueble inmueble = new Inmueble(1, "Salón de Eventos La Fiesta", "Salon de Eventos", 123, 500.0, true);
-        //private Inmueble inmueble2 = new Inmueble(2, "Sillas Dobles", "Sillas Decoracion", 75, 8.0, true);
-        //private Reserva reserva = new Reserva(1, DateTime.Parse("20/11/205"), DateTime.Parse("12:00:00"), DateTime.Parse("16:00:00"), "Aplicado");
-        //private EventoInmueble eventoInmueble, eventoInmueble2;
 
         public void BuscarCliente(ComboBox cmbIdEvento, GroupBox groupBoxCliente, string cedula)
         {
@@ -74,21 +69,6 @@ namespace Controlador
 
             // Si llegó aquí, no encontró nada
             MessageBox.Show("No se encontró el cliente");
-        }
-
-        public void AdmFacturaEstatico(){
-            Cliente cliente = new Cliente(1, "Juan Perez", "Ramirez", "0987654312", "0912735427", "juanperes@gmail.com", "COOP. Monte Sina");
-            Inmueble inmueble = new Inmueble(1, "Salón de Eventos La Fiesta", "Salon de Eventos", 123, 500.0);
-            Inmueble inmueble2 = new Inmueble(2, "Sillas Dobles", "Sillas Decoracion", 75, 8.0);
-            Reserva reserva = new Reserva(1, DateTime.Parse("20/11/205"), TimeSpan.Parse("12:00:00"), TimeSpan.Parse("16:00:00"), "Aplicado");
-            EventoInmueble eventoInmueble, eventoInmueble2;
-            eventoInmueble = new EventoInmueble(inmueble, 1, DateTime.Now);
-            eventoInmueble2 = new EventoInmueble(inmueble2, 50, DateTime.Now);
-            listaEventoInmueble.Add(eventoInmueble);
-            listaEventoInmueble.Add(eventoInmueble2);
-            listaEvento.Add(new Evento(1, cliente, "Cumpleaños de Luis", "Cumpleaños", "Ceremonia de cumpleaños", 80, "Av.9 de Octubre", "Completado", listaEventoInmueble));
-            listaEvento.Add(new Evento(2, cliente, "Quinceañera de Maria", "Cumpleaños", "Ceremonia de quinceaños", 150, "Chile y Olmedo", "Completado", listaEventoInmueble));
-            listaCliente.Add(cliente);
         }
 
         public void llenarComboIdEvento(ComboBox cmbIdEvento, int idCliente)
