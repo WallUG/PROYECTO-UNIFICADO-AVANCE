@@ -60,5 +60,21 @@ namespace Visual
             Application.Exit();
         }
 
+        private void mniRegistrarReserva_Click(object sender, EventArgs e)
+        {
+            FrmRegistroReserva frmRegistroReserva = new FrmRegistroReserva();
+            frmRegistroReserva.ShowDialog();
+        }
+
+        private void mnisalir(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void mnilistarReserva_Click(object sender, EventArgs e)
+        {
+            FrmListarReserva frmListarReserva = new FrmListarReserva();
+            frmListarReserva.ShowDialog();
+        }
     }
 }
