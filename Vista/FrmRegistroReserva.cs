@@ -17,7 +17,7 @@ namespace Visual
         public FrmRegistroReserva()
         {
             InitializeComponent();
-            admReser.LlenarComboNombEvento(cmbNombEvento,cmbIdEvento, cmbDescripcionEvento, nudCantPersonas);
+            admReser.LlenarComboNombEvento(cmbNombEvento, cmbIdEvento);
         }
         //private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         //{
@@ -51,7 +51,7 @@ namespace Visual
 
         public void cmbNombreEvento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            admReser.MostrarDatosEventoPorNombre(Convert.ToInt16(cmbIdEvento.SelectedItem) , cmbTipoEvento, cmbTipoSolicitud, cmbClientes);
+            admReser.MostrarDatosEventoPorNombre(Convert.ToInt16(cmbIdEvento.SelectedItem) , cmbTipoEvento, cmbTipoSolicitud, cmbClientes, txtDescripcionEvento, nudCantPersonas);
         }
 
     }

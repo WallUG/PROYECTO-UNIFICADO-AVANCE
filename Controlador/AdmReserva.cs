@@ -111,6 +111,12 @@ namespace Controlador
 
         public void LlenarComboNombEvento(ComboBox cmbNombEvento, ComboBox cmbIdEvento)
         {
+            if (listaEvento.Count == 0)
+            {
+                MessageBox.Show("La lista de eventos está vacía.");
+                return;
+            }
+
             foreach (Evento nomEven in listaEvento)
             {
                 cmbNombEvento.Items.Add(nomEven.NombreEvento);
@@ -189,13 +195,19 @@ namespace Controlador
             }
         }
 
-        public void MostrarDatosEventoPorNombre(int indexEvento, ComboBox cmbTipoEvento, ComboBox cmbTipoSolicitud, ComboBox cmbClientes, NumericUpDown nudCantPersonas)
+        public void MostrarDatosEventoPorNombre(int indexEvento, ComboBox cmbTipoEvento, ComboBox cmbTipoSolicitud, ComboBox cmbClientes, TextBox txtDescripcionEvento, NumericUpDown nudCantPersonas)
         {
             even = AdmEvento.ObtenerEventoPorId(indexEvento);
             LlenarComboTipoEvento(cmbTipoEvento, even);
             //LlenarComboTipoSolicitud(cmbTipoSolicitud, even);
+            LlenarDescripcionEvento(txtDescripcionEvento, even);
             LlenarComboClientes(cmbClientes, even);
             LlenarNumeroPersonas(nudCantPersonas, even);
+        }
+
+        private void LlenarDescripcionEvento(TextBox txtDescripcionEvento, Evento even)
+        {
+            txtDescripcionEvento.Text = even.DescripcionEvento;
         }
 
         private void LlenarNumeroPersonas(NumericUpDown nudCantPersonas, Evento even)

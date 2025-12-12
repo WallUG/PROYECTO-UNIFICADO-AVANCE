@@ -48,9 +48,9 @@
             this.txtcontenido = new System.Windows.Forms.TextBox();
             this.cmbNombEvento = new System.Windows.Forms.ComboBox();
             this.cmbClientes = new System.Windows.Forms.ComboBox();
-            this.cmbDescripcionEvento = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbIdEvento = new System.Windows.Forms.ComboBox();
+            this.txtDescripcionEvento = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -278,16 +278,6 @@
             this.cmbClientes.Size = new System.Drawing.Size(265, 24);
             this.cmbClientes.TabIndex = 23;
             // 
-            // cmbDescripcionEvento
-            // 
-            this.cmbDescripcionEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDescripcionEvento.FormattingEnabled = true;
-            this.cmbDescripcionEvento.Location = new System.Drawing.Point(605, 170);
-            this.cmbDescripcionEvento.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbDescripcionEvento.Name = "cmbDescripcionEvento";
-            this.cmbDescripcionEvento.Size = new System.Drawing.Size(369, 24);
-            this.cmbDescripcionEvento.TabIndex = 24;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -310,14 +300,21 @@
             this.cmbIdEvento.Size = new System.Drawing.Size(265, 24);
             this.cmbIdEvento.TabIndex = 26;
             // 
+            // txtDescripcionEvento
+            // 
+            this.txtDescripcionEvento.Location = new System.Drawing.Point(604, 163);
+            this.txtDescripcionEvento.Name = "txtDescripcionEvento";
+            this.txtDescripcionEvento.Size = new System.Drawing.Size(368, 22);
+            this.txtDescripcionEvento.TabIndex = 27;
+            // 
             // FrmRegistroReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1075, 782);
+            this.Controls.Add(this.txtDescripcionEvento);
             this.Controls.Add(this.cmbIdEvento);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.cmbDescripcionEvento);
             this.Controls.Add(this.cmbClientes);
             this.Controls.Add(this.cmbNombEvento);
             this.Controls.Add(this.txtcontenido);
@@ -370,9 +367,9 @@
         private System.Windows.Forms.TextBox txtcontenido;
         private System.Windows.Forms.ComboBox cmbNombEvento;
         private System.Windows.Forms.ComboBox cmbClientes;
-        private System.Windows.Forms.ComboBox cmbDescripcionEvento;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbIdEvento;
+        private System.Windows.Forms.TextBox txtDescripcionEvento;
     }
 }
 
