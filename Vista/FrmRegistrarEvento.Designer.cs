@@ -44,15 +44,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtCiRucCliente = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.gbAsignarReserva = new System.Windows.Forms.GroupBox();
-            this.cmbEstadoReserva = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dtpHoraFinReserva = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dtpHoraInicioReserva = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtpFechaReserva = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
             this.gbAsignarInmuebles = new System.Windows.Forms.GroupBox();
             this.dtpFechaAsignacionInmueble = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
@@ -69,7 +60,6 @@
             this.txtNombresCliente = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.gbCreacionEvento.SuspendLayout();
-            this.gbAsignarReserva.SuspendLayout();
             this.gbAsignarInmuebles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadInmueble)).BeginInit();
             this.gbBuscarCliente.SuspendLayout();
@@ -269,115 +259,6 @@
             this.label14.TabIndex = 19;
             this.label14.Text = "Cédula o RUC:";
             // 
-            // gbAsignarReserva
-            // 
-            this.gbAsignarReserva.Controls.Add(this.cmbEstadoReserva);
-            this.gbAsignarReserva.Controls.Add(this.label10);
-            this.gbAsignarReserva.Controls.Add(this.dtpHoraFinReserva);
-            this.gbAsignarReserva.Controls.Add(this.label9);
-            this.gbAsignarReserva.Controls.Add(this.dtpHoraInicioReserva);
-            this.gbAsignarReserva.Controls.Add(this.label3);
-            this.gbAsignarReserva.Controls.Add(this.dtpFechaReserva);
-            this.gbAsignarReserva.Controls.Add(this.label2);
-            this.gbAsignarReserva.Location = new System.Drawing.Point(595, 341);
-            this.gbAsignarReserva.Name = "gbAsignarReserva";
-            this.gbAsignarReserva.Size = new System.Drawing.Size(569, 251);
-            this.gbAsignarReserva.TabIndex = 21;
-            this.gbAsignarReserva.TabStop = false;
-            this.gbAsignarReserva.Text = "Asignar Reserva";
-            // 
-            // cmbEstadoReserva
-            // 
-            this.cmbEstadoReserva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstadoReserva.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEstadoReserva.FormattingEnabled = true;
-            this.cmbEstadoReserva.Location = new System.Drawing.Point(126, 179);
-            this.cmbEstadoReserva.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cmbEstadoReserva.Name = "cmbEstadoReserva";
-            this.cmbEstadoReserva.Size = new System.Drawing.Size(163, 27);
-            this.cmbEstadoReserva.TabIndex = 19;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(27, 188);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 19);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "Estado:";
-            // 
-            // dtpHoraFinReserva
-            // 
-            this.dtpHoraFinReserva.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraFinReserva.Location = new System.Drawing.Point(395, 115);
-            this.dtpHoraFinReserva.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
-            this.dtpHoraFinReserva.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
-            this.dtpHoraFinReserva.Name = "dtpHoraFinReserva";
-            this.dtpHoraFinReserva.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dtpHoraFinReserva.ShowUpDown = true;
-            this.dtpHoraFinReserva.Size = new System.Drawing.Size(149, 27);
-            this.dtpHoraFinReserva.TabIndex = 24;
-            this.dtpHoraFinReserva.Value = new System.DateTime(2025, 12, 5, 23, 33, 0, 0);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(317, 121);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(72, 19);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "Hora fin:";
-            // 
-            // dtpHoraInicioReserva
-            // 
-            this.dtpHoraInicioReserva.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraInicioReserva.Location = new System.Drawing.Point(126, 115);
-            this.dtpHoraInicioReserva.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
-            this.dtpHoraInicioReserva.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
-            this.dtpHoraInicioReserva.Name = "dtpHoraInicioReserva";
-            this.dtpHoraInicioReserva.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dtpHoraInicioReserva.ShowUpDown = true;
-            this.dtpHoraInicioReserva.Size = new System.Drawing.Size(149, 27);
-            this.dtpHoraInicioReserva.TabIndex = 22;
-            this.dtpHoraInicioReserva.Value = new System.DateTime(2025, 12, 5, 23, 33, 0, 0);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(27, 121);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 19);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Hora inicio:";
-            // 
-            // dtpFechaReserva
-            // 
-            this.dtpFechaReserva.Location = new System.Drawing.Point(126, 41);
-            this.dtpFechaReserva.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
-            this.dtpFechaReserva.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
-            this.dtpFechaReserva.Name = "dtpFechaReserva";
-            this.dtpFechaReserva.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dtpFechaReserva.Size = new System.Drawing.Size(339, 27);
-            this.dtpFechaReserva.TabIndex = 20;
-            this.dtpFechaReserva.Value = new System.DateTime(2025, 12, 5, 23, 33, 0, 0);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(27, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 19);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Fecha:";
-            // 
             // gbAsignarInmuebles
             // 
             this.gbAsignarInmuebles.Controls.Add(this.dtpFechaAsignacionInmueble);
@@ -563,7 +444,6 @@
             this.Controls.Add(this.gbBuscarCliente);
             this.Controls.Add(this.btnGuardarEvento);
             this.Controls.Add(this.gbAsignarInmuebles);
-            this.Controls.Add(this.gbAsignarReserva);
             this.Controls.Add(this.gbCreacionEvento);
             this.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -573,8 +453,6 @@
             this.Text = "Registrar evento";
             this.gbCreacionEvento.ResumeLayout(false);
             this.gbCreacionEvento.PerformLayout();
-            this.gbAsignarReserva.ResumeLayout(false);
-            this.gbAsignarReserva.PerformLayout();
             this.gbAsignarInmuebles.ResumeLayout(false);
             this.gbAsignarInmuebles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadInmueble)).EndInit();
@@ -598,15 +476,6 @@
         private System.Windows.Forms.Button btnGuardarEvento;
         private System.Windows.Forms.ComboBox cmbEstadoEvento;
         private System.Windows.Forms.GroupBox gbCreacionEvento;
-        private System.Windows.Forms.GroupBox gbAsignarReserva;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtpFechaReserva;
-        private System.Windows.Forms.DateTimePicker dtpHoraInicioReserva;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpHoraFinReserva;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cmbEstadoReserva;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox gbAsignarInmuebles;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown nudCantidadInmueble;

@@ -21,13 +21,11 @@ namespace Controlador
         
         // Evento actual en proceso
         private Evento evento = null;
-        
+
         /* Cliente seleccionado actualmente
         private Cliente clienteActual = null;*/
-        
-        // Lista estática de clientes (simula módulo cliente)
-        private static List<Cliente> clientes = new List<Cliente>();
-        
+        private Cliente cliente = null;
+
         // Lista estática de inmuebles (simula módulo inmueble)
         private static List<Inmueble> inmuebles = new List<Inmueble>();
         
@@ -69,6 +67,7 @@ namespace Controlador
         /// true si hay al menos un cliente, False si no hay ninguno</returns>
         public bool ExistenClientes()
         {
+            List<Cliente> clientes = AdmCliente.ObtenerTodosLosClientes();
             return clientes.Count > 0;
         }
         
@@ -85,42 +84,48 @@ namespace Controlador
             }
 
             // Recorrer la lista de clientes buscando coincidencias
-            foreach (Cliente c in clientes)
+            //foreach (Cliente c in clientes)
+            //{
+
+            Cliente cliente = AdmCliente.ObtenerClientePorId(ciORuc);
+
+            if (cliente != null)
             {
                 // Verificar si coincide con la cédula (y no es N/A)
-                bool coincideCedula = (c.CedulaORuc == ciORuc) && (c.CedulaORuc != "N/A");
-                
+                bool coincideCedula = (cliente.CedulaORuc == ciORuc) && (cliente.CedulaORuc != "N/A");
+
                 if (coincideCedula)
                 {
-                    nombre = c.Nombre;
-                    apellido = c.Apellido;
+                    nombre = cliente.Nombre;
+                    apellido = cliente.Apellido;
                     //clientes = c;
                     return true;
                 }
-                
+
                 // Verificar si coincide con el RUC (y no es N/A)
-                bool coincideRuc = (c.CedulaORuc == ciORuc) && (c.CedulaORuc != "N/A");
+                bool coincideRuc = (cliente.CedulaORuc == ciORuc) && (cliente.CedulaORuc != "N/A");
 
                 if (coincideRuc)
                 {
-                    nombre = c.Nombre;
-                    apellido = c.Apellido;
+                    nombre = cliente.Nombre;
+                    apellido = cliente.Apellido;
                     //clientes = c;
                     return true;
                 }
             }
+            //}
             
             return false;
         }
         
         public bool HayClienteSeleccionado()
         {
-            return clientes != null;
+            return cliente != null;
         }
         
         public void LimpiarClienteSeleccionado()
         {
-            clientes = null;
+            cliente = null;
         }
         
         public void LlenarTiposEvento(ComboBox cmb)
@@ -202,10 +207,6 @@ namespace Controlador
         
         public string RegistrarEventoCompleto(int idEvento, string tipoEvento, string nombreEvento, string descEvento, int numPersonas, string direccionEvento, 
             string estadoEvento, 
-            DateTime fechaReserva, 
-            //TimeSpan horaInicio,
-            //TimeSpan horaFin, 
-            string estadoReserva, 
             string tipoInmueble, 
             int cantidadInmueble, 
             DateTime fechaAsignacion)
@@ -237,8 +238,7 @@ namespace Controlador
             // Paso 4: Crear lista de EventoInmueble
             List<EventoInmueble> listaEventoInmueble = new List<EventoInmueble>();
             listaEventoInmueble.Add(eventoInmueble);
-
-            Cliente cliente = clientes[0]; // Usar el primer cliente registrado
+            // Usar el primer cliente registrado
 
             // Paso 5: Crear el evento con toda la información
             evento.IdEvento = idEvento;

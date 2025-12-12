@@ -68,9 +68,6 @@ namespace Vista
             // Paso 4: Deshabilitar asignación de inmuebles
             gbAsignarInmuebles.Enabled = false;
             
-            // Paso 5: Deshabilitar asignación de reserva
-            gbAsignarReserva.Enabled = false;
-            
             // Paso 6: Deshabilitar botón guardar
             btnGuardarEvento.Enabled = false;
         }
@@ -176,9 +173,6 @@ namespace Vista
                 // Habilitar asignación de inmuebles
                 gbAsignarInmuebles.Enabled = true;
                 
-                // Habilitar asignación de reserva
-                gbAsignarReserva.Enabled = true;
-                
                 // Habilitar botón guardar
                 btnGuardarEvento.Enabled = true;
             }
@@ -238,17 +232,6 @@ namespace Vista
                 return;
             }
 
-            // Paso 4: Obtener datos de la Reserva
-            DateTime fechaReserva = dtpFechaReserva.Value;
-            DateTime horaInicio = dtpHoraInicioReserva.Value;
-            DateTime horaFin = dtpHoraFinReserva.Value;
-            
-            string estadoReserva = "Pendiente";
-            if (cmbEstadoReserva.SelectedItem != null)
-            {
-                estadoReserva = cmbEstadoReserva.SelectedItem.ToString();
-            }
-
             // Paso 5: Obtener datos del Inmueble
             string tipoInmueble = "Salón de Eventos";
             if (cmbTipoInmueble.SelectedItem != null)
@@ -268,12 +251,8 @@ namespace Vista
                 nombreEvento, 
                 descripcionEvento, 
                 numPersonas, 
-                direccionEvento, 
-                estadoEvento, 
-                fechaReserva, 
-                //horaInicio, 
-                //horaFin, 
-                estadoReserva,
+                direccionEvento,
+                estadoEvento,
                 tipoInmueble, 
                 cantidadInmueble, 
                 fechaAsignacion
@@ -316,12 +295,6 @@ namespace Vista
             cmbTipoInmueble.SelectedIndex = -1;
             nudCantidadInmueble.Value = nudCantidadInmueble.Minimum;
             dtpFechaAsignacionInmueble.Value = DateTime.Now;
-            
-            // Limpiar datos de reserva
-            dtpFechaReserva.Value = DateTime.Now;
-            dtpHoraInicioReserva.Value = DateTime.Now;
-            dtpHoraFinReserva.Value = DateTime.Now;
-            cmbEstadoReserva.SelectedIndex = -1;
             
             // Volver al estado inicial
             ConfigurarEstadoInicial();
