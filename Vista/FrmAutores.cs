@@ -19,12 +19,12 @@ namespace Vista
 
         private void lblAutor01_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Chichanda Josue\n \nIngeniería en Software\nUniversidad de Guayaquil", "Autor de modulo cliente");
+            MessageBox.Show("Chichanda Josue\n \nIngeniería en Software\nUniversidad de Guayaquil", "Autor de modulo Cliente");
         }
 
         private void lblAutor02_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Castillo Daniel\nIngeniería en Software\nUniversidad de Guayaquil", "Autor de modulo evento");
+            MessageBox.Show("Castillo Daniel\nIngeniería en Software\nUniversidad de Guayaquil", "Autor de modulo Evento");
         }
 
         private void lblAutor03_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace Vista
 
         private void lblAutor04_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Plaus Leonardo\nIngeniería en Software\nUniversidad de Guayaquil", "Autor de modulo Inmueble");
+            MessageBox.Show("Pluas Leonardo\nIngeniería en Software\nUniversidad de Guayaquil", "Autor de modulo Inmueble");
         }
 
         private void lblAutor05_Click(object sender, EventArgs e)
@@ -45,6 +45,11 @@ namespace Vista
         private void FrmAutores_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void FrmAutores_FormClosing(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }
