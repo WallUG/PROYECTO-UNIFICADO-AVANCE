@@ -59,7 +59,7 @@ namespace Visual
         {
             Application.Exit();
         }
-
+        //RESERVA
         private void mniRegistrarReserva_Click(object sender, EventArgs e)
         {
             FrmRegistroReserva frmRegistroReserva = new FrmRegistroReserva();
