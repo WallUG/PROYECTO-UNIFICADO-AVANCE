@@ -372,8 +372,10 @@ namespace Vista
                 if (marcado)
                 {
                     MessageBox.Show("Inmueble marcado");
+                    int cantidadInmueble = (int)nudCantidadInmueble.Value;
+                    DateTime fechaAsignacion = dtpFechaAsignacionInmueble.Value;
                     admEve.AgregarInmuebleSeleccionado(
-                        Convert.ToInt32(dgvInmuebles.Rows[e.RowIndex].Cells["ID"].Value)
+                        Convert.ToInt32(dgvInmuebles.Rows[e.RowIndex].Cells["IdInmueble"].Value), cantidadInmueble, fechaAsignacion
                     );
                 }
                 else

@@ -15,7 +15,7 @@ namespace Controlador
     public class AdmEventoInmueble
     {
         // Crear la lista para almacenar los inmuebles asignados
-        List<EventoInmueble> lista = new List<EventoInmueble>();
+        static List<EventoInmueble> lista = new List<EventoInmueble>();
 
 
         #region Métodos de Creación
@@ -36,7 +36,13 @@ namespace Controlador
             
             return eventoInmueble;
         }
-        
+
+        // Método para obtener todos
+        public static List<EventoInmueble> ObtenerTodosLosInmuebles()
+        {
+            return lista;
+        }
+
         #endregion
     }
 }

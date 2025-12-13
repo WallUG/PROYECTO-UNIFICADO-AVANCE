@@ -51,6 +51,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbIdEvento = new System.Windows.Forms.ComboBox();
             this.txtDescripcionEvento = new System.Windows.Forms.TextBox();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -264,7 +265,7 @@
             this.cmbNombEvento.Location = new System.Drawing.Point(283, 68);
             this.cmbNombEvento.Margin = new System.Windows.Forms.Padding(4);
             this.cmbNombEvento.Name = "cmbNombEvento";
-            this.cmbNombEvento.Size = new System.Drawing.Size(265, 24);
+            this.cmbNombEvento.Size = new System.Drawing.Size(163, 24);
             this.cmbNombEvento.TabIndex = 22;
             this.cmbNombEvento.SelectedIndexChanged += new System.EventHandler(this.cmbNombreEvento_SelectedIndexChanged);
             // 
@@ -307,11 +308,26 @@
             this.txtDescripcionEvento.Size = new System.Drawing.Size(368, 22);
             this.txtDescripcionEvento.TabIndex = 27;
             // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionar.ForeColor = System.Drawing.Color.Black;
+            this.btnSeleccionar.Location = new System.Drawing.Point(454, 58);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(125, 37);
+            this.btnSeleccionar.TabIndex = 28;
+            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = false;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_click);
+            // 
             // FrmRegistroReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1075, 782);
+            this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.txtDescripcionEvento);
             this.Controls.Add(this.cmbIdEvento);
             this.Controls.Add(this.label2);
@@ -370,6 +386,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbIdEvento;
         private System.Windows.Forms.TextBox txtDescripcionEvento;
+        private System.Windows.Forms.Button btnSeleccionar;
     }
 }
 

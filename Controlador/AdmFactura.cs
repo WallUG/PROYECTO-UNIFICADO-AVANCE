@@ -16,9 +16,9 @@ namespace Controlador
     {
 
         public static List<Factura> listaFacturas = new List<Factura>();
-        public static List<EventoInmueble> listaEventoInmueble = new List<EventoInmueble>();
-        public static List<Cliente> listaCliente = new List<Cliente>();
-        public static List<Evento> listaEvento = new List<Evento>();
+        public List<EventoInmueble> listaEventoInmueble = AdmEventoInmueble.ObtenerTodosLosInmuebles();
+        public List<Cliente> listaCliente = AdmCliente.ObtenerTodosLosClientes();
+        public List<Evento> listaEvento = AdmEvento.ObtenerTodosLosEventos();
 
         public void BuscarCliente(ComboBox cmbIdEvento, GroupBox groupBoxCliente, string cedula)
         {

@@ -51,7 +51,13 @@ namespace Visual
 
         public void cmbNombreEvento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            admReser.MostrarDatosEventoPorNombre(Convert.ToInt16(cmbIdEvento.SelectedItem) , cmbTipoEvento, cmbTipoSolicitud, cmbClientes, txtDescripcionEvento, nudCantPersonas);
+            admReser.selecionarIdEvento(cmbNombEvento.SelectedIndex, cmbIdEvento, cmbClientes, cmbTipoEvento, txtDescripcionEvento, nudCantPersonas);
+        }
+
+        public void btnSeleccionar_click(object sender, EventArgs e)
+        {
+            admReser.MostrarDatosEventoPorNombre(Convert.ToInt16(cmbIdEvento.SelectedItem), cmbTipoEvento, cmbTipoSolicitud, cmbClientes, txtDescripcionEvento, nudCantPersonas);
+            
         }
 
     }

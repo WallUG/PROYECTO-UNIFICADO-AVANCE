@@ -29,6 +29,7 @@ namespace Controlador
         string[] tipoIn = { "Locales", "Accesorios", "Servicios" };
 
         List<Inmueble> listaInmuebles = AdmInmueble.ObtenerTodosLosInmuebles();
+        List<EventoInmueble> listaEventoInmueble = new List<EventoInmueble>();
 
         // Método para obtener un Eventos
         public static Evento ObtenerEventoPorId(int id)
@@ -108,29 +109,29 @@ namespace Controlador
             //foreach (Cliente c in clientes)
             //{
 
-            Cliente cliente = AdmCliente.ObtenerClientePorId(ciORuc);
+            Cliente clientebusqueda = AdmCliente.ObtenerClientePorId(ciORuc);
 
-            if (cliente != null)
+            if (clientebusqueda != null)
             {
                 // Verificar si coincide con la cédula (y no es N/A)
-                bool coincideCedula = (cliente.CedulaORuc == ciORuc) && (cliente.CedulaORuc != "N/A");
+                bool coincideCedula = (clientebusqueda.CedulaORuc == ciORuc) && (clientebusqueda.CedulaORuc != "N/A");
 
                 if (coincideCedula)
                 {
-                    nombre = cliente.Nombre;
-                    apellido = cliente.Apellido;
-                    //clientes = c;
+                    nombre = clientebusqueda.Nombre;
+                    apellido = clientebusqueda.Apellido;
+                    cliente = clientebusqueda;
                     return true;
                 }
 
                 // Verificar si coincide con el RUC (y no es N/A)
-                bool coincideRuc = (cliente.CedulaORuc == ciORuc) && (cliente.CedulaORuc != "N/A");
+                bool coincideRuc = (clientebusqueda.CedulaORuc == ciORuc) && (clientebusqueda.CedulaORuc != "N/A");
 
                 if (coincideRuc)
                 {
-                    nombre = cliente.Nombre;
-                    apellido = cliente.Apellido;
-                    //clientes = c;
+                    nombre = clientebusqueda.Nombre;
+                    apellido = clientebusqueda.Apellido;
+                    cliente = clientebusqueda;
                     return true;
                 }
             }
@@ -252,28 +253,24 @@ namespace Controlador
             //}
             
             // Paso 3: Crear EventoInmueble
-            EventoInmueble eventoInmueble = new EventoInmueble();
-            eventoInmueble.inmueble = inmuebleSeleccionado;
-            eventoInmueble.cantidadInmueble = cantidadInmueble;
-            eventoInmueble.fechaAsignacionInmueble = fechaAsignacion;
-
-            // Paso 4: Crear lista de EventoInmueble
-            List<EventoInmueble> listaEventoInmueble = new List<EventoInmueble>();
-            listaEventoInmueble.Add(eventoInmueble);
+            //EventoInmueble eventoInmueble = new EventoInmueble();
+            //eventoInmueble.inmueble = inmuebleSeleccionado;
+            //eventoInmueble.cantidadInmueble = cantidadInmueble;
+            //eventoInmueble.fechaAsignacionInmueble = fechaAsignacion;
             // Usar el primer cliente registrado
 
             // Paso 5: Crear el evento con toda la información
-            evento.IdEvento = idEvento;
-            evento.Cliente = cliente;
-            evento.TipoEvento = tipoEvento;
-            evento.NombreEvento = nombreEvento;
-            evento.DescripcionEvento = descEvento;
-            evento.NumPersonasEvento = numPersonas;
-            evento.DireccionEvento = direccionEvento;
-            evento.EstadoEvento = estadoEvento;
-            evento.EventoInmueble = listaEventoInmueble;
+            //evento.IdEvento = eventos.Count + 1;
+            //evento.Cliente = cliente;
+            //evento.TipoEvento = tipoEvento;
+            //evento.NombreEvento = nombreEvento;
+            //evento.DescripcionEvento = descEvento;
+            //evento.NumPersonasEvento = numPersonas;
+            //evento.DireccionEvento = direccionEvento;
+            //evento.EstadoEvento = estadoEvento;
+            //evento.EventoInmueble = listaEventoInmueble;
 
-            evento = new Evento(idEvento, cliente, tipoEvento, nombreEvento, direccionEvento, numPersonas, direccionEvento, estadoEvento, listaEventoInmueble);
+            evento = new Evento(eventos.Count + 1, cliente, tipoEvento, nombreEvento, direccionEvento, numPersonas, direccionEvento, estadoEvento, listaEventoInmueble);
 
             // Paso 6: Agregar evento a la lista
             eventos.Add(evento);
@@ -339,13 +336,19 @@ namespace Controlador
             throw new NotImplementedException();
         }
 
-        public void AgregarInmuebleSeleccionado(int v)
+        public void AgregarInmuebleSeleccionado(int v, int cantidadAsignada, DateTime fechaAsignacion)
         {
             Inmueble inmueble = AdmInmueble.ObtenerInmueblePorId(v);
             if (inmueble != null)
             {
+                EventoInmueble eventoInmueble = new EventoInmueble
+                {
+                    inmueble = inmueble,
+                    cantidadInmueble = cantidadAsignada,
+                    fechaAsignacionInmueble = fechaAsignacion
+                };
                 MessageBox.Show("Inmueble agregado: " + inmueble.nombreInmueble);
-                listaInmuebles.Add(inmueble);
+                listaEventoInmueble.Add(eventoInmueble);
             }
             else
             {

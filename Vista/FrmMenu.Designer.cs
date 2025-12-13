@@ -141,31 +141,31 @@
             // mniRegistrarEvento
             // 
             this.mniRegistrarEvento.Name = "mniRegistrarEvento";
-            this.mniRegistrarEvento.Size = new System.Drawing.Size(224, 26);
+            this.mniRegistrarEvento.Size = new System.Drawing.Size(147, 26);
             this.mniRegistrarEvento.Text = "Registro";
             this.mniRegistrarEvento.Click += new System.EventHandler(this.mniRegistrarEvento_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(144, 6);
             // 
             // mniListarEvento
             // 
             this.mniListarEvento.Name = "mniListarEvento";
-            this.mniListarEvento.Size = new System.Drawing.Size(224, 26);
+            this.mniListarEvento.Size = new System.Drawing.Size(147, 26);
             this.mniListarEvento.Text = "Listar";
             this.mniListarEvento.Click += new System.EventHandler(this.mniListarEvento_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(144, 6);
             // 
             // mniSalirEvento
             // 
             this.mniSalirEvento.Name = "mniSalirEvento";
-            this.mniSalirEvento.Size = new System.Drawing.Size(224, 26);
+            this.mniSalirEvento.Size = new System.Drawing.Size(147, 26);
             this.mniSalirEvento.Text = "Salir";
             this.mniSalirEvento.Click += new System.EventHandler(this.mniSalir_Click);
             // 
@@ -184,31 +184,31 @@
             // registrarToolStripMenuItem1
             // 
             this.registrarToolStripMenuItem1.Name = "registrarToolStripMenuItem1";
-            this.registrarToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.registrarToolStripMenuItem1.Size = new System.Drawing.Size(151, 26);
             this.registrarToolStripMenuItem1.Text = "Registrar";
             this.registrarToolStripMenuItem1.Click += new System.EventHandler(this.mniRegistrarInmueble_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(148, 6);
             // 
             // listarToolStripMenuItem2
             // 
             this.listarToolStripMenuItem2.Name = "listarToolStripMenuItem2";
-            this.listarToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
+            this.listarToolStripMenuItem2.Size = new System.Drawing.Size(151, 26);
             this.listarToolStripMenuItem2.Text = "Listar";
             this.listarToolStripMenuItem2.Click += new System.EventHandler(this.mniListarInmueble_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(148, 6);
             // 
             // salirToolStripMenuItem2
             // 
             this.salirToolStripMenuItem2.Name = "salirToolStripMenuItem2";
-            this.salirToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
+            this.salirToolStripMenuItem2.Size = new System.Drawing.Size(151, 26);
             this.salirToolStripMenuItem2.Text = "Salir";
             this.salirToolStripMenuItem2.Click += new System.EventHandler(this.mniSalir_Click);
             // 
@@ -241,6 +241,7 @@
             this.listarToolStripMenuItem3.Name = "listarToolStripMenuItem3";
             this.listarToolStripMenuItem3.Size = new System.Drawing.Size(224, 26);
             this.listarToolStripMenuItem3.Text = "Listar";
+            this.listarToolStripMenuItem3.Click += new System.EventHandler(this.mnilistarReserva_Click);
             // 
             // toolStripSeparator8
             // 
@@ -273,53 +274,53 @@
             // mniRegistrar
             // 
             this.mniRegistrar.Name = "mniRegistrar";
-            this.mniRegistrar.Size = new System.Drawing.Size(224, 26);
+            this.mniRegistrar.Size = new System.Drawing.Size(151, 26);
             this.mniRegistrar.Text = "Registrar";
             this.mniRegistrar.Click += new System.EventHandler(this.mniRegistrarFactura_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(148, 6);
             // 
             // mniListar
             // 
             this.mniListar.Name = "mniListar";
-            this.mniListar.Size = new System.Drawing.Size(224, 26);
+            this.mniListar.Size = new System.Drawing.Size(151, 26);
             this.mniListar.Text = "Listar";
             this.mniListar.Click += new System.EventHandler(this.mniListarFactura_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(148, 6);
             // 
             // mniEliminar
             // 
             this.mniEliminar.Name = "mniEliminar";
-            this.mniEliminar.Size = new System.Drawing.Size(224, 26);
+            this.mniEliminar.Size = new System.Drawing.Size(151, 26);
             this.mniEliminar.Text = "Eliminar";
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(148, 6);
             // 
             // mniEditar
             // 
             this.mniEditar.Name = "mniEditar";
-            this.mniEditar.Size = new System.Drawing.Size(224, 26);
+            this.mniEditar.Size = new System.Drawing.Size(151, 26);
             this.mniEditar.Text = "Editar";
             // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator12.Size = new System.Drawing.Size(148, 6);
             // 
             // mniSalir
             // 
             this.mniSalir.Name = "mniSalir";
-            this.mniSalir.Size = new System.Drawing.Size(224, 26);
+            this.mniSalir.Size = new System.Drawing.Size(151, 26);
             this.mniSalir.Text = "Salir";
             this.mniSalir.Click += new System.EventHandler(this.mniSalir_Click);
             // 

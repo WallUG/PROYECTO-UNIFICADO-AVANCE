@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -82,7 +83,7 @@ namespace Controlador
 
 
         //string[] tipsEventos = { "Fiesta", "Reunión Empresarial", "Boda", "Graduación", "Conferencia", "Cumpleaños" };
-        //string[] tiposSolicitud = { "Salón Principal", "Salón VIP", "Auditorio", "Espacio para eventos y servicio de alimentos" };
+        string[] tiposSolicitud = { "Reservada", "No reservada" };
         //string[] nombreClientes = { "Leonardo Pluas", "Josue Chichanda", "Gustavo Garcia", "Daniel Castillo" };
         //string[] nombreEventos = { "Cena Anual de Empresa TechSolutions", "Graduación Promoción 2025", "Fiesta de Fin de Año - Banco Guayaquil", "Despedida de Soltera de Ana" };
 
@@ -92,6 +93,8 @@ namespace Controlador
             //foreach (Evento tipEvent in listaEvento)
             //{
                 cmbTipoEventos.Items.Add(evem.TipoEvento);
+                int index = 0;
+                cmbTipoEventos.SelectedIndex = index;
             //}
         }
         //public void LlenarComboTipoSolicitud(ComboBox cmbTipoSolicitud, Evento evem)
@@ -106,6 +109,8 @@ namespace Controlador
             //foreach (string nomClientes in nombreClientes)
             //{
                 cmbClientes.Items.Add(evem.Cliente.Nombre);
+                int index = 0;
+                cmbClientes.SelectedIndex = index;
             //}
         }
 
@@ -198,11 +203,22 @@ namespace Controlador
         public void MostrarDatosEventoPorNombre(int indexEvento, ComboBox cmbTipoEvento, ComboBox cmbTipoSolicitud, ComboBox cmbClientes, TextBox txtDescripcionEvento, NumericUpDown nudCantPersonas)
         {
             even = AdmEvento.ObtenerEventoPorId(indexEvento);
-            LlenarComboTipoEvento(cmbTipoEvento, even);
-            //LlenarComboTipoSolicitud(cmbTipoSolicitud, even);
-            LlenarDescripcionEvento(txtDescripcionEvento, even);
-            LlenarComboClientes(cmbClientes, even);
-            LlenarNumeroPersonas(nudCantPersonas, even);
+            if(even != null) {
+                LlenarComboTipoEvento(cmbTipoEvento, even);
+                LlenarComboTipoSolicitud(cmbTipoSolicitud);
+                LlenarDescripcionEvento(txtDescripcionEvento, even);
+                LlenarComboClientes(cmbClientes, even);
+                LlenarNumeroPersonas(nudCantPersonas, even);
+            }
+
+        }
+
+        private void LlenarComboTipoSolicitud(ComboBox cmbTipoSolicitud)
+        {
+            foreach (string tipSoli in tiposSolicitud)
+            {
+                cmbTipoSolicitud.Items.Add(tipSoli);
+            }
         }
 
         private void LlenarDescripcionEvento(TextBox txtDescripcionEvento, Evento even)
@@ -213,6 +229,11 @@ namespace Controlador
         private void LlenarNumeroPersonas(NumericUpDown nudCantPersonas, Evento even)
         {
             nudCantPersonas.Value = even.NumPersonasEvento;
+        }
+
+        public void selecionarIdEvento(int selectedIndex, ComboBox cmbIdEvento, ComboBox cmbTipoEvento, ComboBox cmbClientes, TextBox txtDescripcionEvento, NumericUpDown nudCantPersonas)
+        {
+            cmbIdEvento.SelectedIndex = selectedIndex;
         }
     }
 }
