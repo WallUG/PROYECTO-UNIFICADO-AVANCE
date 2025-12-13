@@ -9,78 +9,66 @@ namespace Controlador
 {
         public class AdmCliente
         {
-        //static List<Cliente> listaCliente = new List<Cliente>();
+            static List<Cliente> listaCliente;
+            private int contadorId;
 
-
-        //// Método para obtener un cliente
-        //public static Cliente ObtenerClientePorId(string cedula)
-        //{
-        //    return listaCliente.Find(c => c.CedulaORuc == cedula);
-        //}
-
-        //// Método para obtener todos
-        //public static List<Cliente> ObtenerTodosLosClientes()
-        //{
-        //    return listaCliente;
-        //}
-
-        //// Método para agregar un cliente
-        //public AdmCliente()
-        //{
-        //    listaCliente.Add(new Cliente(1,"Josue Leon", "Chichanda Velasquez", "0987654321", "0967706781", "chichanda@gmail.com","Guayas-Duran"));
-        //}
-        private List<Cliente> clientes;
-        private int contadorId;
-
-
-        public AdmCliente()
-        {
-            clientes = new List<Cliente>();
-            contadorId = 1;
-        }
-
-        public bool AgregarCliente(string nombre, string apellido, string cedula, string telefono, string correoElectronico, string direccion)
-        {
-            try
+            public AdmCliente()
             {
-                Cliente nuevoCliente = new Cliente
-                {
-                    Id = contadorId++,
-                    Nombre = nombre,
-                    Apellido = apellido,
-                    CedulaORuc = cedula,
-                    Telefono = telefono,
-                    CorreoElectronico = correoElectronico,
-                    Direccion = direccion
-                };
-                clientes.Add(nuevoCliente);
-                return true;
+                listaCliente = new List<Cliente>();
+                contadorId = 1;
             }
-            catch
-            {
-                return false;
-            }
-        }
-        public List<Cliente> ObtenerTodosLosClientes()
-        {
-            return clientes;
-        }
 
-        public int ObtenerCantidadClientes()
-        {
-            return clientes.Count;
-        }
-        public bool ExisteCedula(string cedula)
-        {
-            foreach (var cliente in clientes)
+            public bool AgregarCliente(string nombre, string apellido, string cedula, string telefono, string correoElectronico, string direccion)
             {
-                if (cliente.CedulaORuc == cedula)
+                try
                 {
+                    Cliente nuevoCliente = new Cliente
+                    {
+                        Id = contadorId++,
+                        Nombre = nombre,
+                        Apellido = apellido,
+                        CedulaORuc = cedula,
+                        Telefono = telefono,
+                        CorreoElectronico = correoElectronico,
+                        Direccion = direccion
+                    };
+                    listaCliente.Add(nuevoCliente);
                     return true;
                 }
+                catch
+                {
+                    return false;
+                }
             }
-            return false;
-        }
 
-    }
+
+            // Método para obtener un cliente
+            public static Cliente ObtenerClientePorId(string cedula)
+            {
+                return listaCliente.Find(c => c.CedulaORuc == cedula);
+            }
+
+            // Método para obtener todos
+            public static List<Cliente> ObtenerTodosLosClientes()
+            {
+                return listaCliente;
+            }
+
+            public int ObtenerCantidadClientes()
+            {
+                return listaCliente.Count;
+            }
+            public bool ExisteCedula(string cedula)
+            {
+                foreach (var cliente in listaCliente)
+                {
+                    if (cliente.CedulaORuc == cedula)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+        }
     }
