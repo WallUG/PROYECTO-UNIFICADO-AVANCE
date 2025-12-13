@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ID = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.Nombre = new System.Windows.Forms.Label();
             this.Tipo = new System.Windows.Forms.Label();
@@ -42,79 +41,62 @@
             this.chkDisponibilidad = new System.Windows.Forms.CheckBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtContenido = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
             this.SuspendLayout();
             // 
-            // ID
-            // 
-            this.ID.AutoSize = true;
-            this.ID.Location = new System.Drawing.Point(321, 49);
-            this.ID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ID.Name = "ID";
-            this.ID.Size = new System.Drawing.Size(26, 20);
-            this.ID.TabIndex = 0;
-            this.ID.Text = "ID";
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(406, 45);
-            this.txtID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(148, 26);
-            this.txtID.TabIndex = 1;
-            this.txtID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtID_KeyPress);
-            // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(406, 106);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNombre.Location = new System.Drawing.Point(362, 142);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(148, 26);
+            this.txtNombre.Size = new System.Drawing.Size(132, 22);
             this.txtNombre.TabIndex = 3;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // Nombre
             // 
             this.Nombre.AutoSize = true;
-            this.Nombre.Location = new System.Drawing.Point(321, 111);
+            this.Nombre.Location = new System.Drawing.Point(286, 146);
             this.Nombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Nombre.Name = "Nombre";
-            this.Nombre.Size = new System.Drawing.Size(65, 20);
+            this.Nombre.Size = new System.Drawing.Size(56, 16);
             this.Nombre.TabIndex = 2;
             this.Nombre.Text = "Nombre";
             // 
             // Tipo
             // 
             this.Tipo.AutoSize = true;
-            this.Tipo.Location = new System.Drawing.Point(321, 174);
+            this.Tipo.Location = new System.Drawing.Point(286, 65);
             this.Tipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Tipo.Name = "Tipo";
-            this.Tipo.Size = new System.Drawing.Size(39, 20);
+            this.Tipo.Size = new System.Drawing.Size(35, 16);
             this.Tipo.TabIndex = 4;
             this.Tipo.Text = "Tipo";
             // 
             // Cantidad
             // 
             this.Cantidad.AutoSize = true;
-            this.Cantidad.Location = new System.Drawing.Point(321, 235);
+            this.Cantidad.Location = new System.Drawing.Point(285, 188);
             this.Cantidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Size = new System.Drawing.Size(73, 20);
+            this.Cantidad.Size = new System.Drawing.Size(61, 16);
             this.Cantidad.TabIndex = 6;
             this.Cantidad.Text = "Cantidad";
             // 
             // nudCantidad
             // 
-            this.nudCantidad.Location = new System.Drawing.Point(406, 232);
-            this.nudCantidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nudCantidad.Location = new System.Drawing.Point(361, 186);
+            this.nudCantidad.Margin = new System.Windows.Forms.Padding(4);
             this.nudCantidad.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudCantidad.Name = "nudCantidad";
-            this.nudCantidad.Size = new System.Drawing.Size(150, 26);
+            this.nudCantidad.Size = new System.Drawing.Size(133, 22);
             this.nudCantidad.TabIndex = 7;
             this.nudCantidad.Value = new decimal(new int[] {
             1,
@@ -124,15 +106,15 @@
             // 
             // nudPrecio
             // 
-            this.nudPrecio.Location = new System.Drawing.Point(406, 298);
-            this.nudPrecio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nudPrecio.Location = new System.Drawing.Point(361, 238);
+            this.nudPrecio.Margin = new System.Windows.Forms.Padding(4);
             this.nudPrecio.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.nudPrecio.Name = "nudPrecio";
-            this.nudPrecio.Size = new System.Drawing.Size(150, 26);
+            this.nudPrecio.Size = new System.Drawing.Size(133, 22);
             this.nudPrecio.TabIndex = 9;
             this.nudPrecio.Value = new decimal(new int[] {
             1,
@@ -143,30 +125,31 @@
             // Precio
             // 
             this.Precio.AutoSize = true;
-            this.Precio.Location = new System.Drawing.Point(321, 302);
+            this.Precio.Location = new System.Drawing.Point(285, 242);
             this.Precio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Precio.Name = "Precio";
-            this.Precio.Size = new System.Drawing.Size(53, 20);
+            this.Precio.Size = new System.Drawing.Size(75, 16);
             this.Precio.TabIndex = 8;
-            this.Precio.Text = "Precio";
+            this.Precio.Text = "Precio Unit.";
             // 
             // cmbTipo
             // 
             this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Location = new System.Drawing.Point(406, 169);
-            this.cmbTipo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbTipo.Location = new System.Drawing.Point(362, 61);
+            this.cmbTipo.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(148, 28);
+            this.cmbTipo.Size = new System.Drawing.Size(132, 24);
             this.cmbTipo.TabIndex = 10;
+            this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.selectTipoInmueble);
             // 
             // Disponibilidad
             // 
             this.Disponibilidad.AutoSize = true;
-            this.Disponibilidad.Location = new System.Drawing.Point(321, 365);
+            this.Disponibilidad.Location = new System.Drawing.Point(285, 292);
             this.Disponibilidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Disponibilidad.Name = "Disponibilidad";
-            this.Disponibilidad.Size = new System.Drawing.Size(107, 20);
+            this.Disponibilidad.Size = new System.Drawing.Size(94, 16);
             this.Disponibilidad.TabIndex = 11;
             this.Disponibilidad.Text = "Disponibilidad";
             // 
@@ -175,19 +158,19 @@
             this.chkDisponibilidad.AutoSize = true;
             this.chkDisponibilidad.Checked = true;
             this.chkDisponibilidad.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkDisponibilidad.Location = new System.Drawing.Point(476, 365);
-            this.chkDisponibilidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chkDisponibilidad.Location = new System.Drawing.Point(423, 292);
+            this.chkDisponibilidad.Margin = new System.Windows.Forms.Padding(4);
             this.chkDisponibilidad.Name = "chkDisponibilidad";
-            this.chkDisponibilidad.Size = new System.Drawing.Size(22, 21);
+            this.chkDisponibilidad.Size = new System.Drawing.Size(18, 17);
             this.chkDisponibilidad.TabIndex = 14;
             this.chkDisponibilidad.UseVisualStyleBackColor = true;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(386, 431);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnGuardar.Location = new System.Drawing.Point(343, 345);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(112, 35);
+            this.btnGuardar.Size = new System.Drawing.Size(100, 28);
             this.btnGuardar.TabIndex = 12;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -195,18 +178,33 @@
             // 
             // txtContenido
             // 
-            this.txtContenido.Location = new System.Drawing.Point(74, 475);
-            this.txtContenido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtContenido.Location = new System.Drawing.Point(66, 380);
+            this.txtContenido.Margin = new System.Windows.Forms.Padding(4);
             this.txtContenido.Multiline = true;
             this.txtContenido.Name = "txtContenido";
-            this.txtContenido.Size = new System.Drawing.Size(730, 264);
+            this.txtContenido.Size = new System.Drawing.Size(649, 212);
             this.txtContenido.TabIndex = 13;
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(257, 92);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(334, 43);
+            this.txtDescripcion.TabIndex = 15;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // FrmRegistroInmueble
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 760);
+            this.ClientSize = new System.Drawing.Size(787, 608);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtContenido);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.Disponibilidad);
@@ -219,9 +217,7 @@
             this.Controls.Add(this.Tipo);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.Nombre);
-            this.Controls.Add(this.txtID);
-            this.Controls.Add(this.ID);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmRegistroInmueble";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -234,9 +230,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label ID;
-        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label Nombre;
         private System.Windows.Forms.Label Tipo;
@@ -249,6 +242,8 @@
         private System.Windows.Forms.CheckBox chkDisponibilidad;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtContenido;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

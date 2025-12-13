@@ -21,7 +21,7 @@ namespace Controlador
         static List<Inmueble> inmuebleL = new List<Inmueble>();
 
         // Array de Inmueble dinamico (Visual)
-        string[] tipoIn = { "Telon de eventos", "Jardin", "Auditorio", "Sala de conferencia" };
+        string[] tipoIn = { "Locales", "Accesorios", "Servicios"};
 
         // Método para obtener un Inmueble
         public static Inmueble ObtenerInmueblePorId(int idInmueble)
@@ -44,10 +44,10 @@ namespace Controlador
         }
 
         //Verificar si esta vacio (Visual) Disponibilidad y ID
-        public bool EsVacio(int id, string nombre, string tipo, int cantidad, double precio)
+        public bool EsVacio(string nombre, string tipo, int cantidad, double precio)
         {
             bool flag = false;
-            if (id <= 0 || string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(tipo))
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(tipo))
             {
                 flag = true;
                 MessageBox.Show("Error: Se necesita todos los campos llenos");
@@ -56,8 +56,9 @@ namespace Controlador
         }
 
         //Registrar (Visual) Disponibilidad y ID
-        public string Registrar(int id, string nombre, string tipo, int cantidad, double precio, bool disponible)
+        public string Registrar(string nombre, string tipo, int cantidad, double precio, bool disponible)
         {
+            int id = inmuebleL.Count() + 1;
             Inmueble inmu = new Inmueble(id, nombre, tipo, cantidad, precio);
             inmu.inmuebleDisponible = disponible;
 

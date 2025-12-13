@@ -23,5 +23,11 @@ namespace Controlador
             {
                 return listaCliente;
             }
+
+            // Método para agregar un cliente
+            public AdmCliente()
+            {
+                listaCliente.Add(new Cliente(1,"Josue Leon", "Chichanda Velasquez", "0987654321", "0967706781", "chichanda@gmail.com","Guayas-Duran"));
+            }
         }
     }

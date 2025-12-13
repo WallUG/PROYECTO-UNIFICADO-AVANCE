@@ -26,6 +26,10 @@ namespace Controlador
         private Cliente clienteActual = null;*/
         private Cliente cliente = null;
 
+        string[] tipoIn = { "Locales", "Accesorios", "Servicios" };
+
+        List<Inmueble> listaInmuebles = AdmInmueble.ObtenerTodosLosInmuebles();
+
         // Método para obtener un Eventos
         public static Evento ObtenerEventoPorId(int id)
         {
@@ -36,6 +40,14 @@ namespace Controlador
         public static List<Evento> ObtenerTodosLosEventos()
         {
             return eventos;
+        }
+
+        public void LlenarComboTipo(ComboBox cmbTipoInmueble)
+        {
+            foreach (string tipo in tipoIn)
+            {
+                cmbTipoInmueble.Items.Add(tipo);
+            }
         }
 
         // Tipos de evento disponibles
@@ -289,6 +301,55 @@ namespace Controlador
                     dgvEvento.Rows[indice].Cells["colDireccionEvento"].Value = e.DireccionEvento;
                     dgvEvento.Rows[indice].Cells["colEstadoEvento"].Value = e.EstadoEvento;
                 }
+            }
+        }
+
+        public void LlenarDescripcionInmuebleLocales(DataGridView dgvInmuebles, string filtro)
+        {
+            // Limpiar filas existentes
+            dgvInmuebles.Rows.Clear();
+
+            if(listaInmuebles.Count == 0)
+            {
+                MessageBox.Show("No hay inmuebles registrados en el sistema.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Recorrer cada evento y agregarlo al DataGridView
+            foreach (Inmueble inm in listaInmuebles)
+            {
+                if(inm.tipoInmueble == filtro)
+                {
+                    int indice = dgvInmuebles.Rows.Add();
+                    dgvInmuebles.Rows[indice].Cells["IdInmueble"].Value = inm.idInmueble;
+                    dgvInmuebles.Rows[indice].Cells["NombreInmueble"].Value = inm.nombreInmueble;
+                    dgvInmuebles.Rows[indice].Cells["Disponible"].Value = inm.inmuebleDisponible;
+                    dgvInmuebles.Rows[indice].Cells["CantidadDisp"].Value = inm.cantidadInmuebleDisponible;
+                }
+            }
+        }
+
+        public void LlenarDescripcionInmuebleAccesorios(DataGridView dgvInmuebles)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LlenarDescripcionInmuebleServicios(DataGridView dgvInmuebles)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AgregarInmuebleSeleccionado(int v)
+        {
+            Inmueble inmueble = AdmInmueble.ObtenerInmueblePorId(v);
+            if (inmueble != null)
+            {
+                MessageBox.Show("Inmueble agregado: " + inmueble.nombreInmueble);
+                listaInmuebles.Add(inmueble);
+            }
+            else
+            {
+                MessageBox.Show("Inmueble no encontrado.");
             }
         }
     }

@@ -59,11 +59,18 @@
             this.label17 = new System.Windows.Forms.Label();
             this.txtNombresCliente = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.dgvInmuebles = new System.Windows.Forms.DataGridView();
+            this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IdInmueble = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreInmueble = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Disponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadDisp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbCreacionEvento.SuspendLayout();
             this.gbAsignarInmuebles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadInmueble)).BeginInit();
             this.gbBuscarCliente.SuspendLayout();
             this.gbInformacionCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInmuebles)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -162,7 +169,7 @@
             this.btnGuardarEvento.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnGuardarEvento.Font = new System.Drawing.Font("Arial Black", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarEvento.ForeColor = System.Drawing.Color.Blue;
-            this.btnGuardarEvento.Location = new System.Drawing.Point(794, 652);
+            this.btnGuardarEvento.Location = new System.Drawing.Point(878, 663);
             this.btnGuardarEvento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnGuardarEvento.Name = "btnGuardarEvento";
             this.btnGuardarEvento.Size = new System.Drawing.Size(195, 40);
@@ -261,6 +268,7 @@
             // 
             // gbAsignarInmuebles
             // 
+            this.gbAsignarInmuebles.Controls.Add(this.dgvInmuebles);
             this.gbAsignarInmuebles.Controls.Add(this.dtpFechaAsignacionInmueble);
             this.gbAsignarInmuebles.Controls.Add(this.label13);
             this.gbAsignarInmuebles.Controls.Add(this.cmbTipoInmueble);
@@ -269,14 +277,14 @@
             this.gbAsignarInmuebles.Controls.Add(this.label11);
             this.gbAsignarInmuebles.Location = new System.Drawing.Point(595, 12);
             this.gbAsignarInmuebles.Name = "gbAsignarInmuebles";
-            this.gbAsignarInmuebles.Size = new System.Drawing.Size(563, 294);
+            this.gbAsignarInmuebles.Size = new System.Drawing.Size(703, 414);
             this.gbAsignarInmuebles.TabIndex = 22;
             this.gbAsignarInmuebles.TabStop = false;
             this.gbAsignarInmuebles.Text = "Asignar Inmuebles";
             // 
             // dtpFechaAsignacionInmueble
             // 
-            this.dtpFechaAsignacionInmueble.Location = new System.Drawing.Point(199, 167);
+            this.dtpFechaAsignacionInmueble.Location = new System.Drawing.Point(283, 379);
             this.dtpFechaAsignacionInmueble.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.dtpFechaAsignacionInmueble.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dtpFechaAsignacionInmueble.Name = "dtpFechaAsignacionInmueble";
@@ -290,7 +298,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(21, 173);
+            this.label13.Location = new System.Drawing.Point(100, 385);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(167, 19);
             this.label13.TabIndex = 26;
@@ -301,18 +309,19 @@
             this.cmbTipoInmueble.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoInmueble.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoInmueble.FormattingEnabled = true;
-            this.cmbTipoInmueble.Location = new System.Drawing.Point(120, 45);
+            this.cmbTipoInmueble.Location = new System.Drawing.Point(172, 49);
             this.cmbTipoInmueble.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbTipoInmueble.Name = "cmbTipoInmueble";
             this.cmbTipoInmueble.Size = new System.Drawing.Size(163, 27);
             this.cmbTipoInmueble.TabIndex = 26;
+            this.cmbTipoInmueble.SelectedIndexChanged += new System.EventHandler(this.selectTipoInmueble);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(21, 45);
+            this.label12.Location = new System.Drawing.Point(90, 53);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(44, 19);
             this.label12.TabIndex = 26;
@@ -321,7 +330,7 @@
             // nudCantidadInmueble
             // 
             this.nudCantidadInmueble.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.nudCantidadInmueble.Location = new System.Drawing.Point(441, 46);
+            this.nudCantidadInmueble.Location = new System.Drawing.Point(493, 50);
             this.nudCantidadInmueble.Maximum = new decimal(new int[] {
             500,
             0,
@@ -347,7 +356,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(342, 45);
+            this.label11.Location = new System.Drawing.Point(399, 53);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(79, 19);
             this.label11.TabIndex = 26;
@@ -434,12 +443,75 @@
             this.label15.TabIndex = 27;
             this.label15.Text = "Nombres:";
             // 
+            // dgvInmuebles
+            // 
+            this.dgvInmuebles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInmuebles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Seleccionar,
+            this.IdInmueble,
+            this.NombreInmueble,
+            this.Disponible,
+            this.CantidadDisp});
+            this.dgvInmuebles.Location = new System.Drawing.Point(25, 101);
+            this.dgvInmuebles.Name = "dgvInmuebles";
+            this.dgvInmuebles.RowHeadersWidth = 51;
+            this.dgvInmuebles.RowTemplate.Height = 24;
+            this.dgvInmuebles.Size = new System.Drawing.Size(661, 274);
+            this.dgvInmuebles.TabIndex = 27;
+            this.dgvInmuebles.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgInmuebles_CellValueChanged);
+            this.dgvInmuebles.CurrentCellDirtyStateChanged += new System.EventHandler(this.dvgInmuebles_CurrentCellDirtyStateChanged);
+            // 
+            // Seleccionar
+            // 
+            this.Seleccionar.Frozen = true;
+            this.Seleccionar.HeaderText = "Selecionar";
+            this.Seleccionar.MinimumWidth = 6;
+            this.Seleccionar.Name = "Seleccionar";
+            this.Seleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Seleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Seleccionar.Width = 125;
+            // 
+            // IdInmueble
+            // 
+            this.IdInmueble.Frozen = true;
+            this.IdInmueble.HeaderText = "ID";
+            this.IdInmueble.MinimumWidth = 6;
+            this.IdInmueble.Name = "IdInmueble";
+            this.IdInmueble.Width = 125;
+            // 
+            // NombreInmueble
+            // 
+            this.NombreInmueble.Frozen = true;
+            this.NombreInmueble.HeaderText = "Nombre";
+            this.NombreInmueble.MinimumWidth = 6;
+            this.NombreInmueble.Name = "NombreInmueble";
+            this.NombreInmueble.ReadOnly = true;
+            this.NombreInmueble.Width = 125;
+            // 
+            // Disponible
+            // 
+            this.Disponible.Frozen = true;
+            this.Disponible.HeaderText = "Disponible";
+            this.Disponible.MinimumWidth = 6;
+            this.Disponible.Name = "Disponible";
+            this.Disponible.ReadOnly = true;
+            this.Disponible.Width = 125;
+            // 
+            // CantidadDisp
+            // 
+            this.CantidadDisp.Frozen = true;
+            this.CantidadDisp.HeaderText = "Cant. Disponible";
+            this.CantidadDisp.MinimumWidth = 6;
+            this.CantidadDisp.Name = "CantidadDisp";
+            this.CantidadDisp.ReadOnly = true;
+            this.CantidadDisp.Width = 125;
+            // 
             // FrmRegistrarEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1204, 800);
+            this.ClientSize = new System.Drawing.Size(1310, 852);
             this.Controls.Add(this.gbInformacionCliente);
             this.Controls.Add(this.gbBuscarCliente);
             this.Controls.Add(this.btnGuardarEvento);
@@ -460,6 +532,7 @@
             this.gbBuscarCliente.PerformLayout();
             this.gbInformacionCliente.ResumeLayout(false);
             this.gbInformacionCliente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInmuebles)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -496,6 +569,12 @@
         private System.Windows.Forms.TextBox txtNumPersonasEvento;
         private System.Windows.Forms.TextBox txtApellidosCliente;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DataGridView dgvInmuebles;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdInmueble;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreInmueble;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Disponible;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadDisp;
     }
 }
 

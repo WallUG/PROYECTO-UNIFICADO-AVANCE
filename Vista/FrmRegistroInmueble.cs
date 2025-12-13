@@ -22,7 +22,7 @@ namespace Visual
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(txtID.Text.Trim());
+            //int id = int.Parse(txtID.Text.Trim());
 
             string nombre = txtNombre.Text.Trim();
             string tipo = (string)cmbTipo.SelectedItem;
@@ -32,9 +32,9 @@ namespace Visual
 
             string contenido = "";
 
-            if (!admInmueble.EsVacio(id, nombre, tipo, cantidad, precio))
+            if (!admInmueble.EsVacio(nombre, tipo, cantidad, precio))
             {
-                contenido = admInmueble.Registrar(id, nombre, tipo, cantidad, precio, disponible);
+                contenido = admInmueble.Registrar(nombre, tipo, cantidad, precio, disponible);
                 txtContenido.Text = contenido;
             }
             else
@@ -59,6 +59,26 @@ namespace Visual
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true; // Bloquea la tecla
+            }
+        }
+
+        private void selectTipoInmueble(object sender, EventArgs e)
+        {
+            if(Convert.ToString(cmbTipo.SelectedItem) == "Locales")
+            {
+                txtDescripcion.Text = "Locales comerciales como tiendas, restaurantes, etc.";
+                nudCantidad.Value = 1;
+                nudCantidad.Enabled = false;
+                return;
+            }else if(Convert.ToString(cmbTipo.SelectedItem) == "Accesorios")
+            {
+                txtDescripcion.Text = "Accesorios como Carpa, sillas, etc.";
+                nudCantidad.Enabled = true;
+                return;
+            }
+            else {
+                txtDescripcion.Text = "Servicios como bodega, cocina, comedor, etc.";
+                nudCantidad.Enabled = true;
             }
         }
 

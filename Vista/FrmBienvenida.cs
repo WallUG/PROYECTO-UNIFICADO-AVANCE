@@ -15,6 +15,7 @@ namespace Visual
     {
         string nombre = "";
         AdmFactura admFactura = new AdmFactura();
+        AdmCliente admCliente = new AdmCliente();
         public FrmBienvenida(string nombre)
         {
             InitializeComponent();

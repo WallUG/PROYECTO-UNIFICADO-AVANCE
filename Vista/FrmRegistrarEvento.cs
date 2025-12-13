@@ -36,6 +36,7 @@ namespace Vista
             // Llenar los ComboBox con datos del controlador
             admEve.LlenarTiposEvento(cmbTipoEvento);
             admEve.LlenarEstadosEvento(cmbEstadoEvento);
+            admEve.LlenarComboTipo(cmbTipoInmueble);
             //admEve.LlenarEstadosReserva(cmbEstadoReserva);
             //admEve.LlenarTiposInmueble(cmbTipoInmueble);
 
@@ -352,5 +353,43 @@ namespace Vista
         {
             e.Handled = true;
         }
+
+
+        private void selectTipoInmueble(object sender, EventArgs e)
+        {
+            admEve.LlenarDescripcionInmuebleLocales(dgvInmuebles, Convert.ToString(cmbTipoInmueble.SelectedItem));
+        }
+
+        private void dvgInmuebles_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 &&
+                dgvInmuebles.Columns[e.ColumnIndex].Name == "Seleccionar")
+            {
+                bool marcado = Convert.ToBoolean(
+                    dgvInmuebles.Rows[e.RowIndex].Cells["Seleccionar"].Value
+                );
+
+                if (marcado)
+                {
+                    MessageBox.Show("Inmueble marcado");
+                    admEve.AgregarInmuebleSeleccionado(
+                        Convert.ToInt32(dgvInmuebles.Rows[e.RowIndex].Cells["ID"].Value)
+                    );
+                }
+                else
+                {
+                    MessageBox.Show("Inmueble desmarcado");
+                }
+            }
+        }
+
+        private void dvgInmuebles_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dgvInmuebles.IsCurrentCellDirty)
+            {
+                dgvInmuebles.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
     }
 }
