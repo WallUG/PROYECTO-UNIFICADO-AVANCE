@@ -88,5 +88,11 @@ namespace Visual
             FrmListarEvento frmListarEvento = new FrmListarEvento();
             frmListarEvento.ShowDialog();
         }
+
+        private void mniAutor_Click_1(object sender, EventArgs e)
+        {
+            FrmAutores frmAutores = new FrmAutores();
+            frmAutores.ShowDialog();
+        }
     }
 }
