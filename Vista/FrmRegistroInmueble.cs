@@ -45,6 +45,13 @@ namespace Visual
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //bug resuelto: permite usar teclas de control como backspace
+            if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
             char c = e.KeyChar;
             if (!Char.IsLetter(c) && c != ' ')
             {

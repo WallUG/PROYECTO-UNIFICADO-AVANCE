@@ -108,19 +108,14 @@
             // 
             this.nudPrecio.Location = new System.Drawing.Point(361, 238);
             this.nudPrecio.Margin = new System.Windows.Forms.Padding(4);
-            this.nudPrecio.Minimum = new decimal(new int[] {
-            1,
+            this.nudPrecio.Maximum = new decimal(new int[] {
+            5000,
             0,
             0,
             0});
             this.nudPrecio.Name = "nudPrecio";
             this.nudPrecio.Size = new System.Drawing.Size(133, 22);
             this.nudPrecio.TabIndex = 9;
-            this.nudPrecio.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // Precio
             // 
