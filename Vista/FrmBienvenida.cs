@@ -16,11 +16,19 @@ namespace Visual
         string nombre = "";
         AdmFactura admFactura = new AdmFactura();
         AdmCliente admCliente = new AdmCliente();
+
         public FrmBienvenida(string nombre)
         {
             InitializeComponent();
-            this.Text += "" + nombre;
-            lblIngreso.Text = "Hola " + nombre;
+            this.nombre = nombre;
+
+            // Actualizar el título de la ventana
+            this.Text = "Bienvenido - " + nombre;
+
+            // Actualizar los labels con el nuevo diseño
+            lblSaludo.Text = "¡Hola, " + nombre + "!";
+            lblSistema.Text = "Bienvenido(a) a nuestro Sistema de\nGestión de Eventos Sociales";
+            lblGrupo.Text = "Grupo #4";
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -32,7 +40,7 @@ namespace Visual
 
         private void FrmBienvenida_Load(object sender, EventArgs e)
         {
-
+            //Adicional
         }
 
         private void FrmBienvenida_FormClosed(object sender, FormClosedEventArgs e)
