@@ -142,7 +142,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmListarEvento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Listar Evento";
+            this.Text = "Lista de Evento";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvento)).EndInit();
             this.ResumeLayout(false);
 

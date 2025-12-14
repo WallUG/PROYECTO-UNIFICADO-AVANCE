@@ -154,5 +154,22 @@ namespace Controlador
 
             }
         }
+
+        public void MostrarClientes(DataGridView dgvClientes)
+        {
+            dgvClientes.Rows.Clear();
+            int indice = 0;
+
+            foreach (Cliente cliente in listaCliente)
+            {
+                dgvClientes.Rows.Add();
+                dgvClientes.Rows[indice].Cells["colID"].Value = cliente.Id;
+                dgvClientes.Rows[indice].Cells["colNombre"].Value = cliente.Nombre;
+                dgvClientes.Rows[indice].Cells["colApellidos"].Value = cliente.Apellido;
+                dgvClientes.Rows[indice].Cells["colCedula"].Value = cliente.CedulaORuc;
+                dgvClientes.Rows[indice].Cells["colNumCedular"].Value = cliente.Telefono;
+                dgvClientes.Rows[indice].Cells["colCorreo"].Value = cliente.CorreoElectronico;
+            }
+        }
     }
 }

@@ -30,6 +30,12 @@ namespace Visual
             FrmRegistroCliente registroCliente = new FrmRegistroCliente();
             registroCliente.ShowDialog();
         }
+        private void mniListarCliente_Click(object sender, EventArgs e)
+        {
+            //Cliente
+            FrmListarCliente frmLisCliente = new FrmListarCliente();
+            frmLisCliente.ShowDialog();
+        }
 
         //INMUEBLE
         private void mniRegistrarInmueble_Click(object sender, EventArgs e)

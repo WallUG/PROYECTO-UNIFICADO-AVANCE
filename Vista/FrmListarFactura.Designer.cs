@@ -192,7 +192,7 @@
             this.Controls.Add(this.dgvFacturas);
             this.Name = "FrmListarFactura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Listar Facturas";
+            this.Text = "Lista de Facturas";
             this.Load += new System.EventHandler(this.FormListarFactura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).EndInit();
             this.ResumeLayout(false);
