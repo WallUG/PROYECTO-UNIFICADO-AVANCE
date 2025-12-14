@@ -110,55 +110,5 @@ namespace Modelo
         {
             Estado = "Anulada";
         }
-
-        //public string MostrarFactura()
-        //{
-        //    string DetalleInmueble = "";
-
-        //    // Mostrar los detalles usando la lista de DetalleFactura
-        //    if (Detalles != null && Detalles.Count > 0)
-        //    {
-        //        foreach (var detalle in Detalles)
-        //        {
-        //            DetalleInmueble += "ID Detalle: " + detalle.IdDetalle + "\n" +
-        //                              "Descripción: " + detalle.Descripcion + "\n" +
-        //                              "Cantidad/Días: " + detalle.Cantidad + "\n" +
-        //                              "Precio Unitario: " + detalle.PrecioUnitario.ToString("C2") + "\n" +
-        //                              "Subtotal: " + detalle.Subtotal.ToString("C2") + "\n" +
-        //                              "----------------------------------------\n";
-        //        }
-        //    }
-
-        //    return "========================================\n" +
-        //           "Factura #" + NumeroFactura + " (ID: " + IdFactura + ")\n" +
-        //           "========================================\n" +
-        //           "Cliente: " + Evento.Cliente.ObtenerNombreCompleto() + "\n" +
-        //           "Cédula: " + Evento.Cliente.Cedula + "\n" +
-        //           "Teléfono: " + Evento.Cliente.Telefono + "\n" +
-        //           "Email: " + Evento.Cliente.CorreoElectronico + "\n" +
-        //           "Dirección: " + Evento.Cliente.Direccion + "\n" +
-        //           "----------------------------------------\n" +
-        //           "Evento: " + Evento.NombreEvento + "\n" +
-        //           "Tipo: " + Evento.TipoEvento + "\n" +
-        //           "Descripción: " + Evento.DescripcionEvento + "\n" +
-        //           "Número de Personas: " + Evento.NumPersonas + "\n" +
-        //           "Estado Evento: " + Evento.Estado + "\n" +
-        //           "----------------------------------------\n" +
-        //           "Reserva ID: " + Evento.Reserva.IdReserva + "\n" +
-        //           "Fecha Reserva: " + Evento.Reserva.FechaReserva.ToShortDateString() + "\n" +
-        //           "Hora Inicio: " + Evento.Reserva.HoraInicioReserva.ToShortTimeString() + "\n" +
-        //           "Hora Fin: " + Evento.Reserva.HoraFinReserva.ToShortTimeString() + "\n" +
-        //           "----------------------------------------\n" +
-        //           "Detalle de Inmuebles:\n" +
-        //           "----------------------------------------\n" +
-        //           DetalleInmueble +
-        //           "Fecha Emisión: " + FechaEmision.ToShortDateString() + "\n" +
-        //           "SubTotal: " + SubTotal.ToString("C2") + "\n" +
-        //           "IVA (15%): " + Iva.ToString("C2") + "\n" +
-        //           "Descuento: " + Descuento + "\n" +
-        //           "TOTAL: " + Total.ToString("C2") + "\n" +
-        //           "Estado Factura: " + Estado + "\n" +
-        //           "========================================";
-        //}
     }
 }
