@@ -91,6 +91,11 @@
             // nudCantidad
             // 
             this.nudCantidad.Location = new System.Drawing.Point(120, 128);
+            this.nudCantidad.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.nudCantidad.Minimum = new decimal(new int[] {
             1,
             0,
@@ -181,7 +186,7 @@
             // 
             this.txtDescripcion.BackColor = System.Drawing.SystemColors.Info;
             this.txtDescripcion.Location = new System.Drawing.Point(120, 52);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.ReadOnly = true;

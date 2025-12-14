@@ -13,11 +13,11 @@ namespace Visual
 {
     public partial class FrmListarInmueble : Form
     {
-        AdmInmueble admInmueble = new AdmInmueble();
+        AdmInmueble admInmueble = new AdmInmueble();//creamos una instancia
         public FrmListarInmueble()
         {
-            InitializeComponent();
-            admInmueble.LlenarTabla(dgvInmueble);
+            InitializeComponent();//iniciamos los controladores
+            admInmueble.LlenarTabla(dgvInmueble);//llamamos al metodo llenar tabla
         }
 
     }
