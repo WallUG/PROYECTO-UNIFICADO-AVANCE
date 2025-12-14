@@ -70,7 +70,7 @@ namespace Controlador
             }
             return false;
         }
-        public bool Esvacio(string nombre, string apellido, string cedula, string telefono, string correo, string direccion)
+        public bool EsEsvacio(string nombre, string apellido, string cedula, string telefono, string correo, string direccion)
         {
             bool flag = true;
             Cliente cliente = new Cliente();
@@ -110,16 +110,49 @@ namespace Controlador
 
         private bool EsCorreo(string correo)
         {
-            throw new NotImplementedException();
+            bool flag = true;
+            while (flag)
+            {
+
+                // Validación 1: debe tener formato válido (contiene @ y .)
+                if (!correo.Contains("@") || !correo.Contains("."))
+                {
+                    Console.WriteLine("  El formato del correo no es válido");
+                    flag = false;
+                    continue;
+                }
+
+                // Validación 2: @ debe estar antes del punto
+                int posicionArroba = correo.IndexOf("@");
+                int posicionPunto = correo.LastIndexOf(".");
+
+                if (posicionArroba > posicionPunto)
+                {
+                    Console.WriteLine("   El formato del correo no es válido");
+                    flag = false;
+                    continue;
+                }
+
+                return flag;
+            }
+
+            return flag;
         }
 
         public void Registrar(string nombre, string apellido, string cedula, string telefono, string correo, string direccion)
         {
-            int idCliente = listaCliente.Count + 1;
-            //Bug solucionado : se agrego el parametro idCliente en la creacion del cliente
-            Cliente cliente = new Cliente(idCliente, nombre, apellido, cedula, correo, telefono, direccion);
-            listaCliente.Add(cliente);
-            MessageBox.Show(" Cliente registrado con exito");
+            try
+            {
+                int idCliente = listaCliente.Count + 1;
+                //Bug solucionado : se agrego el parametro idCliente en la creacion del cliente
+                Cliente cliente = new Cliente(idCliente, nombre, apellido, cedula, correo, telefono, direccion);
+                listaCliente.Add(cliente);
+                MessageBox.Show(" Cliente registrado con exito");
+            }catch (Exception ex)
+            {
+                MessageBox.Show(" Error al registrar el cliente: " + ex.Message);
+
+            }
         }
     }
 }

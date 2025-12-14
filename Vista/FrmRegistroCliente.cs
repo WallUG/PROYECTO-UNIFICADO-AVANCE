@@ -75,7 +75,7 @@ namespace Visual
         {
             string Nombre = txtNombre.Text, Apellido = TxtApellidos.Text.Trim(), cedula = txtCedula.Text, Telefono = txtTelefono.Text,
                 Correo = txtCorreoElectronico.Text.Trim(), Direccion = txtDireccion.Text.Trim();
-            if (!admCliente.Esvacio(Nombre, Apellido, cedula, Telefono, Correo, Direccion))
+            if (admCliente.Esvacio(Nombre, Apellido, cedula, Telefono, Correo, Direccion))
             {
 
                 admCliente.Registrar(Nombre, Apellido, cedula, Telefono, Correo, Direccion);
