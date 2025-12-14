@@ -113,15 +113,13 @@ namespace Controlador
             throw new NotImplementedException();
         }
 
-        public string Registrar(string nombre, string apellido, string cedula, string telefono, string correo, string direccion)
+        public void Registrar(string nombre, string apellido, string cedula, string telefono, string correo, string direccion)
         {
-            //cliente = new Cliente(nombre, apellido, cedula, correo, telefono, direccion, new string[1]);
-
-            //return 
-
-            //PROBLEMAS AQUIIII
-
-
+            int idCliente = listaCliente.Count + 1;
+            //Bug solucionado : se agrego el parametro idCliente en la creacion del cliente
+            Cliente cliente = new Cliente(idCliente, nombre, apellido, cedula, correo, telefono, direccion);
+            listaCliente.Add(cliente);
+            MessageBox.Show(" Cliente registrado con exito");
         }
     }
 }
