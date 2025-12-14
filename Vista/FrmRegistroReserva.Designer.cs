@@ -81,7 +81,7 @@
             this.lblNombreEvento.Location = new System.Drawing.Point(20, 35);
             this.lblNombreEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreEvento.Name = "lblNombreEvento";
-            this.lblNombreEvento.Size = new System.Drawing.Size(107, 16);
+            this.lblNombreEvento.Size = new System.Drawing.Size(104, 16);
             this.lblNombreEvento.TabIndex = 2;
             this.lblNombreEvento.Text = "Nombre Evento:";
             // 
@@ -101,7 +101,7 @@
             this.lblCantPersonas.Location = new System.Drawing.Point(20, 35);
             this.lblCantPersonas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCantPersonas.Name = "lblCantPersonas";
-            this.lblCantPersonas.Size = new System.Drawing.Size(135, 16);
+            this.lblCantPersonas.Size = new System.Drawing.Size(144, 16);
             this.lblCantPersonas.TabIndex = 4;
             this.lblCantPersonas.Text = "Cantidad de Personas:";
             // 
@@ -121,7 +121,7 @@
             this.lblFechReserva.Location = new System.Drawing.Point(20, 38);
             this.lblFechReserva.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechReserva.Name = "lblFechReserva";
-            this.lblFechReserva.Size = new System.Drawing.Size(112, 16);
+            this.lblFechReserva.Size = new System.Drawing.Size(122, 16);
             this.lblFechReserva.TabIndex = 6;
             this.lblFechReserva.Text = "Fecha de Reserva:";
             // 
@@ -131,7 +131,7 @@
             this.lblHoraFin.Location = new System.Drawing.Point(20, 106);
             this.lblHoraFin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHoraFin.Name = "lblHoraFin";
-            this.lblHoraFin.Size = new System.Drawing.Size(74, 16);
+            this.lblHoraFin.Size = new System.Drawing.Size(80, 16);
             this.lblHoraFin.TabIndex = 7;
             this.lblHoraFin.Text = "Hora de Fin:";
             // 
@@ -141,7 +141,7 @@
             this.lblHoraInicio.Location = new System.Drawing.Point(20, 72);
             this.lblHoraInicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHoraInicio.Name = "lblHoraInicio";
-            this.lblHoraInicio.Size = new System.Drawing.Size(89, 16);
+            this.lblHoraInicio.Size = new System.Drawing.Size(93, 16);
             this.lblHoraInicio.TabIndex = 8;
             this.lblHoraInicio.Text = "Hora de Inicio:";
             // 
@@ -151,7 +151,7 @@
             this.lblTipoSolicitud.Location = new System.Drawing.Point(20, 140);
             this.lblTipoSolicitud.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipoSolicitud.Name = "lblTipoSolicitud";
-            this.lblTipoSolicitud.Size = new System.Drawing.Size(102, 16);
+            this.lblTipoSolicitud.Size = new System.Drawing.Size(111, 16);
             this.lblTipoSolicitud.TabIndex = 9;
             this.lblTipoSolicitud.Text = "Tipo de Solicitud:";
             // 
@@ -243,7 +243,7 @@
             this.lblTitulo.Location = new System.Drawing.Point(250, 20);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(490, 31);
+            this.lblTitulo.Size = new System.Drawing.Size(438, 31);
             this.lblTitulo.TabIndex = 20;
             this.lblTitulo.Text = "Módulo de Registro de Reservas";
             // 
@@ -412,7 +412,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmRegistroReserva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sistema de Gestión - Registro de Reservas de Eventos";
+            this.Text = " ";
             ((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).EndInit();
             this.groupBoxEvento.ResumeLayout(false);
             this.groupBoxEvento.PerformLayout();
