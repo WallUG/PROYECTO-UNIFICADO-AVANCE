@@ -24,6 +24,13 @@ namespace Visual
             registrar.ShowDialog();
         }
 
+        private void mniRegistrarCliente_Click(object sender, EventArgs e)
+        {
+            //Cliente
+            FrmRegistroCliente registroCliente = new FrmRegistroCliente();
+            registroCliente.ShowDialog();
+        }
+
         //INMUEBLE
         private void mniRegistrarInmueble_Click(object sender, EventArgs e)
         {
