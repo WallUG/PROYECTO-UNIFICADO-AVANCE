@@ -1,6 +1,6 @@
 ﻿namespace Visual
 {
-    partial class FrmCliente
+    partial class FrmRegistroCliente
     {
         /// <summary>
         /// Required designer variable.

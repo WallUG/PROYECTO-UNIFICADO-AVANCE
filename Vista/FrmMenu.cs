@@ -20,7 +20,7 @@ namespace Visual
 
         private void mniRegistrarFactura_Click(object sender, EventArgs e)
         {
-            FrmFacturaRegistrar registrar = new FrmFacturaRegistrar();
+            FrmRegistroFactura registrar = new FrmRegistroFactura();
             registrar.ShowDialog();
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class FrmFacturaRegistrar
+    partial class FrmRegistroFactura
     {
         /// <summary>
         /// Variable del diseñador necesaria.

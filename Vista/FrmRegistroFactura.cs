@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class FrmFacturaRegistrar : Form
+    public partial class FrmRegistroFactura : Form
     {
         AdmFactura adm = new AdmFactura();
-        public FrmFacturaRegistrar()
+        public FrmRegistroFactura()
         {
             InitializeComponent();
 
