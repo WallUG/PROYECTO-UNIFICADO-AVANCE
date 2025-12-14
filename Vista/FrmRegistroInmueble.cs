@@ -13,17 +13,20 @@ namespace Visual
 {
     public partial class FrmRegistroInmueble : Form
     {
+        //Creamos una instancia
         AdmInmueble admInmueble = new AdmInmueble();
         public FrmRegistroInmueble()
         {
-            InitializeComponent();
-            admInmueble.LlenarCombo(cmbTipo);
+            InitializeComponent();//crea todos los controles
+            admInmueble.LlenarCombo(cmbTipo);//llamada para llenar combo box
         }
 
+        //Boton guardar de inmueble
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             //int id = int.Parse(txtID.Text.Trim());
 
+            //Capturar datos de los controles
             string nombre = txtNombre.Text.Trim();
             string tipo = (string)cmbTipo.SelectedItem;
             int cantidad = (int)nudCantidad.Value;
@@ -32,26 +35,33 @@ namespace Visual
 
             string contenido = "";
 
+            //Validar que no estén vacíos los campos
             if (!admInmueble.EsVacio(nombre, tipo, cantidad, precio))
             {
-                contenido = admInmueble.Registrar(nombre, tipo, cantidad, precio, disponible);
-                txtContenido.Text = contenido;
+                //Registrar en el controlador
+                contenido = admInmueble.Registrar(nombre, tipo, cantidad,
+                                                  precio, disponible);
+                //Mostrar resultado
+                txtContenido.Text = contenido;//mostrar resultados
             }
             else
             {
+                // Si hay campos vacios
                 MessageBox.Show("Debe completar todos los campos");
             }
         }
 
+        //Nombre del inmueble
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //bug resuelto: permite usar teclas de control como backspace
+            //Permite usar teclas de control como backspace
             if (char.IsControl(e.KeyChar))
             {
                 e.Handled = false;
                 return;
             }
 
+            //Permite usar letras y espacios
             char c = e.KeyChar;
             if (!Char.IsLetter(c) && c != ' ')
             {
@@ -60,6 +70,7 @@ namespace Visual
             }
         }
 
+        //ID
         private void txtID_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Solo permite números y teclas de control
@@ -69,7 +80,8 @@ namespace Visual
             }
         }
 
-        private void selectTipoInmueble(object sender, EventArgs e)
+        //Tipo de inmueble
+        private void selectTipoInmueble(object sender, EventArgs e)//muestra, desabilita, habilita (combo box)
         {
             if(Convert.ToString(cmbTipo.SelectedItem) == "Locales")
             {

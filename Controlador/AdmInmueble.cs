@@ -55,17 +55,17 @@ namespace Controlador
             return flag;
         }
 
-        //Registrar (Visual) Disponibilidad y ID
+        //Registrar (Visual) Hace la logica
         public string Registrar(string nombre, string tipo, int cantidad, double precio, bool disponible)
         {
             int id = inmuebleL.Count() + 1;
             Inmueble inmu = new Inmueble(id, nombre, tipo, cantidad, precio);
             inmu.inmuebleDisponible = disponible;
 
-            if (inmu.RegistrarInmueble())
+            if (inmu.RegistrarInmueble())//llama a metodo del modelo
             {
-                inmuebleL.Add(inmu);
-                return inmu.ToString();
+                inmuebleL.Add(inmu);//agrega a la lista
+                return inmu.ToString();//muestra el texto
             }
             else
             {
@@ -73,17 +73,18 @@ namespace Controlador
             }
         }
 
-        //LLenar (Visual)
+        //LLenar con los datos (Visual)
         public void LlenarTabla(DataGridView dgvInmueble)
         {
             //dgvDocentes.DataSource=lista;
             int indice = 0;
-            dgvInmueble.Rows.Clear();
-            if (inmuebleL.Count > 0)
+            dgvInmueble.Rows.Clear();//limpia
+            if (inmuebleL.Count > 0) //Verifica que haya inmuebles
             {
-                foreach (Inmueble i in inmuebleL)
+                foreach (Inmueble i in inmuebleL)//Recorre cada inmueble
                 {
-                    indice = dgvInmueble.Rows.Add();
+                    indice = dgvInmueble.Rows.Add();//por cada uno agrega una fila nueva
+                    //llena la celda
                     dgvInmueble.Rows[indice].Cells["colNro"].Value = indice + 1;
                     dgvInmueble.Rows[indice].Cells["colID"].Value = i.idInmueble;
                     dgvInmueble.Rows[indice].Cells["colNombre"].Value = i.nombreInmueble;
