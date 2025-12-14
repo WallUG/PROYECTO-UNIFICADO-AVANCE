@@ -17,14 +17,6 @@ namespace Modelo
         public TimeSpan HoraFin { get; set; }
         public string EstadoReserva { get; set; }
         public string TipoSolicitud { get; set; }
-
-        //DATOS QUEMADOS DE LA CLASE EVENTO
-        public string Cliente { get; set; }
-        public string TipoEvento { get; set; }
-        public string NombreEvento { get; set; }
-        public string DescripcionEvento { get; set; }
-        public int CantPersonas { get; set; }
-        public string EstadoEvento { get; set; }
         
         private static int contadorID = 1;
 
@@ -34,14 +26,6 @@ namespace Modelo
             contadorID = contadorID + 1;
             EstadoReserva = "Confirmada";
             TipoSolicitud = "";
-
-            //DATOS QUEMADOS DE LA CLASE EVENTO
-            Cliente = "Leonardo Pluas Larrea";
-            TipoEvento = "Fiesta";
-            NombreEvento = "Fiesta Navideña Empresarial";
-            DescripcionEvento = "Fiesta Navideña con el personal querido de la empresa para cerrar el año 2025 a lo grande";
-            CantPersonas = 50;
-
         }
 
         public Reserva(int id, Evento even, DateTime fecha, TimeSpan horaInicio, TimeSpan horaFin, string tipoSolicitud)
@@ -67,12 +51,12 @@ namespace Modelo
         {
             string mensaje = "\n===== RESERVA #" + IdReserva + " =====" +
                              "\n--- DATOS DEL EVENTO ---" +
-                             "\nCliente: " + Cliente +
-                             "\nTipo de Evento: " + TipoEvento +
+                             "\nCliente: " + evento.Cliente.Nombre +
+                             "\nTipo de Evento: " + evento.TipoEvento +
                              "\nTipo de Solicitud: " + TipoSolicitud +
-                             "\nNombre del Evento: " + NombreEvento +
-                             "\nDescripcion: " + DescripcionEvento +
-                             "\nCantidad de Personas: " + CantPersonas +
+                             "\nNombre del Evento: " + evento.NombreEvento +
+                             "\nDescripcion: " + evento.DescripcionEvento +
+                             "\nCantidad de Personas: " + evento.NumPersonasEvento +
                              "\nFecha del evento: " + FechaReserva.ToString("dd/MM/yyyy") +
                              "\nHora Inicio: " + HoraInicio +
                              "\nHora Fin: " + HoraFin +

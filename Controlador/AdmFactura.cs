@@ -18,12 +18,57 @@ namespace Controlador
         public static List<Factura> listaFacturas = new List<Factura>();
         public List<EventoInmueble> listaEventoInmueble = AdmEventoInmueble.ObtenerTodosLosInmuebles();
         public List<Cliente> listaCliente = AdmCliente.ObtenerTodosLosClientes();
+        public List<Reserva> listaReserva = AdmReserva.ObtenerTodosLasReservas();
         public List<Evento> listaEvento = AdmEvento.ObtenerTodosLosEventos();
 
         public void BuscarCliente(ComboBox cmbIdEvento, GroupBox groupBoxCliente, string cedula)
         {
             if (cedula == "") {
                 MessageBox.Show("Campo requerido");
+                return;
+            }
+
+            if(listaEvento.Count == 0)
+            {
+                foreach (Cliente item in listaCliente)
+                {
+                    if (item.CedulaORuc == cedula)
+                    {
+                        foreach (Control c in groupBoxCliente.Controls)
+                        {
+                            if (c is TextBox txt)
+                            {
+                                switch (txt.Name)
+                                {
+                                    case "txtIdCliente":
+                                        txt.Text = item.Id.ToString();
+                                        break;
+
+                                    case "txtNombreCliente":
+                                        txt.Text = item.Nombre;
+                                        break;
+
+                                    case "txtApellidoCliente":
+                                        txt.Text = item.Apellido;
+                                        break;
+
+                                    case "txtTelefonoCliente":
+                                        txt.Text = item.Telefono;
+                                        break;
+                                    case "txtCorreoCliente":
+                                        txt.Text = item.CorreoElectronico;
+                                        break;
+                                    case "txtDireccionCliente":
+                                        txt.Text = item.Direccion;
+                                        break;
+                                }
+                            }
+                        }
+                        MessageBox.Show("Cliente encontrado");
+                    }
+                }
+
+                MessageBox.Show("El clientes seleccionado no cuenta con eventos asociados en el sistema.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -125,6 +170,31 @@ namespace Controlador
                             }
                         }
                     }
+
+                    foreach (Reserva resr in listaReserva) {
+                        if (resr.evento.IdEvento == idEvento)
+                        {
+                            foreach (Control c in groupBoxEvento.Controls)
+                            {
+                                if (c is TextBox txt)
+                                {
+                                    switch (txt.Name)
+                                    {
+                                        case "txtReservaFecha":
+                                            txt.Text = resr.FechaReserva.ToString();
+                                            break;
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No hay reserva asociada a este evento");
+                        } 
+                    }
+                        
+
                     MessageBox.Show("Evento Cargado");
                     CargarTablaDetalle(dgvDetallesFactura, idEvento);
                     return;

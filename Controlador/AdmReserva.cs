@@ -31,35 +31,11 @@ namespace Controlador
         }
 
         // Método para obtener todos
-        public static List<Reserva> ObtenerTodosLosClientes()
+        public static List<Reserva> ObtenerTodosLasReservas()
         {
             return listaReservas;
         }
-
-        // Metodo para agregar una nueva reserva
-        public string AgregarReserva(DateTime fecha, TimeSpan horaInicio, TimeSpan horaFin, string tipoSolicitud)
-        {
-            {
-                // Validar horarios
-                if (horaInicio >= horaFin)
-                {
-                    return "Error...La hora de inicio debe ser antes de la hora de fin";
-                }
-
-                int id = listaReservas.Count + 1; // Generar ID secuencial
-
-                // Crear la reserva 
-                Reserva nuevaReserva = new Reserva(id, even, fecha, horaInicio, horaFin, tipoSolicitud);
-
-                //Se crea el metodo de CrearReserva
-                //nuevaReserva.CrearReserva(fecha, horaInicio, horaFin, tipoSolicitud);
-
-                // Agregar a la lista
-                listaReservas.Add(nuevaReserva);
-
-                return "\nReserva creada exitosamente:\n" + nuevaReserva.MostrarReserva();
-            }
-        }
+       
         // Metodo para mostrar todas las reservas
         public string MostrarTodasReservas()
         {
@@ -80,38 +56,20 @@ namespace Controlador
         //Lista para agarrar la info del boton guaradar
         static List<Reserva> lista = new List<Reserva>();
         Reserva reserva = null;
-
-
-        //string[] tipsEventos = { "Fiesta", "Reunión Empresarial", "Boda", "Graduación", "Conferencia", "Cumpleaños" };
         string[] tiposSolicitud = { "Reservada", "No reservada" };
-        //string[] nombreClientes = { "Leonardo Pluas", "Josue Chichanda", "Gustavo Garcia", "Daniel Castillo" };
-        //string[] nombreEventos = { "Cena Anual de Empresa TechSolutions", "Graduación Promoción 2025", "Fiesta de Fin de Año - Banco Guayaquil", "Despedida de Soltera de Ana" };
-
 
         public void LlenarComboTipoEvento(ComboBox cmbTipoEventos, Evento evem)
         {
-            //foreach (Evento tipEvent in listaEvento)
-            //{
-                cmbTipoEventos.Items.Add(evem.TipoEvento);
-                int index = 0;
-                cmbTipoEventos.SelectedIndex = index;
-            //}
+            cmbTipoEventos.Items.Add(evem.TipoEvento);
+            int index = 0;
+            cmbTipoEventos.SelectedIndex = index;
         }
-        //public void LlenarComboTipoSolicitud(ComboBox cmbTipoSolicitud, Evento evem)
-        //{
-        //    //foreach (string tipSoli in tiposSolicitud)
-        //    //{
-        //        cmbTipoSolicitud.Items.Add(evem.);
-        //    //}
-        //}
+
         public void LlenarComboClientes(ComboBox cmbClientes, Evento evem)
         {
-            //foreach (string nomClientes in nombreClientes)
-            //{
-                cmbClientes.Items.Add(evem.Cliente.Nombre);
-                int index = 0;
-                cmbClientes.SelectedIndex = index;
-            //}
+            cmbClientes.Items.Add(evem.Cliente.Nombre);
+            int index = 0;
+            cmbClientes.SelectedIndex = index;
         }
 
         public void LlenarComboNombEvento(ComboBox cmbNombEvento, ComboBox cmbIdEvento)
@@ -154,10 +112,7 @@ namespace Controlador
             // PASO 2: Crear un nuevo objeto Reserva vacío
             Reserva nuevaReserva = new Reserva();
 
-            nuevaReserva.Cliente = cliente;
-            nuevaReserva.NombreEvento = nombEvent;
-            nuevaReserva.TipoEvento = tipEvents;
-            nuevaReserva.CantPersonas = cantPersonas;
+            nuevaReserva.evento = even;
             nuevaReserva.FechaReserva = fecha;
             // IMPORTANTE: horaIni y horaFin son DateTime, pero necesitamos TimeSpan
             // .TimeOfDay convierte DateTime a TimeSpan (solo la hora, sin la fecha)
@@ -185,10 +140,10 @@ namespace Controlador
                     // IMPORTANTE: Los nombres de las columnas deben coincidir EXACTAMENTE
                     // con los nombres que están en el Designer (colNro, colCliente, etc.)
                     dgvReservas.Rows[indice].Cells["colNro"].Value = indice + 1;
-                    dgvReservas.Rows[indice].Cells["colCliente"].Value = r.Cliente;
-                    dgvReservas.Rows[indice].Cells["colNombreEvento"].Value = r.NombreEvento;
-                    dgvReservas.Rows[indice].Cells["colTipoEvento"].Value = r.TipoEvento;
-                    dgvReservas.Rows[indice].Cells["colCantPersonas"].Value = r.CantPersonas;
+                    dgvReservas.Rows[indice].Cells["colCliente"].Value = r.evento.Cliente;
+                    dgvReservas.Rows[indice].Cells["colNombreEvento"].Value = r.evento.NombreEvento;
+                    dgvReservas.Rows[indice].Cells["colTipoEvento"].Value = r.evento.TipoEvento;
+                    dgvReservas.Rows[indice].Cells["colCantPersonas"].Value = r.evento.NumPersonasEvento;
 
                     // Formatear la fecha para que se vea bonita (dd/MM/yyyy)
                     dgvReservas.Rows[indice].Cells["colFechaReserva"].Value = r.FechaReserva.ToString("dd/MM/yyyy");
@@ -237,6 +192,3 @@ namespace Controlador
         }
     }
 }
-
-
-

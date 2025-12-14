@@ -70,7 +70,7 @@ namespace Controlador
             }
             return false;
         }
-        public bool EsEsvacio(string nombre, string apellido, string cedula, string telefono, string correo, string direccion)
+        public bool Esvacio(string nombre, string apellido, string cedula, string telefono, string correo, string direccion)
         {
             bool flag = true;
             Cliente cliente = new Cliente();

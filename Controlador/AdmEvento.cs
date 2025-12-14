@@ -22,8 +22,7 @@ namespace Controlador
         // Evento actual en proceso
         private Evento evento = null;
 
-        /* Cliente seleccionado actualmente
-        private Cliente clienteActual = null;*/
+        /* Cliente seleccionado actualmente*/
         private Cliente cliente = null;
 
         string[] tipoIn = { "Locales", "Accesorios", "Servicios" };
@@ -69,13 +68,6 @@ namespace Controlador
             "Cancelado" 
         };
         
-        /* Estados de reserva disponibles
-        private string[] estadosReserva = { 
-            "Pendiente", 
-            "Confirmada", 
-            "Cancelada" 
-        };*/
-        
         // Tipos de inmueble disponibles
         private string[] tiposInmueble = { 
             "Salón de Eventos", 
@@ -105,10 +97,6 @@ namespace Controlador
                 return false;
             }
 
-            // Recorrer la lista de clientes buscando coincidencias
-            //foreach (Cliente c in clientes)
-            //{
-
             Cliente clientebusqueda = AdmCliente.ObtenerClientePorId(ciORuc);
 
             if (clientebusqueda != null)
@@ -135,8 +123,6 @@ namespace Controlador
                     return true;
                 }
             }
-            //}
-            
             return false;
         }
         
@@ -244,31 +230,6 @@ namespace Controlador
                     break;
                 }
             }
-            
-
-            // Si no encuentra, usar el primero disponible
-            //if (inmuebleSeleccionado == null && inmuebles.Count > 0)
-            //{
-            //    inmuebleSeleccionado = inmuebles[0];
-            //}
-            
-            // Paso 3: Crear EventoInmueble
-            //EventoInmueble eventoInmueble = new EventoInmueble();
-            //eventoInmueble.inmueble = inmuebleSeleccionado;
-            //eventoInmueble.cantidadInmueble = cantidadInmueble;
-            //eventoInmueble.fechaAsignacionInmueble = fechaAsignacion;
-            // Usar el primer cliente registrado
-
-            // Paso 5: Crear el evento con toda la información
-            //evento.IdEvento = eventos.Count + 1;
-            //evento.Cliente = cliente;
-            //evento.TipoEvento = tipoEvento;
-            //evento.NombreEvento = nombreEvento;
-            //evento.DescripcionEvento = descEvento;
-            //evento.NumPersonasEvento = numPersonas;
-            //evento.DireccionEvento = direccionEvento;
-            //evento.EstadoEvento = estadoEvento;
-            //evento.EventoInmueble = listaEventoInmueble;
 
             evento = new Evento(eventos.Count + 1, cliente, tipoEvento, nombreEvento, direccionEvento, numPersonas, direccionEvento, estadoEvento, listaEventoInmueble);
 

@@ -37,8 +37,6 @@ namespace Vista
             admEve.LlenarTiposEvento(cmbTipoEvento);
             admEve.LlenarEstadosEvento(cmbEstadoEvento);
             admEve.LlenarComboTipo(cmbTipoInmueble);
-            //admEve.LlenarEstadosReserva(cmbEstadoReserva);
-            //admEve.LlenarTiposInmueble(cmbTipoInmueble);
 
             // Configurar estado inicial del formulario
             ConfigurarEstadoInicial();

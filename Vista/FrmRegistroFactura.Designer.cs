@@ -47,6 +47,8 @@
             this.lblCedula = new System.Windows.Forms.Label();
             this.lblIdCliente = new System.Windows.Forms.Label();
             this.groupBoxEvento = new System.Windows.Forms.GroupBox();
+            this.txtEstadoEvento = new System.Windows.Forms.TextBox();
+            this.cmbIdEvento = new System.Windows.Forms.ComboBox();
             this.btnBuscarEvento = new System.Windows.Forms.Button();
             this.txtNumPersonasEvento = new System.Windows.Forms.TextBox();
             this.txtDescripcionEvento = new System.Windows.Forms.TextBox();
@@ -59,6 +61,7 @@
             this.lblTipoEvento = new System.Windows.Forms.Label();
             this.lblIdEvento = new System.Windows.Forms.Label();
             this.groupBoxFactura = new System.Windows.Forms.GroupBox();
+            this.txtEstadoFactura = new System.Windows.Forms.TextBox();
             this.lblEstadoFactura = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.txtDescuento = new System.Windows.Forms.TextBox();
@@ -79,19 +82,18 @@
             this.btnEliminarDetalle = new System.Windows.Forms.Button();
             this.btnAgregarDetalle = new System.Windows.Forms.Button();
             this.dgvDetallesFactura = new System.Windows.Forms.DataGridView();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnEmitirFactura = new System.Windows.Forms.Button();
-            this.btnAnular = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.cmbIdEvento = new System.Windows.Forms.ComboBox();
             this.colIdDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtEstadoEvento = new System.Windows.Forms.TextBox();
-            this.txtEstadoFactura = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnEmitirFactura = new System.Windows.Forms.Button();
+            this.btnAnular = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblReservaFecha = new System.Windows.Forms.Label();
+            this.txtReservaFecha = new System.Windows.Forms.TextBox();
             this.groupBoxCliente.SuspendLayout();
             this.groupBoxEvento.SuspendLayout();
             this.groupBoxFactura.SuspendLayout();
@@ -119,9 +121,9 @@
             this.groupBoxCliente.Controls.Add(this.lblCedula);
             this.groupBoxCliente.Controls.Add(this.lblIdCliente);
             this.groupBoxCliente.Location = new System.Drawing.Point(16, 74);
-            this.groupBoxCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxCliente.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxCliente.Name = "groupBoxCliente";
-            this.groupBoxCliente.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxCliente.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxCliente.Size = new System.Drawing.Size(640, 271);
             this.groupBoxCliente.TabIndex = 0;
             this.groupBoxCliente.TabStop = false;
@@ -130,7 +132,7 @@
             // btnBuscarCliente
             // 
             this.btnBuscarCliente.Location = new System.Drawing.Point(333, 30);
-            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(133, 28);
             this.btnBuscarCliente.TabIndex = 16;
@@ -141,7 +143,7 @@
             // txtDireccionCliente
             // 
             this.txtDireccionCliente.Location = new System.Drawing.Point(160, 224);
-            this.txtDireccionCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDireccionCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccionCliente.Name = "txtDireccionCliente";
             this.txtDireccionCliente.ReadOnly = true;
             this.txtDireccionCliente.Size = new System.Drawing.Size(452, 22);
@@ -150,7 +152,7 @@
             // txtCorreoCliente
             // 
             this.txtCorreoCliente.Location = new System.Drawing.Point(160, 192);
-            this.txtCorreoCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCorreoCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreoCliente.Name = "txtCorreoCliente";
             this.txtCorreoCliente.ReadOnly = true;
             this.txtCorreoCliente.Size = new System.Drawing.Size(452, 22);
@@ -159,7 +161,7 @@
             // txtTelefonoCliente
             // 
             this.txtTelefonoCliente.Location = new System.Drawing.Point(160, 160);
-            this.txtTelefonoCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefonoCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefonoCliente.Name = "txtTelefonoCliente";
             this.txtTelefonoCliente.ReadOnly = true;
             this.txtTelefonoCliente.Size = new System.Drawing.Size(265, 22);
@@ -168,7 +170,7 @@
             // txtApellidoCliente
             // 
             this.txtApellidoCliente.Location = new System.Drawing.Point(160, 128);
-            this.txtApellidoCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtApellidoCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellidoCliente.Name = "txtApellidoCliente";
             this.txtApellidoCliente.ReadOnly = true;
             this.txtApellidoCliente.Size = new System.Drawing.Size(452, 22);
@@ -177,7 +179,7 @@
             // txtNombreCliente
             // 
             this.txtNombreCliente.Location = new System.Drawing.Point(160, 96);
-            this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.ReadOnly = true;
             this.txtNombreCliente.Size = new System.Drawing.Size(452, 22);
@@ -186,7 +188,7 @@
             // txtRuc
             // 
             this.txtRuc.Location = new System.Drawing.Point(467, 64);
-            this.txtRuc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRuc.Margin = new System.Windows.Forms.Padding(4);
             this.txtRuc.Name = "txtRuc";
             this.txtRuc.ReadOnly = true;
             this.txtRuc.Size = new System.Drawing.Size(145, 22);
@@ -195,7 +197,7 @@
             // txtCedula
             // 
             this.txtCedula.Location = new System.Drawing.Point(160, 64);
-            this.txtCedula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCedula.Margin = new System.Windows.Forms.Padding(4);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(145, 22);
             this.txtCedula.TabIndex = 9;
@@ -203,7 +205,7 @@
             // txtIdCliente
             // 
             this.txtIdCliente.Location = new System.Drawing.Point(160, 32);
-            this.txtIdCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.ReadOnly = true;
             this.txtIdCliente.Size = new System.Drawing.Size(145, 22);
@@ -291,6 +293,8 @@
             // 
             // groupBoxEvento
             // 
+            this.groupBoxEvento.Controls.Add(this.txtReservaFecha);
+            this.groupBoxEvento.Controls.Add(this.lblReservaFecha);
             this.groupBoxEvento.Controls.Add(this.txtEstadoEvento);
             this.groupBoxEvento.Controls.Add(this.cmbIdEvento);
             this.groupBoxEvento.Controls.Add(this.btnBuscarEvento);
@@ -305,18 +309,35 @@
             this.groupBoxEvento.Controls.Add(this.lblTipoEvento);
             this.groupBoxEvento.Controls.Add(this.lblIdEvento);
             this.groupBoxEvento.Location = new System.Drawing.Point(680, 74);
-            this.groupBoxEvento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxEvento.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxEvento.Name = "groupBoxEvento";
-            this.groupBoxEvento.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxEvento.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxEvento.Size = new System.Drawing.Size(640, 271);
             this.groupBoxEvento.TabIndex = 1;
             this.groupBoxEvento.TabStop = false;
             this.groupBoxEvento.Text = "Información del Evento";
             // 
+            // txtEstadoEvento
+            // 
+            this.txtEstadoEvento.Location = new System.Drawing.Point(160, 228);
+            this.txtEstadoEvento.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEstadoEvento.Name = "txtEstadoEvento";
+            this.txtEstadoEvento.ReadOnly = true;
+            this.txtEstadoEvento.Size = new System.Drawing.Size(132, 22);
+            this.txtEstadoEvento.TabIndex = 14;
+            // 
+            // cmbIdEvento
+            // 
+            this.cmbIdEvento.FormattingEnabled = true;
+            this.cmbIdEvento.Location = new System.Drawing.Point(160, 29);
+            this.cmbIdEvento.Name = "cmbIdEvento";
+            this.cmbIdEvento.Size = new System.Drawing.Size(121, 24);
+            this.cmbIdEvento.TabIndex = 13;
+            // 
             // btnBuscarEvento
             // 
             this.btnBuscarEvento.Location = new System.Drawing.Point(333, 30);
-            this.btnBuscarEvento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarEvento.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarEvento.Name = "btnBuscarEvento";
             this.btnBuscarEvento.Size = new System.Drawing.Size(133, 28);
             this.btnBuscarEvento.TabIndex = 12;
@@ -327,7 +348,7 @@
             // txtNumPersonasEvento
             // 
             this.txtNumPersonasEvento.Location = new System.Drawing.Point(160, 192);
-            this.txtNumPersonasEvento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNumPersonasEvento.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumPersonasEvento.Name = "txtNumPersonasEvento";
             this.txtNumPersonasEvento.ReadOnly = true;
             this.txtNumPersonasEvento.Size = new System.Drawing.Size(132, 22);
@@ -336,7 +357,7 @@
             // txtDescripcionEvento
             // 
             this.txtDescripcionEvento.Location = new System.Drawing.Point(160, 128);
-            this.txtDescripcionEvento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcionEvento.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescripcionEvento.Multiline = true;
             this.txtDescripcionEvento.Name = "txtDescripcionEvento";
             this.txtDescripcionEvento.ReadOnly = true;
@@ -346,7 +367,7 @@
             // txtNombreEvento
             // 
             this.txtNombreEvento.Location = new System.Drawing.Point(160, 96);
-            this.txtNombreEvento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombreEvento.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreEvento.Name = "txtNombreEvento";
             this.txtNombreEvento.ReadOnly = true;
             this.txtNombreEvento.Size = new System.Drawing.Size(452, 22);
@@ -355,7 +376,7 @@
             // txtTipoEvento
             // 
             this.txtTipoEvento.Location = new System.Drawing.Point(160, 64);
-            this.txtTipoEvento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTipoEvento.Margin = new System.Windows.Forms.Padding(4);
             this.txtTipoEvento.Name = "txtTipoEvento";
             this.txtTipoEvento.ReadOnly = true;
             this.txtTipoEvento.Size = new System.Drawing.Size(452, 22);
@@ -440,13 +461,22 @@
             this.groupBoxFactura.Controls.Add(this.lblNumeroFactura);
             this.groupBoxFactura.Controls.Add(this.lblIdFactura);
             this.groupBoxFactura.Location = new System.Drawing.Point(16, 357);
-            this.groupBoxFactura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxFactura.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxFactura.Name = "groupBoxFactura";
-            this.groupBoxFactura.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxFactura.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxFactura.Size = new System.Drawing.Size(640, 271);
             this.groupBoxFactura.TabIndex = 2;
             this.groupBoxFactura.TabStop = false;
             this.groupBoxFactura.Text = "Información de la Factura";
+            // 
+            // txtEstadoFactura
+            // 
+            this.txtEstadoFactura.Location = new System.Drawing.Point(160, 126);
+            this.txtEstadoFactura.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEstadoFactura.Name = "txtEstadoFactura";
+            this.txtEstadoFactura.ReadOnly = true;
+            this.txtEstadoFactura.Size = new System.Drawing.Size(132, 22);
+            this.txtEstadoFactura.TabIndex = 17;
             // 
             // lblEstadoFactura
             // 
@@ -462,7 +492,7 @@
             // 
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.Location = new System.Drawing.Point(440, 224);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(172, 26);
@@ -472,7 +502,7 @@
             // txtDescuento
             // 
             this.txtDescuento.Location = new System.Drawing.Point(440, 192);
-            this.txtDescuento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescuento.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(172, 22);
             this.txtDescuento.TabIndex = 13;
@@ -482,7 +512,7 @@
             // txtSubtotal
             // 
             this.txtSubtotal.Location = new System.Drawing.Point(440, 128);
-            this.txtSubtotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSubtotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.ReadOnly = true;
             this.txtSubtotal.Size = new System.Drawing.Size(172, 22);
@@ -492,7 +522,7 @@
             // txtImpuestos
             // 
             this.txtImpuestos.Location = new System.Drawing.Point(440, 160);
-            this.txtImpuestos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtImpuestos.Margin = new System.Windows.Forms.Padding(4);
             this.txtImpuestos.Name = "txtImpuestos";
             this.txtImpuestos.ReadOnly = true;
             this.txtImpuestos.Size = new System.Drawing.Size(172, 22);
@@ -505,7 +535,7 @@
             this.dtpFechaEmision.Enabled = false;
             this.dtpFechaEmision.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaEmision.Location = new System.Drawing.Point(160, 96);
-            this.dtpFechaEmision.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaEmision.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaEmision.Name = "dtpFechaEmision";
             this.dtpFechaEmision.ShowUpDown = true;
             this.dtpFechaEmision.Size = new System.Drawing.Size(280, 22);
@@ -514,7 +544,7 @@
             // txtNumeroFactura
             // 
             this.txtNumeroFactura.Location = new System.Drawing.Point(160, 64);
-            this.txtNumeroFactura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNumeroFactura.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumeroFactura.Name = "txtNumeroFactura";
             this.txtNumeroFactura.ReadOnly = true;
             this.txtNumeroFactura.Size = new System.Drawing.Size(265, 22);
@@ -523,7 +553,7 @@
             // txtIdFactura
             // 
             this.txtIdFactura.Location = new System.Drawing.Point(160, 32);
-            this.txtIdFactura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdFactura.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdFactura.Name = "txtIdFactura";
             this.txtIdFactura.ReadOnly = true;
             this.txtIdFactura.Size = new System.Drawing.Size(145, 22);
@@ -607,9 +637,9 @@
             this.groupBoxDetalles.Controls.Add(this.btnAgregarDetalle);
             this.groupBoxDetalles.Controls.Add(this.dgvDetallesFactura);
             this.groupBoxDetalles.Location = new System.Drawing.Point(680, 357);
-            this.groupBoxDetalles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxDetalles.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxDetalles.Name = "groupBoxDetalles";
-            this.groupBoxDetalles.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxDetalles.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxDetalles.Size = new System.Drawing.Size(640, 357);
             this.groupBoxDetalles.TabIndex = 3;
             this.groupBoxDetalles.TabStop = false;
@@ -618,7 +648,7 @@
             // btnModificarDetalle
             // 
             this.btnModificarDetalle.Location = new System.Drawing.Point(303, 309);
-            this.btnModificarDetalle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificarDetalle.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificarDetalle.Name = "btnModificarDetalle";
             this.btnModificarDetalle.Size = new System.Drawing.Size(133, 37);
             this.btnModificarDetalle.TabIndex = 3;
@@ -628,7 +658,7 @@
             // btnEliminarDetalle
             // 
             this.btnEliminarDetalle.Location = new System.Drawing.Point(161, 309);
-            this.btnEliminarDetalle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminarDetalle.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminarDetalle.Name = "btnEliminarDetalle";
             this.btnEliminarDetalle.Size = new System.Drawing.Size(133, 37);
             this.btnEliminarDetalle.TabIndex = 2;
@@ -638,7 +668,7 @@
             // btnAgregarDetalle
             // 
             this.btnAgregarDetalle.Location = new System.Drawing.Point(20, 309);
-            this.btnAgregarDetalle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregarDetalle.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregarDetalle.Name = "btnAgregarDetalle";
             this.btnAgregarDetalle.Size = new System.Drawing.Size(133, 37);
             this.btnAgregarDetalle.TabIndex = 1;
@@ -656,74 +686,11 @@
             this.colPrecioUnitario,
             this.colSubtotal});
             this.dgvDetallesFactura.Location = new System.Drawing.Point(20, 31);
-            this.dgvDetallesFactura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDetallesFactura.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDetallesFactura.Name = "dgvDetallesFactura";
             this.dgvDetallesFactura.RowHeadersWidth = 51;
             this.dgvDetallesFactura.Size = new System.Drawing.Size(600, 271);
             this.dgvDetallesFactura.TabIndex = 0;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(39, 662);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(120, 37);
-            this.btnGuardar.TabIndex = 5;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnEmitirFactura
-            // 
-            this.btnEmitirFactura.Location = new System.Drawing.Point(377, 662);
-            this.btnEmitirFactura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnEmitirFactura.Name = "btnEmitirFactura";
-            this.btnEmitirFactura.Size = new System.Drawing.Size(120, 37);
-            this.btnEmitirFactura.TabIndex = 7;
-            this.btnEmitirFactura.Text = "Emitir Factura";
-            this.btnEmitirFactura.UseVisualStyleBackColor = true;
-            this.btnEmitirFactura.Click += new System.EventHandler(this.btnEmitirFactura_Click);
-            // 
-            // btnAnular
-            // 
-            this.btnAnular.Location = new System.Drawing.Point(213, 662);
-            this.btnAnular.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Size = new System.Drawing.Size(120, 37);
-            this.btnAnular.TabIndex = 8;
-            this.btnAnular.Text = "Anular";
-            this.btnAnular.UseVisualStyleBackColor = true;
-            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Location = new System.Drawing.Point(536, 640);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(120, 81);
-            this.btnCerrar.TabIndex = 10;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(520, 18);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(310, 31);
-            this.lblTitulo.TabIndex = 11;
-            this.lblTitulo.Text = "Módulo de Facturación";
-            // 
-            // cmbIdEvento
-            // 
-            this.cmbIdEvento.FormattingEnabled = true;
-            this.cmbIdEvento.Location = new System.Drawing.Point(160, 29);
-            this.cmbIdEvento.Name = "cmbIdEvento";
-            this.cmbIdEvento.Size = new System.Drawing.Size(121, 24);
-            this.cmbIdEvento.TabIndex = 13;
             // 
             // colIdDetalle
             // 
@@ -775,25 +742,81 @@
             this.colSubtotal.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colSubtotal.Width = 80;
             // 
-            // txtEstadoEvento
+            // btnGuardar
             // 
-            this.txtEstadoEvento.Location = new System.Drawing.Point(160, 228);
-            this.txtEstadoEvento.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEstadoEvento.Name = "txtEstadoEvento";
-            this.txtEstadoEvento.ReadOnly = true;
-            this.txtEstadoEvento.Size = new System.Drawing.Size(132, 22);
-            this.txtEstadoEvento.TabIndex = 14;
+            this.btnGuardar.Location = new System.Drawing.Point(39, 662);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(120, 37);
+            this.btnGuardar.TabIndex = 5;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // txtEstadoFactura
+            // btnEmitirFactura
             // 
-            this.txtEstadoFactura.Location = new System.Drawing.Point(160, 126);
-            this.txtEstadoFactura.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEstadoFactura.Name = "txtEstadoFactura";
-            this.txtEstadoFactura.ReadOnly = true;
-            this.txtEstadoFactura.Size = new System.Drawing.Size(132, 22);
-            this.txtEstadoFactura.TabIndex = 17;
+            this.btnEmitirFactura.Location = new System.Drawing.Point(377, 662);
+            this.btnEmitirFactura.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEmitirFactura.Name = "btnEmitirFactura";
+            this.btnEmitirFactura.Size = new System.Drawing.Size(120, 37);
+            this.btnEmitirFactura.TabIndex = 7;
+            this.btnEmitirFactura.Text = "Emitir Factura";
+            this.btnEmitirFactura.UseVisualStyleBackColor = true;
+            this.btnEmitirFactura.Click += new System.EventHandler(this.btnEmitirFactura_Click);
             // 
-            // FrmFacturaRegistrar
+            // btnAnular
+            // 
+            this.btnAnular.Location = new System.Drawing.Point(213, 662);
+            this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAnular.Name = "btnAnular";
+            this.btnAnular.Size = new System.Drawing.Size(120, 37);
+            this.btnAnular.TabIndex = 8;
+            this.btnAnular.Text = "Anular";
+            this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(536, 640);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(120, 81);
+            this.btnCerrar.TabIndex = 10;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(520, 18);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(310, 31);
+            this.lblTitulo.TabIndex = 11;
+            this.lblTitulo.Text = "Módulo de Facturación";
+            // 
+            // lblReservaFecha
+            // 
+            this.lblReservaFecha.AutoSize = true;
+            this.lblReservaFecha.Location = new System.Drawing.Point(330, 234);
+            this.lblReservaFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblReservaFecha.Name = "lblReservaFecha";
+            this.lblReservaFecha.Size = new System.Drawing.Size(62, 16);
+            this.lblReservaFecha.TabIndex = 15;
+            this.lblReservaFecha.Text = "Reserva:";
+            // 
+            // txtReservaFecha
+            // 
+            this.txtReservaFecha.Location = new System.Drawing.Point(410, 231);
+            this.txtReservaFecha.Margin = new System.Windows.Forms.Padding(4);
+            this.txtReservaFecha.Name = "txtReservaFecha";
+            this.txtReservaFecha.ReadOnly = true;
+            this.txtReservaFecha.Size = new System.Drawing.Size(202, 22);
+            this.txtReservaFecha.TabIndex = 16;
+            // 
+            // FrmRegistroFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -808,9 +831,9 @@
             this.Controls.Add(this.groupBoxEvento);
             this.Controls.Add(this.groupBoxCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.Name = "FrmFacturaRegistrar";
+            this.Name = "FrmRegistroFactura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Facturación - Gestión de Facturas";
             this.groupBoxCliente.ResumeLayout(false);
@@ -892,6 +915,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal;
         private System.Windows.Forms.TextBox txtEstadoEvento;
         private System.Windows.Forms.TextBox txtEstadoFactura;
+        private System.Windows.Forms.TextBox txtReservaFecha;
+        private System.Windows.Forms.Label lblReservaFecha;
     }
 }
 
