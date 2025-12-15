@@ -28,6 +28,7 @@ namespace Vista
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             adm.BuscarCliente(cmbIdEvento, groupBoxCliente, txtCedula.Text);
+            btnGuardar.Enabled = true;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -75,6 +76,7 @@ namespace Vista
             else
             {
                 adm.generarFactura(groupBoxFactura, Convert.ToInt16(cmbIdEvento.SelectedItem), txtDescuento.Text.Trim());
+                btnGuardar.Enabled = false;
             }
         }
 

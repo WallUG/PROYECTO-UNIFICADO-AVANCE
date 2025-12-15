@@ -80,9 +80,6 @@
             this.lblNumeroFactura = new System.Windows.Forms.Label();
             this.lblIdFactura = new System.Windows.Forms.Label();
             this.groupBoxDetalles = new System.Windows.Forms.GroupBox();
-            this.btnModificarDetalle = new System.Windows.Forms.Button();
-            this.btnEliminarDetalle = new System.Windows.Forms.Button();
-            this.btnAgregarDetalle = new System.Windows.Forms.Button();
             this.dgvDetallesFactura = new System.Windows.Forms.DataGridView();
             this.colIdDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -653,9 +650,6 @@
             // 
             // groupBoxDetalles
             // 
-            this.groupBoxDetalles.Controls.Add(this.btnModificarDetalle);
-            this.groupBoxDetalles.Controls.Add(this.btnEliminarDetalle);
-            this.groupBoxDetalles.Controls.Add(this.btnAgregarDetalle);
             this.groupBoxDetalles.Controls.Add(this.dgvDetallesFactura);
             this.groupBoxDetalles.Location = new System.Drawing.Point(680, 357);
             this.groupBoxDetalles.Margin = new System.Windows.Forms.Padding(4);
@@ -665,36 +659,6 @@
             this.groupBoxDetalles.TabIndex = 3;
             this.groupBoxDetalles.TabStop = false;
             this.groupBoxDetalles.Text = "Detalles de la Factura";
-            // 
-            // btnModificarDetalle
-            // 
-            this.btnModificarDetalle.Location = new System.Drawing.Point(303, 309);
-            this.btnModificarDetalle.Margin = new System.Windows.Forms.Padding(4);
-            this.btnModificarDetalle.Name = "btnModificarDetalle";
-            this.btnModificarDetalle.Size = new System.Drawing.Size(133, 37);
-            this.btnModificarDetalle.TabIndex = 3;
-            this.btnModificarDetalle.Text = "Modificar";
-            this.btnModificarDetalle.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminarDetalle
-            // 
-            this.btnEliminarDetalle.Location = new System.Drawing.Point(161, 309);
-            this.btnEliminarDetalle.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEliminarDetalle.Name = "btnEliminarDetalle";
-            this.btnEliminarDetalle.Size = new System.Drawing.Size(133, 37);
-            this.btnEliminarDetalle.TabIndex = 2;
-            this.btnEliminarDetalle.Text = "Eliminar";
-            this.btnEliminarDetalle.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregarDetalle
-            // 
-            this.btnAgregarDetalle.Location = new System.Drawing.Point(20, 309);
-            this.btnAgregarDetalle.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAgregarDetalle.Name = "btnAgregarDetalle";
-            this.btnAgregarDetalle.Size = new System.Drawing.Size(133, 37);
-            this.btnAgregarDetalle.TabIndex = 1;
-            this.btnAgregarDetalle.Text = "Agregar";
-            this.btnAgregarDetalle.UseVisualStyleBackColor = true;
             // 
             // dgvDetallesFactura
             // 
@@ -900,9 +864,6 @@
         private System.Windows.Forms.Label lblNumeroFactura;
         private System.Windows.Forms.Label lblIdFactura;
         private System.Windows.Forms.GroupBox groupBoxDetalles;
-        private System.Windows.Forms.Button btnModificarDetalle;
-        private System.Windows.Forms.Button btnEliminarDetalle;
-        private System.Windows.Forms.Button btnAgregarDetalle;
         private System.Windows.Forms.DataGridView dgvDetallesFactura;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnEmitirFactura;
