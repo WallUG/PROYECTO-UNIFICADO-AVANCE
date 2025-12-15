@@ -65,7 +65,7 @@ namespace Visual
 
         private void mniSalir_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Exit();//Cerrar toda la aplicacion
         }
 
         private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)

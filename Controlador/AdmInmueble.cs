@@ -43,7 +43,7 @@ namespace Controlador
             }
         }
 
-        //Verificar si esta vacio (Visual) Disponibilidad y ID
+        //Verificar si esta vacio (Visual)
         public bool EsVacio(string nombre, string tipo, int cantidad, double precio)
         {
             bool flag = false;
@@ -77,7 +77,7 @@ namespace Controlador
         public void LlenarTabla(DataGridView dgvInmueble)
         {
             //dgvDocentes.DataSource=lista;
-            int indice = 0;
+            int indice = 0;//para enumeracion
             dgvInmueble.Rows.Clear();//limpia
             if (inmuebleL.Count > 0) //Verifica que haya inmuebles
             {

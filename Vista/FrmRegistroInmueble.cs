@@ -77,7 +77,7 @@ namespace Visual
 
             string contenido = "";
 
-            //Validar que no estén vacíos los campos
+            //Recoge los datos el metodo para validar los campos
             if (!admInmueble.EsVacio(nombre, tipo, cantidad, precio))
             {
                 //Registrar en el controlador
