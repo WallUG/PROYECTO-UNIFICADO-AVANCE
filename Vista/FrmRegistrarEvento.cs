@@ -24,6 +24,9 @@ namespace Vista
         
         // Indica si se encontró un cliente válido
         private bool clienteEncontrado = false;
+
+        // Indica el índice de la fila seleccionada actualmente en el DataGridView
+        private int filaSeleccionadaActual = -1;
          
         /*
             Constructor del formulario de registro de eventos.
@@ -40,6 +43,9 @@ namespace Vista
 
             // Configurar estado inicial del formulario
             ConfigurarEstadoInicial();
+            
+            // Configurar nudCantidadInmueble para que solo se pueda cambiar con los botones
+            nudCantidadInmueble.ReadOnly = true;
             
             // Suscribir eventos de los ComboBox
             cmbTipoEvento.SelectedIndexChanged += cmbTipoEvento_SelectedIndexChanged;
@@ -66,8 +72,17 @@ namespace Vista
             
             // Paso 4: Deshabilitar asignación de inmuebles
             gbAsignarInmuebles.Enabled = false;
+
+            // Paso 5: Deshabilitar nudCantidadInmueble al inicio
+            nudCantidadInmueble.Enabled = false;
+            nudCantidadInmueble.Minimum = 0;
+            nudCantidadInmueble.Value = 0;
+            nudCantidadInmueble.Maximum = 0;
+
+            // Paso 6: Reiniciar fila seleccionada
+            filaSeleccionadaActual = -1;
             
-            // Paso 6: Deshabilitar botón guardar
+            // Paso 7: Deshabilitar botón guardar
             btnGuardarEvento.Enabled = false;
         }
         /*
@@ -170,6 +185,12 @@ namespace Vista
             {
                 // Habilitar asignación de inmuebles
                 gbAsignarInmuebles.Enabled = true;
+
+                // Mantener nudCantidadInmueble deshabilitado hasta que se seleccione un inmueble
+                nudCantidadInmueble.Enabled = false;
+                nudCantidadInmueble.Minimum = 0;
+                nudCantidadInmueble.Value = 0;
+                nudCantidadInmueble.Maximum = 0;
                 
                 // Habilitar botón guardar
                 btnGuardarEvento.Enabled = true;
@@ -230,6 +251,14 @@ namespace Vista
                 return;
             }
 
+            // Paso 4: Validar que se haya seleccionado al menos un inmueble con cantidad
+            if (!admEve.HayInmueblesSeleccionados())
+            {
+                MessageBox.Show("Debe seleccionar al menos un inmueble y asignar una cantidad mayor a 0.", 
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // Paso 5: Obtener datos del Inmueble
             string tipoInmueble = "Salón de Eventos";
             if (cmbTipoInmueble.SelectedItem != null)
@@ -276,6 +305,7 @@ namespace Vista
             btnBuscarCliente.Enabled = true;
             clienteEncontrado = false;
             admEve.LimpiarClienteSeleccionado();
+            admEve.LimpiarInmueblesSeleccionados();
             
             // Limpiar información del cliente
             txtNombresCliente.Text = "";
@@ -291,8 +321,15 @@ namespace Vista
             
             // Limpiar datos de inmuebles
             cmbTipoInmueble.SelectedIndex = -1;
-            nudCantidadInmueble.Value = nudCantidadInmueble.Minimum;
+            nudCantidadInmueble.Minimum = 0;
+            nudCantidadInmueble.Value = 0;
+            nudCantidadInmueble.Maximum = 0;
+            nudCantidadInmueble.Enabled = false;
             dtpFechaAsignacionInmueble.Value = DateTime.Now;
+            dgvInmuebles.Rows.Clear();
+
+            // Reiniciar fila seleccionada
+            filaSeleccionadaActual = -1;
             
             // Volver al estado inicial
             ConfigurarEstadoInicial();
@@ -352,6 +389,13 @@ namespace Vista
 
         private void selectTipoInmueble(object sender, EventArgs e)
         {
+            // Limpiar selección anterior y deshabilitar nudCantidadInmueble
+            filaSeleccionadaActual = -1;
+            nudCantidadInmueble.Enabled = false;
+            nudCantidadInmueble.Minimum = 0;
+            nudCantidadInmueble.Value = 0;
+            nudCantidadInmueble.Maximum = 0;
+
             admEve.LlenarDescripcionInmuebleLocales(dgvInmuebles, Convert.ToString(cmbTipoInmueble.SelectedItem));
         }
 
@@ -366,16 +410,51 @@ namespace Vista
 
                 if (marcado)
                 {
-                    MessageBox.Show("Inmueble marcado");
-                    int cantidadInmueble = (int)nudCantidadInmueble.Value;
-                    DateTime fechaAsignacion = dtpFechaAsignacionInmueble.Value;
-                    admEve.AgregarInmuebleSeleccionado(
-                        Convert.ToInt32(dgvInmuebles.Rows[e.RowIndex].Cells["IdInmueble"].Value), cantidadInmueble, fechaAsignacion
-                    );
+                    // Desmarcar la fila anterior si había una seleccionada
+                    if (filaSeleccionadaActual >= 0 && filaSeleccionadaActual != e.RowIndex)
+                    {
+                        dgvInmuebles.Rows[filaSeleccionadaActual].Cells["Seleccionar"].Value = false;
+                        // Eliminar el inmueble anterior de la lista
+                        int idInmuebleAnterior = Convert.ToInt32(dgvInmuebles.Rows[filaSeleccionadaActual].Cells["IdInmueble"].Value);
+                        admEve.EliminarInmuebleSeleccionado(idInmuebleAnterior);
+                    }
+
+                    // Guardar la fila actual como seleccionada
+                    filaSeleccionadaActual = e.RowIndex;
+
+                    // Obtener la cantidad disponible del inmueble seleccionado
+                    int cantidadDisponible = Convert.ToInt32(dgvInmuebles.Rows[e.RowIndex].Cells["CantidadDisp"].Value);
+
+                    // Habilitar y configurar el nudCantidadInmueble
+                    nudCantidadInmueble.Enabled = true;
+                    nudCantidadInmueble.Minimum = 0;
+                    nudCantidadInmueble.Maximum = cantidadDisponible;
+                    nudCantidadInmueble.Value = 0;
+
+                    MessageBox.Show("Inmueble seleccionado. Cantidad máxima disponible: " + cantidadDisponible.ToString(), 
+                        "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Inmueble desmarcado");
+                    // Si se desmarca el inmueble seleccionado actualmente
+                    if (filaSeleccionadaActual == e.RowIndex)
+                    {
+                        // Eliminar el inmueble de la lista de seleccionados
+                        int idInmueble = Convert.ToInt32(dgvInmuebles.Rows[e.RowIndex].Cells["IdInmueble"].Value);
+                        admEve.EliminarInmuebleSeleccionado(idInmueble);
+
+                        // Deshabilitar nudCantidadInmueble
+                        nudCantidadInmueble.Enabled = false;
+                        nudCantidadInmueble.Minimum = 0;
+                        nudCantidadInmueble.Value = 0;
+                        nudCantidadInmueble.Maximum = 0;
+
+                        // Reiniciar la fila seleccionada
+                        filaSeleccionadaActual = -1;
+
+                        MessageBox.Show("Inmueble desmarcado", 
+                            "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
         }
@@ -388,5 +467,29 @@ namespace Vista
             }
         }
 
+        /*
+        Evento cuando cambia el valor de nudCantidadInmueble.
+        Actualiza la cantidad asignada al inmueble seleccionado.
+        */
+        private void nudCantidadInmueble_ValueChanged(object sender, EventArgs e)
+        {
+            if (filaSeleccionadaActual >= 0 && nudCantidadInmueble.Enabled)
+            {
+                int idInmueble = Convert.ToInt32(dgvInmuebles.Rows[filaSeleccionadaActual].Cells["IdInmueble"].Value);
+                int cantidadAsignada = (int)nudCantidadInmueble.Value;
+                DateTime fechaAsignacion = dtpFechaAsignacionInmueble.Value;
+
+                if (cantidadAsignada > 0)
+                {
+                    // Actualizar o agregar el inmueble seleccionado
+                    admEve.ActualizarInmuebleSeleccionado(idInmueble, cantidadAsignada, fechaAsignacion);
+                }
+                else
+                {
+                    // Si la cantidad es 0, eliminar de la lista
+                    admEve.EliminarInmuebleSeleccionado(idInmueble);
+                }
+            }
+        }
     }
 }

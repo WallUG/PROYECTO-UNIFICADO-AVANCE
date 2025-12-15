@@ -63,7 +63,7 @@ namespace Controlador
             "Cancelado" 
         };
         
-        // Tipos de inmueble disponibles
+        /*Tipos de inmueble disponibles
         private string[] tiposInmueble = { 
             "Salón de Eventos", 
             "Jardín", 
@@ -71,7 +71,7 @@ namespace Controlador
             "Auditorio", 
             "Sala de Reuniones" 
         };
-        
+        */
         /// Verifica si existen clientes registrados en el sistema.
         /// true si hay al menos un cliente, False si no hay
         public bool ExistenClientes()
@@ -208,6 +208,79 @@ namespace Controlador
             return false;
         }
         
+        /// Verifica si hay inmuebles seleccionados con cantidad mayor a 0
+        public bool HayInmueblesSeleccionados()
+        {
+            if (listaEventoInmueble == null || listaEventoInmueble.Count == 0)
+            {
+                return false;
+            }
+
+            // Verificar que al menos uno tenga cantidad mayor a 0
+            for (int i = 0; i < listaEventoInmueble.Count; i++)
+            {
+                if (listaEventoInmueble[i].cantidadInmueble > 0)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// Limpia la lista de inmuebles seleccionados
+        public void LimpiarInmueblesSeleccionados()
+        {
+            listaEventoInmueble.Clear();
+        }
+
+        /// Elimina un inmueble de la lista de seleccionados por su ID
+        public void EliminarInmuebleSeleccionado(int idInmueble)
+        {
+            for (int i = listaEventoInmueble.Count - 1; i >= 0; i--)
+            {
+                if (listaEventoInmueble[i].inmueble != null && 
+                    listaEventoInmueble[i].inmueble.idInmueble == idInmueble)
+                {
+                    listaEventoInmueble.RemoveAt(i);
+                    break;
+                }
+            }
+        }
+
+        /// Actualiza o agrega un inmueble seleccionado con la cantidad especificada
+        public void ActualizarInmuebleSeleccionado(int idInmueble, int cantidadAsignada, DateTime fechaAsignacion)
+        {
+            // Buscar si ya existe el inmueble en la lista
+            bool encontrado = false;
+            for (int i = 0; i < listaEventoInmueble.Count; i++)
+            {
+                if (listaEventoInmueble[i].inmueble != null && 
+                    listaEventoInmueble[i].inmueble.idInmueble == idInmueble)
+                {
+                    // Actualizar la cantidad y fecha
+                    listaEventoInmueble[i].cantidadInmueble = cantidadAsignada;
+                    listaEventoInmueble[i].fechaAsignacionInmueble = fechaAsignacion;
+                    encontrado = true;
+                    break;
+                }
+            }
+
+            // Si no existe, agregarlo
+            if (!encontrado)
+            {
+                Inmueble inmueble = AdmInmueble.ObtenerInmueblePorId(idInmueble);
+                if (inmueble != null)
+                {
+                    EventoInmueble eventoInmueble = new EventoInmueble();
+                    eventoInmueble.inmueble = inmueble;
+                    eventoInmueble.cantidadInmueble = cantidadAsignada;
+                    eventoInmueble.fechaAsignacionInmueble = fechaAsignacion;
+                    listaEventoInmueble.Add(eventoInmueble);
+                }
+            }
+        }
+        
         public string RegistrarEventoCompleto(int idEvento, string tipoEvento, string nombreEvento, string descEvento, int numPersonas, string direccionEvento, 
             string estadoEvento, 
             string tipoInmueble, 
@@ -281,17 +354,7 @@ namespace Controlador
                 }
             }
         }
-
-        public void LlenarDescripcionInmuebleAccesorios(DataGridView dgvInmuebles)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void LlenarDescripcionInmuebleServicios(DataGridView dgvInmuebles)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public void AgregarInmuebleSeleccionado(int v, int cantidadAsignada, DateTime fechaAsignacion)
         {
             Inmueble inmueble = AdmInmueble.ObtenerInmueblePorId(v);

@@ -169,7 +169,7 @@
             this.btnGuardarEvento.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnGuardarEvento.Font = new System.Drawing.Font("Arial Black", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarEvento.ForeColor = System.Drawing.Color.Blue;
-            this.btnGuardarEvento.Location = new System.Drawing.Point(878, 663);
+            this.btnGuardarEvento.Location = new System.Drawing.Point(833, 555);
             this.btnGuardarEvento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnGuardarEvento.Name = "btnGuardarEvento";
             this.btnGuardarEvento.Size = new System.Drawing.Size(195, 40);
@@ -203,9 +203,10 @@
             this.gbCreacionEvento.Controls.Add(this.txtDescripcionEvento);
             this.gbCreacionEvento.Controls.Add(this.txtNombreEvento);
             this.gbCreacionEvento.Controls.Add(this.label6);
-            this.gbCreacionEvento.Location = new System.Drawing.Point(27, 266);
+            this.gbCreacionEvento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbCreacionEvento.Location = new System.Drawing.Point(39, 256);
             this.gbCreacionEvento.Name = "gbCreacionEvento";
-            this.gbCreacionEvento.Size = new System.Drawing.Size(539, 574);
+            this.gbCreacionEvento.Size = new System.Drawing.Size(527, 574);
             this.gbCreacionEvento.TabIndex = 20;
             this.gbCreacionEvento.TabStop = false;
             this.gbCreacionEvento.Text = "Creación del Evento";
@@ -275,9 +276,10 @@
             this.gbAsignarInmuebles.Controls.Add(this.label12);
             this.gbAsignarInmuebles.Controls.Add(this.nudCantidadInmueble);
             this.gbAsignarInmuebles.Controls.Add(this.label11);
+            this.gbAsignarInmuebles.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbAsignarInmuebles.Location = new System.Drawing.Point(595, 12);
             this.gbAsignarInmuebles.Name = "gbAsignarInmuebles";
-            this.gbAsignarInmuebles.Size = new System.Drawing.Size(703, 414);
+            this.gbAsignarInmuebles.Size = new System.Drawing.Size(703, 461);
             this.gbAsignarInmuebles.TabIndex = 22;
             this.gbAsignarInmuebles.TabStop = false;
             this.gbAsignarInmuebles.Text = "Asignar Inmuebles";
@@ -347,7 +349,8 @@
             // 
             // dtpFechaAsignacionInmueble
             // 
-            this.dtpFechaAsignacionInmueble.Location = new System.Drawing.Point(283, 379);
+            this.dtpFechaAsignacionInmueble.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaAsignacionInmueble.Location = new System.Drawing.Point(283, 397);
             this.dtpFechaAsignacionInmueble.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.dtpFechaAsignacionInmueble.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dtpFechaAsignacionInmueble.Name = "dtpFechaAsignacionInmueble";
@@ -361,7 +364,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(100, 385);
+            this.label13.Location = new System.Drawing.Point(110, 405);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(167, 19);
             this.label13.TabIndex = 26;
@@ -392,6 +395,7 @@
             // 
             // nudCantidadInmueble
             // 
+            this.nudCantidadInmueble.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudCantidadInmueble.ForeColor = System.Drawing.SystemColors.WindowText;
             this.nudCantidadInmueble.Location = new System.Drawing.Point(493, 50);
             this.nudCantidadInmueble.Maximum = new decimal(new int[] {
@@ -413,6 +417,7 @@
             0,
             0,
             0});
+            this.nudCantidadInmueble.ValueChanged += new System.EventHandler(this.nudCantidadInmueble_ValueChanged);
             // 
             // label11
             // 
@@ -444,6 +449,7 @@
             this.gbBuscarCliente.Controls.Add(this.label14);
             this.gbBuscarCliente.Controls.Add(this.btnBuscarCliente);
             this.gbBuscarCliente.Controls.Add(this.txtCiRucCliente);
+            this.gbBuscarCliente.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbBuscarCliente.Location = new System.Drawing.Point(39, 12);
             this.gbBuscarCliente.Name = "gbBuscarCliente";
             this.gbBuscarCliente.Size = new System.Drawing.Size(527, 95);
@@ -457,6 +463,7 @@
             this.gbInformacionCliente.Controls.Add(this.label17);
             this.gbInformacionCliente.Controls.Add(this.txtNombresCliente);
             this.gbInformacionCliente.Controls.Add(this.label15);
+            this.gbInformacionCliente.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbInformacionCliente.Location = new System.Drawing.Point(39, 113);
             this.gbInformacionCliente.Name = "gbInformacionCliente";
             this.gbInformacionCliente.Size = new System.Drawing.Size(527, 118);
@@ -519,7 +526,6 @@
             this.Controls.Add(this.gbCreacionEvento);
             this.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimizeBox = false;
             this.Name = "FrmRegistrarEvento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar evento";
