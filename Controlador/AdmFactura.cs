@@ -68,7 +68,7 @@ namespace Controlador
                     }
                 }
 
-                MessageBox.Show("El clientes seleccionado no cuenta con eventos asociados en el sistema.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El clientes seleccionado no EXISTE o no cuenta con eventos asociados en el sistema.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
