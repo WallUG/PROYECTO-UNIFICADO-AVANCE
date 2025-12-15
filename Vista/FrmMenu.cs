@@ -60,7 +60,8 @@ namespace Visual
 
         private void mniAutor_Click(object sender, EventArgs e)
         {
-
+            FrmAutores frmAutores = new FrmAutores();
+            frmAutores.ShowDialog();
         }
 
         private void mniSalir_Click(object sender, EventArgs e)
@@ -100,12 +101,6 @@ namespace Visual
         {
             FrmListarEvento frmListarEvento = new FrmListarEvento();
             frmListarEvento.ShowDialog();
-        }
-
-        private void mniAutor_Click_1(object sender, EventArgs e)
-        {
-            FrmAutores frmAutores = new FrmAutores();
-            frmAutores.ShowDialog();
         }
     }
 }

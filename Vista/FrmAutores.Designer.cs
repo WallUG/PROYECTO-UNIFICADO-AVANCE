@@ -184,6 +184,8 @@
             this.Controls.Add(this.lblAutor03);
             this.Controls.Add(this.lblAutor02);
             this.Controls.Add(this.lblAutor01);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmAutores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Autores del Sistema";

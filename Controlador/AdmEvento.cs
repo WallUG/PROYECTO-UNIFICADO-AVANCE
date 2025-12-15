@@ -9,11 +9,6 @@ using System.Windows.Forms;
 
 namespace Controlador
 {
-    /*
-    Administra la lógica de negocio para el módulo de Evento.
-    /// Gestiona la creación, búsqueda y registro de eventos.
-    También maneja los datos quemados de clientes e inmuebles.
-    */
     public class AdmEvento
     {
         // Lista estática para mantener los eventos entre instancias
@@ -78,7 +73,7 @@ namespace Controlador
         };
         
         /// Verifica si existen clientes registrados en el sistema.
-        /// true si hay al menos un cliente, False si no hay ninguno</returns>
+        /// true si hay al menos un cliente, False si no hay
         public bool ExistenClientes()
         {
             List<Cliente> clientes = AdmCliente.ObtenerTodosLosClientes();
@@ -159,6 +154,7 @@ namespace Controlador
             return eventos.Count + 1;
         }
         
+
         public (string nombreEvento, string descripcionEvento, int numeroPersonas, string direccionEvento, string estadoEvento) ObtenerDatosPredeterminados(string tipoEvento)
         {
             switch (tipoEvento)
@@ -187,7 +183,6 @@ namespace Controlador
         }
         
         /// Obtiene la lista completa de eventos registrados.
-        
         public List<Evento> ObtenerEventos()
         {
             return eventos;

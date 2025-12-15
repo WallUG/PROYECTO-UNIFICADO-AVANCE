@@ -13,10 +13,10 @@ using Controlador;
 
 namespace Vista
 {
-    /// <summary>
-    /// Formulario para registrar nuevos eventos en el sistema.
-    /// Permite buscar cliente, crear evento, asignar inmuebles y reserva.
-    /// </summary>
+    /*
+        Formulario para registrar nuevos eventos en el sistema.
+        Permite buscar cliente, crear evento, asignar inmuebles y reserva.
+    */
     public partial class FrmRegistrarEvento : Form
     {   
         // Controlador para la lógica de negocio de eventos
@@ -25,10 +25,10 @@ namespace Vista
         // Indica si se encontró un cliente válido
         private bool clienteEncontrado = false;
          
-        /// <summary>
-        /// Constructor del formulario de registro de eventos.
-        /// Inicializa los ComboBox y configura el estado inicial.
-        /// </summary>
+        /*
+            Constructor del formulario de registro de eventos.
+            Inicializa los ComboBox y configura el estado inicial.
+        */
         public FrmRegistrarEvento()
         {
             InitializeComponent();
@@ -45,10 +45,10 @@ namespace Vista
             cmbTipoEvento.SelectedIndexChanged += cmbTipoEvento_SelectedIndexChanged;
             cmbEstadoEvento.SelectedIndexChanged += cmbEstadoEvento_SelectedIndexChanged;
         }
-        /// <summary>
-        /// Configura el estado inicial del formulario.
-        /// Deshabilita todos los GroupBox excepto el de búsqueda de cliente.
-        /// </summary>
+        /*
+            Configura el estado inicial del formulario.
+            Deshabilita todos los GroupBox excepto el de búsqueda de cliente.
+        */
         private void ConfigurarEstadoInicial()
         {
             // Paso 1: Habilitar solo la búsqueda de cliente
@@ -70,10 +70,10 @@ namespace Vista
             // Paso 6: Deshabilitar botón guardar
             btnGuardarEvento.Enabled = false;
         }
-        /// <summary>
-        /// Busca un cliente por su cédula o RUC.
-        /// Habilita los demás campos si encuentra el cliente.
-        /// </summary>
+        /*
+            Busca un cliente por su cédula o RUC.
+            Habilita los demás campos si encuentra el cliente.
+        */
         private void BuscarCliente()
         {
             // Obtener el valor de búsqueda
@@ -127,10 +127,10 @@ namespace Vista
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        /// <summary>
-        /// Evento cuando se selecciona un tipo de evento.
-        /// Carga los datos predeterminados según el tipo seleccionado.
-        /// </summary>
+        /*
+            Evento cuando se selecciona un tipo de evento.
+            Carga los datos predeterminados según el tipo seleccionado.
+        */
         private void cmbTipoEvento_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbTipoEvento.SelectedItem != null)
@@ -160,11 +160,10 @@ namespace Vista
                 }
             }
         }
-
-        /// <summary>
-        /// Evento cuando se selecciona un estado del evento.
-        /// Habilita los GroupBox de inmuebles, reserva y el botón guardar.
-        /// </summary>
+        /*
+            Evento cuando se selecciona un estado del evento.
+            Habilita los GroupBox de inmuebles, reserva y el botón guardar.
+        */
         private void cmbEstadoEvento_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbEstadoEvento.SelectedItem != null)
@@ -176,19 +175,19 @@ namespace Vista
                 btnGuardarEvento.Enabled = true;
             }
         }        
-        /// <summary>
-        /// Evento click del botón Buscar Cliente.
-        /// Inicia la búsqueda del cliente.
-        /// </summary>
+        /*
+        Evento click del botón Buscar Cliente.
+        Inicia la búsqueda del cliente.
+        */
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             BuscarCliente();
         }
 
-        /// <summary>
-        /// Evento click del botón Guardar Evento.
-        /// Valida y registra el evento completo.
-        /// </summary>
+        /*
+        Evento click del botón Guardar Evento.
+        Valida y registra el evento completo.
+        */
         private void btnGuardarEvento_Click(object sender, EventArgs e)
         {
             // Paso 1: Validar que se haya seleccionado un cliente
@@ -264,10 +263,10 @@ namespace Vista
             // Paso 8: Limpiar formulario para nuevo registro
             LimpiarFormulario();
         }
-        /// <summary>
-        /// Limpia todos los campos del formulario y lo devuelve al estado inicial.
-        /// Se ejecuta después de guardar un evento exitosamente.
-        /// </summary>
+        /*
+        Limpia todos los campos del formulario y lo devuelve al estado inicial.
+        Se ejecuta después de guardar un evento exitosamente.
+        */
         private void LimpiarFormulario()
         {
             // Limpiar sección de búsqueda
@@ -298,9 +297,9 @@ namespace Vista
             // Volver al estado inicial
             ConfigurarEstadoInicial();
         }
-        /// <summary>
-        /// Permite solo letras, espacios y tecla Backspace en el nombre del evento.
-        /// </summary>
+        /*
+        Permite solo letras, espacios y tecla Backspace en el nombre del evento.
+        */
         private void txtNombreEvento_KeyPress(object sender, KeyPressEventArgs e)
         {
             char caracter = e.KeyChar;
@@ -313,10 +312,9 @@ namespace Vista
                 e.Handled = true;
             }
         }
-
-        /// <summary>
-        /// Permite solo números y tecla Backspace en el campo de búsqueda de cliente.
-        /// </summary>
+        /*
+        Permite solo números y tecla Backspace en el campo de búsqueda de cliente.
+        */
         private void txtBuscarCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
             char caracter = e.KeyChar;
@@ -328,10 +326,9 @@ namespace Vista
                 e.Handled = true;
             }
         }
-
-        /// <summary>
-        /// Permite solo números y tecla Backspace en el campo de número de personas.
-        /// </summary>
+        /*
+        Permite solo números y tecla Backspace en el campo de número de personas.
+        */
         private void txtNumPersonasEvento_KeyPress(object sender, KeyPressEventArgs e)
         {
             char caracter = e.KeyChar;
@@ -344,9 +341,9 @@ namespace Vista
             }
         }
 
-        /// <summary>
-        /// Bloquea la edición en el campo de nombres del cliente (solo lectura).
-        /// </summary>
+        /*
+        Bloquea la edición en el campo de nombres del cliente (solo lectura).
+        */
         private void txtNombresCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;

@@ -12,25 +12,19 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    /// <summary>
-    /// Formulario para listar todos los eventos registrados en el sistema.
-    /// Muestra los eventos en un DataGridView.
-    /// </summary>
+    /*
+    Formulario para listar todos los eventos registrados en el sistema.
+    Muestra los eventos en un DataGridView.
+    */
     public partial class FrmListarEvento : Form
-    {
-        #region Campos y Variables
-        
+    {        
         // Controlador para la lógica de negocio de eventos
         private AdmEvento admEvento = new AdmEvento();
         
-        #endregion
-
-        #region Constructor
-        
-        /// <summary>
-        /// Constructor del formulario de listado de eventos.
-        /// Carga automáticamente los eventos al abrir el formulario.
-        /// </summary>
+        /*
+        Constructor del formulario de listado de eventos.
+        Carga automáticamente los eventos al abrir el formulario.
+        */
         public FrmListarEvento()
         {
             InitializeComponent();
@@ -39,18 +33,12 @@ namespace Vista
             CargarEventos();
         }
         
-        #endregion
-
-        #region Métodos de Carga de Datos
-        
-        /// <summary>
-        /// Carga todos los eventos registrados en el DataGridView.
-        /// </summary>
+        /*
+        Carga todos los eventos registrados en el DataGridView.
+        */
         private void CargarEventos()
         {
             admEvento.LlenarTabla(dgvEvento);
         }
-        
-        #endregion
     }
 }

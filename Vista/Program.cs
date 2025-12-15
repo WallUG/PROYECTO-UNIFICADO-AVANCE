@@ -17,7 +17,7 @@ namespace Vista
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmBienvenida("Ing. Veronica"));
+            Application.Run(new FrmBienvenida("Ing. Verónica"));
         }
     }
 }
