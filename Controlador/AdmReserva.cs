@@ -152,7 +152,7 @@ namespace Controlador
 
                     
                     dgvReservas.Rows[indice].Cells["colNro"].Value = indice + 1;
-                    dgvReservas.Rows[indice].Cells["colCliente"].Value = r.evento.Cliente;
+                    dgvReservas.Rows[indice].Cells["colCliente"].Value = r.evento.Cliente.Nombre;
                     dgvReservas.Rows[indice].Cells["colNombreEvento"].Value = r.evento.NombreEvento;
                     dgvReservas.Rows[indice].Cells["colTipoEvento"].Value = r.evento.TipoEvento;
                     dgvReservas.Rows[indice].Cells["colCantPersonas"].Value = r.evento.NumPersonasEvento;
