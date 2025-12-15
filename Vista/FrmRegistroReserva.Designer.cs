@@ -381,7 +381,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmRegistroReserva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
+            this.Text = " Registro Reserva";
             ((System.ComponentModel.ISupportInitialize)(this.nudCantPersonas)).EndInit();
             this.groupBoxEvento.ResumeLayout(false);
             this.groupBoxEvento.PerformLayout();
