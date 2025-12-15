@@ -92,13 +92,40 @@ namespace Modelo
             Total = SubTotal + Iva;
         }
 
-        public void GenerarFactura()
+        public void GenerarFactura(string descuento)
         {
             FechaEmision = DateTime.Now;
             GenerarDetallesFactura(); // Generar detalles automáticamente
             CalcularSubTotal();
+            AplicarDescuento(descuento);
             CalcularIVA();
             CalcularTotal();
+        }
+
+        private void AplicarDescuento(string descuento)
+        {
+            if (descuento != "0.00" && descuento != "0" && !string.IsNullOrWhiteSpace(descuento))
+            {
+                double porcentajeDescuento = double.Parse(descuento);
+                // Si el descuento es mayor a 1, asumimos que viene como porcentaje (ej: 10 para 10%)
+                // y lo convertimos a decimal (0.10)
+                if (porcentajeDescuento > 1)
+                {
+                    porcentajeDescuento = porcentajeDescuento / 100.0;
+                }
+
+                // Validar que el descuento esté entre 0% y 100%
+                if (porcentajeDescuento >= 0 && porcentajeDescuento <= 1)
+                {
+                    double descuentoMonto = SubTotal * porcentajeDescuento;
+                    this.Descuento = descuentoMonto.ToString("F2"); // Guarda el monto del descuento
+                    SubTotal -= descuentoMonto;
+                }
+                else
+                {
+                    this.Descuento = "No aplica";
+                }
+            }
         }
 
         public void EmitirFactura()

@@ -47,6 +47,8 @@
             this.lblCedula = new System.Windows.Forms.Label();
             this.lblIdCliente = new System.Windows.Forms.Label();
             this.groupBoxEvento = new System.Windows.Forms.GroupBox();
+            this.txtReservaFecha = new System.Windows.Forms.TextBox();
+            this.lblReservaFecha = new System.Windows.Forms.Label();
             this.txtEstadoEvento = new System.Windows.Forms.TextBox();
             this.cmbIdEvento = new System.Windows.Forms.ComboBox();
             this.btnBuscarEvento = new System.Windows.Forms.Button();
@@ -92,8 +94,6 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblReservaFecha = new System.Windows.Forms.Label();
-            this.txtReservaFecha = new System.Windows.Forms.TextBox();
             this.groupBoxCliente.SuspendLayout();
             this.groupBoxEvento.SuspendLayout();
             this.groupBoxFactura.SuspendLayout();
@@ -201,6 +201,7 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(145, 22);
             this.txtCedula.TabIndex = 9;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // txtIdCliente
             // 
@@ -316,6 +317,25 @@
             this.groupBoxEvento.TabIndex = 1;
             this.groupBoxEvento.TabStop = false;
             this.groupBoxEvento.Text = "Información del Evento";
+            // 
+            // txtReservaFecha
+            // 
+            this.txtReservaFecha.Location = new System.Drawing.Point(410, 231);
+            this.txtReservaFecha.Margin = new System.Windows.Forms.Padding(4);
+            this.txtReservaFecha.Name = "txtReservaFecha";
+            this.txtReservaFecha.ReadOnly = true;
+            this.txtReservaFecha.Size = new System.Drawing.Size(202, 22);
+            this.txtReservaFecha.TabIndex = 16;
+            // 
+            // lblReservaFecha
+            // 
+            this.lblReservaFecha.AutoSize = true;
+            this.lblReservaFecha.Location = new System.Drawing.Point(330, 234);
+            this.lblReservaFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblReservaFecha.Name = "lblReservaFecha";
+            this.lblReservaFecha.Size = new System.Drawing.Size(62, 16);
+            this.lblReservaFecha.TabIndex = 15;
+            this.lblReservaFecha.Text = "Reserva:";
             // 
             // txtEstadoEvento
             // 
@@ -508,6 +528,7 @@
             this.txtDescuento.TabIndex = 13;
             this.txtDescuento.Text = "0.00";
             this.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // txtSubtotal
             // 
@@ -796,25 +817,6 @@
             this.lblTitulo.Size = new System.Drawing.Size(310, 31);
             this.lblTitulo.TabIndex = 11;
             this.lblTitulo.Text = "Módulo de Facturación";
-            // 
-            // lblReservaFecha
-            // 
-            this.lblReservaFecha.AutoSize = true;
-            this.lblReservaFecha.Location = new System.Drawing.Point(330, 234);
-            this.lblReservaFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblReservaFecha.Name = "lblReservaFecha";
-            this.lblReservaFecha.Size = new System.Drawing.Size(62, 16);
-            this.lblReservaFecha.TabIndex = 15;
-            this.lblReservaFecha.Text = "Reserva:";
-            // 
-            // txtReservaFecha
-            // 
-            this.txtReservaFecha.Location = new System.Drawing.Point(410, 231);
-            this.txtReservaFecha.Margin = new System.Windows.Forms.Padding(4);
-            this.txtReservaFecha.Name = "txtReservaFecha";
-            this.txtReservaFecha.ReadOnly = true;
-            this.txtReservaFecha.Size = new System.Drawing.Size(202, 22);
-            this.txtReservaFecha.TabIndex = 16;
             // 
             // FrmRegistroFactura
             // 

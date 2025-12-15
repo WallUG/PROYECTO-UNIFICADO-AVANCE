@@ -272,7 +272,7 @@ namespace Controlador
             return $"{est}-{pto}-{sec}";
         }
 
-        public void generarFactura(GroupBox groupBoxFactura, int idEvento)
+        public void generarFactura(GroupBox groupBoxFactura, int idEvento, string descuento)
         {
             Factura factura = null;
 
@@ -286,6 +286,11 @@ namespace Controlador
                     {
                         if (fac.Evento.IdEvento == idEvento)
                         {
+                            if(fac.Estado == "Anulada")
+                            {
+                                facturaExiste = false;
+                                break;
+                            }
                             facturaExiste = true;
                             break; // Salir del bucle una vez encontrada
                         }
@@ -302,7 +307,8 @@ namespace Controlador
                         int nuevoIndice = listaFacturas.Count + 1;
                         factura = new Factura(nuevoIndice, item);
                         listaFacturas.Add(factura);
-                        factura.GenerarFactura();
+                        MessageBox.Show("Descuento de: " + descuento);
+                        factura.GenerarFactura(descuento);
                         factura.IdFactura = GenerarNumeroFacturaAuto(listaFacturas, 1, nuevoIndice);
                     }
 
@@ -330,6 +336,9 @@ namespace Controlador
                                     break;
                                 case "txtEstadoFactura":
                                     txt.Text = factura.Estado;
+                                    break;
+                                case "txtDescuento":
+                                    txt.Text = factura.Descuento;
                                     break;
                             }
                         }

@@ -74,7 +74,7 @@ namespace Vista
             }
             else
             {
-                adm.generarFactura(groupBoxFactura, Convert.ToInt16(cmbIdEvento.SelectedItem));
+                adm.generarFactura(groupBoxFactura, Convert.ToInt16(cmbIdEvento.SelectedItem), txtDescuento.Text.Trim());
             }
         }
 
