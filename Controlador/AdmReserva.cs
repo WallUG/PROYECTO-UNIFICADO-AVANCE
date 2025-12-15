@@ -93,10 +93,23 @@ namespace Controlador
             if (string.IsNullOrEmpty(cliente) ||string.IsNullOrEmpty(nombEvent) || string.IsNullOrEmpty(tipEvents) ||string.IsNullOrEmpty(tipSolicitudd))
             {
                 MessageBox.Show("Error: Se necesita todos los campos llenos");
-                return true;  // TRUE significa que SÍ hay campos vacíos
+                return true;  // TRUE significa que Si hay campos vacíos
             }
 
-            return false;  // FALSE significa que NO hay campos vacíos (todo está lleno)
+            return false;  // FALSE significa que No hay campos vacíos (todo está lleno)
+        }
+        // Método para verificar si ya existe una reserva en una fecha específica
+        public bool ExisteReservaEnFecha(DateTime fecha)
+        {
+            foreach (Reserva reserva in listaReservas)
+            {
+                // Comparar solo la fecha, sin la hora
+                if (reserva.FechaReserva.Date == fecha.Date)
+                {
+                    return true; // Ya existe una reserva en esa fecha
+                }
+            }
+            return false; // No existe reserva en esa fecha
         }
 
 
@@ -109,13 +122,13 @@ namespace Controlador
             {
                 return "Error...La hora de inicio debe ser antes de la hora de fin";
             }
-            // PASO 2: Crear un nuevo objeto Reserva vacío
+            
             Reserva nuevaReserva = new Reserva();
 
             nuevaReserva.evento = even;
             nuevaReserva.FechaReserva = fecha;
-            // IMPORTANTE: horaIni y horaFin son DateTime, pero necesitamos TimeSpan
-            // .TimeOfDay convierte DateTime a TimeSpan (solo la hora, sin la fecha)
+            
+            
             nuevaReserva.HoraInicio = horaIni.TimeOfDay;
             nuevaReserva.HoraFin = horaFin.TimeOfDay;
             nuevaReserva.TipoSolicitud = tipSolicitud;
@@ -131,14 +144,13 @@ namespace Controlador
             {
                 int indice = 0;
 
-                // PASO 3: Recorrer cada reserva de la lista
+                
                 foreach (Reserva r in listaReservas)
                 {
-                    // Agregar una nueva fila vacía y obtener su índice
+                    
                     indice = dgvReservas.Rows.Add();
 
-                    // IMPORTANTE: Los nombres de las columnas deben coincidir EXACTAMENTE
-                    // con los nombres que están en el Designer (colNro, colCliente, etc.)
+                    
                     dgvReservas.Rows[indice].Cells["colNro"].Value = indice + 1;
                     dgvReservas.Rows[indice].Cells["colCliente"].Value = r.evento.Cliente;
                     dgvReservas.Rows[indice].Cells["colNombreEvento"].Value = r.evento.NombreEvento;
