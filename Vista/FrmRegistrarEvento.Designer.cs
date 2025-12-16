@@ -89,10 +89,10 @@
             this.cmbTipoEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoEvento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTipoEvento.FormattingEnabled = true;
-            this.cmbTipoEvento.Location = new System.Drawing.Point(200, 53);
+            this.cmbTipoEvento.Location = new System.Drawing.Point(198, 50);
             this.cmbTipoEvento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbTipoEvento.Name = "cmbTipoEvento";
-            this.cmbTipoEvento.Size = new System.Drawing.Size(281, 27);
+            this.cmbTipoEvento.Size = new System.Drawing.Size(309, 27);
             this.cmbTipoEvento.TabIndex = 6;
             this.cmbTipoEvento.SelectedIndexChanged += new System.EventHandler(this.cmbTipoEvento_SelectedIndexChanged);
             // 
@@ -101,7 +101,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(22, 163);
+            this.label5.Location = new System.Drawing.Point(22, 134);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 19);
             this.label5.TabIndex = 8;
@@ -110,11 +110,11 @@
             // txtNombreEvento
             // 
             this.txtNombreEvento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreEvento.Location = new System.Drawing.Point(200, 163);
+            this.txtNombreEvento.Location = new System.Drawing.Point(198, 131);
             this.txtNombreEvento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNombreEvento.MaxLength = 100;
             this.txtNombreEvento.Name = "txtNombreEvento";
-            this.txtNombreEvento.Size = new System.Drawing.Size(279, 27);
+            this.txtNombreEvento.Size = new System.Drawing.Size(309, 27);
             this.txtNombreEvento.TabIndex = 9;
             this.txtNombreEvento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreEvento_KeyPress);
             // 
@@ -124,7 +124,7 @@
             this.label6.BackColor = System.Drawing.SystemColors.Control;
             this.label6.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(22, 226);
+            this.label6.Location = new System.Drawing.Point(22, 179);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 19);
             this.label6.TabIndex = 10;
@@ -133,12 +133,12 @@
             // txtDescripcionEvento
             // 
             this.txtDescripcionEvento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcionEvento.Location = new System.Drawing.Point(200, 226);
+            this.txtDescripcionEvento.Location = new System.Drawing.Point(200, 179);
             this.txtDescripcionEvento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDescripcionEvento.MaxLength = 100;
             this.txtDescripcionEvento.Multiline = true;
             this.txtDescripcionEvento.Name = "txtDescripcionEvento";
-            this.txtDescripcionEvento.Size = new System.Drawing.Size(281, 66);
+            this.txtDescripcionEvento.Size = new System.Drawing.Size(307, 66);
             this.txtDescripcionEvento.TabIndex = 11;
             this.txtDescripcionEvento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreEvento_KeyPress);
             // 
@@ -147,7 +147,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(22, 320);
+            this.label7.Location = new System.Drawing.Point(22, 264);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(166, 19);
             this.label7.TabIndex = 12;
@@ -158,7 +158,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(29, 454);
+            this.label8.Location = new System.Drawing.Point(22, 435);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 19);
             this.label8.TabIndex = 14;
@@ -183,10 +183,10 @@
             this.cmbEstadoEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstadoEvento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEstadoEvento.FormattingEnabled = true;
-            this.cmbEstadoEvento.Location = new System.Drawing.Point(198, 454);
+            this.cmbEstadoEvento.Location = new System.Drawing.Point(198, 432);
             this.cmbEstadoEvento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbEstadoEvento.Name = "cmbEstadoEvento";
-            this.cmbEstadoEvento.Size = new System.Drawing.Size(281, 27);
+            this.cmbEstadoEvento.Size = new System.Drawing.Size(309, 27);
             this.cmbEstadoEvento.TabIndex = 18;
             // 
             // gbCreacionEvento
@@ -206,7 +206,7 @@
             this.gbCreacionEvento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCreacionEvento.Location = new System.Drawing.Point(39, 256);
             this.gbCreacionEvento.Name = "gbCreacionEvento";
-            this.gbCreacionEvento.Size = new System.Drawing.Size(527, 574);
+            this.gbCreacionEvento.Size = new System.Drawing.Size(527, 549);
             this.gbCreacionEvento.TabIndex = 20;
             this.gbCreacionEvento.TabStop = false;
             this.gbCreacionEvento.Text = "Creación del Evento";
@@ -214,23 +214,23 @@
             // txtNumPersonasEvento
             // 
             this.txtNumPersonasEvento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumPersonasEvento.Location = new System.Drawing.Point(202, 317);
+            this.txtNumPersonasEvento.Location = new System.Drawing.Point(200, 261);
             this.txtNumPersonasEvento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNumPersonasEvento.MaxLength = 5000;
             this.txtNumPersonasEvento.Name = "txtNumPersonasEvento";
-            this.txtNumPersonasEvento.Size = new System.Drawing.Size(97, 27);
+            this.txtNumPersonasEvento.Size = new System.Drawing.Size(120, 27);
             this.txtNumPersonasEvento.TabIndex = 21;
             this.txtNumPersonasEvento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumPersonasEvento_KeyPress);
             // 
             // txtbDireccionUbicacion
             // 
             this.txtbDireccionUbicacion.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbDireccionUbicacion.Location = new System.Drawing.Point(198, 371);
+            this.txtbDireccionUbicacion.Location = new System.Drawing.Point(200, 331);
             this.txtbDireccionUbicacion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtbDireccionUbicacion.MaxLength = 100;
             this.txtbDireccionUbicacion.Multiline = true;
             this.txtbDireccionUbicacion.Name = "txtbDireccionUbicacion";
-            this.txtbDireccionUbicacion.Size = new System.Drawing.Size(281, 66);
+            this.txtbDireccionUbicacion.Size = new System.Drawing.Size(307, 66);
             this.txtbDireccionUbicacion.TabIndex = 20;
             this.txtbDireccionUbicacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreEvento_KeyPress);
             // 
@@ -239,7 +239,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(22, 371);
+            this.label16.Location = new System.Drawing.Point(22, 334);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(163, 19);
             this.label16.TabIndex = 19;
@@ -518,7 +518,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1310, 852);
+            this.ClientSize = new System.Drawing.Size(1310, 836);
             this.Controls.Add(this.gbInformacionCliente);
             this.Controls.Add(this.gbBuscarCliente);
             this.Controls.Add(this.btnGuardarEvento);

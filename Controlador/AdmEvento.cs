@@ -28,7 +28,14 @@ namespace Controlador
         // Método para obtener un Eventos
         public static Evento ObtenerEventoPorId(int id)
         {
-            return eventos.Find(v => v.IdEvento == id);
+            for (int i = 0; i < eventos.Count; i++)
+            {
+                if (eventos[i].IdEvento == id)
+                {
+                    return eventos[i];
+                }
+            }
+            return null;
         }
 
         // Método para obtener todos
@@ -287,22 +294,35 @@ namespace Controlador
             int cantidadInmueble, 
             DateTime fechaAsignacion)
         {
-            // Paso 2: rellenar tabla con inmuebles por tipo
-            Inmueble inmuebleSeleccionado = null;
-            List<Inmueble> listaInmueble = AdmInmueble.ObtenerTodosLosInmuebles();
-            foreach (Inmueble inm in listaInmueble)
+            // Crear una copia de la lista de inmuebles seleccionados para el evento
+            List<EventoInmueble> listaInmueblesEvento = new List<EventoInmueble>();
+            for (int i = 0; i < listaEventoInmueble.Count; i++)
             {
-                if (inm.tipoInmueble == tipoInmueble)
-                {
-                    inmuebleSeleccionado = inm;
-                    break;
-                }
+                EventoInmueble copia = new EventoInmueble();
+                copia.inmueble = listaEventoInmueble[i].inmueble;
+                copia.cantidadInmueble = listaEventoInmueble[i].cantidadInmueble;
+                copia.fechaAsignacionInmueble = listaEventoInmueble[i].fechaAsignacionInmueble;
+                listaInmueblesEvento.Add(copia);
             }
 
-            evento = new Evento(eventos.Count + 1, cliente, tipoEvento, nombreEvento, direccionEvento, numPersonas, direccionEvento, estadoEvento, listaEventoInmueble);
+            // Crear el evento con todos los parámetros correctos
+            evento = new Evento(
+                idEvento, 
+                cliente, 
+                tipoEvento, 
+                nombreEvento, 
+                descEvento,  // descripción del evento (estaba pasando direccionEvento dos veces)
+                numPersonas, 
+                direccionEvento, 
+                estadoEvento, 
+                listaInmueblesEvento
+            );
 
-            // Paso 6: Agregar evento a la lista
+            // Agregar evento a la lista estática
             eventos.Add(evento);
+
+            // Limpiar la lista de inmuebles seleccionados para el próximo evento
+            listaEventoInmueble.Clear();
             
             return evento.mostrarEvento();
         }
@@ -316,8 +336,9 @@ namespace Controlador
             if (eventos.Count > 0)
             {
                 // Recorrer cada evento y agregarlo al DataGridView
-                foreach (Evento e in eventos)
+                for (int i = 0; i < eventos.Count; i++)
                 {
+                    Evento e = eventos[i];
                     int indice = dgvEvento.Rows.Add();
                     dgvEvento.Rows[indice].Cells["colId"].Value = e.IdEvento;
                     dgvEvento.Rows[indice].Cells["colTipoEvento"].Value = e.TipoEvento;
@@ -335,15 +356,19 @@ namespace Controlador
             // Limpiar filas existentes
             dgvInmuebles.Rows.Clear();
 
-            if(listaInmuebles.Count == 0)
+            // Obtener la lista actualizada de inmuebles
+            List<Inmueble> listaActual = AdmInmueble.ObtenerTodosLosInmuebles();
+
+            if(listaActual.Count == 0)
             {
                 MessageBox.Show("No hay inmuebles registrados en el sistema.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // Recorrer cada evento y agregarlo al DataGridView
-            foreach (Inmueble inm in listaInmuebles)
+            // Recorrer cada inmueble y agregarlo al DataGridView
+            for (int i = 0; i < listaActual.Count; i++)
             {
+                Inmueble inm = listaActual[i];
                 if(inm.tipoInmueble == filtro)
                 {
                     int indice = dgvInmuebles.Rows.Add();
@@ -360,18 +385,16 @@ namespace Controlador
             Inmueble inmueble = AdmInmueble.ObtenerInmueblePorId(v);
             if (inmueble != null)
             {
-                EventoInmueble eventoInmueble = new EventoInmueble
-                {
-                    inmueble = inmueble,
-                    cantidadInmueble = cantidadAsignada,
-                    fechaAsignacionInmueble = fechaAsignacion
-                };
-                MessageBox.Show("Inmueble agregado: " + inmueble.nombreInmueble);
+                EventoInmueble eventoInmueble = new EventoInmueble();
+                eventoInmueble.inmueble = inmueble;
+                eventoInmueble.cantidadInmueble = cantidadAsignada;
+                eventoInmueble.fechaAsignacionInmueble = fechaAsignacion;
+                MessageBox.Show("Inmueble agregado: " + inmueble.nombreInmueble, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listaEventoInmueble.Add(eventoInmueble);
             }
             else
             {
-                MessageBox.Show("Inmueble no encontrado.");
+                MessageBox.Show("Inmueble no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
