@@ -79,8 +79,6 @@ namespace Vista
             // Paso 5: Deshabilitar nudCantidadInmueble al inicio con valor 1 por defecto
             nudCantidadInmueble.Enabled = false;
             nudCantidadInmueble.Minimum = 1;
-            nudCantidadInmueble.Value = 1;
-            nudCantidadInmueble.Maximum = 1;
             cantidadMaximaDisponible = 0;
 
             // Paso 6: Reiniciar fila seleccionada
@@ -193,8 +191,6 @@ namespace Vista
                 // Mantener nudCantidadInmueble deshabilitado hasta que se seleccione un inmueble
                 nudCantidadInmueble.Enabled = false;
                 nudCantidadInmueble.Minimum = 1;
-                nudCantidadInmueble.Value = 1;
-                nudCantidadInmueble.Maximum = 1;
                 cantidadMaximaDisponible = 0;
                 
                 // Habilitar botón guardar
@@ -327,8 +323,6 @@ namespace Vista
             // Limpiar datos de inmuebles
             cmbTipoInmueble.SelectedIndex = -1;
             nudCantidadInmueble.Minimum = 1;
-            nudCantidadInmueble.Value = 1;
-            nudCantidadInmueble.Maximum = 1;
             nudCantidadInmueble.Enabled = false;
             cantidadMaximaDisponible = 0;
             dtpFechaAsignacionInmueble.Value = DateTime.Now;
@@ -431,11 +425,8 @@ namespace Vista
         private void selectTipoInmueble(object sender, EventArgs e)
         {
             // Limpiar selección anterior y deshabilitar nudCantidadInmueble
-            filaSeleccionadaActual = -1;
-            nudCantidadInmueble.Enabled = false;
+            nudCantidadInmueble.Enabled = true;
             nudCantidadInmueble.Minimum = 1;
-            nudCantidadInmueble.Value = 1;
-            nudCantidadInmueble.Maximum = 1;
             cantidadMaximaDisponible = 0;
 
             admEve.LlenarDescripcionInmuebleLocales(dgvInmuebles, Convert.ToString(cmbTipoInmueble.SelectedItem));
@@ -467,17 +458,14 @@ namespace Vista
                     // Obtener la cantidad disponible del inmueble seleccionado
                     int cantidadDisponible = Convert.ToInt32(dgvInmuebles.Rows[e.RowIndex].Cells["CantidadDisp"].Value);
                     cantidadMaximaDisponible = cantidadDisponible;
-
-                    // Habilitar y configurar el nudCantidadInmueble
-                    nudCantidadInmueble.Enabled = true;
                     nudCantidadInmueble.Minimum = 1;
                     nudCantidadInmueble.Maximum = cantidadDisponible;
-                    nudCantidadInmueble.Value = 1;
+                    //nudCantidadInmueble.Value = 1;
 
                     // Agregar el inmueble seleccionado con cantidad 1 por defecto
                     int idInmueble = Convert.ToInt32(dgvInmuebles.Rows[e.RowIndex].Cells["IdInmueble"].Value);
                     DateTime fechaAsignacion = dtpFechaAsignacionInmueble.Value;
-                    admEve.ActualizarInmuebleSeleccionado(idInmueble, 1, fechaAsignacion);
+                    admEve.ActualizarInmuebleSeleccionado(idInmueble, Convert.ToInt16(nudCantidadInmueble.Value), fechaAsignacion);
 
                     MessageBox.Show("Inmueble seleccionado. Cantidad máxima disponible: " + cantidadDisponible.ToString(), 
                         "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -491,11 +479,7 @@ namespace Vista
                         int idInmueble = Convert.ToInt32(dgvInmuebles.Rows[e.RowIndex].Cells["IdInmueble"].Value);
                         admEve.EliminarInmuebleSeleccionado(idInmueble);
 
-                        // Deshabilitar nudCantidadInmueble
-                        nudCantidadInmueble.Enabled = false;
                         nudCantidadInmueble.Minimum = 1;
-                        nudCantidadInmueble.Value = 1;
-                        nudCantidadInmueble.Maximum = 1;
                         cantidadMaximaDisponible = 0;
 
                         // Reiniciar la fila seleccionada
