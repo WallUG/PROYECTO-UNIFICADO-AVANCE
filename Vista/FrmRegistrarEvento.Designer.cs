@@ -299,6 +299,7 @@
             this.dgvInmuebles.RowTemplate.Height = 24;
             this.dgvInmuebles.Size = new System.Drawing.Size(661, 274);
             this.dgvInmuebles.TabIndex = 27;
+            this.dgvInmuebles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInmuebles_CellClick);
             this.dgvInmuebles.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgInmuebles_CellValueChanged);
             this.dgvInmuebles.CurrentCellDirtyStateChanged += new System.EventHandler(this.dvgInmuebles_CurrentCellDirtyStateChanged);
             // 
@@ -399,7 +400,7 @@
             this.nudCantidadInmueble.ForeColor = System.Drawing.SystemColors.WindowText;
             this.nudCantidadInmueble.Location = new System.Drawing.Point(493, 50);
             this.nudCantidadInmueble.Maximum = new decimal(new int[] {
-            500,
+            10000,
             0,
             0,
             0});

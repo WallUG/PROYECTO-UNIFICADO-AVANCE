@@ -54,7 +54,93 @@ namespace Modelo
 
         public double CalcularMontoInmueble()
         {
-            return inmueble.precioInmueble * cantidadInmueble;
+            if (inmueble != null)
+            {
+                return inmueble.precioInmueble * cantidadInmueble;
+            }
+            return 0;
+        }
+
+        // Metodo para obtener el ID del inmueble asociado
+        public int ObtenerIdInmueble()
+        {
+            if (inmueble != null)
+            {
+                return inmueble.idInmueble;
+            }
+            return 0;
+        }
+
+        // Metodo para obtener el nombre del inmueble asociado
+        public string ObtenerNombreInmueble()
+        {
+            if (inmueble != null)
+            {
+                return inmueble.nombreInmueble;
+            }
+            return "";
+        }
+
+        // Metodo para obtener la cantidad disponible del inmueble asociado
+        public int ObtenerCantidadDisponibleInmueble()
+        {
+            if (inmueble != null)
+            {
+                return inmueble.cantidadInmuebleDisponible;
+            }
+            return 0;
+        }
+
+        // Metodo para obtener el tipo del inmueble asociado
+        public string ObtenerTipoInmueble()
+        {
+            if (inmueble != null)
+            {
+                return inmueble.tipoInmueble;
+            }
+            return "";
+        }
+
+        // Metodo para obtener el precio del inmueble asociado
+        public double ObtenerPrecioInmueble()
+        {
+            if (inmueble != null)
+            {
+                return inmueble.precioInmueble;
+            }
+            return 0;
+        }
+
+        // Metodo para verificar si el inmueble esta disponible
+        public bool EstaDisponible()
+        {
+            if (inmueble != null)
+            {
+                return inmueble.inmuebleDisponible;
+            }
+            return false;
+        }
+
+        // Metodo para verificar si la cantidad a asignar es valida (menor o igual a la disponible)
+        public bool EsCantidadValida(int cantidadSolicitada)
+        {
+            if (inmueble != null)
+            {
+                return cantidadSolicitada > 0 && cantidadSolicitada <= inmueble.cantidadInmuebleDisponible;
+            }
+            return false;
+        }
+
+        // Metodo para actualizar la cantidad asignada
+        public void ActualizarCantidadAsignada(int nuevaCantidad)
+        {
+            cantidadInmueble = nuevaCantidad;
+        }
+
+        // Metodo para actualizar la fecha de asignacion
+        public void ActualizarFechaAsignacion(DateTime nuevaFecha)
+        {
+            fechaAsignacionInmueble = nuevaFecha;
         }
     }
 }

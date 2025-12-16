@@ -33,7 +33,6 @@ namespace Modelo
             DireccionEvento = direccionEvento;
             EstadoEvento = estadoEvento;
             EventoInmueble = eventoInmueble;
-
         }
         
         public string ObtenerNombreCliente()
@@ -50,9 +49,9 @@ namespace Modelo
             int total = 0;
             if (EventoInmueble != null)
             {
-                foreach (EventoInmueble ei in EventoInmueble)
+                for (int i = 0; i < EventoInmueble.Count; i++)
                 {
-                    total = total + ei.cantidadInmueble;
+                    total = total + EventoInmueble[i].cantidadInmueble;
                 }
             }
             return total;
@@ -70,6 +69,21 @@ namespace Modelo
             info.AppendLine("Número de Personas: " + NumPersonasEvento.ToString());
             info.AppendLine("Dirección: " + DireccionEvento);
             info.AppendLine("Estado: " + EstadoEvento);
+            
+            // Mostrar información de inmuebles asignados
+            if (EventoInmueble != null && EventoInmueble.Count > 0)
+            {
+                info.AppendLine("=== INMUEBLES ASIGNADOS ===");
+                for (int i = 0; i < EventoInmueble.Count; i++)
+                {
+                    EventoInmueble ei = EventoInmueble[i];
+                    if (ei.inmueble != null)
+                    {
+                        info.AppendLine("Inmueble: " + ei.inmueble.nombreInmueble + " - Cantidad: " + ei.cantidadInmueble.ToString());
+                    }
+                }
+            }
+            
             return info.ToString();
         }
     }
