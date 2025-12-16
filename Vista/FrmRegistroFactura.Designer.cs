@@ -148,20 +148,20 @@
             // 
             // txtCorreoCliente
             // 
-            this.txtCorreoCliente.Location = new System.Drawing.Point(160, 192);
+            this.txtCorreoCliente.Location = new System.Drawing.Point(160, 164);
             this.txtCorreoCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreoCliente.Name = "txtCorreoCliente";
             this.txtCorreoCliente.ReadOnly = true;
-            this.txtCorreoCliente.Size = new System.Drawing.Size(452, 22);
+            this.txtCorreoCliente.Size = new System.Drawing.Size(265, 22);
             this.txtCorreoCliente.TabIndex = 14;
             // 
             // txtTelefonoCliente
             // 
-            this.txtTelefonoCliente.Location = new System.Drawing.Point(160, 160);
+            this.txtTelefonoCliente.Location = new System.Drawing.Point(160, 192);
             this.txtTelefonoCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefonoCliente.Name = "txtTelefonoCliente";
             this.txtTelefonoCliente.ReadOnly = true;
-            this.txtTelefonoCliente.Size = new System.Drawing.Size(265, 22);
+            this.txtTelefonoCliente.Size = new System.Drawing.Size(452, 22);
             this.txtTelefonoCliente.TabIndex = 13;
             // 
             // txtApellidoCliente
