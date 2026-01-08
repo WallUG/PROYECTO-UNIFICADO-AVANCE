@@ -64,6 +64,12 @@
     <Compile Include="FrmEliminarFactura.Designer.cs">
       <DependentUpon>FrmEliminarFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEliminarInmueble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEliminarInmueble.Designer.cs">
+      <DependentUpon>FrmEliminarInmueble.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
