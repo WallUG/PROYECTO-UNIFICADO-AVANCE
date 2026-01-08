@@ -15,6 +15,8 @@ namespace Visual
     public partial class FrmMenu : Form
     {
         AdmFactura admFactura = new AdmFactura();
+        AdmInmueble admInmueble = new AdmInmueble();
+
         public FrmMenu()
         {
             InitializeComponent();
@@ -39,23 +41,49 @@ namespace Visual
             frmLisCliente.ShowDialog();
         }
 
-        //INMUEBLE
+
+
+        //INMUEBLE REGISTRAR
         private void mniRegistrarInmueble_Click(object sender, EventArgs e)
         {
-            //Inmueble
+      
             FrmRegistroInmueble registroInmueble = new FrmRegistroInmueble();
             registroInmueble.ShowDialog();
         }
 
+        //INMUEBLE LISTAR
         private void mniListarInmueble_Click(object sender, EventArgs e)
         {
-            //Inmueble
+
+            if (admInmueble.GetCantidadLista() < 0)
+            {
+                MessageBox.Show("No hay inmuebles registradas para listar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             FrmListarInmueble frmLisInmueble = new FrmListarInmueble();
             frmLisInmueble.ShowDialog();
+
         }
+
+        //ELIMINAR INMUEBLE
+        private void mniEliminarInmueble_Click(object sender, EventArgs e)
+        {
+            if (admInmueble.GetCantidadLista() > 0)
+            {
+                FrmEliminarInmueble frmEliminarInmueble = new FrmEliminarInmueble();
+                frmEliminarInmueble.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay inmuebles registradas para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
 
         private void mniListarFactura_Click(object sender, EventArgs e)
         {
+
             FrmListarFactura frmLisFactura = new FrmListarFactura();
             frmLisFactura.ShowDialog();
         }
@@ -116,5 +144,7 @@ namespace Visual
                 MessageBox.Show("No hay facturas registradas para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+
     }
 }

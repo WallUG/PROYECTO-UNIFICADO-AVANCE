@@ -95,7 +95,7 @@ namespace Modelo
         public void GenerarFactura(string descuento)
         {
             FechaEmision = DateTime.Now;
-            GenerarDetallesFactura(); // Generar detalles automáticamente
+            GenerarDetallesFactura(); // Generar detalles automï¿½ticamente
             CalcularSubTotal();
             AplicarDescuento(descuento);
             CalcularIVA();
@@ -116,7 +116,7 @@ namespace Modelo
                         porcentajeDescuento = porcentajeDescuento / 100.0;
                     }
 
-                    // Validar que el descuento esté entre 0% y 100%
+                    // Validar que el descuento estï¿½ entre 0% y 100%
                     if (porcentajeDescuento >= 0 && porcentajeDescuento <= 1)
                     {
                         double descuentoMonto = SubTotal * porcentajeDescuento;

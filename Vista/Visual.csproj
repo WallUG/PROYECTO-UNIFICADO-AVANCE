@@ -147,6 +147,9 @@
     <EmbeddedResource Include="FrmEliminarFactura.resx">
       <DependentUpon>FrmEliminarFactura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEliminarInmueble.resx">
+      <DependentUpon>FrmEliminarInmueble.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListarCliente.resx">
       <DependentUpon>FrmListarCliente.cs</DependentUpon>
     </EmbeddedResource>

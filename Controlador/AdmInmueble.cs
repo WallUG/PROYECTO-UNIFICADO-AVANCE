@@ -99,6 +99,53 @@ namespace Controlador
             }
         }
 
+        // Método para obtener la cantidad de inmuebles en la lista
+        public int GetCantidadLista()
+        {
+            return inmuebleL.Count;
+        }
+
+        //Eliminar Inmueble (Visual)
+        public void EliminarInmueble(int indice, DataGridView dvgInmueble)
+        {
+            int idInmueble = Convert.ToInt32(dvgInmueble.Rows[indice].Cells["colID"].Value);
+            DialogResult resultado = MessageBox.Show("¿Está seguro de que desea eliminar el inmueble seleccionado?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (resultado == DialogResult.Yes)
+            {
+                for (int i = 0; i < inmuebleL.Count; i++)
+                {
+                    if (inmuebleL[i].idInmueble == idInmueble)
+                    {
+                        inmuebleL.RemoveAt(i);
+                        MessageBox.Show("Inmueble eliminado correctamente.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         //CONSOLA
