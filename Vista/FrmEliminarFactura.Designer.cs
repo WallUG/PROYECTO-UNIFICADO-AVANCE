@@ -72,7 +72,6 @@
             this.dgvFacturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFacturas.Size = new System.Drawing.Size(1346, 350);
             this.dgvFacturas.TabIndex = 1;
-            this.dgvFacturas.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // Nro
             // 
@@ -169,6 +168,7 @@
             this.btnActualizar.TabIndex = 5;
             this.btnActualizar.Text = "Eliminar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // FrmEliminarFactura
             // 
