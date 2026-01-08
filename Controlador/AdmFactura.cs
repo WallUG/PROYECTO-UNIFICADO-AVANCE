@@ -206,7 +206,7 @@ namespace Controlador
         {
             //dgvDocentes.DataSource=lista;
             int indice = 0;
-            //dgvDetallesFactura.Rows.Clear();
+            dgvDetallesFactura.Rows.Clear();
             foreach (Evento item in listaEvento)
             {
                 if (item.IdEvento == idEvento) {
@@ -229,11 +229,11 @@ namespace Controlador
             dgvFacturas.Rows.Clear();
             int indice = 0;
 
-            if (listaFacturas.Count == 0)
-            {
-                MessageBox.Show("No hay facturas registradas en el sistema.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+            //if (listaFacturas.Count == 0)
+            //{
+            //    MessageBox.Show("No hay facturas registradas en el sistema.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return;
+            //}
 
             foreach (Factura factura in listaFacturas)
             {
@@ -461,19 +461,67 @@ namespace Controlador
 
         public void EliminarFactura(int indice, DataGridView dvgFacturas)
         {
-            int idFactura = Convert.ToInt32(dvgFacturas.Rows[indice].Cells["colIdFactura"].Value);
+            string idFactura = dvgFacturas.Rows[indice].Cells["colIdFactura"].Value.ToString();
             DialogResult resultado = MessageBox.Show("¿Está seguro de que desea eliminar la factura seleccionada?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (resultado == DialogResult.Yes)
             {
                 for (int i = 0; i < listaFacturas.Count; i++)
                 {
-                    if (listaFacturas[i].NumeroFactura == idFactura)
+                    if (listaFacturas[i].IdFactura == idFactura)
                     {
                         listaFacturas.RemoveAt(i);
                         MessageBox.Show("Factura eliminada correctamente.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
+                }
+            }
+        }
+
+        public void limpiarDatos(GroupBox groupBoxFactura)
+        {
+            foreach (Control c in groupBoxFactura.Controls)
+            {
+                if (c is TextBox txt)
+                {
+                    txt.Clear();
+                }
+                if (c is DateTimePicker dtp)
+                {
+                    dtp.Value = DateTime.Now;
+                }
+                if(c is Button btn)
+                {
+                    btn.Enabled = true;
+                }
+            }
+        }
+
+        public void limpiarDatos(GroupBox groupBoxEvento, GroupBox groupBoxFactura, GroupBox groupBoxDetalles)
+        {
+            foreach (Control c in groupBoxEvento.Controls)
+            {
+                if (c is TextBox txt)
+                {
+                    txt.Clear();
+                }
+            }
+            foreach (Control c in groupBoxFactura.Controls)
+            {
+                if (c is TextBox txt)
+                {
+                    txt.Clear();
+                }
+                if (c is DateTimePicker dtp)
+                {
+                    dtp.Value = DateTime.Now;
+                }
+            }
+            foreach (Control c in groupBoxDetalles.Controls)
+            {
+                if (c is DataGridView dgv)
+                {
+                    dgv.Rows.Clear();
                 }
             }
         }

@@ -28,6 +28,7 @@ namespace Vista
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             adm.BuscarCliente(cmbIdEvento, groupBoxCliente, txtCedula.Text);
+            adm.limpiarDatos(groupBoxEvento, groupBoxFactura, groupBoxDetalles);
             btnGuardar.Enabled = true;
         }
 
@@ -46,6 +47,8 @@ namespace Vista
             else
             {
                 adm.cargarEventoPorId(groupBoxEvento, dgvDetallesFactura, Convert.ToInt16(cmbIdEvento.SelectedItem));
+                adm.limpiarDatos(groupBoxFactura);
+                //btnGuardar.Enabled = true;
             }
         }
 

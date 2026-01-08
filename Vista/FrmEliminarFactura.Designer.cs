@@ -179,6 +179,7 @@
             this.Controls.Add(this.txtTituloVentana);
             this.Controls.Add(this.dgvFacturas);
             this.Name = "FrmEliminarFactura";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEliminarFactura";
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).EndInit();
             this.ResumeLayout(false);

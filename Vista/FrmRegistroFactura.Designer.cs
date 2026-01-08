@@ -64,6 +64,7 @@
             this.lblIdEvento = new System.Windows.Forms.Label();
             this.groupBoxFactura = new System.Windows.Forms.GroupBox();
             this.txtEstadoFactura = new System.Windows.Forms.TextBox();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.lblEstadoFactura = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.txtDescuento = new System.Windows.Forms.TextBox();
@@ -89,7 +90,6 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEmitirFactura = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.groupBoxCliente.SuspendLayout();
             this.groupBoxEvento.SuspendLayout();
@@ -462,7 +462,11 @@
             // groupBoxFactura
             // 
             this.groupBoxFactura.Controls.Add(this.txtEstadoFactura);
+            this.groupBoxFactura.Controls.Add(this.btnEmitirFactura);
+            this.groupBoxFactura.Controls.Add(this.btnAnular);
+            this.groupBoxFactura.Controls.Add(this.btnCerrar);
             this.groupBoxFactura.Controls.Add(this.lblEstadoFactura);
+            this.groupBoxFactura.Controls.Add(this.btnGuardar);
             this.groupBoxFactura.Controls.Add(this.txtTotal);
             this.groupBoxFactura.Controls.Add(this.txtDescuento);
             this.groupBoxFactura.Controls.Add(this.txtSubtotal);
@@ -481,7 +485,7 @@
             this.groupBoxFactura.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxFactura.Name = "groupBoxFactura";
             this.groupBoxFactura.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxFactura.Size = new System.Drawing.Size(640, 271);
+            this.groupBoxFactura.Size = new System.Drawing.Size(656, 357);
             this.groupBoxFactura.TabIndex = 2;
             this.groupBoxFactura.TabStop = false;
             this.groupBoxFactura.Text = "Información de la Factura";
@@ -494,6 +498,17 @@
             this.txtEstadoFactura.ReadOnly = true;
             this.txtEstadoFactura.Size = new System.Drawing.Size(132, 22);
             this.txtEstadoFactura.TabIndex = 17;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(512, 305);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(120, 37);
+            this.btnCerrar.TabIndex = 10;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // lblEstadoFactura
             // 
@@ -729,18 +744,18 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(39, 662);
+            this.btnGuardar.Location = new System.Drawing.Point(36, 305);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(120, 37);
             this.btnGuardar.TabIndex = 5;
-            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Text = "Generar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnEmitirFactura
             // 
-            this.btnEmitirFactura.Location = new System.Drawing.Point(377, 662);
+            this.btnEmitirFactura.Location = new System.Drawing.Point(353, 305);
             this.btnEmitirFactura.Margin = new System.Windows.Forms.Padding(4);
             this.btnEmitirFactura.Name = "btnEmitirFactura";
             this.btnEmitirFactura.Size = new System.Drawing.Size(120, 37);
@@ -751,7 +766,7 @@
             // 
             // btnAnular
             // 
-            this.btnAnular.Location = new System.Drawing.Point(213, 662);
+            this.btnAnular.Location = new System.Drawing.Point(198, 305);
             this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(120, 37);
@@ -759,17 +774,6 @@
             this.btnAnular.Text = "Anular";
             this.btnAnular.UseVisualStyleBackColor = true;
             this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Location = new System.Drawing.Point(536, 640);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(120, 81);
-            this.btnCerrar.TabIndex = 10;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // lblTitulo
             // 
@@ -788,10 +792,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1339, 740);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.btnAnular);
-            this.Controls.Add(this.btnEmitirFactura);
-            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBoxDetalles);
             this.Controls.Add(this.groupBoxFactura);
             this.Controls.Add(this.groupBoxEvento);

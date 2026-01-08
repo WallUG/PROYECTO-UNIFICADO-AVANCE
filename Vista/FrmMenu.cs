@@ -83,9 +83,15 @@ namespace Visual
 
         private void mniListarFactura_Click(object sender, EventArgs e)
         {
-
-            FrmListarFactura frmLisFactura = new FrmListarFactura();
-            frmLisFactura.ShowDialog();
+            if (admFactura.GetCantidadLista() > 0)
+            {
+                FrmListarFactura frmLisFactura = new FrmListarFactura();
+                frmLisFactura.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay facturas registradas para listar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void mniAutor_Click(object sender, EventArgs e)
@@ -133,7 +139,7 @@ namespace Visual
             frmListarEvento.ShowDialog();
         }
 
-        private void mniEliminar_Click(object sender, EventArgs e)
+        private void mniEliminarFactura_Click(object sender, EventArgs e)
         {
             if(admFactura.GetCantidadLista() > 0) {
                 FrmEliminarFactura frmEliminarFactura = new FrmEliminarFactura();
@@ -144,7 +150,5 @@ namespace Visual
                 MessageBox.Show("No hay facturas registradas para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-
     }
 }
