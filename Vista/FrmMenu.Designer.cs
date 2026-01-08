@@ -276,53 +276,54 @@
             // mniRegistrar
             // 
             this.mniRegistrar.Name = "mniRegistrar";
-            this.mniRegistrar.Size = new System.Drawing.Size(151, 26);
+            this.mniRegistrar.Size = new System.Drawing.Size(224, 26);
             this.mniRegistrar.Text = "Registrar";
             this.mniRegistrar.Click += new System.EventHandler(this.mniRegistrarFactura_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(148, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(221, 6);
             // 
             // mniListar
             // 
             this.mniListar.Name = "mniListar";
-            this.mniListar.Size = new System.Drawing.Size(151, 26);
+            this.mniListar.Size = new System.Drawing.Size(224, 26);
             this.mniListar.Text = "Listar";
             this.mniListar.Click += new System.EventHandler(this.mniListarFactura_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(148, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(221, 6);
             // 
             // mniEliminar
             // 
             this.mniEliminar.Name = "mniEliminar";
-            this.mniEliminar.Size = new System.Drawing.Size(151, 26);
+            this.mniEliminar.Size = new System.Drawing.Size(224, 26);
             this.mniEliminar.Text = "Eliminar";
+            this.mniEliminar.Click += new System.EventHandler(this.mniEliminar_Click);
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(148, 6);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(221, 6);
             // 
             // mniEditar
             // 
             this.mniEditar.Name = "mniEditar";
-            this.mniEditar.Size = new System.Drawing.Size(151, 26);
+            this.mniEditar.Size = new System.Drawing.Size(224, 26);
             this.mniEditar.Text = "Editar";
             // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(148, 6);
+            this.toolStripSeparator12.Size = new System.Drawing.Size(221, 6);
             // 
             // mniSalir
             // 
             this.mniSalir.Name = "mniSalir";
-            this.mniSalir.Size = new System.Drawing.Size(151, 26);
+            this.mniSalir.Size = new System.Drawing.Size(224, 26);
             this.mniSalir.Text = "Salir";
             this.mniSalir.Click += new System.EventHandler(this.mniSalir_Click);
             // 
@@ -337,7 +338,7 @@
             // mniAutor
             // 
             this.mniAutor.Name = "mniAutor";
-            this.mniAutor.Size = new System.Drawing.Size(224, 26);
+            this.mniAutor.Size = new System.Drawing.Size(129, 26);
             this.mniAutor.Text = "Autor";
             this.mniAutor.Click += new System.EventHandler(this.mniAutor_Click);
             // 

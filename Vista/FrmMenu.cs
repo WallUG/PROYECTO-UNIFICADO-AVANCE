@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace Visual
 {
     public partial class FrmMenu : Form
     {
+        AdmFactura admFactura = new AdmFactura();
         public FrmMenu()
         {
             InitializeComponent();
@@ -101,6 +103,18 @@ namespace Visual
         {
             FrmListarEvento frmListarEvento = new FrmListarEvento();
             frmListarEvento.ShowDialog();
+        }
+
+        private void mniEliminar_Click(object sender, EventArgs e)
+        {
+            if(admFactura.GetCantidadLista() > 0) {
+                FrmEliminarFactura frmEliminarFactura = new FrmEliminarFactura();
+                frmEliminarFactura.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay facturas registradas para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

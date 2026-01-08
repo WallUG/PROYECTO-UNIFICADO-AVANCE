@@ -453,5 +453,29 @@ namespace Controlador
                 }
             }
         }
+
+        public int GetCantidadLista()
+        {
+            return listaFacturas.Count;
+        }
+
+        public void EliminarFactura(int indice, DataGridView dvgFacturas)
+        {
+            int idFactura = Convert.ToInt32(dvgFacturas.Rows[indice].Cells["colIdFactura"].Value);
+            DialogResult resultado = MessageBox.Show("¿Está seguro de que desea eliminar la factura seleccionada?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (resultado == DialogResult.Yes)
+            {
+                for (int i = 0; i < listaFacturas.Count; i++)
+                {
+                    if (listaFacturas[i].NumeroFactura == idFactura)
+                    {
+                        listaFacturas.RemoveAt(i);
+                        MessageBox.Show("Factura eliminada correctamente.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+            }
+        }
     }
 }
