@@ -235,7 +235,7 @@ namespace Controlador
             foreach (Factura factura in listaFacturas)
             {
                 dgvFacturas.Rows.Add();
-                dgvFacturas.Rows[indice].Cells["Nro"].Value = indice;
+                dgvFacturas.Rows[indice].Cells["Nro"].Value = indice+1;
                 dgvFacturas.Rows[indice].Cells["colNumeroFactura"].Value = factura.NumeroFactura;
                 dgvFacturas.Rows[indice].Cells["colCliente"].Value = 
                     factura.Evento.Cliente.Nombre + " " + factura.Evento.Cliente.Apellido;
