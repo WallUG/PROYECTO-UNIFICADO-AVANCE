@@ -29,5 +29,37 @@ namespace Vista
         {
             admEvento.CargarTablaEventos(dgvEventos);
         }
+
+        private void btnActualizarListaEvento_Click(object sender, EventArgs e)
+        {
+            Boolean resul = admEvento.EsVacio(txtCiRucCliente.Text, txtNumEventos.Text);
+            if (resul)
+            {
+                MessageBox.Show("No ha ingresado ningun filtro, se mostraran todos los eventos.", "Actualizar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                admEvento.CargarTablaEventos(dgvEventos);
+            }
+            else
+            {
+                admEvento.VerificarFiltros(txtCiRucCliente.Text, txtNumEventos.Text, dgvEventos);
+            }
+
+            MessageBox.Show("Lista de eventos actualizada correctamente.", "Actualizar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void selectradionButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbCedulaORuc.Checked)
+            {
+                txtCiRucCliente.Enabled = true;
+                txtNumEventos.Enabled = false;
+                lblNumEventos.Enabled = false;
+            }
+            else if (rdbNumEventos.Checked)
+            {
+                txtNumEventos.Enabled = true;
+                txtCiRucCliente.Enabled = false;
+                lblCedulaORuc.Enabled= false;
+            }
+        }
     }
 }

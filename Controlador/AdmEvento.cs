@@ -464,7 +464,6 @@ namespace Controlador
                 dgvEventos.Rows[indice].Cells["colNumPersonas"].Value = evento.NumPersonasEvento;
                 dgvEventos.Rows[indice].Cells["colDireccionEvento"].Value = evento.DireccionEvento;
                 dgvEventos.Rows[indice].Cells["colEstadoEvento"].Value = evento.EstadoEvento;
-
                 indice ++;
             }
         }
@@ -544,6 +543,67 @@ namespace Controlador
             else
             {
                 MessageBox.Show("La operación se canceló", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        public bool EsVacio(string txtNumCedula, string txtNumEventos)
+        {
+            if (string.IsNullOrWhiteSpace(txtNumCedula) && string.IsNullOrWhiteSpace(txtNumEventos))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void VerificarFiltros(string txtCiRucCliente, string txtNumEventos, DataGridView dgvEventos)
+        {
+            dgvEventos.Rows.Clear();
+            int indice = 0;
+
+            string filtro = "";
+            if (!string.IsNullOrWhiteSpace(txtCiRucCliente))
+            {
+                filtro = "Cédula o RUC";
+            }
+            else if (!string.IsNullOrWhiteSpace(txtNumEventos))
+            {
+                filtro = "Número de Eventos";
+            }
+
+            foreach (Evento evento in listaEventos)
+            {
+                if (filtro == "Cédula o RUC")
+                {
+                    if (evento.Cliente.CedulaORuc == txtCiRucCliente)
+                    {
+                        dgvEventos.Rows.Add();
+                        dgvEventos.Rows[indice].Cells["colNro"].Value = indice + 1;
+                        dgvEventos.Rows[indice].Cells["colNumEventos"].Value = evento.NumEventos;
+                        dgvEventos.Rows[indice].Cells["colTipoEvento"].Value = evento.TipoEvento;
+                        dgvEventos.Rows[indice].Cells["colNombreEvento"].Value = evento.NombreEvento;
+                        dgvEventos.Rows[indice].Cells["colDescripcionEvento"].Value = evento.DescripcionEvento;
+                        dgvEventos.Rows[indice].Cells["colNumPersonas"].Value = evento.NumPersonasEvento;
+                        dgvEventos.Rows[indice].Cells["colDireccionEvento"].Value = evento.DireccionEvento;
+                        dgvEventos.Rows[indice].Cells["colEstadoEvento"].Value = evento.EstadoEvento;
+                        indice++;
+                    }
+                }
+                else if (filtro == "Número de Eventos")
+                {
+                    if (evento.NumEventos.ToString() == txtNumEventos)
+                    {
+                        dgvEventos.Rows.Add();
+                        dgvEventos.Rows[indice].Cells["colNro"].Value = indice + 1;
+                        dgvEventos.Rows[indice].Cells["colNumEventos"].Value = evento.NumEventos;
+                        dgvEventos.Rows[indice].Cells["colTipoEvento"].Value = evento.TipoEvento;
+                        dgvEventos.Rows[indice].Cells["colNombreEvento"].Value = evento.NombreEvento;
+                        dgvEventos.Rows[indice].Cells["colDescripcionEvento"].Value = evento.DescripcionEvento;
+                        dgvEventos.Rows[indice].Cells["colNumPersonas"].Value = evento.NumPersonasEvento;
+                        dgvEventos.Rows[indice].Cells["colDireccionEvento"].Value = evento.DireccionEvento;
+                        dgvEventos.Rows[indice].Cells["colEstadoEvento"].Value = evento.EstadoEvento;
+                        indice++;
+                    }
+                }
             }
         }
     }
