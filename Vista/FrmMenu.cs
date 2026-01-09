@@ -14,6 +14,7 @@ namespace Visual
 {
     public partial class FrmMenu : Form
     {
+        AdmEvento admEvento = new AdmEvento();
         AdmFactura admFactura = new AdmFactura();
         AdmInmueble admInmueble = new AdmInmueble();
 
@@ -135,8 +136,15 @@ namespace Visual
 
         private void mniListarEvento_Click(object sender, EventArgs e)
         {
-            FrmListarEvento frmListarEvento = new FrmListarEvento();
-            frmListarEvento.ShowDialog();
+            if (admEvento.GetCantidadLista() > 0)
+            {
+                FrmListarEvento frmListarEvento = new FrmListarEvento();
+                frmListarEvento.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay eventos registrados para Listar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void mniEliminarFactura_Click(object sender, EventArgs e)
@@ -148,6 +156,19 @@ namespace Visual
             else
             {
                 MessageBox.Show("No hay facturas registradas para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void mniEliminarEvento_Click(object sender, EventArgs e)
+        {
+            if (admEvento.GetCantidadLista() > 0)
+            {
+                FrmEliminarEvento frmEliminarEvento = new FrmEliminarEvento();
+                frmEliminarEvento.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay eventos registrados para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

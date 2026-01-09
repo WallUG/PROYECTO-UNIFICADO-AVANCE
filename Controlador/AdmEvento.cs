@@ -1,6 +1,7 @@
 ﻿//CASTILLO MERA DANIEL FERNANDO
 using Modelo;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -425,14 +426,14 @@ namespace Controlador
 
             // Crear el evento con todos los parámetros correctos
             evento = new Evento(
-                idEvento, 
-                cliente, 
-                tipoEvento, 
-                nombreEvento, 
+                idEvento,
+                cliente,
+                tipoEvento,
+                nombreEvento,
                 descEvento,
-                numPersonas, 
-                direccionEvento, 
-                estadoEvento, 
+                numPersonas,
+                direccionEvento,
+                estadoEvento,
                 listaInmueblesEvento
             );
 
@@ -448,19 +449,20 @@ namespace Controlador
         // Llena el DataGridView con los eventos registrados
         public void LlenarTabla(DataGridView dgvEvento)
         {
+            int indice=0;
             dgvEvento.Rows.Clear();
 
             if (eventos.Count > 0)
             {
-                for (int i = 0; i < eventos.Count; i++)
+                foreach(Evento e in eventos)
                 {
-                    Evento e = eventos[i];
-                    int indice = dgvEvento.Rows.Add();
-                    dgvEvento.Rows[indice].Cells["colId"].Value = e.IdEvento;
+                    indice = dgvEvento.Rows.Add();
+                    dgvEvento.Rows[indice].Cells["colNro"].Value = indice + 1;
+                    dgvEvento.Rows[indice].Cells["colNumEventos"].Value = indice + 1;
                     dgvEvento.Rows[indice].Cells["colTipoEvento"].Value = e.TipoEvento;
                     dgvEvento.Rows[indice].Cells["colNombreEvento"].Value = e.NombreEvento;
                     dgvEvento.Rows[indice].Cells["colDescripcionEvento"].Value = e.DescripcionEvento;
-                    dgvEvento.Rows[indice].Cells["colNumPersona"].Value = e.NumPersonasEvento;
+                    dgvEvento.Rows[indice].Cells["colNumPersonas"].Value = e.NumPersonasEvento;
                     dgvEvento.Rows[indice].Cells["colDireccionEvento"].Value = e.DireccionEvento;
                     dgvEvento.Rows[indice].Cells["colEstadoEvento"].Value = e.EstadoEvento;
                 }
@@ -511,6 +513,33 @@ namespace Controlador
             else
             {
                 MessageBox.Show("Inmueble no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public int GetCantidadLista()
+        {
+            return eventos.Count;
+        }
+
+        public void EliminarEvento(int indice, DataGridView dgvEvento)
+        {
+            string numEventos = dgvEvento.Rows[indice].Cells["colNumEventos"].Value.ToString();
+            DialogResult result = MessageBox.Show("Desea eliminar el Evento " + numEventos + "?",
+                "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                dgvEvento.Rows.RemoveAt(indice);
+
+                //Eliminar del List
+                for (int i = 0; i < eventos.Count; i++)
+                {
+                    if (eventos[i].NumEventos.ToString() == numEventos)
+                    {
+                        eventos.RemoveAt(i);
+                        break;
+                    }
+                }
+                MessageBox.Show("Registro Evento " + numEventos + " se elimino correctamente!");
             }
         }
     }

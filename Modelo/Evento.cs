@@ -10,7 +10,7 @@ namespace Modelo
     public class Evento
     {
         public int IdEvento { get; set; }
-        
+        public int NumEventos { get; set; }
         public string TipoEvento { get; set; }
         public Cliente Cliente { get; set; }
         public string NombreEvento { get; set; }
@@ -20,11 +20,23 @@ namespace Modelo
         public string EstadoEvento { get; set; }
         
         public List<EventoInmueble> EventoInmueble { get; set; }
-        
-        //constructor con parametros
+
         public Evento(int idEvento, Cliente cliente, string tipoEvento, string nombreEvento, string descripcionEvento, int numPersonasEvento, string direccionEvento, string estadoEvento, List<EventoInmueble> eventoInmueble)
         {
             IdEvento = idEvento;
+            Cliente = cliente;
+            TipoEvento = tipoEvento;
+            NombreEvento = nombreEvento;
+            DescripcionEvento = descripcionEvento;
+            NumPersonasEvento = numPersonasEvento;
+            DireccionEvento = direccionEvento;
+            EstadoEvento = estadoEvento;
+            EventoInmueble = eventoInmueble;
+        }
+        public Evento(int idEvento, int numEventos, Cliente cliente, string tipoEvento, string nombreEvento, string descripcionEvento, int numPersonasEvento, string direccionEvento, string estadoEvento, List<EventoInmueble> eventoInmueble)
+        {
+            IdEvento = idEvento;
+            NumEventos = numEventos;
             Cliente = cliente;
             TipoEvento = tipoEvento;
             NombreEvento = nombreEvento;

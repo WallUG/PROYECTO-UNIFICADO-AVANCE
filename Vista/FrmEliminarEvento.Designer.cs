@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class FrmListarEvento
+    partial class FrmEliminarEvento
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvEvento = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnEliminarEvento = new System.Windows.Forms.Button();
+            this.dgvEvento = new System.Windows.Forms.DataGridView();
             this.colNro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNumEventos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipoEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,6 +41,29 @@
             this.colEstadoEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvento)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Black", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(449, 55);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(225, 32);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Eliminar Eventos";
+            // 
+            // btnEliminarEvento
+            // 
+            this.btnEliminarEvento.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarEvento.ForeColor = System.Drawing.Color.Red;
+            this.btnEliminarEvento.Location = new System.Drawing.Point(501, 501);
+            this.btnEliminarEvento.Name = "btnEliminarEvento";
+            this.btnEliminarEvento.Size = new System.Drawing.Size(139, 46);
+            this.btnEliminarEvento.TabIndex = 4;
+            this.btnEliminarEvento.Text = "Eliminar";
+            this.btnEliminarEvento.UseVisualStyleBackColor = true;
+            this.btnEliminarEvento.Click += new System.EventHandler(this.btnEliminarEvento_Click);
             // 
             // dgvEvento
             // 
@@ -55,24 +79,14 @@
             this.colNumPersonas,
             this.colDireccionEvento,
             this.colEstadoEvento});
-            this.dgvEvento.Location = new System.Drawing.Point(59, 100);
+            this.dgvEvento.Location = new System.Drawing.Point(23, 112);
             this.dgvEvento.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEvento.Name = "dgvEvento";
             this.dgvEvento.ReadOnly = true;
             this.dgvEvento.RowHeadersWidth = 51;
             this.dgvEvento.RowTemplate.Height = 24;
             this.dgvEvento.Size = new System.Drawing.Size(1113, 348);
-            this.dgvEvento.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Black", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(509, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 32);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Listar Eventos";
+            this.dgvEvento.TabIndex = 5;
             // 
             // colNro
             // 
@@ -146,19 +160,22 @@
             this.colEstadoEvento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colEstadoEvento.Width = 125;
             // 
-            // FrmListarEvento
+            // FrmEliminarEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1233, 518);
-            this.Controls.Add(this.label1);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1158, 593);
             this.Controls.Add(this.dgvEvento);
+            this.Controls.Add(this.btnEliminarEvento);
+            this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FrmListarEvento";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimizeBox = false;
+            this.Name = "FrmEliminarEvento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lista de Evento";
+            this.Text = "FrmEliminarEvento";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEvento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -167,8 +184,9 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvEvento;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnEliminarEvento;
+        private System.Windows.Forms.DataGridView dgvEvento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNro;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumEventos;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTipoEvento;
