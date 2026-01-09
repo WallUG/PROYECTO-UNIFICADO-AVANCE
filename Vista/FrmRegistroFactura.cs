@@ -92,7 +92,7 @@ namespace Vista
             }
             else
             {
-                adm.EmitirFactura(groupBoxFactura, Convert.ToInt16(txtIdFactura.Text));
+                adm.EmitirFactura(groupBoxFactura, txtIdFactura.Text);
             }
         }
 
@@ -105,7 +105,7 @@ namespace Vista
             }
             else
             {
-                adm.AnularFactura(groupBoxFactura, Convert.ToInt16(txtIdFactura.Text));
+                adm.AnularFactura(groupBoxFactura, txtIdFactura.Text);
             }
         }
     }

@@ -12,8 +12,8 @@ namespace Modelo
     public class Factura
     {
         public int Secuencial { get; set; }
-        public string IdFactura { get; set; }
-        public int NumeroFactura { get; set; }
+        public int IdFactura { get; set; }
+        public string NumeroFactura { get; set; }
         public Evento Evento { get; set; }
         public DateTime FechaEmision { get; set; }
         public double SubTotal { get; set; }
@@ -23,9 +23,9 @@ namespace Modelo
         public string Estado { get; set; }
         public double Total { get; set; }
 
-        public Factura(int numeroFactura, Evento evento, DateTime fechaEmision, double subTotal, double iva, double total)
+        public Factura(int idFactura, Evento evento, DateTime fechaEmision, double subTotal, double iva, double total)
         {
-            this.NumeroFactura = numeroFactura;
+            this.IdFactura = idFactura;
             this.Evento = evento;
             this.FechaEmision = fechaEmision;
             this.SubTotal = subTotal;
@@ -35,9 +35,9 @@ namespace Modelo
             this.Detalles = new List<DetalleFactura>();
         }
 
-        public Factura(int numeroFactura, Evento evento)
+        public Factura(int idFactura, Evento evento)
         {
-            this.NumeroFactura = numeroFactura;
+            this.IdFactura = idFactura;
             this.Evento = evento;
             this.SubTotal = 0;
             this.Total = 0;

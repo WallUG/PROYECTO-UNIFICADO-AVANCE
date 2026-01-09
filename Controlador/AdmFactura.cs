@@ -118,9 +118,6 @@ namespace Controlador
 
         public void llenarComboIdEvento(ComboBox cmbIdEvento, int idCliente)
         {
-            // Si había un DataSource previo, elimínalo para evitar errores
-            cmbIdEvento.DataSource = null;
-
             // Limpia los items antes de rellenar
             cmbIdEvento.Items.Clear();
             cmbIdEvento.SelectedIndex = -1;
@@ -238,8 +235,8 @@ namespace Controlador
             foreach (Factura factura in listaFacturas)
             {
                 dgvFacturas.Rows.Add();
-                dgvFacturas.Rows[indice].Cells["Nro"].Value = factura.NumeroFactura;
-                dgvFacturas.Rows[indice].Cells["colIdFactura"].Value = factura.IdFactura;
+                dgvFacturas.Rows[indice].Cells["Nro"].Value = factura.IdFactura;
+                dgvFacturas.Rows[indice].Cells["colIdFactura"].Value = factura.NumeroFactura;
                 dgvFacturas.Rows[indice].Cells["colCliente"].Value = 
                     factura.Evento.Cliente.Nombre + " " + factura.Evento.Cliente.Apellido;
                 dgvFacturas.Rows[indice].Cells["colCedulaCliente"].Value = factura.Evento.Cliente.CedulaORuc;
@@ -309,7 +306,7 @@ namespace Controlador
                         listaFacturas.Add(factura);
                         MessageBox.Show("Descuento de: " + descuento);
                         factura.GenerarFactura(descuento);
-                        factura.IdFactura = GenerarNumeroFacturaAuto(listaFacturas, 1, nuevoIndice);
+                        factura.NumeroFactura = GenerarNumeroFacturaAuto(listaFacturas, 1, nuevoIndice);
                     }
 
                     // Actualizar los controles del GroupBox
@@ -320,10 +317,10 @@ namespace Controlador
                             switch (txt.Name)
                             {
                                 case "txtNumeroFactura":
-                                    txt.Text = factura.IdFactura;
+                                    txt.Text = factura.NumeroFactura;
                                     break;
                                 case "txtIdFactura":
-                                    txt.Text = factura.NumeroFactura.ToString();
+                                    txt.Text = factura.IdFactura.ToString();
                                     break;
                                 case "txtSubtotal":
                                     txt.Text = factura.SubTotal.ToString();
@@ -359,11 +356,11 @@ namespace Controlador
             }
         }
 
-        public void ActualizarFacturaInfo(GroupBox groupBoxFactura, int idFactura)
+        public void ActualizarFacturaInfo(GroupBox groupBoxFactura, string numeroFacturas)
         {
             foreach (Factura item in listaFacturas)
             {
-                if (item.NumeroFactura == idFactura)
+                if (item.NumeroFactura == numeroFacturas)
                 {
 
                     foreach (Control c in groupBoxFactura.Controls)
@@ -373,10 +370,10 @@ namespace Controlador
                             switch (txt.Name)
                             {
                                 case "txtNumeroFactura":
-                                    txt.Text = item.IdFactura;
+                                    txt.Text = item.NumeroFactura;
                                     break;
                                 case "txtIdFactura":
-                                    txt.Text = item.NumeroFactura.ToString();
+                                    txt.Text = item.IdFactura.ToString();
                                     break;
                                 case "txtSubtotal":
                                     txt.Text = item.SubTotal.ToString();
@@ -407,12 +404,12 @@ namespace Controlador
             }
         }
 
-        public void EmitirFactura(GroupBox groupBoxFactura,int idFactura)
+        public void EmitirFactura(GroupBox groupBoxFactura,string numeroFacturas)
         {
             
             foreach (Factura factura in listaFacturas)
             {
-                if (factura.NumeroFactura == idFactura)
+                if (factura.NumeroFactura == numeroFacturas)
                 {
                     //if(factura.Estado == "Anulada")
                     //{
@@ -426,18 +423,18 @@ namespace Controlador
                     else {
                         factura.EmitirFactura();
                         MessageBox.Show("Factura Emitida");
-                        ActualizarFacturaInfo(groupBoxFactura, idFactura);
+                        ActualizarFacturaInfo(groupBoxFactura, numeroFacturas);
                         return;
                     }
                 }
             }
         }
 
-        public void AnularFactura(GroupBox groupBoxFactura,int idFactura)
+        public void AnularFactura(GroupBox groupBoxFactura,string numeroFacturas)
         {
             foreach (Factura factura in listaFacturas)
             {
-                if (factura.NumeroFactura == idFactura)
+                if (factura.NumeroFactura == numeroFacturas)
                 {
                     if (factura.Estado == "Anulada")
                     {
@@ -447,7 +444,7 @@ namespace Controlador
                     {
                         factura.AnularFactura();
                         MessageBox.Show("Factura Anulada");
-                        ActualizarFacturaInfo(groupBoxFactura, idFactura);
+                        ActualizarFacturaInfo(groupBoxFactura, numeroFacturas);
                         return;
                     }
                 }
@@ -461,14 +458,14 @@ namespace Controlador
 
         public void EliminarFactura(int indice, DataGridView dvgFacturas)
         {
-            string idFactura = dvgFacturas.Rows[indice].Cells["colIdFactura"].Value.ToString();
+            string numeroFacturas = dvgFacturas.Rows[indice].Cells["colIdFactura"].Value.ToString();
             DialogResult resultado = MessageBox.Show("¿Está seguro de que desea eliminar la factura seleccionada?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (resultado == DialogResult.Yes)
             {
                 for (int i = 0; i < listaFacturas.Count; i++)
                 {
-                    if (listaFacturas[i].IdFactura == idFactura)
+                    if (listaFacturas[i].NumeroFactura == numeroFacturas)
                     {
                         listaFacturas.RemoveAt(i);
                         MessageBox.Show("Factura eliminada correctamente.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
