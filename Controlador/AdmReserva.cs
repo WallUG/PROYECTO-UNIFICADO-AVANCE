@@ -83,7 +83,7 @@ namespace Controlador
             foreach (Evento nomEven in listaEvento)
             {
                 cmbNombEvento.Items.Add(nomEven.NombreEvento);
-                cmbIdEvento.Items.Add(nomEven.IdEvento);
+                cmbIdEvento.Items.Add(nomEven.NumEventos);
             }
         }
         public bool EsVacio(string cliente, string nombEvent, string tipEvents,
@@ -169,7 +169,7 @@ namespace Controlador
 
         public void MostrarDatosEventoPorNombre(int indexEvento, ComboBox cmbTipoEvento, ComboBox cmbTipoSolicitud, ComboBox cmbClientes, TextBox txtDescripcionEvento, NumericUpDown nudCantPersonas)
         {
-            even = AdmEvento.ObtenerEventoPorId(indexEvento);
+            even = AdmEvento.ObtenerEventoPorNumEventos(indexEvento);
             if(even != null) {
                 LlenarComboTipoEvento(cmbTipoEvento, even);
                 LlenarComboTipoSolicitud(cmbTipoSolicitud);
@@ -201,6 +201,11 @@ namespace Controlador
         public void selecionarIdEvento(int selectedIndex, ComboBox cmbIdEvento, ComboBox cmbTipoEvento, ComboBox cmbClientes, TextBox txtDescripcionEvento, NumericUpDown nudCantPersonas)
         {
             cmbIdEvento.SelectedIndex = selectedIndex;
+        }
+
+        public int GetCantidadLista()
+        {
+            return listaReservas.Count;
         }
     }
 }

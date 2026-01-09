@@ -17,6 +17,7 @@ namespace Visual
         AdmEvento admEvento = new AdmEvento();
         AdmFactura admFactura = new AdmFactura();
         AdmInmueble admInmueble = new AdmInmueble();
+        AdmReserva admReserva = new AdmReserva();
 
         public FrmMenu()
         {
@@ -41,8 +42,6 @@ namespace Visual
             FrmListarCliente frmLisCliente = new FrmListarCliente();
             frmLisCliente.ShowDialog();
         }
-
-
 
         //INMUEBLE REGISTRAR
         private void mniRegistrarInmueble_Click(object sender, EventArgs e)
@@ -124,8 +123,15 @@ namespace Visual
 
         private void mnilistarReserva_Click(object sender, EventArgs e)
         {
-            FrmListarReserva frmListarReserva = new FrmListarReserva();
-            frmListarReserva.ShowDialog();
+            if (admReserva.GetCantidadLista() > 0)
+            {
+                FrmListarReserva frmLisReserva = new FrmListarReserva();
+                frmLisReserva.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay reservas registradas para listar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void mniRegistrarEvento_Click(object sender, EventArgs e)
@@ -143,7 +149,7 @@ namespace Visual
             }
             else
             {
-                MessageBox.Show("No hay eventos registrados para Listar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No hay eventos registrados para listar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -169,6 +175,19 @@ namespace Visual
             else
             {
                 MessageBox.Show("No hay eventos registrados para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void mniEditarEvento_Click(object sender, EventArgs e)
+        {
+            if (admEvento.GetCantidadLista() > 0)
+            {
+                FrmEditarEvento frmEditarEvento = new FrmEditarEvento();
+                frmEditarEvento.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay eventos registrados para editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

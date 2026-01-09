@@ -17,18 +17,17 @@ namespace Vista
         public FrmEliminarEvento()
         {
             InitializeComponent();
-            admEvento.LlenarTabla(dgvEvento);
+            admEvento.CargarTablaEventos(dgvEventos);
         }
 
         private void btnEliminarEvento_Click(object sender, EventArgs e)
         {
             int indice = 0;
-            if (dgvEvento.SelectedRows.Count == 1)
+            if (dgvEventos.SelectedRows.Count == 1)
             {
-                indice = dgvEvento.CurrentRow.Index;
-                admEvento.EliminarEvento(indice, dgvEvento);
-                admEvento.LlenarTabla(dgvEvento);
-                MessageBox.Show("Evento eliminado correctamente.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                indice = dgvEventos.CurrentRow.Index;
+                admEvento.EliminarEvento(indice, dgvEventos);
+                admEvento.CargarTablaEventos(dgvEventos);
             }
             else
             {

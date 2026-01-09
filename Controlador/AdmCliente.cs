@@ -44,7 +44,7 @@ namespace Controlador
 
 
         // Método para obtener un cliente
-        public static Cliente ObtenerClientePorId(string cedula)
+        public static Cliente ObtenerClientePorIdentificacion(string cedula)
         {
             return listaCliente.Find(c => c.CedulaORuc == cedula);
         }

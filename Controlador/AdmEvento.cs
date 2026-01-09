@@ -13,7 +13,7 @@ namespace Controlador
     public class AdmEvento
     {
         // Lista estática para mantener los eventos entre instancias
-        private static List<Evento> eventos = new List<Evento>();
+        private static List<Evento> listaEventos = new List<Evento>();
         
         // Evento actual en proceso
         private Evento evento = null;
@@ -57,14 +57,14 @@ namespace Controlador
             "Cancelado" 
         };
 
-        // Método para obtener un Evento por ID
-        public static Evento ObtenerEventoPorId(int id)
+        //obtener un Evento por numEventos
+        public static Evento ObtenerEventoPorNumEventos(int numEventos)
         {
-            for (int i = 0; i < eventos.Count; i++)
+            for (int i = 0; i < listaEventos.Count; i++)
             {
-                if (eventos[i].IdEvento == id)
+                if (listaEventos[i].NumEventos == numEventos)
                 {
-                    return eventos[i];
+                    return listaEventos[i];
                 }
             }
             return null;
@@ -73,7 +73,7 @@ namespace Controlador
         // Método para obtener todos los eventos
         public static List<Evento> ObtenerTodosLosEventos()
         {
-            return eventos;
+            return listaEventos;
         }
 
         // Método para llenar ComboBox de tipos de inmueble
@@ -106,7 +106,7 @@ namespace Controlador
                 return false;
             }
 
-            Cliente clientebusqueda = AdmCliente.ObtenerClientePorId(ciORuc);
+            Cliente clientebusqueda = AdmCliente.ObtenerClientePorIdentificacion(ciORuc);
 
             if (clientebusqueda != null)
             {
@@ -187,7 +187,7 @@ namespace Controlador
         // Genera un nuevo ID para el evento
         public int GenerarNuevoId()
         {
-            return eventos.Count + 1;
+            return listaEventos.Count + 1;
         }
         
         // Carga los datos predeterminados según el tipo de evento
@@ -283,7 +283,7 @@ namespace Controlador
         // Obtiene la lista completa de eventos registrados
         public List<Evento> ObtenerEventos()
         {
-            return eventos;
+            return listaEventos;
         }
         
         // Verifica si los campos del evento están vacíos
@@ -427,6 +427,7 @@ namespace Controlador
             // Crear el evento con todos los parámetros correctos
             evento = new Evento(
                 idEvento,
+                numEventos: listaEventos.Count + 1,
                 cliente,
                 tipoEvento,
                 nombreEvento,
@@ -438,7 +439,7 @@ namespace Controlador
             );
 
             // Agregar evento a la lista estática
-            eventos.Add(evento);
+            listaEventos.Add(evento);
 
             // Limpiar la lista de inmuebles seleccionados para el próximo evento
             listaEventoInmueble.Clear();
@@ -447,25 +448,24 @@ namespace Controlador
         }
 
         // Llena el DataGridView con los eventos registrados
-        public void LlenarTabla(DataGridView dgvEvento)
+        public void CargarTablaEventos(DataGridView dgvEventos)
         {
+            dgvEventos.Rows.Clear();
             int indice=0;
-            dgvEvento.Rows.Clear();
 
-            if (eventos.Count > 0)
+            foreach (Evento evento in listaEventos)
             {
-                foreach(Evento e in eventos)
-                {
-                    indice = dgvEvento.Rows.Add();
-                    dgvEvento.Rows[indice].Cells["colNro"].Value = indice + 1;
-                    dgvEvento.Rows[indice].Cells["colNumEventos"].Value = indice + 1;
-                    dgvEvento.Rows[indice].Cells["colTipoEvento"].Value = e.TipoEvento;
-                    dgvEvento.Rows[indice].Cells["colNombreEvento"].Value = e.NombreEvento;
-                    dgvEvento.Rows[indice].Cells["colDescripcionEvento"].Value = e.DescripcionEvento;
-                    dgvEvento.Rows[indice].Cells["colNumPersonas"].Value = e.NumPersonasEvento;
-                    dgvEvento.Rows[indice].Cells["colDireccionEvento"].Value = e.DireccionEvento;
-                    dgvEvento.Rows[indice].Cells["colEstadoEvento"].Value = e.EstadoEvento;
-                }
+                dgvEventos.Rows.Add();
+                dgvEventos.Rows[indice].Cells["colNro"].Value = indice + 1;
+                dgvEventos.Rows[indice].Cells["colNumEventos"].Value = evento.NumEventos;
+                dgvEventos.Rows[indice].Cells["colTipoEvento"].Value = evento.TipoEvento;
+                dgvEventos.Rows[indice].Cells["colNombreEvento"].Value = evento.NombreEvento;
+                dgvEventos.Rows[indice].Cells["colDescripcionEvento"].Value = evento.DescripcionEvento;
+                dgvEventos.Rows[indice].Cells["colNumPersonas"].Value = evento.NumPersonasEvento;
+                dgvEventos.Rows[indice].Cells["colDireccionEvento"].Value = evento.DireccionEvento;
+                dgvEventos.Rows[indice].Cells["colEstadoEvento"].Value = evento.EstadoEvento;
+
+                indice ++;
             }
         }
 
@@ -518,7 +518,7 @@ namespace Controlador
 
         public int GetCantidadLista()
         {
-            return eventos.Count;
+            return listaEventos.Count;
         }
 
         public void EliminarEvento(int indice, DataGridView dgvEvento)
@@ -531,15 +531,19 @@ namespace Controlador
                 dgvEvento.Rows.RemoveAt(indice);
 
                 //Eliminar del List
-                for (int i = 0; i < eventos.Count; i++)
+                for (int i = 0; i < listaEventos.Count; i++)
                 {
-                    if (eventos[i].NumEventos.ToString() == numEventos)
+                    if (listaEventos[i].NumEventos.ToString() == numEventos)
                     {
-                        eventos.RemoveAt(i);
+                        listaEventos.RemoveAt(i);
                         break;
                     }
                 }
-                MessageBox.Show("Registro Evento " + numEventos + " se elimino correctamente!");
+                MessageBox.Show("Registro Evento " + numEventos + " se eliminó correctamente!");
+            }
+            else
+            {
+                MessageBox.Show("La operación se canceló", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

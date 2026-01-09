@@ -40,6 +40,10 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.mniListarEvento = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.mniEditarEvento = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.mniEliminarEvento = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.mniSalirEvento = new System.Windows.Forms.ToolStripMenuItem();
             this.inmuebleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +51,7 @@
             this.listarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.reservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,11 +71,6 @@
             this.mniSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mniAutor = new System.Windows.Forms.ToolStripMenuItem();
-            this.mniEditarEvento = new System.Windows.Forms.ToolStripMenuItem();
-            this.mniEliminarEvento = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -174,6 +174,30 @@
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(221, 6);
             // 
+            // mniEditarEvento
+            // 
+            this.mniEditarEvento.Name = "mniEditarEvento";
+            this.mniEditarEvento.Size = new System.Drawing.Size(224, 26);
+            this.mniEditarEvento.Text = "Editar";
+            this.mniEditarEvento.Click += new System.EventHandler(this.mniEditarEvento_Click);
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(221, 6);
+            // 
+            // mniEliminarEvento
+            // 
+            this.mniEliminarEvento.Name = "mniEliminarEvento";
+            this.mniEliminarEvento.Size = new System.Drawing.Size(224, 26);
+            this.mniEliminarEvento.Text = "Eliminar";
+            this.mniEliminarEvento.Click += new System.EventHandler(this.mniEliminarEvento_Click);
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(221, 6);
+            // 
             // mniSalirEvento
             // 
             this.mniSalirEvento.Name = "mniSalirEvento";
@@ -225,6 +249,11 @@
             this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.mniEliminarInmueble_Click);
+            // 
+            // toolStripSeparator15
+            // 
+            this.toolStripSeparator15.Name = "toolStripSeparator15";
+            this.toolStripSeparator15.Size = new System.Drawing.Size(148, 6);
             // 
             // salirToolStripMenuItem2
             // 
@@ -360,34 +389,6 @@
             this.mniAutor.Size = new System.Drawing.Size(129, 26);
             this.mniAutor.Text = "Autor";
             this.mniAutor.Click += new System.EventHandler(this.mniAutor_Click);
-            // 
-            // mniEditarEvento
-            // 
-            this.mniEditarEvento.Name = "mniEditarEvento";
-            this.mniEditarEvento.Size = new System.Drawing.Size(224, 26);
-            this.mniEditarEvento.Text = "Editar";
-            // 
-            // mniEliminarEvento
-            // 
-            this.mniEliminarEvento.Name = "mniEliminarEvento";
-            this.mniEliminarEvento.Size = new System.Drawing.Size(224, 26);
-            this.mniEliminarEvento.Text = "Eliminar";
-            this.mniEliminarEvento.Click += new System.EventHandler(this.mniEliminarEvento_Click);
-            // 
-            // toolStripSeparator13
-            // 
-            this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(221, 6);
-            // 
-            // toolStripSeparator14
-            // 
-            this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(221, 6);
-            // 
-            // toolStripSeparator15
-            // 
-            this.toolStripSeparator15.Name = "toolStripSeparator15";
-            this.toolStripSeparator15.Size = new System.Drawing.Size(221, 6);
             // 
             // FrmMenu
             // 

@@ -27,7 +27,7 @@ namespace Vista
         
         private void CargarEventos()
         {
-            admEvento.LlenarTabla(dgvEvento);
+            admEvento.CargarTablaEventos(dgvEventos);
         }
     }
 }
