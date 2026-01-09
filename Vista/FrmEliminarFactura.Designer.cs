@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvFacturas = new System.Windows.Forms.DataGridView();
-            this.txtTituloVentana = new System.Windows.Forms.Label();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNumeroFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +40,16 @@
             this.colIVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtTituloVentana = new System.Windows.Forms.Label();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.lbNumeroFactura = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.rbNumFactura = new System.Windows.Forms.RadioButton();
+            this.rbNumCedula = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtNumCedula = new System.Windows.Forms.TextBox();
+            this.txtNumFactura = new System.Windows.Forms.TextBox();
+            this.btnAplicarFiltro = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +71,7 @@
             this.colIVA,
             this.colTotal,
             this.colEstado});
-            this.dgvFacturas.Location = new System.Drawing.Point(12, 75);
+            this.dgvFacturas.Location = new System.Drawing.Point(12, 118);
             this.dgvFacturas.MultiSelect = false;
             this.dgvFacturas.Name = "dgvFacturas";
             this.dgvFacturas.ReadOnly = true;
@@ -72,26 +80,6 @@
             this.dgvFacturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFacturas.Size = new System.Drawing.Size(1346, 350);
             this.dgvFacturas.TabIndex = 1;
-            // 
-            // txtTituloVentana
-            // 
-            this.txtTituloVentana.AutoSize = true;
-            this.txtTituloVentana.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTituloVentana.Location = new System.Drawing.Point(12, 22);
-            this.txtTituloVentana.Name = "txtTituloVentana";
-            this.txtTituloVentana.Size = new System.Drawing.Size(212, 29);
-            this.txtTituloVentana.TabIndex = 4;
-            this.txtTituloVentana.Text = "Lista de Facturas";
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(638, 439);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(120, 35);
-            this.btnActualizar.TabIndex = 5;
-            this.btnActualizar.Text = "Eliminar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // Nro
             // 
@@ -170,11 +158,117 @@
             this.colEstado.Name = "colEstado";
             this.colEstado.ReadOnly = true;
             // 
+            // txtTituloVentana
+            // 
+            this.txtTituloVentana.AutoSize = true;
+            this.txtTituloVentana.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTituloVentana.Location = new System.Drawing.Point(599, 9);
+            this.txtTituloVentana.Name = "txtTituloVentana";
+            this.txtTituloVentana.Size = new System.Drawing.Size(212, 29);
+            this.txtTituloVentana.TabIndex = 4;
+            this.txtTituloVentana.Text = "Lista de Facturas";
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(640, 474);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(120, 35);
+            this.btnActualizar.TabIndex = 5;
+            this.btnActualizar.Text = "Eliminar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // lbNumeroFactura
+            // 
+            this.lbNumeroFactura.AutoSize = true;
+            this.lbNumeroFactura.Location = new System.Drawing.Point(12, 52);
+            this.lbNumeroFactura.Name = "lbNumeroFactura";
+            this.lbNumeroFactura.Size = new System.Drawing.Size(103, 16);
+            this.lbNumeroFactura.TabIndex = 7;
+            this.lbNumeroFactura.Text = "Numero Factura";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(520, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 16);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Cedula";
+            // 
+            // rbNumFactura
+            // 
+            this.rbNumFactura.AutoSize = true;
+            this.rbNumFactura.Location = new System.Drawing.Point(899, 48);
+            this.rbNumFactura.Name = "rbNumFactura";
+            this.rbNumFactura.Size = new System.Drawing.Size(138, 20);
+            this.rbNumFactura.TabIndex = 9;
+            this.rbNumFactura.TabStop = true;
+            this.rbNumFactura.Text = "Numero de factura";
+            this.rbNumFactura.UseVisualStyleBackColor = true;
+            this.rbNumFactura.CheckedChanged += new System.EventHandler(this.selectradionButton_CheckedChanged);
+            // 
+            // rbNumCedula
+            // 
+            this.rbNumCedula.AutoSize = true;
+            this.rbNumCedula.Location = new System.Drawing.Point(899, 92);
+            this.rbNumCedula.Name = "rbNumCedula";
+            this.rbNumCedula.Size = new System.Drawing.Size(139, 20);
+            this.rbNumCedula.TabIndex = 10;
+            this.rbNumCedula.TabStop = true;
+            this.rbNumCedula.Text = "Numero de cedula";
+            this.rbNumCedula.UseVisualStyleBackColor = true;
+            this.rbNumCedula.CheckedChanged += new System.EventHandler(this.selectradionButton_CheckedChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(926, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 20);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Filtros";
+            // 
+            // txtNumCedula
+            // 
+            this.txtNumCedula.Enabled = false;
+            this.txtNumCedula.Location = new System.Drawing.Point(576, 46);
+            this.txtNumCedula.Name = "txtNumCedula";
+            this.txtNumCedula.Size = new System.Drawing.Size(184, 22);
+            this.txtNumCedula.TabIndex = 12;
+            // 
+            // txtNumFactura
+            // 
+            this.txtNumFactura.Enabled = false;
+            this.txtNumFactura.Location = new System.Drawing.Point(121, 46);
+            this.txtNumFactura.Name = "txtNumFactura";
+            this.txtNumFactura.Size = new System.Drawing.Size(173, 22);
+            this.txtNumFactura.TabIndex = 13;
+            // 
+            // btnAplicarFiltro
+            // 
+            this.btnAplicarFiltro.Location = new System.Drawing.Point(1155, 71);
+            this.btnAplicarFiltro.Name = "btnAplicarFiltro";
+            this.btnAplicarFiltro.Size = new System.Drawing.Size(78, 23);
+            this.btnAplicarFiltro.TabIndex = 14;
+            this.btnAplicarFiltro.Text = "Aplicar Filtro";
+            this.btnAplicarFiltro.UseVisualStyleBackColor = true;
+            this.btnAplicarFiltro.Click += new System.EventHandler(this.btnAplicarFiltro_Click);
+            // 
             // FrmEliminarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1375, 477);
+            this.ClientSize = new System.Drawing.Size(1375, 579);
+            this.Controls.Add(this.btnAplicarFiltro);
+            this.Controls.Add(this.txtNumFactura);
+            this.Controls.Add(this.txtNumCedula);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.rbNumCedula);
+            this.Controls.Add(this.rbNumFactura);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbNumeroFactura);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.txtTituloVentana);
             this.Controls.Add(this.dgvFacturas);
@@ -203,5 +297,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colIVA;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
+        private System.Windows.Forms.Label lbNumeroFactura;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton rbNumFactura;
+        private System.Windows.Forms.RadioButton rbNumCedula;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtNumCedula;
+        private System.Windows.Forms.TextBox txtNumFactura;
+        private System.Windows.Forms.Button btnAplicarFiltro;
     }
 }

@@ -21,7 +21,7 @@ namespace Controlador
         public List<Reserva> listaReserva = AdmReserva.ObtenerTodosLasReservas();
         public List<Evento> listaEvento = AdmEvento.ObtenerTodosLosEventos();
 
-        public void BuscarCliente(ComboBox cmbIdEvento, GroupBox groupBoxCliente, string cedula)
+        public void BuscarCliente(ComboBox cmNumeroEvento, GroupBox groupBoxCliente, string cedula)
         {
             if (cedula == "") {
                 MessageBox.Show("Campo requerido");
@@ -107,7 +107,7 @@ namespace Controlador
                         }
                     }
                     MessageBox.Show("Cliente encontrado");
-                    llenarComboIdEvento(cmbIdEvento, item.Cliente.Id);
+                    llenarComboNumeroEvento(cmNumeroEvento, item.Cliente.Id);
                     return;
                 }
             }
@@ -116,7 +116,7 @@ namespace Controlador
             MessageBox.Show("No se encontró el cliente");
         }
 
-        public void llenarComboIdEvento(ComboBox cmbIdEvento, int idCliente)
+        public void llenarComboNumeroEvento(ComboBox cmbIdEvento, int idCliente)
         {
             // Limpia los items antes de rellenar
             cmbIdEvento.Items.Clear();
@@ -129,7 +129,7 @@ namespace Controlador
 
                 if (fac.Cliente.Id == idCliente)
                 {
-                    cmbIdEvento.Items.Add(fac.IdEvento);
+                    cmbIdEvento.Items.Add(fac.NumEventos);
                 }
             }
         }
@@ -521,6 +521,74 @@ namespace Controlador
                     dgv.Rows.Clear();
                 }
             }
+        }
+
+        public void verificarFiltros(string txtNumCedula, string txtNumFactura, DataGridView dgvFacturas)
+        {
+            dgvFacturas.Rows.Clear();
+            int indice = 0;
+
+            string filtro = "";
+            if (!string.IsNullOrWhiteSpace(txtNumCedula))
+            {
+                filtro = "Cedula";
+            }
+            else if (!string.IsNullOrWhiteSpace(txtNumFactura))
+            {
+                filtro = "Factura";
+            }
+
+            foreach (Factura factura in listaFacturas)
+            {
+                if (filtro == "Cedula")
+                {
+                    if(factura.Evento.Cliente.CedulaORuc == txtNumCedula)
+                    {
+                        dgvFacturas.Rows.Add();
+                        dgvFacturas.Rows[indice].Cells["Nro"].Value = indice + 1;
+                        dgvFacturas.Rows[indice].Cells["colNumeroFactura"].Value = factura.NumeroFactura;
+                        dgvFacturas.Rows[indice].Cells["colCliente"].Value =
+                            factura.Evento.Cliente.Nombre + " " + factura.Evento.Cliente.Apellido;
+                        dgvFacturas.Rows[indice].Cells["colCedulaCliente"].Value = factura.Evento.Cliente.CedulaORuc;
+                        dgvFacturas.Rows[indice].Cells["colEvento"].Value = factura.Evento.NombreEvento;
+                        dgvFacturas.Rows[indice].Cells["colTipoEvento"].Value = factura.Evento.TipoEvento;
+                        dgvFacturas.Rows[indice].Cells["colFechaEmision"].Value = factura.FechaEmision.ToString("dd/MM/yyyy");
+                        dgvFacturas.Rows[indice].Cells["colSubtotal"].Value = "$" + factura.SubTotal.ToString("N2");
+                        dgvFacturas.Rows[indice].Cells["colIVA"].Value = "$" + factura.Iva.ToString("N2");
+                        dgvFacturas.Rows[indice].Cells["colTotal"].Value = "$" + factura.Total.ToString("N2");
+                        dgvFacturas.Rows[indice].Cells["colEstado"].Value = factura.Estado;
+                        indice++;
+                    }
+                }else if(filtro == "Factura")
+                {
+                    if (factura.NumeroFactura == txtNumFactura)
+                    {
+                        dgvFacturas.Rows.Add();
+                        dgvFacturas.Rows[indice].Cells["Nro"].Value = indice + 1;
+                        dgvFacturas.Rows[indice].Cells["colNumeroFactura"].Value = factura.NumeroFactura;
+                        dgvFacturas.Rows[indice].Cells["colCliente"].Value =
+                            factura.Evento.Cliente.Nombre + " " + factura.Evento.Cliente.Apellido;
+                        dgvFacturas.Rows[indice].Cells["colCedulaCliente"].Value = factura.Evento.Cliente.CedulaORuc;
+                        dgvFacturas.Rows[indice].Cells["colEvento"].Value = factura.Evento.NombreEvento;
+                        dgvFacturas.Rows[indice].Cells["colTipoEvento"].Value = factura.Evento.TipoEvento;
+                        dgvFacturas.Rows[indice].Cells["colFechaEmision"].Value = factura.FechaEmision.ToString("dd/MM/yyyy");
+                        dgvFacturas.Rows[indice].Cells["colSubtotal"].Value = "$" + factura.SubTotal.ToString("N2");
+                        dgvFacturas.Rows[indice].Cells["colIVA"].Value = "$" + factura.Iva.ToString("N2");
+                        dgvFacturas.Rows[indice].Cells["colTotal"].Value = "$" + factura.Total.ToString("N2");
+                        dgvFacturas.Rows[indice].Cells["colEstado"].Value = factura.Estado;
+                        indice++;
+                    }
+                }
+            }
+        }
+
+        public bool EsVacio(string txtNumCedula, string txtNumFactura)
+        {
+            if (string.IsNullOrWhiteSpace(txtNumCedula) && string.IsNullOrWhiteSpace(txtNumFactura))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -50,7 +50,7 @@
             this.txtReservaFecha = new System.Windows.Forms.TextBox();
             this.lblReservaFecha = new System.Windows.Forms.Label();
             this.txtEstadoEvento = new System.Windows.Forms.TextBox();
-            this.cmbIdEvento = new System.Windows.Forms.ComboBox();
+            this.cmbNumeroEvento = new System.Windows.Forms.ComboBox();
             this.btnBuscarEvento = new System.Windows.Forms.Button();
             this.txtNumPersonasEvento = new System.Windows.Forms.TextBox();
             this.txtDescripcionEvento = new System.Windows.Forms.TextBox();
@@ -64,8 +64,11 @@
             this.lblIdEvento = new System.Windows.Forms.Label();
             this.groupBoxFactura = new System.Windows.Forms.GroupBox();
             this.txtEstadoFactura = new System.Windows.Forms.TextBox();
+            this.btnEmitirFactura = new System.Windows.Forms.Button();
+            this.btnAnular = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.lblEstadoFactura = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.txtSubtotal = new System.Windows.Forms.TextBox();
@@ -87,9 +90,6 @@
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnEmitirFactura = new System.Windows.Forms.Button();
-            this.btnAnular = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.groupBoxCliente.SuspendLayout();
             this.groupBoxEvento.SuspendLayout();
@@ -294,7 +294,7 @@
             this.groupBoxEvento.Controls.Add(this.txtReservaFecha);
             this.groupBoxEvento.Controls.Add(this.lblReservaFecha);
             this.groupBoxEvento.Controls.Add(this.txtEstadoEvento);
-            this.groupBoxEvento.Controls.Add(this.cmbIdEvento);
+            this.groupBoxEvento.Controls.Add(this.cmbNumeroEvento);
             this.groupBoxEvento.Controls.Add(this.btnBuscarEvento);
             this.groupBoxEvento.Controls.Add(this.txtNumPersonasEvento);
             this.groupBoxEvento.Controls.Add(this.txtDescripcionEvento);
@@ -345,11 +345,11 @@
             // 
             // cmbIdEvento
             // 
-            this.cmbIdEvento.FormattingEnabled = true;
-            this.cmbIdEvento.Location = new System.Drawing.Point(160, 29);
-            this.cmbIdEvento.Name = "cmbIdEvento";
-            this.cmbIdEvento.Size = new System.Drawing.Size(121, 24);
-            this.cmbIdEvento.TabIndex = 13;
+            this.cmbNumeroEvento.FormattingEnabled = true;
+            this.cmbNumeroEvento.Location = new System.Drawing.Point(160, 29);
+            this.cmbNumeroEvento.Name = "cmbIdEvento";
+            this.cmbNumeroEvento.Size = new System.Drawing.Size(121, 24);
+            this.cmbNumeroEvento.TabIndex = 13;
             // 
             // btnBuscarEvento
             // 
@@ -455,9 +455,9 @@
             this.lblIdEvento.Location = new System.Drawing.Point(20, 36);
             this.lblIdEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIdEvento.Name = "lblIdEvento";
-            this.lblIdEvento.Size = new System.Drawing.Size(68, 16);
+            this.lblIdEvento.Size = new System.Drawing.Size(103, 16);
             this.lblIdEvento.TabIndex = 0;
-            this.lblIdEvento.Text = "ID Evento:";
+            this.lblIdEvento.Text = "Numero Evento:";
             // 
             // groupBoxFactura
             // 
@@ -499,6 +499,28 @@
             this.txtEstadoFactura.Size = new System.Drawing.Size(132, 22);
             this.txtEstadoFactura.TabIndex = 17;
             // 
+            // btnEmitirFactura
+            // 
+            this.btnEmitirFactura.Location = new System.Drawing.Point(353, 305);
+            this.btnEmitirFactura.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEmitirFactura.Name = "btnEmitirFactura";
+            this.btnEmitirFactura.Size = new System.Drawing.Size(120, 37);
+            this.btnEmitirFactura.TabIndex = 7;
+            this.btnEmitirFactura.Text = "Emitir Factura";
+            this.btnEmitirFactura.UseVisualStyleBackColor = true;
+            this.btnEmitirFactura.Click += new System.EventHandler(this.btnEmitirFactura_Click);
+            // 
+            // btnAnular
+            // 
+            this.btnAnular.Location = new System.Drawing.Point(198, 305);
+            this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAnular.Name = "btnAnular";
+            this.btnAnular.Size = new System.Drawing.Size(120, 37);
+            this.btnAnular.TabIndex = 8;
+            this.btnAnular.Text = "Anular";
+            this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
+            // 
             // btnCerrar
             // 
             this.btnCerrar.Location = new System.Drawing.Point(512, 305);
@@ -519,6 +541,17 @@
             this.lblEstadoFactura.Size = new System.Drawing.Size(53, 16);
             this.lblEstadoFactura.TabIndex = 16;
             this.lblEstadoFactura.Text = "Estado:";
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(36, 305);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(120, 37);
+            this.btnGuardar.TabIndex = 5;
+            this.btnGuardar.Text = "Generar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // txtTotal
             // 
@@ -742,39 +775,6 @@
             this.colSubtotal.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colSubtotal.Width = 80;
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(36, 305);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(120, 37);
-            this.btnGuardar.TabIndex = 5;
-            this.btnGuardar.Text = "Generar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnEmitirFactura
-            // 
-            this.btnEmitirFactura.Location = new System.Drawing.Point(353, 305);
-            this.btnEmitirFactura.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEmitirFactura.Name = "btnEmitirFactura";
-            this.btnEmitirFactura.Size = new System.Drawing.Size(120, 37);
-            this.btnEmitirFactura.TabIndex = 7;
-            this.btnEmitirFactura.Text = "Emitir Factura";
-            this.btnEmitirFactura.UseVisualStyleBackColor = true;
-            this.btnEmitirFactura.Click += new System.EventHandler(this.btnEmitirFactura_Click);
-            // 
-            // btnAnular
-            // 
-            this.btnAnular.Location = new System.Drawing.Point(198, 305);
-            this.btnAnular.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Size = new System.Drawing.Size(120, 37);
-            this.btnAnular.TabIndex = 8;
-            this.btnAnular.Text = "Anular";
-            this.btnAnular.UseVisualStyleBackColor = true;
-            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
-            // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
@@ -870,7 +870,7 @@
         private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.ComboBox cmbIdEvento;
+        private System.Windows.Forms.ComboBox cmbNumeroEvento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdDetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;

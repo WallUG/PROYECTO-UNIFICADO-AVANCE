@@ -27,7 +27,7 @@ namespace Vista
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-            adm.BuscarCliente(cmbIdEvento, groupBoxCliente, txtCedula.Text);
+            adm.BuscarCliente(cmbNumeroEvento, groupBoxCliente, txtCedula.Text);
             adm.limpiarDatos(groupBoxEvento, groupBoxFactura, groupBoxDetalles);
             btnGuardar.Enabled = true;
         }
@@ -39,14 +39,14 @@ namespace Vista
 
         private void btnBuscarEvento_Click(object sender, EventArgs e)
         {
-            if (cmbIdEvento.SelectedIndex == -1)
+            if (cmbNumeroEvento.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar un evento");
                 return;
             }
             else
             {
-                adm.cargarEventoPorId(groupBoxEvento, dgvDetallesFactura, Convert.ToInt16(cmbIdEvento.SelectedItem));
+                adm.cargarEventoPorId(groupBoxEvento, dgvDetallesFactura, Convert.ToInt16(cmbNumeroEvento.SelectedItem));
                 adm.limpiarDatos(groupBoxFactura);
                 //btnGuardar.Enabled = true;
             }
@@ -71,14 +71,14 @@ namespace Vista
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (cmbIdEvento.SelectedIndex == -1)
+            if (cmbNumeroEvento.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar un evento");
                 return;
             }
             else
             {
-                adm.generarFactura(groupBoxFactura, Convert.ToInt16(cmbIdEvento.SelectedItem), txtDescuento.Text.Trim());
+                adm.generarFactura(groupBoxFactura, Convert.ToInt16(cmbNumeroEvento.SelectedItem), txtDescuento.Text.Trim());
                 btnGuardar.Enabled = false;
             }
         }

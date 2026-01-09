@@ -29,12 +29,39 @@ namespace Vista
                 indice = dgvFacturas.CurrentRow.Index;
                 admFactura.EliminarFactura(indice, dgvFacturas);
                 admFactura.CargarTablaFacturas(dgvFacturas);
-                MessageBox.Show("Inmueble eliminado correctamente.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Seleccione un inmueble para eliminar.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione una factura para eliminar.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void selectradionButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbNumCedula.Checked)
+            {
+                txtNumCedula.Enabled = true;
+            }
+            else if (rbNumFactura.Checked)
+            {
+                txtNumFactura.Enabled = true;
+            }
+        }
+
+        private void btnAplicarFiltro_Click(object sender, EventArgs e)
+        {
+            Boolean resul = admFactura.EsVacio(txtNumCedula.Text, txtNumFactura.Text);
+            if (resul)
+            {
+                MessageBox.Show("No ha ingresado ningun filtro, se mostraran todas las facturas.", "Actualizar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                admFactura.CargarTablaFacturas(dgvFacturas);
+            }
+            else
+            {
+                admFactura.verificarFiltros(txtNumCedula.Text, txtNumFactura.Text, dgvFacturas);
+            }
+
+            MessageBox.Show("Lista de facturas actualizada correctamente.", "Actualizar", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

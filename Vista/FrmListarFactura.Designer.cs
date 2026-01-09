@@ -43,6 +43,13 @@
             this.colIVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtNumFactura = new System.Windows.Forms.TextBox();
+            this.txtNumCedula = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.rbNumCedula = new System.Windows.Forms.RadioButton();
+            this.rbNumFactura = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbNumeroFactura = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +71,7 @@
             this.colIVA,
             this.colTotal,
             this.colEstado});
-            this.dgvFacturas.Location = new System.Drawing.Point(12, 54);
+            this.dgvFacturas.Location = new System.Drawing.Point(12, 110);
             this.dgvFacturas.MultiSelect = false;
             this.dgvFacturas.Name = "dgvFacturas";
             this.dgvFacturas.ReadOnly = true;
@@ -76,7 +83,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(12, 410);
+            this.btnActualizar.Location = new System.Drawing.Point(12, 466);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(120, 35);
             this.btnActualizar.TabIndex = 1;
@@ -86,7 +93,7 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(1238, 410);
+            this.btnCerrar.Location = new System.Drawing.Point(1238, 466);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(120, 35);
             this.btnCerrar.TabIndex = 2;
@@ -98,7 +105,7 @@
             // 
             this.txtTituloVentana.AutoSize = true;
             this.txtTituloVentana.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTituloVentana.Location = new System.Drawing.Point(12, 15);
+            this.txtTituloVentana.Location = new System.Drawing.Point(12, 9);
             this.txtTituloVentana.Name = "txtTituloVentana";
             this.txtTituloVentana.Size = new System.Drawing.Size(212, 29);
             this.txtTituloVentana.TabIndex = 3;
@@ -181,11 +188,86 @@
             this.colEstado.Name = "colEstado";
             this.colEstado.ReadOnly = true;
             // 
+            // txtNumFactura
+            // 
+            this.txtNumFactura.Enabled = false;
+            this.txtNumFactura.Location = new System.Drawing.Point(192, 62);
+            this.txtNumFactura.Name = "txtNumFactura";
+            this.txtNumFactura.Size = new System.Drawing.Size(173, 22);
+            this.txtNumFactura.TabIndex = 20;
+            // 
+            // txtNumCedula
+            // 
+            this.txtNumCedula.Enabled = false;
+            this.txtNumCedula.Location = new System.Drawing.Point(647, 62);
+            this.txtNumCedula.Name = "txtNumCedula";
+            this.txtNumCedula.Size = new System.Drawing.Size(184, 22);
+            this.txtNumCedula.TabIndex = 19;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(995, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 20);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Filtros";
+            // 
+            // rbNumCedula
+            // 
+            this.rbNumCedula.AutoSize = true;
+            this.rbNumCedula.Location = new System.Drawing.Point(968, 83);
+            this.rbNumCedula.Name = "rbNumCedula";
+            this.rbNumCedula.Size = new System.Drawing.Size(139, 20);
+            this.rbNumCedula.TabIndex = 17;
+            this.rbNumCedula.TabStop = true;
+            this.rbNumCedula.Text = "Numero de cedula";
+            this.rbNumCedula.UseVisualStyleBackColor = true;
+            this.rbNumCedula.CheckedChanged += new System.EventHandler(this.selectradionButton_CheckedChanged);
+            // 
+            // rbNumFactura
+            // 
+            this.rbNumFactura.AutoSize = true;
+            this.rbNumFactura.Location = new System.Drawing.Point(968, 39);
+            this.rbNumFactura.Name = "rbNumFactura";
+            this.rbNumFactura.Size = new System.Drawing.Size(138, 20);
+            this.rbNumFactura.TabIndex = 16;
+            this.rbNumFactura.TabStop = true;
+            this.rbNumFactura.Text = "Numero de factura";
+            this.rbNumFactura.UseVisualStyleBackColor = true;
+            this.rbNumFactura.CheckedChanged += new System.EventHandler(this.selectradionButton_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(591, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 16);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Cedula";
+            // 
+            // lbNumeroFactura
+            // 
+            this.lbNumeroFactura.AutoSize = true;
+            this.lbNumeroFactura.Location = new System.Drawing.Point(83, 68);
+            this.lbNumeroFactura.Name = "lbNumeroFactura";
+            this.lbNumeroFactura.Size = new System.Drawing.Size(103, 16);
+            this.lbNumeroFactura.TabIndex = 14;
+            this.lbNumeroFactura.Text = "Numero Factura";
+            // 
             // FrmListarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 457);
+            this.ClientSize = new System.Drawing.Size(1370, 507);
+            this.Controls.Add(this.txtNumFactura);
+            this.Controls.Add(this.txtNumCedula);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.rbNumCedula);
+            this.Controls.Add(this.rbNumFactura);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbNumeroFactura);
             this.Controls.Add(this.txtTituloVentana);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnActualizar);
@@ -217,5 +299,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colIVA;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
+        private System.Windows.Forms.TextBox txtNumFactura;
+        private System.Windows.Forms.TextBox txtNumCedula;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton rbNumCedula;
+        private System.Windows.Forms.RadioButton rbNumFactura;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbNumeroFactura;
     }
 }
