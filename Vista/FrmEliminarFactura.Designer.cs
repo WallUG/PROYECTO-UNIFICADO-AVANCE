@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.dgvFacturas = new System.Windows.Forms.DataGridView();
+            this.txtTituloVentana = new System.Windows.Forms.Label();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.Nro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIdFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumeroFactura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCedulaCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,8 +42,6 @@
             this.colIVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtTituloVentana = new System.Windows.Forms.Label();
-            this.btnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +53,7 @@
             this.dgvFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFacturas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nro,
-            this.colIdFactura,
+            this.colNumeroFactura,
             this.colCliente,
             this.colCedulaCliente,
             this.colEvento,
@@ -73,6 +73,26 @@
             this.dgvFacturas.Size = new System.Drawing.Size(1346, 350);
             this.dgvFacturas.TabIndex = 1;
             // 
+            // txtTituloVentana
+            // 
+            this.txtTituloVentana.AutoSize = true;
+            this.txtTituloVentana.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTituloVentana.Location = new System.Drawing.Point(12, 22);
+            this.txtTituloVentana.Name = "txtTituloVentana";
+            this.txtTituloVentana.Size = new System.Drawing.Size(212, 29);
+            this.txtTituloVentana.TabIndex = 4;
+            this.txtTituloVentana.Text = "Lista de Facturas";
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(638, 439);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(120, 35);
+            this.btnActualizar.TabIndex = 5;
+            this.btnActualizar.Text = "Eliminar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // Nro
             // 
             this.Nro.HeaderText = "Nro";
@@ -80,12 +100,12 @@
             this.Nro.Name = "Nro";
             this.Nro.ReadOnly = true;
             // 
-            // colIdFactura
+            // colNumeroFactura
             // 
-            this.colIdFactura.HeaderText = "Número Factura";
-            this.colIdFactura.MinimumWidth = 6;
-            this.colIdFactura.Name = "colIdFactura";
-            this.colIdFactura.ReadOnly = true;
+            this.colNumeroFactura.HeaderText = "Número Factura";
+            this.colNumeroFactura.MinimumWidth = 6;
+            this.colNumeroFactura.Name = "colNumeroFactura";
+            this.colNumeroFactura.ReadOnly = true;
             // 
             // colCliente
             // 
@@ -150,26 +170,6 @@
             this.colEstado.Name = "colEstado";
             this.colEstado.ReadOnly = true;
             // 
-            // txtTituloVentana
-            // 
-            this.txtTituloVentana.AutoSize = true;
-            this.txtTituloVentana.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTituloVentana.Location = new System.Drawing.Point(12, 22);
-            this.txtTituloVentana.Name = "txtTituloVentana";
-            this.txtTituloVentana.Size = new System.Drawing.Size(212, 29);
-            this.txtTituloVentana.TabIndex = 4;
-            this.txtTituloVentana.Text = "Lista de Facturas";
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(638, 439);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(120, 35);
-            this.btnActualizar.TabIndex = 5;
-            this.btnActualizar.Text = "Eliminar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // FrmEliminarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -190,8 +190,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvFacturas;
+        private System.Windows.Forms.Label txtTituloVentana;
+        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdFactura;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumeroFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCedulaCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEvento;
@@ -201,7 +203,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colIVA;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
-        private System.Windows.Forms.Label txtTituloVentana;
-        private System.Windows.Forms.Button btnActualizar;
     }
 }
