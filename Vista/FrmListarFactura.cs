@@ -51,10 +51,12 @@ namespace Visual
             if (rbNumCedula.Checked)
             {
                 txtNumCedula.Enabled = true;
+                txtNumFactura.Enabled = false;
             }
             else if (rbNumFactura.Checked)
             {
                 txtNumFactura.Enabled = true;
+                txtNumCedula.Enabled = false;
             }
         }
     }

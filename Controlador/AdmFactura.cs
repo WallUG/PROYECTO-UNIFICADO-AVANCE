@@ -487,10 +487,10 @@ namespace Controlador
                 {
                     dtp.Value = DateTime.Now;
                 }
-                if(c is Button btn)
-                {
-                    btn.Enabled = true;
-                }
+                //if(c is Button btn)
+                //{
+                //    btn.Enabled = true;
+                //}
             }
         }
 
