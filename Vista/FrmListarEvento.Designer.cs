@@ -43,10 +43,14 @@
             this.txtNumEventos = new System.Windows.Forms.TextBox();
             this.lblCedulaORuc = new System.Windows.Forms.Label();
             this.txtCiRucCliente = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.rdbNumEventos = new System.Windows.Forms.RadioButton();
             this.rdbCedulaORuc = new System.Windows.Forms.RadioButton();
+            this.gbFiltrarPor = new System.Windows.Forms.GroupBox();
+            this.gbBuscarPor = new System.Windows.Forms.GroupBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).BeginInit();
+            this.gbFiltrarPor.SuspendLayout();
+            this.gbBuscarPor.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvEventos
@@ -63,7 +67,7 @@
             this.colNumPersonas,
             this.colDireccionEvento,
             this.colEstadoEvento});
-            this.dgvEventos.Location = new System.Drawing.Point(53, 195);
+            this.dgvEventos.Location = new System.Drawing.Point(47, 298);
             this.dgvEventos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEventos.Name = "dgvEventos";
             this.dgvEventos.ReadOnly = true;
@@ -148,7 +152,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Black", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(509, 31);
+            this.label1.Location = new System.Drawing.Point(509, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(193, 32);
             this.label1.TabIndex = 1;
@@ -158,7 +162,7 @@
             // 
             this.btnActualizarListaEvento.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizarListaEvento.ForeColor = System.Drawing.Color.Blue;
-            this.btnActualizarListaEvento.Location = new System.Drawing.Point(542, 572);
+            this.btnActualizarListaEvento.Location = new System.Drawing.Point(532, 653);
             this.btnActualizarListaEvento.Name = "btnActualizarListaEvento";
             this.btnActualizarListaEvento.Size = new System.Drawing.Size(139, 46);
             this.btnActualizarListaEvento.TabIndex = 5;
@@ -169,7 +173,8 @@
             // lblNumEventos
             // 
             this.lblNumEventos.AutoSize = true;
-            this.lblNumEventos.Location = new System.Drawing.Point(53, 99);
+            this.lblNumEventos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumEventos.Location = new System.Drawing.Point(20, 43);
             this.lblNumEventos.Name = "lblNumEventos";
             this.lblNumEventos.Size = new System.Drawing.Size(189, 23);
             this.lblNumEventos.TabIndex = 6;
@@ -177,9 +182,10 @@
             // 
             // txtNumEventos
             // 
-            this.txtNumEventos.Location = new System.Drawing.Point(248, 96);
+            this.txtNumEventos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumEventos.Location = new System.Drawing.Point(253, 36);
             this.txtNumEventos.Name = "txtNumEventos";
-            this.txtNumEventos.Size = new System.Drawing.Size(204, 30);
+            this.txtNumEventos.Size = new System.Drawing.Size(88, 30);
             this.txtNumEventos.TabIndex = 7;
             // 
             // lblCedulaORuc
@@ -187,7 +193,7 @@
             this.lblCedulaORuc.AutoSize = true;
             this.lblCedulaORuc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCedulaORuc.ForeColor = System.Drawing.Color.Black;
-            this.lblCedulaORuc.Location = new System.Drawing.Point(502, 103);
+            this.lblCedulaORuc.Location = new System.Drawing.Point(20, 84);
             this.lblCedulaORuc.Name = "lblCedulaORuc";
             this.lblCedulaORuc.Size = new System.Drawing.Size(141, 23);
             this.lblCedulaORuc.TabIndex = 21;
@@ -196,27 +202,18 @@
             // txtCiRucCliente
             // 
             this.txtCiRucCliente.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCiRucCliente.Location = new System.Drawing.Point(649, 100);
+            this.txtCiRucCliente.Location = new System.Drawing.Point(253, 81);
             this.txtCiRucCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCiRucCliente.MaxLength = 13;
             this.txtCiRucCliente.Name = "txtCiRucCliente";
             this.txtCiRucCliente.Size = new System.Drawing.Size(160, 30);
             this.txtCiRucCliente.TabIndex = 22;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(910, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 24);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Filtros:";
-            // 
             // rdbNumEventos
             // 
             this.rdbNumEventos.AutoSize = true;
-            this.rdbNumEventos.Location = new System.Drawing.Point(914, 101);
+            this.rdbNumEventos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbNumEventos.Location = new System.Drawing.Point(16, 41);
             this.rdbNumEventos.Name = "rdbNumEventos";
             this.rdbNumEventos.Size = new System.Drawing.Size(204, 27);
             this.rdbNumEventos.TabIndex = 24;
@@ -228,7 +225,8 @@
             // rdbCedulaORuc
             // 
             this.rdbCedulaORuc.AutoSize = true;
-            this.rdbCedulaORuc.Location = new System.Drawing.Point(914, 134);
+            this.rdbCedulaORuc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbCedulaORuc.Location = new System.Drawing.Point(16, 74);
             this.rdbCedulaORuc.Name = "rdbCedulaORuc";
             this.rdbCedulaORuc.Size = new System.Drawing.Size(156, 27);
             this.rdbCedulaORuc.TabIndex = 25;
@@ -237,19 +235,53 @@
             this.rdbCedulaORuc.UseVisualStyleBackColor = true;
             this.rdbCedulaORuc.CheckedChanged += new System.EventHandler(this.selectradionButton_CheckedChanged);
             // 
+            // gbFiltrarPor
+            // 
+            this.gbFiltrarPor.Controls.Add(this.rdbNumEventos);
+            this.gbFiltrarPor.Controls.Add(this.rdbCedulaORuc);
+            this.gbFiltrarPor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbFiltrarPor.Location = new System.Drawing.Point(151, 75);
+            this.gbFiltrarPor.Name = "gbFiltrarPor";
+            this.gbFiltrarPor.Size = new System.Drawing.Size(263, 127);
+            this.gbFiltrarPor.TabIndex = 26;
+            this.gbFiltrarPor.TabStop = false;
+            this.gbFiltrarPor.Text = "Filtrar por:";
+            // 
+            // gbBuscarPor
+            // 
+            this.gbBuscarPor.Controls.Add(this.btnFiltrar);
+            this.gbBuscarPor.Controls.Add(this.lblNumEventos);
+            this.gbBuscarPor.Controls.Add(this.txtNumEventos);
+            this.gbBuscarPor.Controls.Add(this.txtCiRucCliente);
+            this.gbBuscarPor.Controls.Add(this.lblCedulaORuc);
+            this.gbBuscarPor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbBuscarPor.Location = new System.Drawing.Point(448, 75);
+            this.gbBuscarPor.Name = "gbBuscarPor";
+            this.gbBuscarPor.Size = new System.Drawing.Size(442, 198);
+            this.gbBuscarPor.TabIndex = 27;
+            this.gbBuscarPor.TabStop = false;
+            this.gbBuscarPor.Text = "Buscar por:";
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrar.ForeColor = System.Drawing.Color.Blue;
+            this.btnFiltrar.Location = new System.Drawing.Point(163, 129);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(139, 46);
+            this.btnFiltrar.TabIndex = 23;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
             // FrmListarEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1233, 641);
-            this.Controls.Add(this.rdbCedulaORuc);
-            this.Controls.Add(this.rdbNumEventos);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblCedulaORuc);
-            this.Controls.Add(this.txtCiRucCliente);
-            this.Controls.Add(this.txtNumEventos);
-            this.Controls.Add(this.lblNumEventos);
+            this.ClientSize = new System.Drawing.Size(1233, 722);
+            this.Controls.Add(this.gbBuscarPor);
+            this.Controls.Add(this.gbFiltrarPor);
             this.Controls.Add(this.btnActualizarListaEvento);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvEventos);
@@ -257,8 +289,12 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmListarEvento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lista de Evento";
+            this.Text = "Listar Eventos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).EndInit();
+            this.gbFiltrarPor.ResumeLayout(false);
+            this.gbFiltrarPor.PerformLayout();
+            this.gbBuscarPor.ResumeLayout(false);
+            this.gbBuscarPor.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,8 +317,10 @@
         private System.Windows.Forms.TextBox txtNumEventos;
         private System.Windows.Forms.Label lblCedulaORuc;
         private System.Windows.Forms.TextBox txtCiRucCliente;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton rdbNumEventos;
         private System.Windows.Forms.RadioButton rdbCedulaORuc;
+        private System.Windows.Forms.GroupBox gbFiltrarPor;
+        private System.Windows.Forms.GroupBox gbBuscarPor;
+        private System.Windows.Forms.Button btnFiltrar;
     }
 }
