@@ -43,13 +43,13 @@ namespace Controlador
         }
 
 
-        // Método para obtener un cliente
+        
         public static Cliente ObtenerClientePorIdentificacion(string cedula)
         {
             return listaCliente.Find(c => c.CedulaORuc == cedula);
         }
 
-        // Método para obtener todos
+       
         public static List<Cliente> ObtenerTodosLosClientes()
         {
             return listaCliente;
@@ -114,7 +114,7 @@ namespace Controlador
             while (flag)
             {
 
-                // Validación 1: debe tener formato válido (contiene @ y .)
+               
                 if (!correo.Contains("@") || !correo.Contains("."))
                 {
                     Console.WriteLine("  El formato del correo no es válido");
@@ -122,7 +122,7 @@ namespace Controlador
                     continue;
                 }
 
-                // Validación 2: @ debe estar antes del punto
+                
                 int posicionArroba = correo.IndexOf("@");
                 int posicionPunto = correo.LastIndexOf(".");
 
