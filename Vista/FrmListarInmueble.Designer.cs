@@ -179,10 +179,10 @@
             this.rbNumeroInmueble.Location = new System.Drawing.Point(106, 77);
             this.rbNumeroInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.rbNumeroInmueble.Name = "rbNumeroInmueble";
-            this.rbNumeroInmueble.Size = new System.Drawing.Size(123, 17);
+            this.rbNumeroInmueble.Size = new System.Drawing.Size(107, 17);
             this.rbNumeroInmueble.TabIndex = 26;
             this.rbNumeroInmueble.TabStop = true;
-            this.rbNumeroInmueble.Text = "Numero de Inmueble";
+            this.rbNumeroInmueble.Text = "Tipo de Inmueble";
             this.rbNumeroInmueble.UseVisualStyleBackColor = true;
             this.rbNumeroInmueble.CheckedChanged += new System.EventHandler(this.selectradionButton_CheckedChanged);
             // 
@@ -192,10 +192,10 @@
             this.rbTipoInmueble.Location = new System.Drawing.Point(106, 39);
             this.rbTipoInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.rbTipoInmueble.Name = "rbTipoInmueble";
-            this.rbTipoInmueble.Size = new System.Drawing.Size(107, 17);
+            this.rbTipoInmueble.Size = new System.Drawing.Size(123, 17);
             this.rbTipoInmueble.TabIndex = 25;
             this.rbTipoInmueble.TabStop = true;
-            this.rbTipoInmueble.Text = "Tipo de Inmueble";
+            this.rbTipoInmueble.Text = "Numero de Inmueble";
             this.rbTipoInmueble.UseVisualStyleBackColor = true;
             this.rbTipoInmueble.CheckedChanged += new System.EventHandler(this.selectradionButton_CheckedChanged);
             // 

@@ -55,12 +55,12 @@ namespace Vista
 
         private void selectradionButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbTipoInmueble.Checked)
+            if (rbNumeroInmueble.Checked)
             {
                 txtNumeroInmueble.Enabled = true;
                 txtTipoInmueble.Enabled = false;
             }
-            else if (rbNumeroInmueble.Checked)
+            else if (rbTipoInmueble.Checked)
             {
                 txtTipoInmueble.Enabled = true;
                 txtNumeroInmueble.Enabled = false;
