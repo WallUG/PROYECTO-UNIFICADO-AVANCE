@@ -59,7 +59,9 @@ namespace Controlador
         public string Registrar(string nombre, string tipo, int cantidad, double precio, bool disponible)
         {
             int id = inmuebleL.Count() + 1;
-            Inmueble inmu = new Inmueble(id, nombre, tipo, cantidad, precio);
+            //Pasar el parametro numeroInmueble
+            string numero = "00" + inmuebleL.Count();//contruyo el numero del inmueble personalisado
+            Inmueble inmu = new Inmueble(id, numero, nombre, tipo, cantidad, precio);
             inmu.inmuebleDisponible = disponible;
 
             if (inmu.RegistrarInmueble())//llama a metodo del modelo
@@ -236,69 +238,7 @@ namespace Controlador
             contadorAsignaciones = 0;
 
             validacion = new Validacion();
-            CargarDatos();
-        }
-
-        // Cargar datos quemados de prueba
-        private void CargarDatos()
-        {
-            // Crear 2 inmuebles quemados
-            inmuebles[0] = new Inmueble(1, "Silla Ejecutiva", "Mobiliario", 100, 5.50);
-            inmuebles[1] = new Inmueble(2, "Mesa Rectangular", "Mobiliario", 30, 15.00);
-
-            // Registrar los inmuebles
-            inmuebles[0].RegistrarInmueble();
-            inmuebles[1].RegistrarInmueble();
-
-            contador = 2;
-
-            // Crear 2 asignaciones quemadas
-            EventoInmueble asignacion1 = new EventoInmueble(inmuebles[0], 20, DateTime.Now);
-            asignacion1.AsignarCantidadInmueble();
-            asignaciones[0] = asignacion1;
-
-            EventoInmueble asignacion2 = new EventoInmueble(inmuebles[1], 5, DateTime.Now);
-            asignacion2.AsignarCantidadInmueble();
-            asignaciones[1] = asignacion2;
-
-            contadorAsignaciones = 2;
-        }
-
-        // Registrar nuevo inmueble
-        public string RegistrarInmueble(int id, string nombre, string tipo, int cantidad, double precio)
-        {
-            string mensaje = "";
-
-            if (contador >= 10)
-            {
-                mensaje = "Error: No se pueden agregar mas inmuebles";
-                return mensaje;
-            }
-
-            // Crear el inmueble
-            Inmueble inmueble = new Inmueble(id, nombre, tipo, cantidad, precio);
-
-            // Registrar el inmueble (valida internamente)
-            if (inmueble.RegistrarInmueble())
-            {
-                inmuebles[contador] = inmueble;
-                contador++;
-                mensaje = "Inmueble registrado con exito\n\n";
-                mensaje += "---------- INFORMACION DEL INMUEBLE ----------\n";
-                mensaje += "ID: " + inmueble.idInmueble + "\n";
-                mensaje += "Nombre: " + inmueble.nombreInmueble + "\n";
-                mensaje += "Tipo: " + inmueble.tipoInmueble + "\n";
-                mensaje += "Cantidad Disponible: " + inmueble.cantidadInmuebleDisponible + "\n";
-                mensaje += "Precio: $" + inmueble.precioInmueble + "\n";
-                mensaje += "Disponible: " + (inmueble.inmuebleDisponible ? "Si" : "No") + "\n";
-                mensaje += "----------------------------------------------";
-            }
-            else
-            {
-                mensaje = "Error: No se pudo registrar el inmueble";
-            }
-
-            return mensaje;
+            
         }
 
         // Mostrar todos los inmuebles
