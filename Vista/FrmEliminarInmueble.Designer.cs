@@ -127,9 +127,9 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(357, 328);
+            this.btnEliminar.Location = new System.Drawing.Point(337, 328);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.Size = new System.Drawing.Size(107, 28);
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -168,6 +168,7 @@
             this.rbNumeroInmueble.TabStop = true;
             this.rbNumeroInmueble.Text = "Numero de Inmueble";
             this.rbNumeroInmueble.UseVisualStyleBackColor = true;
+            this.rbNumeroInmueble.CheckedChanged += new System.EventHandler(this.selectradionButton_CheckedChanged);
             // 
             // rbTipoInmueble
             // 
@@ -180,23 +181,24 @@
             this.rbTipoInmueble.TabStop = true;
             this.rbTipoInmueble.Text = "Tipo de Inmueble";
             this.rbTipoInmueble.UseVisualStyleBackColor = true;
+            this.rbTipoInmueble.CheckedChanged += new System.EventHandler(this.selectradionButton_CheckedChanged);
             // 
             // txtNumeroInmueble
             // 
             this.txtNumeroInmueble.Enabled = false;
-            this.txtNumeroInmueble.Location = new System.Drawing.Point(428, 36);
+            this.txtNumeroInmueble.Location = new System.Drawing.Point(442, 36);
             this.txtNumeroInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.txtNumeroInmueble.Name = "txtNumeroInmueble";
-            this.txtNumeroInmueble.Size = new System.Drawing.Size(131, 20);
+            this.txtNumeroInmueble.Size = new System.Drawing.Size(132, 20);
             this.txtNumeroInmueble.TabIndex = 32;
             // 
             // txtTipoInmueble
             // 
             this.txtTipoInmueble.Enabled = false;
-            this.txtTipoInmueble.Location = new System.Drawing.Point(428, 74);
+            this.txtTipoInmueble.Location = new System.Drawing.Point(442, 74);
             this.txtTipoInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.txtTipoInmueble.Name = "txtTipoInmueble";
-            this.txtTipoInmueble.Size = new System.Drawing.Size(131, 20);
+            this.txtTipoInmueble.Size = new System.Drawing.Size(132, 20);
             this.txtTipoInmueble.TabIndex = 31;
             // 
             // lbTipoInmueble
@@ -221,10 +223,10 @@
             // 
             // btnAplicarFiltro
             // 
-            this.btnAplicarFiltro.Location = new System.Drawing.Point(631, 40);
+            this.btnAplicarFiltro.Location = new System.Drawing.Point(608, 36);
             this.btnAplicarFiltro.Margin = new System.Windows.Forms.Padding(2);
             this.btnAplicarFiltro.Name = "btnAplicarFiltro";
-            this.btnAplicarFiltro.Size = new System.Drawing.Size(88, 50);
+            this.btnAplicarFiltro.Size = new System.Drawing.Size(111, 58);
             this.btnAplicarFiltro.TabIndex = 37;
             this.btnAplicarFiltro.Text = "Aplicar Filtro";
             this.btnAplicarFiltro.UseVisualStyleBackColor = true;

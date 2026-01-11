@@ -127,20 +127,20 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(106, 324);
+            this.btnActualizar.Location = new System.Drawing.Point(621, 36);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(90, 28);
+            this.btnActualizar.Size = new System.Drawing.Size(130, 58);
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(661, 324);
+            this.btnCerrar.Location = new System.Drawing.Point(657, 324);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(90, 28);
+            this.btnCerrar.Size = new System.Drawing.Size(94, 30);
             this.btnCerrar.TabIndex = 3;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
@@ -148,7 +148,7 @@
             // txtNumeroInmueble
             // 
             this.txtNumeroInmueble.Enabled = false;
-            this.txtNumeroInmueble.Location = new System.Drawing.Point(620, 36);
+            this.txtNumeroInmueble.Location = new System.Drawing.Point(472, 36);
             this.txtNumeroInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.txtNumeroInmueble.Name = "txtNumeroInmueble";
             this.txtNumeroInmueble.Size = new System.Drawing.Size(131, 20);
@@ -157,7 +157,7 @@
             // txtTipoInmueble
             // 
             this.txtTipoInmueble.Enabled = false;
-            this.txtTipoInmueble.Location = new System.Drawing.Point(620, 74);
+            this.txtTipoInmueble.Location = new System.Drawing.Point(472, 74);
             this.txtTipoInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.txtTipoInmueble.Name = "txtTipoInmueble";
             this.txtTipoInmueble.Size = new System.Drawing.Size(131, 20);
@@ -166,7 +166,7 @@
             // lbTipoInmueble
             // 
             this.lbTipoInmueble.AutoSize = true;
-            this.lbTipoInmueble.Location = new System.Drawing.Point(511, 76);
+            this.lbTipoInmueble.Location = new System.Drawing.Point(353, 76);
             this.lbTipoInmueble.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTipoInmueble.Name = "lbTipoInmueble";
             this.lbTipoInmueble.Size = new System.Drawing.Size(89, 13);
@@ -176,7 +176,7 @@
             // lbNumeroInmueble
             // 
             this.lbNumeroInmueble.AutoSize = true;
-            this.lbNumeroInmueble.Location = new System.Drawing.Point(511, 39);
+            this.lbNumeroInmueble.Location = new System.Drawing.Point(353, 39);
             this.lbNumeroInmueble.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbNumeroInmueble.Name = "lbNumeroInmueble";
             this.lbNumeroInmueble.Size = new System.Drawing.Size(105, 13);
@@ -194,6 +194,7 @@
             this.rbNumeroInmueble.TabStop = true;
             this.rbNumeroInmueble.Text = "Numero de Inmueble";
             this.rbNumeroInmueble.UseVisualStyleBackColor = true;
+            this.rbNumeroInmueble.CheckedChanged += new System.EventHandler(this.selectradionButton_CheckedChanged);
             // 
             // rbTipoInmueble
             // 
@@ -206,6 +207,7 @@
             this.rbTipoInmueble.TabStop = true;
             this.rbTipoInmueble.Text = "Tipo de Inmueble";
             this.rbTipoInmueble.UseVisualStyleBackColor = true;
+            this.rbTipoInmueble.CheckedChanged += new System.EventHandler(this.selectradionButton_CheckedChanged);
             // 
             // txtTituloVentana
             // 
@@ -222,7 +224,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(509, 9);
+            this.label1.Location = new System.Drawing.Point(351, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 25);
