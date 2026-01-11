@@ -152,6 +152,7 @@ namespace Controlador
 
                     
                     dgvReservas.Rows[indice].Cells["colNro"].Value = indice + 1;
+                    dgvReservas.Rows[indice].Cells["colCodigo"].Value = r.CodigoReserva;
                     dgvReservas.Rows[indice].Cells["colCliente"].Value = r.evento.Cliente.Nombre;
                     dgvReservas.Rows[indice].Cells["colNombreEvento"].Value = r.evento.NombreEvento;
                     dgvReservas.Rows[indice].Cells["colTipoEvento"].Value = r.evento.TipoEvento;
@@ -206,6 +207,75 @@ namespace Controlador
         public int GetCantidadLista()
         {
             return listaReservas.Count;
+        }
+        public void EliminarReserva(int indice, DataGridView dgvReservas)
+        {
+            string codigoReservaB = dgvReservas.Rows[indice].Cells["colCodigo"].Value.ToString();
+            DialogResult result = MessageBox.Show("¿Desea Eliminar la Reserva " + codigoReservaB + "?",
+                "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                dgvReservas.Rows.RemoveAt(indice); 
+
+                listaReservas.RemoveAll(r => r.CodigoReserva == codigoReservaB);
+
+                MessageBox.Show("Registro de Reserva " + codigoReservaB + " se eliminó correctamente!");
+            }
+        }
+        public void FiltrarXCodigo(string codigoD, string codigoH, DataGridView dgvReservas)
+        {
+            int indice = 0;
+            dgvReservas.Rows.Clear();
+
+            // Extraer numeros de los códigos
+            int numDesde = ExtraerNumero(codigoD);
+            int numHasta = ExtraerNumero(codigoH);
+
+            if (listaReservas.Count > 0)
+            {
+                foreach (Reserva r in listaReservas)
+                {
+                    int numReserva = ExtraerNumero(r.CodigoReserva);
+
+                    if (numReserva >= numDesde && numReserva <= numHasta)
+                    {
+                        indice = dgvReservas.Rows.Add();
+                        dgvReservas.Rows[indice].Cells["colNro"].Value = indice + 1;
+                        dgvReservas.Rows[indice].Cells["colCodigo"].Value = r.CodigoReserva;
+                        dgvReservas.Rows[indice].Cells["colCliente"].Value = r.evento.Cliente.Nombre;
+                        dgvReservas.Rows[indice].Cells["colNombreEvento"].Value = r.evento.NombreEvento;
+                        dgvReservas.Rows[indice].Cells["colTipoEvento"].Value = r.evento.TipoEvento;
+                        dgvReservas.Rows[indice].Cells["colCantPersonas"].Value = r.evento.NumPersonasEvento;
+                        dgvReservas.Rows[indice].Cells["colFechaReserva"].Value = r.FechaReserva.ToString("dd/MM/yyyy");
+                        dgvReservas.Rows[indice].Cells["colHoraInicio"].Value = r.HoraInicio.ToString(@"hh\:mm");
+                        dgvReservas.Rows[indice].Cells["colHoraFin"].Value = r.HoraFin.ToString(@"hh\:mm");
+                    }
+                }
+            }
+        }
+        // Metodo auxiliar para extraer el numero del codigo (RES-001 -> 1)
+        public int ExtraerNumero(string codigo)
+        {
+            int posGuion = codigo.IndexOf('-');
+            if (posGuion >= 0 && posGuion < codigo.Length - 1)
+            {
+                string parteNumerica = codigo.Substring(posGuion + 1);
+                int numero;
+                if (int.TryParse(parteNumerica, out numero))
+                {
+                    return numero;
+                }
+            }
+            return 0;
+        }
+        public void LlenarComboCodigos(ComboBox combo)
+        {
+            combo.Items.Clear(); 
+            foreach (Reserva r in listaReservas)
+            {
+                combo.Items.Add(r.CodigoReserva);
+            }
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.dgvReservas = new System.Windows.Forms.DataGridView();
             this.colNro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombreEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipoEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,6 +38,7 @@
             this.colFechaReserva = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHoraInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHoraFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblListaReser = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +49,7 @@
             this.dgvReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReservas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNro,
+            this.colCodigo,
             this.colCliente,
             this.colNombreEvento,
             this.colTipoEvento,
@@ -54,12 +57,11 @@
             this.colFechaReserva,
             this.colHoraInicio,
             this.colHoraFin});
-            this.dgvReservas.Location = new System.Drawing.Point(121, 95);
-            this.dgvReservas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvReservas.Location = new System.Drawing.Point(33, 120);
             this.dgvReservas.Name = "dgvReservas";
             this.dgvReservas.ReadOnly = true;
             this.dgvReservas.RowHeadersWidth = 51;
-            this.dgvReservas.Size = new System.Drawing.Size(1119, 185);
+            this.dgvReservas.Size = new System.Drawing.Size(1151, 150);
             this.dgvReservas.TabIndex = 0;
             // 
             // colNro
@@ -69,6 +71,12 @@
             this.colNro.Name = "colNro";
             this.colNro.ReadOnly = true;
             this.colNro.Width = 125;
+            // 
+            // colCodigo
+            // 
+            this.colCodigo.HeaderText = "Codigo de Reserva";
+            this.colCodigo.Name = "colCodigo";
+            this.colCodigo.ReadOnly = true;
             // 
             // colCliente
             // 
@@ -126,17 +134,28 @@
             this.colHoraFin.ReadOnly = true;
             this.colHoraFin.Width = 125;
             // 
+            // lblListaReser
+            // 
+            this.lblListaReser.AutoSize = true;
+            this.lblListaReser.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListaReser.Location = new System.Drawing.Point(488, 43);
+            this.lblListaReser.Name = "lblListaReser";
+            this.lblListaReser.Size = new System.Drawing.Size(265, 23);
+            this.lblListaReser.TabIndex = 1;
+            this.lblListaReser.Text = "Lista de Reservas Registradas";
+            // 
             // FrmListarReserva
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1381, 554);
+            this.ClientSize = new System.Drawing.Size(1196, 450);
+            this.Controls.Add(this.lblListaReser);
             this.Controls.Add(this.dgvReservas);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmListarReserva";
             this.Text = "Lista de Reservas";
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -144,6 +163,7 @@
 
         private System.Windows.Forms.DataGridView dgvReservas;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombreEvento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTipoEvento;
@@ -151,5 +171,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colFechaReserva;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHoraInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHoraFin;
+        private System.Windows.Forms.Label lblListaReser;
     }
 }

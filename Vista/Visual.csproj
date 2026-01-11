@@ -64,6 +64,12 @@
     <Compile Include="FrmEditarEvento.Designer.cs">
       <DependentUpon>FrmEditarEvento.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEditarReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditarReserva.Designer.cs">
+      <DependentUpon>FrmEditarReserva.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEliminarEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,12 @@
     </Compile>
     <Compile Include="FrmEliminarInmueble.Designer.cs">
       <DependentUpon>FrmEliminarInmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEliminarReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEliminarReserva.Designer.cs">
+      <DependentUpon>FrmEliminarReserva.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListarCliente.cs">
       <SubType>Form</SubType>
@@ -159,6 +171,9 @@
     <EmbeddedResource Include="FrmEditarEvento.resx">
       <DependentUpon>FrmEditarEvento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditarReserva.resx">
+      <DependentUpon>FrmEditarReserva.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEliminarEvento.resx">
       <DependentUpon>FrmEliminarEvento.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEliminarInmueble.resx">
       <DependentUpon>FrmEliminarInmueble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEliminarReserva.resx">
+      <DependentUpon>FrmEliminarReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListarCliente.resx">
       <DependentUpon>FrmListarCliente.cs</DependentUpon>

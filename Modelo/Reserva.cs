@@ -11,19 +11,23 @@ namespace Modelo
     {
         //metodos get y set
         public int IdReserva { get; set; }
+        public string CodigoReserva { get; set; }
         public Evento evento { get; set; }
         public DateTime FechaReserva { get; set; }
         public TimeSpan HoraInicio { get; set; }
         public TimeSpan HoraFin { get; set; }
         public string EstadoReserva { get; set; }
         public string TipoSolicitud { get; set; }
-        
-        private static int contadorID = 1;
+
+        private static int contadorCodigo = 1;
+
 
         public Reserva()
         {
-            IdReserva = contadorID;
-            contadorID = contadorID + 1;
+
+            //(ejemplo: RES-001)
+            CodigoReserva = "RES-" + contadorCodigo.ToString("000");
+            contadorCodigo = contadorCodigo + 1;
             EstadoReserva = "Confirmada";
             TipoSolicitud = "";
         }
@@ -49,7 +53,7 @@ namespace Modelo
         //Mostraar datos 
         public string MostrarReserva()
         {
-            string mensaje = "\n===== RESERVA #" + IdReserva + " =====" +
+            string mensaje = "\n===== RESERVA #" + CodigoReserva + " =====" +
                              "\n--- DATOS DEL EVENTO ---" +
                              "\nCliente: " + evento.Cliente.Nombre +
                              "\nTipo de Evento: " + evento.TipoEvento +

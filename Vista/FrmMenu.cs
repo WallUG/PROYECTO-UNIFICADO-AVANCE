@@ -190,5 +190,29 @@ namespace Visual
                 MessageBox.Show("No hay eventos registrados para editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void toolStripSeparator7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eliminarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (admReserva.GetCantidadLista() > 0)
+            {
+                FrmEliminarReserva frmEliminarReserva = new FrmEliminarReserva();
+                frmEliminarReserva.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay reservas registradas para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEditarReserva frmEditarReserva = new FrmEditarReserva();
+            frmEditarReserva.ShowDialog();
+        }
     }
 }
