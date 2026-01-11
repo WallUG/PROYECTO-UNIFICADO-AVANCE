@@ -143,8 +143,20 @@ namespace Controlador
         {
             try
             {
-                int idCliente = listaCliente.Count + 1;
-                //Bug solucionado : se agrego el parametro idCliente en la creacion del cliente
+
+                for (int i = 0; i < listaCliente.Count; i++)
+                {
+                    if (listaCliente[i].CedulaORuc == cedula)
+                    {
+                        MessageBox.Show("El cliente con la cédula " + cedula + " ya está registrado en el sistema.");
+
+                        return;
+                    }
+
+
+                }  int idCliente = listaCliente.Count + 1;
+
+                
                 Cliente cliente = new Cliente(idCliente, nombre, apellido, cedula, correo, telefono, direccion);
                 listaCliente.Add(cliente);
                 MessageBox.Show(" Cliente registrado con exito");
