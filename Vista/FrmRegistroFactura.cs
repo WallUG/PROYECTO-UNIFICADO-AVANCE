@@ -46,7 +46,7 @@ namespace Vista
             }
             else
             {
-                adm.cargarEventoPorId(groupBoxEvento, dgvDetallesFactura, Convert.ToInt16(cmbNumeroEvento.SelectedItem));
+                adm.cargarEventoPorId(groupBoxEvento, groupBoxFactura, dgvDetallesFactura, Convert.ToInt16(cmbNumeroEvento.SelectedItem));
                 adm.limpiarDatos(groupBoxFactura);
                 btnGuardar.Enabled = true;
             }
@@ -85,14 +85,14 @@ namespace Vista
 
         private void btnEmitirFactura_Click(object sender, EventArgs e)
         {
-            if (txtIdFactura.Text == "")
+            if (txtNumeroFactura.Text == "")
             {
                 MessageBox.Show("Debe seleccionar un evento y generar una factura");
                 return;
             }
             else
             {
-                adm.EmitirFactura(groupBoxFactura, txtIdFactura.Text);
+                adm.EmitirFactura(groupBoxFactura, txtNumeroFactura.Text);
             }
         }
 

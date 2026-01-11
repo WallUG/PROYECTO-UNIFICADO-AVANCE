@@ -58,11 +58,23 @@
     <Compile Include="FrmBienvenida.Designer.cs">
       <DependentUpon>FrmBienvenida.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEditarDetallesFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditarDetallesFactura.Designer.cs">
+      <DependentUpon>FrmEditarDetallesFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEditarEvento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEditarEvento.Designer.cs">
       <DependentUpon>FrmEditarEvento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEditarFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditarFactura.Designer.cs">
+      <DependentUpon>FrmEditarFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEditarReserva.cs">
       <SubType>Form</SubType>
@@ -168,8 +180,14 @@
     <EmbeddedResource Include="FrmBienvenida.resx">
       <DependentUpon>FrmBienvenida.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditarDetallesFactura.resx">
+      <DependentUpon>FrmEditarDetallesFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEditarEvento.resx">
       <DependentUpon>FrmEditarEvento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditarFactura.resx">
+      <DependentUpon>FrmEditarFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEditarReserva.resx">
       <DependentUpon>FrmEditarReserva.cs</DependentUpon>
