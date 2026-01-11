@@ -37,7 +37,6 @@
             this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDisponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.txtNumeroInmueble = new System.Windows.Forms.TextBox();
             this.txtTipoInmueble = new System.Windows.Forms.TextBox();
             this.lbTipoInmueble = new System.Windows.Forms.Label();
@@ -134,21 +133,12 @@
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Location = new System.Drawing.Point(657, 324);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(94, 30);
-            this.btnCerrar.TabIndex = 3;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // txtNumeroInmueble
             // 
             this.txtNumeroInmueble.Enabled = false;
-            this.txtNumeroInmueble.Location = new System.Drawing.Point(472, 36);
+            this.txtNumeroInmueble.Location = new System.Drawing.Point(444, 36);
             this.txtNumeroInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.txtNumeroInmueble.Name = "txtNumeroInmueble";
             this.txtNumeroInmueble.Size = new System.Drawing.Size(131, 20);
@@ -157,7 +147,7 @@
             // txtTipoInmueble
             // 
             this.txtTipoInmueble.Enabled = false;
-            this.txtTipoInmueble.Location = new System.Drawing.Point(472, 74);
+            this.txtTipoInmueble.Location = new System.Drawing.Point(444, 74);
             this.txtTipoInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.txtTipoInmueble.Name = "txtTipoInmueble";
             this.txtTipoInmueble.Size = new System.Drawing.Size(131, 20);
@@ -166,7 +156,7 @@
             // lbTipoInmueble
             // 
             this.lbTipoInmueble.AutoSize = true;
-            this.lbTipoInmueble.Location = new System.Drawing.Point(353, 76);
+            this.lbTipoInmueble.Location = new System.Drawing.Point(325, 76);
             this.lbTipoInmueble.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTipoInmueble.Name = "lbTipoInmueble";
             this.lbTipoInmueble.Size = new System.Drawing.Size(89, 13);
@@ -176,7 +166,7 @@
             // lbNumeroInmueble
             // 
             this.lbNumeroInmueble.AutoSize = true;
-            this.lbNumeroInmueble.Location = new System.Drawing.Point(353, 39);
+            this.lbNumeroInmueble.Location = new System.Drawing.Point(325, 39);
             this.lbNumeroInmueble.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbNumeroInmueble.Name = "lbNumeroInmueble";
             this.lbNumeroInmueble.Size = new System.Drawing.Size(105, 13);
@@ -224,7 +214,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(351, 9);
+            this.label1.Location = new System.Drawing.Point(323, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 25);
@@ -235,7 +225,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 456);
+            this.ClientSize = new System.Drawing.Size(865, 333);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTituloVentana);
             this.Controls.Add(this.rbNumeroInmueble);
@@ -244,7 +234,6 @@
             this.Controls.Add(this.txtTipoInmueble);
             this.Controls.Add(this.lbTipoInmueble);
             this.Controls.Add(this.lbNumeroInmueble);
-            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.dgvInmueble);
             this.Name = "FrmListarInmueble";
@@ -266,7 +255,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDisponible;
         private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.TextBox txtNumeroInmueble;
         private System.Windows.Forms.TextBox txtTipoInmueble;
         private System.Windows.Forms.Label lbTipoInmueble;

@@ -230,6 +230,7 @@
             this.btnAplicarFiltro.TabIndex = 37;
             this.btnAplicarFiltro.Text = "Aplicar Filtro";
             this.btnAplicarFiltro.UseVisualStyleBackColor = true;
+            this.btnAplicarFiltro.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // FrmEliminarInmueble
             // 

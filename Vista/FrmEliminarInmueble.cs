@@ -36,6 +36,23 @@ namespace Vista
             }
         }
 
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            Boolean resul = admInmueble.EsFiltroVacio(txtNumeroInmueble.Text, txtTipoInmueble.Text);
+            if (resul)
+            {
+                MessageBox.Show("No ha ingresado ningun filtro", "Actualizar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                admInmueble.LlenarTabla(dgvInmueble);
+            }
+            else
+            {
+                admInmueble.verificarFiltros(txtNumeroInmueble.Text, txtTipoInmueble.Text, dgvInmueble);
+            }
+
+            MessageBox.Show("Lista actualizada correctamente.", "Actualizar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
         private void selectradionButton_CheckedChanged(object sender, EventArgs e)
         {
             if (rbTipoInmueble.Checked)
