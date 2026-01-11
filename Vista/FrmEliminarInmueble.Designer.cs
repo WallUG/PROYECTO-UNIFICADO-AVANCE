@@ -30,13 +30,22 @@
         {
             this.dgvInmueble = new System.Windows.Forms.DataGridView();
             this.colNro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumeroInmueble = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDisponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtTituloVentana = new System.Windows.Forms.Label();
+            this.rbNumeroInmueble = new System.Windows.Forms.RadioButton();
+            this.rbTipoInmueble = new System.Windows.Forms.RadioButton();
+            this.txtNumeroInmueble = new System.Windows.Forms.TextBox();
+            this.txtTipoInmueble = new System.Windows.Forms.TextBox();
+            this.lbTipoInmueble = new System.Windows.Forms.Label();
+            this.lbNumeroInmueble = new System.Windows.Forms.Label();
+            this.btnAplicarFiltro = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInmueble)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +56,7 @@
             this.dgvInmueble.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInmueble.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNro,
-            this.colID,
+            this.colNumeroInmueble,
             this.colNombre,
             this.colTipo,
             this.colCantidad,
@@ -68,13 +77,13 @@
             this.colNro.ReadOnly = true;
             this.colNro.Width = 125;
             // 
-            // colID
+            // colNumeroInmueble
             // 
-            this.colID.HeaderText = "ID";
-            this.colID.MinimumWidth = 6;
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Width = 125;
+            this.colNumeroInmueble.HeaderText = "Numero de Inmueble";
+            this.colNumeroInmueble.MinimumWidth = 6;
+            this.colNumeroInmueble.Name = "colNumeroInmueble";
+            this.colNumeroInmueble.ReadOnly = true;
+            this.colNumeroInmueble.Width = 125;
             // 
             // colNombre
             // 
@@ -126,30 +135,143 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(317, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 25);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Filtros:";
+            // 
+            // txtTituloVentana
+            // 
+            this.txtTituloVentana.AutoSize = true;
+            this.txtTituloVentana.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTituloVentana.Location = new System.Drawing.Point(69, 9);
+            this.txtTituloVentana.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtTituloVentana.Name = "txtTituloVentana";
+            this.txtTituloVentana.Size = new System.Drawing.Size(188, 25);
+            this.txtTituloVentana.TabIndex = 35;
+            this.txtTituloVentana.Text = "Opciones de filtro:";
+            // 
+            // rbNumeroInmueble
+            // 
+            this.rbNumeroInmueble.AutoSize = true;
+            this.rbNumeroInmueble.Location = new System.Drawing.Point(74, 77);
+            this.rbNumeroInmueble.Margin = new System.Windows.Forms.Padding(2);
+            this.rbNumeroInmueble.Name = "rbNumeroInmueble";
+            this.rbNumeroInmueble.Size = new System.Drawing.Size(123, 17);
+            this.rbNumeroInmueble.TabIndex = 34;
+            this.rbNumeroInmueble.TabStop = true;
+            this.rbNumeroInmueble.Text = "Numero de Inmueble";
+            this.rbNumeroInmueble.UseVisualStyleBackColor = true;
+            // 
+            // rbTipoInmueble
+            // 
+            this.rbTipoInmueble.AutoSize = true;
+            this.rbTipoInmueble.Location = new System.Drawing.Point(74, 39);
+            this.rbTipoInmueble.Margin = new System.Windows.Forms.Padding(2);
+            this.rbTipoInmueble.Name = "rbTipoInmueble";
+            this.rbTipoInmueble.Size = new System.Drawing.Size(107, 17);
+            this.rbTipoInmueble.TabIndex = 33;
+            this.rbTipoInmueble.TabStop = true;
+            this.rbTipoInmueble.Text = "Tipo de Inmueble";
+            this.rbTipoInmueble.UseVisualStyleBackColor = true;
+            // 
+            // txtNumeroInmueble
+            // 
+            this.txtNumeroInmueble.Enabled = false;
+            this.txtNumeroInmueble.Location = new System.Drawing.Point(428, 36);
+            this.txtNumeroInmueble.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNumeroInmueble.Name = "txtNumeroInmueble";
+            this.txtNumeroInmueble.Size = new System.Drawing.Size(131, 20);
+            this.txtNumeroInmueble.TabIndex = 32;
+            // 
+            // txtTipoInmueble
+            // 
+            this.txtTipoInmueble.Enabled = false;
+            this.txtTipoInmueble.Location = new System.Drawing.Point(428, 74);
+            this.txtTipoInmueble.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTipoInmueble.Name = "txtTipoInmueble";
+            this.txtTipoInmueble.Size = new System.Drawing.Size(131, 20);
+            this.txtTipoInmueble.TabIndex = 31;
+            // 
+            // lbTipoInmueble
+            // 
+            this.lbTipoInmueble.AutoSize = true;
+            this.lbTipoInmueble.Location = new System.Drawing.Point(319, 76);
+            this.lbTipoInmueble.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbTipoInmueble.Name = "lbTipoInmueble";
+            this.lbTipoInmueble.Size = new System.Drawing.Size(89, 13);
+            this.lbTipoInmueble.TabIndex = 30;
+            this.lbTipoInmueble.Text = "Tipo de Inmueble";
+            // 
+            // lbNumeroInmueble
+            // 
+            this.lbNumeroInmueble.AutoSize = true;
+            this.lbNumeroInmueble.Location = new System.Drawing.Point(319, 39);
+            this.lbNumeroInmueble.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbNumeroInmueble.Name = "lbNumeroInmueble";
+            this.lbNumeroInmueble.Size = new System.Drawing.Size(105, 13);
+            this.lbNumeroInmueble.TabIndex = 29;
+            this.lbNumeroInmueble.Text = "Numero de Inmueble";
+            // 
+            // btnAplicarFiltro
+            // 
+            this.btnAplicarFiltro.Location = new System.Drawing.Point(631, 40);
+            this.btnAplicarFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAplicarFiltro.Name = "btnAplicarFiltro";
+            this.btnAplicarFiltro.Size = new System.Drawing.Size(88, 50);
+            this.btnAplicarFiltro.TabIndex = 37;
+            this.btnAplicarFiltro.Text = "Aplicar Filtro";
+            this.btnAplicarFiltro.UseVisualStyleBackColor = true;
+            // 
             // FrmEliminarInmueble
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAplicarFiltro);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtTituloVentana);
+            this.Controls.Add(this.rbNumeroInmueble);
+            this.Controls.Add(this.rbTipoInmueble);
+            this.Controls.Add(this.txtNumeroInmueble);
+            this.Controls.Add(this.txtTipoInmueble);
+            this.Controls.Add(this.lbTipoInmueble);
+            this.Controls.Add(this.lbNumeroInmueble);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgvInmueble);
             this.Name = "FrmEliminarInmueble";
             this.Text = "FrmEliminarInmueble";
             ((System.ComponentModel.ISupportInitialize)(this.dgvInmueble)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dgvInmueble;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumeroInmueble;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDisponible;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label txtTituloVentana;
+        private System.Windows.Forms.RadioButton rbNumeroInmueble;
+        private System.Windows.Forms.RadioButton rbTipoInmueble;
+        private System.Windows.Forms.TextBox txtNumeroInmueble;
+        private System.Windows.Forms.TextBox txtTipoInmueble;
+        private System.Windows.Forms.Label lbTipoInmueble;
+        private System.Windows.Forms.Label lbNumeroInmueble;
+        private System.Windows.Forms.Button btnAplicarFiltro;
     }
 }

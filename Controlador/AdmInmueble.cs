@@ -86,7 +86,8 @@ namespace Controlador
                     indice = dgvInmueble.Rows.Add();//por cada uno agrega una fila nueva
                     //llena la celda
                     dgvInmueble.Rows[indice].Cells["colNro"].Value = indice + 1;
-                    dgvInmueble.Rows[indice].Cells["colID"].Value = i.idInmueble;
+                    //dgvInmueble.Rows[indice].Cells["colID"].Value = i.idInmueble;
+                    dgvInmueble.Rows[indice].Cells["colNumeroInmueble"].Value = i.numeroInmueble;
                     dgvInmueble.Rows[indice].Cells["colNombre"].Value = i.nombreInmueble;
                     dgvInmueble.Rows[indice].Cells["colTipo"].Value = i.tipoInmueble;
                     dgvInmueble.Rows[indice].Cells["colCantidad"].Value = i.cantidadInmuebleDisponible;
@@ -99,7 +100,73 @@ namespace Controlador
             }
         }
 
-        // Método para obtener la cantidad de inmuebles en la lista
+
+        public void verificarFiltros(string txtNumeroInmueble, string txtTipoInmueble, DataGridView dgvInmueble)/////////
+        {
+            dgvInmueble.Rows.Clear();
+            int indice = 0;
+
+            string filtro = "";
+            if (!string.IsNullOrWhiteSpace(txtNumeroInmueble))
+            {
+                filtro = "Numero";
+            }
+            else if (!string.IsNullOrWhiteSpace(txtTipoInmueble))
+            {
+                filtro = "Tipo";
+            }
+
+            foreach (Inmueble i in inmuebleL)
+            {
+                if (filtro == "Numero")
+                {
+                    if (i.numeroInmueble == txtNumeroInmueble)
+                    {
+                        indice = dgvInmueble.Rows.Add();//por cada uno agrega una fila nueva
+                        //llena la celda
+                        dgvInmueble.Rows[indice].Cells["colNro"].Value = indice + 1;
+                        //dgvInmueble.Rows[indice].Cells["colID"].Value = i.idInmueble;
+                        dgvInmueble.Rows[indice].Cells["colNumeroInmueble"].Value = i.numeroInmueble;
+                        dgvInmueble.Rows[indice].Cells["colNombre"].Value = i.nombreInmueble;
+                        dgvInmueble.Rows[indice].Cells["colTipo"].Value = i.tipoInmueble;
+                        dgvInmueble.Rows[indice].Cells["colCantidad"].Value = i.cantidadInmuebleDisponible;
+                        dgvInmueble.Rows[indice].Cells["colPrecio"].Value = i.precioInmueble;
+                        dgvInmueble.Rows[indice].Cells["colDisponible"].Value = i.inmuebleDisponible;
+                        indice++;
+                    }
+                }
+                else if (filtro == "Tipo")
+                {
+                    if (i.tipoInmueble == txtTipoInmueble)
+                    {
+                        indice = dgvInmueble.Rows.Add();//por cada uno agrega una fila nueva
+                        //llena la celda
+                        dgvInmueble.Rows[indice].Cells["colNro"].Value = indice + 1;
+                        //dgvInmueble.Rows[indice].Cells["colID"].Value = i.idInmueble;
+                        dgvInmueble.Rows[indice].Cells["colNumeroInmueble"].Value = i.numeroInmueble;
+                        dgvInmueble.Rows[indice].Cells["colNombre"].Value = i.nombreInmueble;
+                        dgvInmueble.Rows[indice].Cells["colTipo"].Value = i.tipoInmueble;
+                        dgvInmueble.Rows[indice].Cells["colCantidad"].Value = i.cantidadInmuebleDisponible;
+                        dgvInmueble.Rows[indice].Cells["colPrecio"].Value = i.precioInmueble;
+                        dgvInmueble.Rows[indice].Cells["colDisponible"].Value = i.inmuebleDisponible;
+                        indice++;
+                    }
+                }
+            }
+        }
+
+        //Filtro vacio
+        public bool EsFiltroVacio(string txtNumeroInmueble, string txtTipoInmueble)
+        {
+            if (string.IsNullOrWhiteSpace(txtNumeroInmueble) && string.IsNullOrWhiteSpace(txtTipoInmueble))
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+        //Método para obtener la cantidad de inmuebles en la lista
         public int GetCantidadLista()
         {
             return inmuebleL.Count;
@@ -108,14 +175,14 @@ namespace Controlador
         //Eliminar Inmueble (Visual)
         public void EliminarInmueble(int indice, DataGridView dvgInmueble)
         {
-            int idInmueble = Convert.ToInt32(dvgInmueble.Rows[indice].Cells["colID"].Value);
+            string numeroInmueble = dvgInmueble.Rows[indice].Cells["colNumeroInmueble"].Value.ToString();
             DialogResult resultado = MessageBox.Show("¿Está seguro de que desea eliminar el inmueble seleccionado?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (resultado == DialogResult.Yes)
             {
                 for (int i = 0; i < inmuebleL.Count; i++)
                 {
-                    if (inmuebleL[i].idInmueble == idInmueble)
+                    if (inmuebleL[i].numeroInmueble == numeroInmueble)
                     {
                         inmuebleL.RemoveAt(i);
                         MessageBox.Show("Inmueble eliminado correctamente.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);

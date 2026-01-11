@@ -17,6 +17,7 @@ namespace Modelo
             public int cantidadInmuebleDisponible { get; set; }
             public double precioInmueble { get; set; }
             public bool inmuebleDisponible { get; set; }
+            public string numeroInmueble { get; set; }//filtro
 
         // Constructor con parámetros
         public Inmueble(int id, string nombre, string tipo, int cantidad, double precio)

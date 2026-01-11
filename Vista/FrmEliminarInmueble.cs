@@ -35,5 +35,20 @@ namespace Vista
                 MessageBox.Show("Seleccione un inmueble para eliminar.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void selectradionButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTipoInmueble.Checked)
+            {
+                txtNumeroInmueble.Enabled = true;
+                txtTipoInmueble.Enabled = false;
+            }
+            else if (rbNumeroInmueble.Checked)
+            {
+                txtTipoInmueble.Enabled = true;
+                txtNumeroInmueble.Enabled = false;
+            }
+        }
+
     }
 }
