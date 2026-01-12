@@ -138,7 +138,7 @@
             // txtNumeroInmueble
             // 
             this.txtNumeroInmueble.Enabled = false;
-            this.txtNumeroInmueble.Location = new System.Drawing.Point(444, 36);
+            this.txtNumeroInmueble.Location = new System.Drawing.Point(454, 74);
             this.txtNumeroInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.txtNumeroInmueble.Name = "txtNumeroInmueble";
             this.txtNumeroInmueble.Size = new System.Drawing.Size(131, 20);
@@ -147,7 +147,7 @@
             // txtTipoInmueble
             // 
             this.txtTipoInmueble.Enabled = false;
-            this.txtTipoInmueble.Location = new System.Drawing.Point(444, 74);
+            this.txtTipoInmueble.Location = new System.Drawing.Point(454, 39);
             this.txtTipoInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.txtTipoInmueble.Name = "txtTipoInmueble";
             this.txtTipoInmueble.Size = new System.Drawing.Size(131, 20);
@@ -156,7 +156,7 @@
             // lbTipoInmueble
             // 
             this.lbTipoInmueble.AutoSize = true;
-            this.lbTipoInmueble.Location = new System.Drawing.Point(325, 76);
+            this.lbTipoInmueble.Location = new System.Drawing.Point(325, 41);
             this.lbTipoInmueble.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTipoInmueble.Name = "lbTipoInmueble";
             this.lbTipoInmueble.Size = new System.Drawing.Size(89, 13);
@@ -166,7 +166,7 @@
             // lbNumeroInmueble
             // 
             this.lbNumeroInmueble.AutoSize = true;
-            this.lbNumeroInmueble.Location = new System.Drawing.Point(325, 39);
+            this.lbNumeroInmueble.Location = new System.Drawing.Point(325, 77);
             this.lbNumeroInmueble.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbNumeroInmueble.Name = "lbNumeroInmueble";
             this.lbNumeroInmueble.Size = new System.Drawing.Size(105, 13);
@@ -179,10 +179,10 @@
             this.rbNumeroInmueble.Location = new System.Drawing.Point(106, 77);
             this.rbNumeroInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.rbNumeroInmueble.Name = "rbNumeroInmueble";
-            this.rbNumeroInmueble.Size = new System.Drawing.Size(107, 17);
+            this.rbNumeroInmueble.Size = new System.Drawing.Size(123, 17);
             this.rbNumeroInmueble.TabIndex = 26;
             this.rbNumeroInmueble.TabStop = true;
-            this.rbNumeroInmueble.Text = "Tipo de Inmueble";
+            this.rbNumeroInmueble.Text = "Numero de Inmueble";
             this.rbNumeroInmueble.UseVisualStyleBackColor = true;
             this.rbNumeroInmueble.CheckedChanged += new System.EventHandler(this.selectradionButton_CheckedChanged);
             // 
@@ -192,10 +192,10 @@
             this.rbTipoInmueble.Location = new System.Drawing.Point(106, 39);
             this.rbTipoInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.rbTipoInmueble.Name = "rbTipoInmueble";
-            this.rbTipoInmueble.Size = new System.Drawing.Size(123, 17);
+            this.rbTipoInmueble.Size = new System.Drawing.Size(107, 17);
             this.rbTipoInmueble.TabIndex = 25;
             this.rbTipoInmueble.TabStop = true;
-            this.rbTipoInmueble.Text = "Numero de Inmueble";
+            this.rbTipoInmueble.Text = "Tipo de Inmueble";
             this.rbTipoInmueble.UseVisualStyleBackColor = true;
             this.rbTipoInmueble.CheckedChanged += new System.EventHandler(this.selectradionButton_CheckedChanged);
             // 

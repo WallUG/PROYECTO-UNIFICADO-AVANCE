@@ -44,15 +44,19 @@ namespace Visual
 
         private void selectradionButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbTipoInmueble.Checked)
+            if (rbNumeroInmueble.Checked)
             {
                 txtNumeroInmueble.Enabled = true;
+                txtNumeroInmueble.Clear(); // Limpia el campo al habilitar
                 txtTipoInmueble.Enabled = false;
+                txtTipoInmueble.Clear(); // Limpia el campo al deshabilitar
             }
-            else if (rbNumeroInmueble.Checked)
+            else if (rbTipoInmueble.Checked)
             {
                 txtTipoInmueble.Enabled = true;
+                txtTipoInmueble.Clear(); // Limpia el campo al habilitar
                 txtNumeroInmueble.Enabled = false;
+                txtNumeroInmueble.Clear(); // Limpia el campo al deshabilitar
             }
         }
 
