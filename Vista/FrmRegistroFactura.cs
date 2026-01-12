@@ -47,8 +47,8 @@ namespace Vista
             else
             {
                 adm.cargarEventoPorId(groupBoxEvento, groupBoxFactura, dgvDetallesFactura, Convert.ToInt16(cmbNumeroEvento.SelectedItem));
-                adm.limpiarDatos(groupBoxFactura);
-                btnGuardar.Enabled = true;
+                //adm.limpiarDatos(groupBoxFactura);
+                //btnGuardar.Enabled = true;
             }
         }
 

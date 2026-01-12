@@ -243,7 +243,7 @@ namespace Controlador
                 }
                 else
                 {
-                    //
+                    limpiarDatos(groupBoxFactura);
                 }
             }
         }

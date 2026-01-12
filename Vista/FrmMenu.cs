@@ -214,5 +214,11 @@ namespace Visual
             FrmEditarReserva frmEditarReserva = new FrmEditarReserva();
             frmEditarReserva.ShowDialog();
         }
+
+        private void mniEditar_Click(object sender, EventArgs e)
+        {
+            FrmEditarFactura frmEditarFactura = new FrmEditarFactura();
+            frmEditarFactura.ShowDialog();
+        }
     }
 }

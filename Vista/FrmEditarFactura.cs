@@ -46,11 +46,13 @@ namespace Vista
             {
                 txtNumCedula.Enabled = true;
                 txtNumFactura.Enabled = false;
+                txtNumFactura.Clear();
             }
             else if (rbNumFactura.Checked)
             {
                 txtNumFactura.Enabled = true;
                 txtNumCedula.Enabled = false;
+                txtNumCedula.Clear();
             }
         }
 
