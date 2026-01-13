@@ -9,23 +9,22 @@ namespace Modelo
     // Clase EventoInmueble (clase dependiente)
     public class EventoInmueble
     {
-        // Atributos
-        public Inmueble inmueble;
-        public int cantidadInmueble;
-        public DateTime fechaAsignacionInmueble;
 
-        // Constructor vacío
+        public Inmueble inmueble { get; set; }
+        public int cantidadInmueble { get; set; }
+        public DateTime fechaAsignacionInmueble { get; set; }
+
+        public List<Inmueble> listaInmuebles = new List<Inmueble>();
+
         public EventoInmueble() { }
 
-        // Constructor con parámetros
-        public EventoInmueble(Inmueble inm, int cantidad, DateTime fecha)
+        public EventoInmueble(Inmueble inmueble, int cantidad, DateTime fecha)
         {
-            inmueble = inm;
-            cantidadInmueble = cantidad;
-            fechaAsignacionInmueble = fecha;
+            this.inmueble = inmueble;
+            this.cantidadInmueble = cantidad;
+            this.fechaAsignacionInmueble = fecha;
         }
 
-        // Metodo asignarCantidadInmueble
         public bool AsignarCantidadInmueble()
         {
             if (inmueble == null)
@@ -41,7 +40,6 @@ namespace Modelo
             return false;
         }
 
-        // Metodo mostrarCantidadInmueble
         public void MostrarCantidadInmueble()
         {
             if (inmueble != null)
@@ -61,17 +59,15 @@ namespace Modelo
             return 0;
         }
 
-        // Metodo para obtener el ID del inmueble asociado
-        public int ObtenerIdInmueble()
+        public string ObtenerNumInmuebles()
         {
             if (inmueble != null)
             {
-                return inmueble.idInmueble;
+                return inmueble.numeroInmueble;
             }
-            return 0;
+            return "";
         }
 
-        // Metodo para obtener el nombre del inmueble asociado
         public string ObtenerNombreInmueble()
         {
             if (inmueble != null)
@@ -81,7 +77,6 @@ namespace Modelo
             return "";
         }
 
-        // Metodo para obtener la cantidad disponible del inmueble asociado
         public int ObtenerCantidadDisponibleInmueble()
         {
             if (inmueble != null)
@@ -91,7 +86,6 @@ namespace Modelo
             return 0;
         }
 
-        // Metodo para obtener el tipo del inmueble asociado
         public string ObtenerTipoInmueble()
         {
             if (inmueble != null)
@@ -101,7 +95,6 @@ namespace Modelo
             return "";
         }
 
-        // Metodo para obtener el precio del inmueble asociado
         public double ObtenerPrecioInmueble()
         {
             if (inmueble != null)
@@ -111,7 +104,6 @@ namespace Modelo
             return 0;
         }
 
-        // Metodo para verificar si el inmueble esta disponible
         public bool EstaDisponible()
         {
             if (inmueble != null)
@@ -121,7 +113,6 @@ namespace Modelo
             return false;
         }
 
-        // Metodo para verificar si la cantidad a asignar es valida (menor o igual a la disponible)
         public bool EsCantidadValida(int cantidadSolicitada)
         {
             if (inmueble != null)
@@ -131,13 +122,11 @@ namespace Modelo
             return false;
         }
 
-        // Metodo para actualizar la cantidad asignada
         public void ActualizarCantidadAsignada(int nuevaCantidad)
         {
             cantidadInmueble = nuevaCantidad;
         }
 
-        // Metodo para actualizar la fecha de asignacion
         public void ActualizarFechaAsignacion(DateTime nuevaFecha)
         {
             fechaAsignacionInmueble = nuevaFecha;

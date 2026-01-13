@@ -24,9 +24,9 @@ namespace Controlador
         string[] tipoIn = { "Locales", "Accesorios", "Servicios"};
 
         // Método para obtener un Inmueble
-        public static Inmueble ObtenerInmueblePorId(int idInmueble)
+        public static Inmueble ObtenerInmueblePorNumInmuebles(string numeroInmueble)
         {
-            return inmuebleL.Find(i => i.idInmueble == idInmueble);
+            return inmuebleL.Find(i => i.numeroInmueble == numeroInmueble);
         }
 
         // Método para obtener todos

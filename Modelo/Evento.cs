@@ -23,28 +23,28 @@ namespace Modelo
 
         public Evento(int idEvento, Cliente cliente, string tipoEvento, string nombreEvento, string descripcionEvento, int numPersonasEvento, string direccionEvento, string estadoEvento, List<EventoInmueble> eventoInmueble)
         {
-            IdEvento = idEvento;
-            Cliente = cliente;
-            TipoEvento = tipoEvento;
-            NombreEvento = nombreEvento;
-            DescripcionEvento = descripcionEvento;
-            NumPersonasEvento = numPersonasEvento;
-            DireccionEvento = direccionEvento;
-            EstadoEvento = estadoEvento;
-            EventoInmueble = eventoInmueble;
+            this.IdEvento = idEvento;
+            this.Cliente = cliente;
+            this.TipoEvento = tipoEvento;
+            this.NombreEvento = nombreEvento;
+            this.DescripcionEvento = descripcionEvento;
+            this.NumPersonasEvento = numPersonasEvento;
+            this.DireccionEvento = direccionEvento;
+            this.EstadoEvento = estadoEvento;
+            this.EventoInmueble = eventoInmueble;
         }
         public Evento(int idEvento, int numEventos, Cliente cliente, string tipoEvento, string nombreEvento, string descripcionEvento, int numPersonasEvento, string direccionEvento, string estadoEvento, List<EventoInmueble> eventoInmueble)
         {
-            IdEvento = idEvento;
-            NumEventos = numEventos;
-            Cliente = cliente;
-            TipoEvento = tipoEvento;
-            NombreEvento = nombreEvento;
-            DescripcionEvento = descripcionEvento;
-            NumPersonasEvento = numPersonasEvento;
-            DireccionEvento = direccionEvento;
-            EstadoEvento = estadoEvento;
-            EventoInmueble = eventoInmueble;
+            this.IdEvento = idEvento;
+            this.NumEventos = numEventos;
+            this.Cliente = cliente;
+            this.TipoEvento = tipoEvento;
+            this.NombreEvento = nombreEvento;
+            this.DescripcionEvento = descripcionEvento;
+            this.NumPersonasEvento = numPersonasEvento;
+            this.DireccionEvento = direccionEvento;
+            this.EstadoEvento = estadoEvento;
+            this.EventoInmueble = eventoInmueble;
         }
         
         public string ObtenerNombreCliente()
