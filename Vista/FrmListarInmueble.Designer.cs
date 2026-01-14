@@ -225,7 +225,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 333);
+            this.ClientSize = new System.Drawing.Size(860, 333);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTituloVentana);
             this.Controls.Add(this.rbNumeroInmueble);

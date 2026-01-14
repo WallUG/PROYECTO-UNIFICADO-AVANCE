@@ -12,34 +12,22 @@ namespace Controlador
 {
     public class AdmEvento
     {
-        // Lista estática para mantener los eventos entre instancias
         private static List<Evento> listaEventos = new List<Evento>();
-        
-        // Evento actual en proceso
         private Evento evento = null;
-
-        // Cliente seleccionado actualmente
         private Cliente cliente = null;
-
-        // Tipos de inmueble disponibles
-        string[] tipoIn = { "Locales", "Accesorios", "Servicios" };
-
-        // Lista de inmuebles seleccionados para el evento actual
         List<EventoInmueble> listaEventoInmueble = new List<EventoInmueble>();
+        string[] tipoInmuebles = { "Locales", "Accesorios", "Servicios" };
 
-        // Variables para almacenar los datos del cliente encontrado
         private string clienteNombresEncontrado = "";
         private string clienteApellidosEncontrado = "";
         private bool clienteFueEncontrado = false;
 
-        // Variables para almacenar los datos predeterminados del evento
         private string datoNombreEvento = "";
         private string datoDescripcionEvento = "";
         private int datoNumeroPersonas = 0;
         private string datoDireccionEvento = "";
         private string datoEstadoEvento = "";
 
-        // Tipos de evento disponibles
         private string[] tiposEvento = { 
             "Cumpleaños", 
             "Boda", 
@@ -49,7 +37,6 @@ namespace Controlador
             "Otro" 
         };
         
-        // Estados de evento disponibles
         private string[] estadosEvento = { 
             "Planificado", 
             "Confirmado", 
@@ -57,7 +44,6 @@ namespace Controlador
             "Cancelado" 
         };
 
-        //obtener un Evento por numEventos
         public static Evento ObtenerEventoPorNumEventos(int numEventos)
         {
             for (int i = 0; i < listaEventos.Count; i++)
@@ -70,37 +56,31 @@ namespace Controlador
             return null;
         }
 
-        // Método para obtener todos los eventos
         public static List<Evento> ObtenerTodosLosEventos()
         {
             return listaEventos;
         }
 
-        // Método para llenar ComboBox de tipos de inmueble
         public void LlenarComboTipo(ComboBox cmbTipoInmueble)
         {
-            for (int i = 0; i < tipoIn.Length; i++)
+            for (int i = 0; i < tipoInmuebles.Length; i++)
             {
-                cmbTipoInmueble.Items.Add(tipoIn[i]);
+                cmbTipoInmueble.Items.Add(tipoInmuebles[i]);
             }
         }
 
-        // Verifica si existen clientes registrados en el sistema
         public bool ExistenClientes()
         {
             List<Cliente> clientes = AdmCliente.ObtenerTodosLosClientes();
             return clientes.Count > 0;
         }
         
-        // Busca un cliente por cédula o RUC y almacena el resultado
         public bool BuscarClientePorCedulaORuc(string ciORuc)
         {
-            // Reiniciar valores
             clienteFueEncontrado = false;
             clienteNombresEncontrado = "";
             clienteApellidosEncontrado = "";
 
-            // Validar que el parámetro no esté vacío
             if (string.IsNullOrEmpty(ciORuc))
             {
                 return false;
@@ -110,7 +90,6 @@ namespace Controlador
 
             if (clientebusqueda != null)
             {
-                // Verificar si coincide con la cédula o RUC (y no es N/A)
                 bool coincide = (clientebusqueda.CedulaORuc == ciORuc) && (clientebusqueda.CedulaORuc != "N/A");
 
                 if (coincide)
@@ -125,37 +104,31 @@ namespace Controlador
             return false;
         }
 
-        // Obtiene los nombres del cliente encontrado
         public string ObtenerNombresClienteEncontrado()
         {
             return clienteNombresEncontrado;
         }
 
-        // Obtiene los apellidos del cliente encontrado
         public string ObtenerApellidosClienteEncontrado()
         {
             return clienteApellidosEncontrado;
         }
 
-        // Obtiene el nombre completo del cliente encontrado
         public string ObtenerNombreCompletoClienteEncontrado()
         {
             return clienteNombresEncontrado + " " + clienteApellidosEncontrado;
         }
 
-        // Verifica si se encontró un cliente en la última búsqueda
         public bool ClienteFueEncontrado()
         {
             return clienteFueEncontrado;
         }
         
-        // Verifica si hay un cliente seleccionado
         public bool HayClienteSeleccionado()
         {
             return cliente != null;
         }
         
-        // Limpia el cliente seleccionado
         public void LimpiarClienteSeleccionado()
         {
             cliente = null;
@@ -164,7 +137,6 @@ namespace Controlador
             clienteApellidosEncontrado = "";
         }
         
-        // Llena el ComboBox con los tipos de evento
         public void LlenarTiposEvento(ComboBox cmb)
         {
             cmb.Items.Clear();
@@ -174,7 +146,6 @@ namespace Controlador
             }
         }
         
-        // Llena el ComboBox con los estados de evento
         public void LlenarEstadosEvento(ComboBox cmb)
         {
             cmb.Items.Clear();
@@ -184,16 +155,13 @@ namespace Controlador
             }
         }
         
-        // Genera un nuevo ID para el evento
-        public int GenerarNuevoId()
+        public int GenerarNuevoNumEventos()
         {
             return listaEventos.Count + 1;
         }
         
-        // Carga los datos predeterminados según el tipo de evento
         public void CargarDatosPredeterminados(string tipoEvento)
         {
-            // Reiniciar valores por defecto
             datoNombreEvento = "Evento genérico";
             datoDescripcionEvento = "Descripción del evento genérico";
             datoNumeroPersonas = 20;
@@ -250,43 +218,36 @@ namespace Controlador
             }
         }
 
-        // Obtiene el nombre del evento predeterminado cargado
         public string ObtenerNombreEventoPredeterminado()
         {
             return datoNombreEvento;
         }
 
-        // Obtiene la descripción del evento predeterminado cargado
         public string ObtenerDescripcionEventoPredeterminado()
         {
             return datoDescripcionEvento;
         }
 
-        // Obtiene el número de personas del evento predeterminado cargado
         public int ObtenerNumeroPersonasPredeterminado()
         {
             return datoNumeroPersonas;
         }
 
-        // Obtiene la dirección del evento predeterminado cargado
         public string ObtenerDireccionEventoPredeterminado()
         {
             return datoDireccionEvento;
         }
 
-        // Obtiene el estado del evento predeterminado cargado
         public string ObtenerEstadoEventoPredeterminado()
         {
             return datoEstadoEvento;
         }
         
-        // Obtiene la lista completa de eventos registrados
         public List<Evento> ObtenerEventos()
         {
             return listaEventos;
         }
         
-        // Verifica si los campos del evento están vacíos
         public bool EsVacio(string tipoEvento, string nombreEvento, string descEvento, 
             int numPersonas, string direccionEvento, string estadoEvento)
         {
@@ -305,7 +266,6 @@ namespace Controlador
             return false;
         }
         
-        // Verifica si hay inmuebles seleccionados con cantidad mayor a 0
         public bool HayInmueblesSeleccionados()
         {
             if (listaEventoInmueble == null || listaEventoInmueble.Count == 0)
@@ -324,19 +284,17 @@ namespace Controlador
             return false;
         }
 
-        // Limpia la lista de inmuebles seleccionados
         public void LimpiarInmueblesSeleccionados()
         {
             listaEventoInmueble.Clear();
         }
 
-        // Elimina un inmueble de la lista de seleccionados por su ID
-        public void EliminarInmuebleSeleccionado(int idInmueble)
+        public void EliminarInmuebleSeleccionado(string numeroInmueble)
         {
             for (int i = listaEventoInmueble.Count - 1; i >= 0; i--)
             {
                 if (listaEventoInmueble[i].inmueble != null && 
-                    listaEventoInmueble[i].ObtenerIdInmueble() == idInmueble)
+                    listaEventoInmueble[i].ObtenerNumInmuebles() == numeroInmueble)
                 {
                     listaEventoInmueble.RemoveAt(i);
                     break;
@@ -344,15 +302,12 @@ namespace Controlador
             }
         }
 
-        // Obtiene la cantidad disponible de un inmueble por su ID usando EventoInmueble
-        public int ObtenerCantidadDisponibleInmueble(int idInmueble)
+        public int ObtenerCantidadDisponibleInmueble(string numeroInmueble)
         {
-            // Obtener el inmueble desde AdmInmueble
-            Inmueble inmueble = AdmInmueble.ObtenerInmueblePorId(idInmueble);
+            Inmueble inmueble = AdmInmueble.ObtenerInmueblePorNumInmuebles(numeroInmueble);
             
             if (inmueble != null)
             {
-                // Crear un EventoInmueble temporal para obtener la cantidad disponible
                 EventoInmueble eventoInmuebleTemporal = new EventoInmueble();
                 eventoInmuebleTemporal.inmueble = inmueble;
                 return eventoInmuebleTemporal.ObtenerCantidadDisponibleInmueble();
@@ -361,11 +316,10 @@ namespace Controlador
             return 0;
         }
 
-        // Verifica si la cantidad solicitada es válida para un inmueble
-        public bool EsCantidadValidaParaInmueble(int idInmueble, int cantidadSolicitada)
+        public bool EsCantidadValidaParaInmueble(string numeroInmueble, int cantidadSolicitada)
         {
-            Inmueble inmueble = AdmInmueble.ObtenerInmueblePorId(idInmueble);
-            
+            Inmueble inmueble = AdmInmueble.ObtenerInmueblePorNumInmuebles(numeroInmueble);
+
             if (inmueble != null)
             {
                 EventoInmueble eventoInmuebleTemporal = new EventoInmueble();
@@ -376,17 +330,14 @@ namespace Controlador
             return false;
         }
 
-        // Actualiza o agrega un inmueble seleccionado con la cantidad especificada
-        public void ActualizarInmuebleSeleccionado(int idInmueble, int cantidadAsignada, DateTime fechaAsignacion)
+        public void ActualizarInmuebleSeleccionado(string numeroInmueble, int cantidadAsignada, DateTime fechaAsignacion)
         {
-            // Buscar si ya existe el inmueble en la lista
             bool encontrado = false;
             for (int i = 0; i < listaEventoInmueble.Count; i++)
             {
                 if (listaEventoInmueble[i].inmueble != null && 
-                    listaEventoInmueble[i].ObtenerIdInmueble() == idInmueble)
+                    listaEventoInmueble[i].ObtenerNumInmuebles() == numeroInmueble)
                 {
-                    // Actualizar la cantidad y fecha usando los métodos de EventoInmueble
                     listaEventoInmueble[i].ActualizarCantidadAsignada(cantidadAsignada);
                     listaEventoInmueble[i].ActualizarFechaAsignacion(fechaAsignacion);
                     encontrado = true;
@@ -394,10 +345,9 @@ namespace Controlador
                 }
             }
 
-            // Si no existe, agregarlo
             if (!encontrado)
             {
-                Inmueble inmueble = AdmInmueble.ObtenerInmueblePorId(idInmueble);
+                Inmueble inmueble = AdmInmueble.ObtenerInmueblePorNumInmuebles(numeroInmueble);
                 if (inmueble != null)
                 {
                     EventoInmueble eventoInmueble = new EventoInmueble(inmueble, cantidadAsignada, fechaAsignacion);
@@ -406,14 +356,12 @@ namespace Controlador
             }
         }
         
-        // Registra el evento completo con todos sus datos
-        public string RegistrarEventoCompleto(int idEvento, string tipoEvento, string nombreEvento, string descEvento, int numPersonas, string direccionEvento, 
+        public void RegistrarEventoCompleto(int numEventos, string tipoEvento, string nombreEvento, string descripcionEvento, int numPersonas, string direccionEvento, 
             string estadoEvento, 
             string tipoInmueble, 
             int cantidadInmueble, 
             DateTime fechaAsignacion)
         {
-            // Crear una copia de la lista de inmuebles seleccionados para el evento
             List<EventoInmueble> listaInmueblesEvento = new List<EventoInmueble>();
             for (int i = 0; i < listaEventoInmueble.Count; i++)
             {
@@ -423,31 +371,58 @@ namespace Controlador
                 copia.fechaAsignacionInmueble = listaEventoInmueble[i].fechaAsignacionInmueble;
                 listaInmueblesEvento.Add(copia);
             }
-
-            // Crear el evento con todos los parámetros correctos
+            
             evento = new Evento(
-                idEvento,
-                numEventos: listaEventos.Count + 1,
+                numEventos,
                 cliente,
                 tipoEvento,
                 nombreEvento,
-                descEvento,
+                descripcionEvento,
                 numPersonas,
                 direccionEvento,
                 estadoEvento,
                 listaInmueblesEvento
             );
-
-            // Agregar evento a la lista estática
-            listaEventos.Add(evento);
-
-            // Limpiar la lista de inmuebles seleccionados para el próximo evento
-            listaEventoInmueble.Clear();
             
-            return evento.mostrarEvento();
+            listaEventos.Add(evento);
+            
+            listaEventoInmueble.Clear();
         }
+        
+        public string ObtenerInformacionEvento(Evento eventoParam)
+        {
+            if (eventoParam == null)
+            {
+                return "No hay información del evento disponible";
+            }
 
-        // Llena el DataGridView con los eventos registrados
+            StringBuilder info = new StringBuilder();
+            info.AppendLine("=== INFORMACIÓN DEL EVENTO ===");
+            info.AppendLine("Num. Evento: " + eventoParam.NumEventos.ToString());
+            info.AppendLine("Cliente: " + eventoParam.ObtenerNombreCliente());
+            info.AppendLine("Tipo de Evento: " + eventoParam.TipoEvento);
+            info.AppendLine("Nombre del Evento: " + eventoParam.NombreEvento);
+            info.AppendLine("Descripción: " + eventoParam.DescripcionEvento);
+            info.AppendLine("Número de Personas: " + eventoParam.NumPersonasEvento.ToString());
+            info.AppendLine("Dirección: " + eventoParam.DireccionEvento);
+            info.AppendLine("Estado: " + eventoParam.EstadoEvento);
+            
+            if (eventoParam.EventoInmueble != null && eventoParam.EventoInmueble.Count > 0)
+            {
+                info.AppendLine("=== INMUEBLES ASIGNADOS ===");
+                for (int i = 0; i < eventoParam.EventoInmueble.Count; i++)
+                {
+                    EventoInmueble ei = eventoParam.EventoInmueble[i];
+                    if (ei.inmueble != null)
+                    {
+                        info.AppendLine("Inmueble: " + ei.inmueble.nombreInmueble + " - Cantidad: " + ei.cantidadInmueble.ToString());
+                    }
+                }
+            }
+            
+            return info.ToString();
+        }
+        
         public void CargarTablaEventos(DataGridView dgvEventos)
         {
             dgvEventos.Rows.Clear();
@@ -467,8 +442,7 @@ namespace Controlador
                 indice ++;
             }
         }
-
-        // Llena el DataGridView de inmuebles filtrado por tipo
+        
         public void LlenarDescripcionInmuebleLocales(DataGridView dgvInmuebles, string filtro)
         {
             dgvInmuebles.Rows.Clear();
@@ -486,23 +460,21 @@ namespace Controlador
                 Inmueble inm = listaActual[i];
                 if(inm.tipoInmueble == filtro)
                 {
-                    // Crear un EventoInmueble temporal para obtener los datos
                     EventoInmueble eventoInmuebleTemporal = new EventoInmueble();
                     eventoInmuebleTemporal.inmueble = inm;
 
                     int indice = dgvInmuebles.Rows.Add();
-                    dgvInmuebles.Rows[indice].Cells["IdInmueble"].Value = eventoInmuebleTemporal.ObtenerIdInmueble();
-                    dgvInmuebles.Rows[indice].Cells["NombreInmueble"].Value = eventoInmuebleTemporal.ObtenerNombreInmueble();
-                    dgvInmuebles.Rows[indice].Cells["Disponible"].Value = eventoInmuebleTemporal.EstaDisponible();
-                    dgvInmuebles.Rows[indice].Cells["CantidadDisp"].Value = eventoInmuebleTemporal.ObtenerCantidadDisponibleInmueble();
+                    dgvInmuebles.Rows[indice].Cells["colNumInmuebles"].Value = eventoInmuebleTemporal.ObtenerNumInmuebles();
+                    dgvInmuebles.Rows[indice].Cells["colNombreInmueble"].Value = eventoInmuebleTemporal.ObtenerNombreInmueble();
+                    dgvInmuebles.Rows[indice].Cells["colDisponible"].Value = eventoInmuebleTemporal.EstaDisponible();
+                    dgvInmuebles.Rows[indice].Cells["colCantidadDisp"].Value = eventoInmuebleTemporal.ObtenerCantidadDisponibleInmueble();
                 }
             }
         }
-        
-        // Agrega un inmueble a la lista de seleccionados
-        public void AgregarInmuebleSeleccionado(int idInmueble, int cantidadAsignada, DateTime fechaAsignacion)
+
+        public void AgregarInmuebleSeleccionado(string numeroInmueble, int cantidadAsignada, DateTime fechaAsignacion)
         {
-            Inmueble inmueble = AdmInmueble.ObtenerInmueblePorId(idInmueble);
+            Inmueble inmueble = AdmInmueble.ObtenerInmueblePorNumInmuebles(numeroInmueble);
             if (inmueble != null)
             {
                 EventoInmueble eventoInmueble = new EventoInmueble(inmueble, cantidadAsignada, fechaAsignacion);
@@ -529,7 +501,6 @@ namespace Controlador
             {
                 dgvEvento.Rows.RemoveAt(indice);
 
-                //Eliminar del List
                 for (int i = 0; i < listaEventos.Count; i++)
                 {
                     if (listaEventos[i].NumEventos.ToString() == numEventos)

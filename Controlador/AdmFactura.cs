@@ -252,7 +252,6 @@ namespace Controlador
 
         public void CargarTablaDetalle(DataGridView dgvDetallesFactura, int idEvento)
         {
-            //dgvDocentes.DataSource=lista;
             int indice = 0;
             dgvDetallesFactura.Rows.Clear();
             foreach (Evento item in listaEvento)
@@ -261,7 +260,7 @@ namespace Controlador
                     foreach (EventoInmueble eInm in item.EventoInmueble)
                     {
                         dgvDetallesFactura.Rows.Add();
-                        dgvDetallesFactura.Rows[indice].Cells["colIdDetalle"].Value = eInm.inmueble.idInmueble;
+                        dgvDetallesFactura.Rows[indice].Cells["colIdDetalle"].Value = eInm.ObtenerNumInmuebles();
                         dgvDetallesFactura.Rows[indice].Cells["colNombre"].Value = eInm.inmueble.nombreInmueble;
                         dgvDetallesFactura.Rows[indice].Cells["colCantidad"].Value = eInm.cantidadInmueble;
                         dgvDetallesFactura.Rows[indice].Cells["colPrecioUnitario"].Value = eInm.inmueble.precioInmueble;
@@ -317,7 +316,7 @@ namespace Controlador
             string pto = puntoEmision.ToString("D3");
             string sec = secuencial.ToString("D8");
 
-            return $"{est}-{pto}-{sec}";
+            return est + "-" + pto + "-" + sec;
         }
 
         public void generarFactura(GroupBox groupBoxFactura, int idEvento, string descuento)
@@ -819,7 +818,7 @@ namespace Controlador
                 foreach (EventoInmueble eInm in factura.Evento.EventoInmueble)
                 {
                     dgvDetalles.Rows.Add();
-                    dgvDetalles.Rows[indice].Cells["colIdDetalle"].Value = eInm.inmueble.idInmueble;
+                    dgvDetalles.Rows[indice].Cells["colIdDetalle"].Value = eInm.ObtenerNumInmuebles();
                     dgvDetalles.Rows[indice].Cells["colNombre"].Value = eInm.inmueble.nombreInmueble;
                     dgvDetalles.Rows[indice].Cells["colCantidad"].Value = eInm.cantidadInmueble;
                     dgvDetalles.Rows[indice].Cells["colPrecioUnitario"].Value = eInm.inmueble.precioInmueble.ToString("N2");
