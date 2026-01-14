@@ -39,8 +39,8 @@
             this.rdbTodos = new System.Windows.Forms.RadioButton();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dgvReservas = new System.Windows.Forms.DataGridView();
-            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombreEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipoEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -159,13 +159,14 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.BackColor = System.Drawing.Color.Coral;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Location = new System.Drawing.Point(789, 445);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(109, 32);
             this.btnEliminar.TabIndex = 20;
             this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // dgvReservas
@@ -174,8 +175,8 @@
             this.dgvReservas.AllowUserToDeleteRows = false;
             this.dgvReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReservas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colCodigo,
             this.colNro,
+            this.colCodigo,
             this.colCliente,
             this.colNombreEvento,
             this.colTipoEvento,
@@ -189,17 +190,17 @@
             this.dgvReservas.Size = new System.Drawing.Size(839, 150);
             this.dgvReservas.TabIndex = 19;
             // 
-            // colCodigo
-            // 
-            this.colCodigo.HeaderText = "Codigo Reserva";
-            this.colCodigo.Name = "colCodigo";
-            this.colCodigo.ReadOnly = true;
-            // 
             // colNro
             // 
             this.colNro.HeaderText = "Nro";
             this.colNro.Name = "colNro";
             this.colNro.ReadOnly = true;
+            // 
+            // colCodigo
+            // 
+            this.colCodigo.HeaderText = "Codigo Reserva";
+            this.colCodigo.Name = "colCodigo";
+            this.colCodigo.ReadOnly = true;
             // 
             // colCliente
             // 
@@ -252,7 +253,9 @@
             this.Controls.Add(this.dgvReservas);
             this.Controls.Add(this.grpFiltro);
             this.Controls.Add(this.txtTituloVentana);
+            this.MaximizeBox = false;
             this.Name = "FrmEliminarReserva";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEliminarReserva";
             this.grpFiltro.ResumeLayout(false);
             this.grpFiltro.PerformLayout();
@@ -275,8 +278,8 @@
         private System.Windows.Forms.RadioButton rdbTodos;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView dgvReservas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombreEvento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTipoEvento;

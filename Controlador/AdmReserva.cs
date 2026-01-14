@@ -1,28 +1,23 @@
 ﻿//NICK ADRIAN ZAMBRANO ARTEAGA
 using Modelo;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Controlador
 {
     //CLASE QUE ADMINISTRARA LOS DATOS DE RESERVA
     public class AdmReserva
     {
-       
+
         static List<Reserva> listaReservas = new List<Reserva>();
         List<Evento> listaEvento = AdmEvento.ObtenerTodosLosEventos();
         Evento even = null;
         //Inicializa la lista de reservas vacia
         public AdmReserva()
         {
-            
+
         }
 
         public static Reserva ObtenerReservaPorId(int id)
@@ -35,7 +30,7 @@ namespace Controlador
         {
             return listaReservas;
         }
-       
+
         // Metodo para mostrar todas las reservas
         public string MostrarTodasReservas()
         {
@@ -55,7 +50,7 @@ namespace Controlador
 
         //Lista para agarrar la info del boton guaradar
         static List<Reserva> lista = new List<Reserva>();
-        Reserva reserva = null;
+        //Reserva reserva = null;
         string[] tiposSolicitud = { "Reservada", "No reservada" };
 
         public void LlenarComboTipoEvento(ComboBox cmbTipoEventos, Evento evem)
@@ -87,16 +82,15 @@ namespace Controlador
             }
         }
         public bool EsVacio(string cliente, string nombEvent, string tipEvents,
-                          int cantPersonass, DateTime fecha, DateTime horaIni,
-                          DateTime horaFinsh, string tipSolicitudd)
+                            int cantPersonass, DateTime fecha, DateTime horaIni,
+                            DateTime horaFinsh, string tipSolicitudd)
         {
-            if (string.IsNullOrEmpty(cliente) ||string.IsNullOrEmpty(nombEvent) || string.IsNullOrEmpty(tipEvents) ||string.IsNullOrEmpty(tipSolicitudd))
+            if (string.IsNullOrEmpty(cliente) || string.IsNullOrEmpty(nombEvent) || string.IsNullOrEmpty(tipEvents) || string.IsNullOrEmpty(tipSolicitudd))
             {
                 MessageBox.Show("Error: Se necesita todos los campos llenos");
-                return true;  // TRUE significa que Si hay campos vacíos
+                return true;
             }
-
-            return false;  // FALSE significa que No hay campos vacíos (todo está lleno)
+            return false;
         }
         // Método para verificar si ya existe una reserva en una fecha específica
         public bool ExisteReservaEnFecha(DateTime fecha)
@@ -122,13 +116,13 @@ namespace Controlador
             {
                 return "Error...La hora de inicio debe ser antes de la hora de fin";
             }
-            
+
             Reserva nuevaReserva = new Reserva();
 
             nuevaReserva.evento = even;
             nuevaReserva.FechaReserva = fecha;
-            
-            
+
+
             nuevaReserva.HoraInicio = horaIni.TimeOfDay;
             nuevaReserva.HoraFin = horaFin.TimeOfDay;
             nuevaReserva.TipoSolicitud = tipSolicitud;
@@ -144,13 +138,13 @@ namespace Controlador
             {
                 int indice = 0;
 
-                
+
                 foreach (Reserva r in listaReservas)
                 {
-                    
+
                     indice = dgvReservas.Rows.Add();
 
-                    
+
                     dgvReservas.Rows[indice].Cells["colNro"].Value = indice + 1;
                     dgvReservas.Rows[indice].Cells["colCodigo"].Value = r.CodigoReserva;
                     dgvReservas.Rows[indice].Cells["colCliente"].Value = r.evento.Cliente.Nombre;
@@ -171,7 +165,8 @@ namespace Controlador
         public void MostrarDatosEventoPorNombre(int indexEvento, ComboBox cmbTipoEvento, ComboBox cmbTipoSolicitud, ComboBox cmbClientes, TextBox txtDescripcionEvento, NumericUpDown nudCantPersonas)
         {
             even = AdmEvento.ObtenerEventoPorNumEventos(indexEvento);
-            if(even != null) {
+            if (even != null)
+            {
                 LlenarComboTipoEvento(cmbTipoEvento, even);
                 LlenarComboTipoSolicitud(cmbTipoSolicitud);
                 LlenarDescripcionEvento(txtDescripcionEvento, even);
@@ -181,8 +176,9 @@ namespace Controlador
 
         }
 
-        private void LlenarComboTipoSolicitud(ComboBox cmbTipoSolicitud)
+        public void LlenarComboTipoSolicitud(ComboBox cmbTipoSolicitud)
         {
+            cmbTipoSolicitud.Items.Clear();
             foreach (string tipSoli in tiposSolicitud)
             {
                 cmbTipoSolicitud.Items.Add(tipSoli);
@@ -216,7 +212,7 @@ namespace Controlador
 
             if (result == DialogResult.Yes)
             {
-                dgvReservas.Rows.RemoveAt(indice); 
+                dgvReservas.Rows.RemoveAt(indice);
 
                 listaReservas.RemoveAll(r => r.CodigoReserva == codigoReservaB);
 
@@ -271,11 +267,63 @@ namespace Controlador
         }
         public void LlenarComboCodigos(ComboBox combo)
         {
-            combo.Items.Clear(); 
+            combo.Items.Clear();
             foreach (Reserva r in listaReservas)
             {
                 combo.Items.Add(r.CodigoReserva);
             }
         }
+
+        public void EditarReserva(int indice, DataGridView dgvReservas)
+        {
+
+        }
+
+        public string ObtenerTipoSolicitud(string CodigoReserva)
+        {
+            Reserva r = BuscarReservaPorNumero(CodigoReserva);
+
+            if (r != null)
+            {
+                return r.TipoSolicitud;
+            }
+            return "";
+        }
+
+        private Reserva BuscarReservaPorNumero(object CodigoReserva)
+        {
+            foreach (Reserva r in listaReservas)
+            {
+                if (r.CodigoReserva == CodigoReserva.ToString())
+                {
+                    return r;
+                }
+            }
+            return null;
+        }
+
+        public string ActualizarReserva(string CodigoReserva, DateTime fecha, DateTime horaIni, DateTime horaFin, string tipSolicitud)
+        {
+            // Buscar la reserva que queremos modificar
+            Reserva reservaExistente = BuscarReservaPorNumero(CodigoReserva);
+
+            if (reservaExistente == null)
+            {
+                return "Error: No se encontró la reserva con el codigo " + CodigoReserva;
+            }
+
+            if (horaIni.TimeOfDay >= horaFin.TimeOfDay)
+            {
+                return "Error...La hora de inicio debe ser antes de la hora de fin";
+            }
+
+            reservaExistente.FechaReserva = fecha;
+            reservaExistente.HoraInicio = horaIni.TimeOfDay;
+            reservaExistente.HoraFin = horaFin.TimeOfDay;
+            reservaExistente.TipoSolicitud = tipSolicitud;
+
+            return "Reserva " + CodigoReserva + " actualizada exitosamente\n" + reservaExistente.MostrarReserva();
+        }
+
     }
 }
