@@ -46,6 +46,11 @@
             this.label14 = new System.Windows.Forms.Label();
             this.gbAsignarInmuebles = new System.Windows.Forms.GroupBox();
             this.dgvInmuebles = new System.Windows.Forms.DataGridView();
+            this.colSeleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colNumInmuebles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombreInmueble = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDisponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidadDisp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpFechaAsignacionInmueble = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.cmbTipoInmueble = new System.Windows.Forms.ComboBox();
@@ -60,17 +65,21 @@
             this.label17 = new System.Windows.Forms.Label();
             this.txtNombresCliente = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.colSeleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colNumInmuebles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombreInmueble = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDisponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidadDisp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gbListaInmueblesSele = new System.Windows.Forms.GroupBox();
+            this.dgvInmueblesActual = new System.Windows.Forms.DataGridView();
+            this.colNumInmueblesAct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombreAct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDisponibleAct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantDispAct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFechaAsignacionAct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbCreacionEvento.SuspendLayout();
             this.gbAsignarInmuebles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInmuebles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadInmueble)).BeginInit();
             this.gbBuscarCliente.SuspendLayout();
             this.gbInformacionCliente.SuspendLayout();
+            this.gbListaInmueblesSele.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInmueblesActual)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -169,7 +178,7 @@
             this.btnGuardarEvento.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnGuardarEvento.Font = new System.Drawing.Font("Arial Black", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarEvento.ForeColor = System.Drawing.Color.Blue;
-            this.btnGuardarEvento.Location = new System.Drawing.Point(833, 555);
+            this.btnGuardarEvento.Location = new System.Drawing.Point(865, 783);
             this.btnGuardarEvento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnGuardarEvento.Name = "btnGuardarEvento";
             this.btnGuardarEvento.Size = new System.Drawing.Size(195, 40);
@@ -302,6 +311,51 @@
             this.dgvInmuebles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInmuebles_CellClick);
             this.dgvInmuebles.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgInmuebles_CellValueChanged);
             this.dgvInmuebles.CurrentCellDirtyStateChanged += new System.EventHandler(this.dvgInmuebles_CurrentCellDirtyStateChanged);
+            // 
+            // colSeleccionar
+            // 
+            this.colSeleccionar.Frozen = true;
+            this.colSeleccionar.HeaderText = "Selecionar";
+            this.colSeleccionar.MinimumWidth = 6;
+            this.colSeleccionar.Name = "colSeleccionar";
+            this.colSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSeleccionar.Width = 125;
+            // 
+            // colNumInmuebles
+            // 
+            this.colNumInmuebles.Frozen = true;
+            this.colNumInmuebles.HeaderText = "Num. Inmuebles";
+            this.colNumInmuebles.MinimumWidth = 6;
+            this.colNumInmuebles.Name = "colNumInmuebles";
+            this.colNumInmuebles.Width = 125;
+            // 
+            // colNombreInmueble
+            // 
+            this.colNombreInmueble.Frozen = true;
+            this.colNombreInmueble.HeaderText = "Nombre";
+            this.colNombreInmueble.MinimumWidth = 6;
+            this.colNombreInmueble.Name = "colNombreInmueble";
+            this.colNombreInmueble.ReadOnly = true;
+            this.colNombreInmueble.Width = 125;
+            // 
+            // colDisponible
+            // 
+            this.colDisponible.Frozen = true;
+            this.colDisponible.HeaderText = "Disponible";
+            this.colDisponible.MinimumWidth = 6;
+            this.colDisponible.Name = "colDisponible";
+            this.colDisponible.ReadOnly = true;
+            this.colDisponible.Width = 125;
+            // 
+            // colCantidadDisp
+            // 
+            this.colCantidadDisp.Frozen = true;
+            this.colCantidadDisp.HeaderText = "Cant. Disponible";
+            this.colCantidadDisp.MinimumWidth = 6;
+            this.colCantidadDisp.Name = "colCantidadDisp";
+            this.colCantidadDisp.ReadOnly = true;
+            this.colCantidadDisp.Width = 125;
             // 
             // dtpFechaAsignacionInmueble
             // 
@@ -469,50 +523,75 @@
             this.label15.TabIndex = 27;
             this.label15.Text = "Nombres:";
             // 
-            // colSeleccionar
+            // gbListaInmueblesSele
             // 
-            this.colSeleccionar.Frozen = true;
-            this.colSeleccionar.HeaderText = "Selecionar";
-            this.colSeleccionar.MinimumWidth = 6;
-            this.colSeleccionar.Name = "colSeleccionar";
-            this.colSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colSeleccionar.Width = 125;
+            this.gbListaInmueblesSele.Controls.Add(this.dgvInmueblesActual);
+            this.gbListaInmueblesSele.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbListaInmueblesSele.Location = new System.Drawing.Point(595, 483);
+            this.gbListaInmueblesSele.Name = "gbListaInmueblesSele";
+            this.gbListaInmueblesSele.Size = new System.Drawing.Size(703, 272);
+            this.gbListaInmueblesSele.TabIndex = 25;
+            this.gbListaInmueblesSele.TabStop = false;
+            this.gbListaInmueblesSele.Text = "Inmubles Seleccionados";
             // 
-            // colNumInmuebles
+            // dgvInmueblesActual
             // 
-            this.colNumInmuebles.Frozen = true;
-            this.colNumInmuebles.HeaderText = "Num. Inmuebles";
-            this.colNumInmuebles.MinimumWidth = 6;
-            this.colNumInmuebles.Name = "colNumInmuebles";
-            this.colNumInmuebles.Width = 125;
+            this.dgvInmueblesActual.AllowUserToAddRows = false;
+            this.dgvInmueblesActual.AllowUserToDeleteRows = false;
+            this.dgvInmueblesActual.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInmueblesActual.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colNumInmueblesAct,
+            this.colNombreAct,
+            this.colDisponibleAct,
+            this.colCantDispAct,
+            this.colFechaAsignacionAct});
+            this.dgvInmueblesActual.Location = new System.Drawing.Point(25, 49);
+            this.dgvInmueblesActual.Name = "dgvInmueblesActual";
+            this.dgvInmueblesActual.ReadOnly = true;
+            this.dgvInmueblesActual.RowHeadersWidth = 51;
+            this.dgvInmueblesActual.RowTemplate.Height = 24;
+            this.dgvInmueblesActual.Size = new System.Drawing.Size(661, 178);
+            this.dgvInmueblesActual.TabIndex = 0;
             // 
-            // colNombreInmueble
+            // colNumInmueblesAct
             // 
-            this.colNombreInmueble.Frozen = true;
-            this.colNombreInmueble.HeaderText = "Nombre";
-            this.colNombreInmueble.MinimumWidth = 6;
-            this.colNombreInmueble.Name = "colNombreInmueble";
-            this.colNombreInmueble.ReadOnly = true;
-            this.colNombreInmueble.Width = 125;
+            this.colNumInmueblesAct.HeaderText = "Num. Inmuebles";
+            this.colNumInmueblesAct.MinimumWidth = 6;
+            this.colNumInmueblesAct.Name = "colNumInmueblesAct";
+            this.colNumInmueblesAct.ReadOnly = true;
+            this.colNumInmueblesAct.Width = 125;
             // 
-            // colDisponible
+            // colNombreAct
             // 
-            this.colDisponible.Frozen = true;
-            this.colDisponible.HeaderText = "Disponible";
-            this.colDisponible.MinimumWidth = 6;
-            this.colDisponible.Name = "colDisponible";
-            this.colDisponible.ReadOnly = true;
-            this.colDisponible.Width = 125;
+            this.colNombreAct.HeaderText = "Nombre";
+            this.colNombreAct.MinimumWidth = 6;
+            this.colNombreAct.Name = "colNombreAct";
+            this.colNombreAct.ReadOnly = true;
+            this.colNombreAct.Width = 125;
             // 
-            // colCantidadDisp
+            // colDisponibleAct
             // 
-            this.colCantidadDisp.Frozen = true;
-            this.colCantidadDisp.HeaderText = "Cant. Disponible";
-            this.colCantidadDisp.MinimumWidth = 6;
-            this.colCantidadDisp.Name = "colCantidadDisp";
-            this.colCantidadDisp.ReadOnly = true;
-            this.colCantidadDisp.Width = 125;
+            this.colDisponibleAct.HeaderText = "Diponible";
+            this.colDisponibleAct.MinimumWidth = 6;
+            this.colDisponibleAct.Name = "colDisponibleAct";
+            this.colDisponibleAct.ReadOnly = true;
+            this.colDisponibleAct.Width = 125;
+            // 
+            // colCantDispAct
+            // 
+            this.colCantDispAct.HeaderText = "Cant. Disponible";
+            this.colCantDispAct.MinimumWidth = 6;
+            this.colCantDispAct.Name = "colCantDispAct";
+            this.colCantDispAct.ReadOnly = true;
+            this.colCantDispAct.Width = 125;
+            // 
+            // colFechaAsignacionAct
+            // 
+            this.colFechaAsignacionAct.HeaderText = "Fecha de asignación";
+            this.colFechaAsignacionAct.MinimumWidth = 6;
+            this.colFechaAsignacionAct.Name = "colFechaAsignacionAct";
+            this.colFechaAsignacionAct.ReadOnly = true;
+            this.colFechaAsignacionAct.Width = 125;
             // 
             // FrmRegistrarEvento
             // 
@@ -520,6 +599,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1310, 836);
+            this.Controls.Add(this.gbListaInmueblesSele);
             this.Controls.Add(this.gbInformacionCliente);
             this.Controls.Add(this.gbBuscarCliente);
             this.Controls.Add(this.btnGuardarEvento);
@@ -540,6 +620,8 @@
             this.gbBuscarCliente.PerformLayout();
             this.gbInformacionCliente.ResumeLayout(false);
             this.gbInformacionCliente.PerformLayout();
+            this.gbListaInmueblesSele.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInmueblesActual)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -582,6 +664,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombreInmueble;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDisponible;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCantidadDisp;
+        private System.Windows.Forms.GroupBox gbListaInmueblesSele;
+        private System.Windows.Forms.DataGridView dgvInmueblesActual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumInmueblesAct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombreAct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDisponibleAct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCantDispAct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFechaAsignacionAct;
     }
 }
 

@@ -1,5 +1,4 @@
-﻿//CASTILLO MERA DANIEL FERNANDO
-using Modelo;
+﻿using Modelo;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -372,7 +371,6 @@ namespace Controlador
                 listaInmueblesEvento.Add(copia);
             }
             
-            // Usar el constructor correcto que incluye IdEvento Y NumEventos
             evento = new Evento(
                 numEventos,
                 numEventos,
@@ -455,6 +453,92 @@ namespace Controlador
             }
         }
 
+        public List<EventoInmueble> ObtenerInmueblesSeleccionadosActuales()
+        {
+            return listaEventoInmueble;
+        }
+
+        public int ObtenerCantidadInmueblesSeleccionados()
+        {
+            return listaEventoInmueble.Count;
+        }
+
+        public EventoInmueble ObtenerInmuebleSeleccionadoPorNumero(string numeroInmueble)
+        {
+            for (int i = 0; i < listaEventoInmueble.Count; i++)
+            {
+                if (listaEventoInmueble[i].inmueble != null && 
+                    listaEventoInmueble[i].ObtenerNumInmuebles() == numeroInmueble)
+                {
+                    return listaEventoInmueble[i];
+                }
+            }
+            return null;
+        }
+
+        public void SincronizarInmuebleTemp(string numeroInmueble, int cantidadAsignada, DateTime fechaAsignacion)
+        {
+            Inmueble inmuebleActual = AdmInmueble.ObtenerInmueblePorNumInmuebles(numeroInmueble);
+            
+            if (inmuebleActual != null)
+            {
+                EventoInmueble eventoInmueble = new EventoInmueble(inmuebleActual, cantidadAsignada, fechaAsignacion);
+                AdmEventoInmueble.AgregarInmuebleTemp(eventoInmueble);
+            }
+        }
+
+        public void EliminarInmuebleTemp(string numeroInmueble)
+        {
+            AdmEventoInmueble.EliminarInmuebleTemp(numeroInmueble);
+        }
+
+        public void LimpiarInmueblesTemp()
+        {
+            AdmEventoInmueble.LimpiarInmueblesTemp();
+        }
+
+        public int ObtenerCantidadRealDisponible(string numeroInmueble)
+        {
+            Inmueble inmueble = AdmInmueble.ObtenerInmueblePorNumInmuebles(numeroInmueble);
+            
+            if (inmueble != null)
+            {
+                EventoInmueble eventoInmTemp = new EventoInmueble();
+                eventoInmTemp.inmueble = inmueble;
+                return eventoInmTemp.ObtenerCantidadDisponibleInmueble();
+            }
+            
+            return 0;
+        }
+
+        public string ObtenerNombreInmueble(string numeroInmueble)
+        {
+            Inmueble inmueble = AdmInmueble.ObtenerInmueblePorNumInmuebles(numeroInmueble);
+            
+            if (inmueble != null)
+            {
+                EventoInmueble eventoInmTemp = new EventoInmueble();
+                eventoInmTemp.inmueble = inmueble;
+                return eventoInmTemp.ObtenerNombreInmueble();
+            }
+            
+            return "";
+        }
+
+        public bool ObtenerDisponibilidadInmueble(string numeroInmueble)
+        {
+            Inmueble inmueble = AdmInmueble.ObtenerInmueblePorNumInmuebles(numeroInmueble);
+            
+            if (inmueble != null)
+            {
+                EventoInmueble eventoInmTemp = new EventoInmueble();
+                eventoInmTemp.inmueble = inmueble;
+                return eventoInmTemp.EstaDisponible();
+            }
+            
+            return false;
+        }
+
         public int GetCantidadLista()
         {
             return listaEventos.Count;
@@ -502,46 +586,45 @@ namespace Controlador
             string filtro = "";
             if (!string.IsNullOrWhiteSpace(txtCiRucCliente))
             {
-                filtro = "Cédula o RUC";
+                filtro = "Cedula";
             }
             else if (!string.IsNullOrWhiteSpace(txtNumEventos))
             {
-                filtro = "Número de Eventos";
+                filtro = "NumEventos";
             }
 
-            foreach (Evento evento in listaEventos)
+            for (int i = 0; i < listaEventos.Count; i++)
             {
-                if (filtro == "Cédula o RUC")
+                Evento eventoActual = listaEventos[i];
+                bool agregar = false;
+
+                if (filtro == "Cedula")
                 {
-                    if (evento.Cliente.CedulaORuc == txtCiRucCliente)
+                    if (eventoActual.Cliente != null && eventoActual.Cliente.CedulaORuc == txtCiRucCliente)
                     {
-                        dgvEventos.Rows.Add();
-                        dgvEventos.Rows[indice].Cells["colNro"].Value = indice + 1;
-                        dgvEventos.Rows[indice].Cells["colNumEventos"].Value = evento.NumEventos;
-                        dgvEventos.Rows[indice].Cells["colTipoEvento"].Value = evento.TipoEvento;
-                        dgvEventos.Rows[indice].Cells["colNombreEvento"].Value = evento.NombreEvento;
-                        dgvEventos.Rows[indice].Cells["colDescripcionEvento"].Value = evento.DescripcionEvento;
-                        dgvEventos.Rows[indice].Cells["colNumPersonas"].Value = evento.NumPersonasEvento;
-                        dgvEventos.Rows[indice].Cells["colDireccionEvento"].Value = evento.DireccionEvento;
-                        dgvEventos.Rows[indice].Cells["colEstadoEvento"].Value = evento.EstadoEvento;
-                        indice++;
+                        agregar = true;
                     }
                 }
-                else if (filtro == "Número de Eventos")
+                else if (filtro == "NumEventos")
                 {
-                    if (evento.NumEventos.ToString() == txtNumEventos)
+                    if (eventoActual.NumEventos.ToString() == txtNumEventos)
                     {
-                        dgvEventos.Rows.Add();
-                        dgvEventos.Rows[indice].Cells["colNro"].Value = indice + 1;
-                        dgvEventos.Rows[indice].Cells["colNumEventos"].Value = evento.NumEventos;
-                        dgvEventos.Rows[indice].Cells["colTipoEvento"].Value = evento.TipoEvento;
-                        dgvEventos.Rows[indice].Cells["colNombreEvento"].Value = evento.NombreEvento;
-                        dgvEventos.Rows[indice].Cells["colDescripcionEvento"].Value = evento.DescripcionEvento;
-                        dgvEventos.Rows[indice].Cells["colNumPersonas"].Value = evento.NumPersonasEvento;
-                        dgvEventos.Rows[indice].Cells["colDireccionEvento"].Value = evento.DireccionEvento;
-                        dgvEventos.Rows[indice].Cells["colEstadoEvento"].Value = evento.EstadoEvento;
-                        indice++;
+                        agregar = true;
                     }
+                }
+
+                if (agregar)
+                {
+                    dgvEventos.Rows.Add();
+                    dgvEventos.Rows[indice].Cells["colNro"].Value = indice + 1;
+                    dgvEventos.Rows[indice].Cells["colNumEventos"].Value = eventoActual.NumEventos;
+                    dgvEventos.Rows[indice].Cells["colTipoEvento"].Value = eventoActual.TipoEvento;
+                    dgvEventos.Rows[indice].Cells["colNombreEvento"].Value = eventoActual.NombreEvento;
+                    dgvEventos.Rows[indice].Cells["colDescripcionEvento"].Value = eventoActual.DescripcionEvento;
+                    dgvEventos.Rows[indice].Cells["colNumPersonas"].Value = eventoActual.NumPersonasEvento;
+                    dgvEventos.Rows[indice].Cells["colDireccionEvento"].Value = eventoActual.DireccionEvento;
+                    dgvEventos.Rows[indice].Cells["colEstadoEvento"].Value = eventoActual.EstadoEvento;
+                    indice++;
                 }
             }
         }

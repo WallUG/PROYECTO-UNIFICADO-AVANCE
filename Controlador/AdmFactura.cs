@@ -17,7 +17,7 @@ namespace Controlador
     {
         public static List<Factura> listaFacturas = new List<Factura>();
         static string numeroEditarFactura;
-        public List<EventoInmueble> listaEventoInmueble = AdmEventoInmueble.ObtenerTodosLosInmuebles();
+        public List<EventoInmueble> listaEventoInmueble = AdmEventoInmueble.ObtenerTodosLosInmueblesTemp();
         public List<Cliente> listaCliente = AdmCliente.ObtenerTodosLosClientes();
         public List<Reserva> listaReserva = AdmReserva.ObtenerTodosLasReservas();
         public List<Evento> listaEvento = AdmEvento.ObtenerTodosLosEventos();

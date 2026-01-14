@@ -17,11 +17,8 @@ namespace Vista
     {   
         private AdmEvento admEvento = new AdmEvento();
         private bool clienteEncontrado = false;
-        
-        // Reemplazo de Dictionary por listas paralelas
         private List<string> seleccionesNumerosInmuebles = new List<string>();
         private List<int> seleccionesCantidades = new List<int>();
-        
         private int filaActivaParaCantidad = -1;
         private int cantidadMaximaDisponible = 0;
         private bool actualizandoSeleccion = false;
@@ -99,11 +96,11 @@ namespace Vista
             {
                 clienteEncontrado = true;
                 
-                string nombreCompleto = admEvento.ObtenerNombreCompletoClienteEncontrado();
+                string nombreCompleto = admEvento.ObtenerNombreEventoPredeterminado();
                 string nombres = admEvento.ObtenerNombresClienteEncontrado();
                 string apellidos = admEvento.ObtenerApellidosClienteEncontrado();
 
-                MessageBox.Show("Cliente encontrado: " + nombreCompleto, 
+                MessageBox.Show("Cliente encontrado!" + nombreCompleto, 
                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
                 btnBuscarCliente.Enabled = false;
@@ -174,7 +171,6 @@ namespace Vista
 
         private void btnGuardarEvento_Click(object sender, EventArgs e)
         {
-            // Paso 1: Validar que se haya seleccionado un cliente
             if (!clienteEncontrado || !admEvento.HayClienteSeleccionado())
             {
                 MessageBox.Show("Debe buscar y seleccionar un cliente primero.", 
@@ -182,7 +178,6 @@ namespace Vista
                 return;
             }
 
-            // Paso 2: Obtener datos del evento
             string tipoEvento = "";
             if (cmbTipoEvento.SelectedItem != null)
             {
@@ -205,7 +200,6 @@ namespace Vista
                 estadoEvento = cmbEstadoEvento.SelectedItem.ToString();
             }
 
-            // Paso 3: Validar campos obligatorios
             if (admEvento.EsVacio(tipoEvento, nombreEvento, descripcionEvento, 
                 numPersonas, direccionEvento, estadoEvento))
             {
@@ -214,7 +208,6 @@ namespace Vista
                 return;
             }
 
-            // Paso 4: Validar que se haya seleccionado al menos un inmueble
             if (seleccionesNumerosInmuebles.Count == 0)
             {
                 MessageBox.Show("Debe seleccionar al menos un inmueble.", 
@@ -222,7 +215,6 @@ namespace Vista
                 return;
             }
 
-            // Paso 5: Validar cantidades de cada inmueble seleccionado
             for (int i = 0; i < seleccionesNumerosInmuebles.Count; i++)
             {
                 string numeroInmueble = seleccionesNumerosInmuebles[i];
@@ -237,13 +229,12 @@ namespace Vista
 
                 if (!admEvento.EsCantidadValidaParaInmueble(numeroInmueble, cantidadAsignada))
                 {
-                    MessageBox.Show("La cantidad asignada para uno de los inmuebles excede la cantidad disponible.", 
+                    MessageBox.Show("La cantidad asignada para el inmueble " + numeroInmueble + " excede la cantidad disponible.", 
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
 
-            // Paso 6: Obtener datos del Inmueble
             string tipoInmueble = "Salón de Eventos";
             if (cmbTipoInmueble.SelectedItem != null)
             {
@@ -252,10 +243,8 @@ namespace Vista
             
             DateTime fechaAsignacion = dtpFechaAsignacionInmueble.Value;
 
-            // Paso 7: Limpiar la lista de inmuebles del controlador antes de agregar los nuevos
             admEvento.LimpiarInmueblesSeleccionados();
 
-            // Paso 8: Agregar los inmuebles seleccionados al controlador (AQUI se crean los objetos EventoInmueble)
             for (int i = 0; i < seleccionesNumerosInmuebles.Count; i++)
             {
                 string numeroInmueble = seleccionesNumerosInmuebles[i];
@@ -263,10 +252,8 @@ namespace Vista
                 admEvento.ActualizarInmuebleSeleccionado(numeroInmueble, cantidadAsignada, fechaAsignacion);
             }
 
-            // Paso 9: Generar Numero eventos y registrar evento
             int numEventos = admEvento.GenerarNuevoNumEventos();
 
-            // Obtener la cantidad total de inmuebles para pasar al método
             int cantidadTotalInmuebles = 0;
             foreach (int cantidad in seleccionesCantidades)
             {
@@ -286,11 +273,9 @@ namespace Vista
                 fechaAsignacion
             );
             
-            // Paso 10: Mostrar mensaje de éxito
             MessageBox.Show("Evento registrado exitosamente con Num. de evento: " + numEventos.ToString(), 
                 "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Paso 11: Limpiar formulario para nuevo registro
             LimpiarFormulario();
         }
         
@@ -350,19 +335,16 @@ namespace Vista
             
             // Limpiar datos de inmuebles
             cmbTipoInmueble.SelectedIndex = -1;
-            /*
-            nudCantidadInmueble.Minimum = 1;
-            nudCantidadInmueble.Maximum = 10000;
-            nudCantidadInmueble.Enabled = false;
-            cantidadMaximaDisponible = 0;
-            */
             dtpFechaAsignacionInmueble.Value = DateTime.Now;
             dgvInmuebles.Rows.Clear();
+            dgvInmueblesActual.Rows.Clear();
 
             // Limpiar selecciones temporales
             seleccionesNumerosInmuebles.Clear();
             seleccionesCantidades.Clear();
             filaActivaParaCantidad = -1;
+
+            AdmEventoInmueble.LimpiarInmueblesTemp();
 
             // Reiniciar bandera de actualización
             actualizandoSeleccion = false;
@@ -445,18 +427,35 @@ namespace Vista
 
         private void selectTipoInmueble(object sender, EventArgs e)
         {
-            // Limpiar selección de fila activa
             filaActivaParaCantidad = -1;
             cantidadMaximaDisponible = 0;
             
-            // habilitar nudCantidadInmueble hasta que se seleccione una fila
-            nudCantidadInmueble.Enabled = true;
-            
-            // Limpiar selecciones temporales al cambiar de tipo
-            seleccionesNumerosInmuebles.Clear();
-            seleccionesCantidades.Clear();
+            nudCantidadInmueble.Enabled = false;
 
             admEvento.LlenarDescripcionInmuebleLocales(dgvInmuebles, Convert.ToString(cmbTipoInmueble.SelectedItem));
+            
+            RestaurarSeleccionesPrevias();
+        }
+
+        private void RestaurarSeleccionesPrevias()
+        {
+            actualizandoSeleccion = true;
+
+            for (int i = 0; i < dgvInmuebles.Rows.Count; i++)
+            {
+                object numInmObj = dgvInmuebles.Rows[i].Cells["colNumInmuebles"].Value;
+                if (numInmObj != null)
+                {
+                    string numeroInmueble = Convert.ToString(numInmObj);
+                    
+                    if (seleccionesNumerosInmuebles.Contains(numeroInmueble))
+                    {
+                        dgvInmuebles.Rows[i].Cells["colSeleccionar"].Value = true;
+                    }
+                }
+            }
+
+            actualizandoSeleccion = false;
         }
 
         private void dvgInmuebles_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -518,6 +517,8 @@ namespace Vista
                 {
                     seleccionesNumerosInmuebles.RemoveAt(index);
                     seleccionesCantidades.RemoveAt(index);
+                    
+                    admEvento.EliminarInmuebleTemp(numInmuebles);
                 }
 
                 if (filaActivaParaCantidad == e.RowIndex)
@@ -564,6 +565,7 @@ namespace Vista
                 }
             }
 
+            ActualizarTablaInmueblesActual();
             actualizandoSeleccion = false;
         }
 
@@ -626,19 +628,16 @@ namespace Vista
         
         private void nudCantidadInmueble_ValueChanged(object sender, EventArgs e)
         {
-            // Verificar que hay una fila activa y el control está habilitado
             if (filaActivaParaCantidad < 0 || !nudCantidadInmueble.Enabled)
             {
                 return;
             }
 
-            // Verificar que la fila activa existe en el DataGridView
             if (filaActivaParaCantidad >= dgvInmuebles.Rows.Count)
             {
                 return;
             }
 
-            // Obtener el ID del inmueble de la fila activa
             object idInmuebleObj = dgvInmuebles.Rows[filaActivaParaCantidad].Cells["colNumInmuebles"].Value;
             if (idInmuebleObj == null)
             {
@@ -648,18 +647,56 @@ namespace Vista
             string idInmueble = Convert.ToString(idInmuebleObj);
             int cantidadAsignada = Convert.ToInt32(nudCantidadInmueble.Value);
 
-            // Validar que la cantidad no sea mayor a la disponible
             if (cantidadAsignada > cantidadMaximaDisponible && cantidadMaximaDisponible > 0)
             {
                 nudCantidadInmueble.Value = cantidadMaximaDisponible;
                 cantidadAsignada = cantidadMaximaDisponible;
             }
 
-            // Actualizar en las selecciones temporales (solo datos, no objetos)
             int index = seleccionesNumerosInmuebles.IndexOf(idInmueble);
             if (index >= 0)
             {
                 seleccionesCantidades[index] = cantidadAsignada;
+            }
+
+            ActualizarTablaInmueblesActual();
+        }
+
+        private void ActualizarTablaInmueblesActual()
+        {
+            dgvInmueblesActual.Rows.Clear();
+
+            for (int i = 0; i < seleccionesNumerosInmuebles.Count; i++)
+            {
+                string numeroInmueble = seleccionesNumerosInmuebles[i];
+                int cantidadAsignada = seleccionesCantidades[i];
+
+                int cantidadDisponibleReal = admEvento.ObtenerCantidadRealDisponible(numeroInmueble);
+                
+                if (cantidadDisponibleReal == 0)
+                {
+                    continue;
+                }
+                
+                if (cantidadAsignada > cantidadDisponibleReal)
+                {
+                    seleccionesCantidades[i] = cantidadDisponibleReal;
+                    cantidadAsignada = cantidadDisponibleReal;
+                }
+
+                DateTime fechaAsignacion = dtpFechaAsignacionInmueble.Value;
+                
+                admEvento.SincronizarInmuebleTemp(numeroInmueble, cantidadAsignada, fechaAsignacion);
+
+                string nombreInmueble = admEvento.ObtenerNombreInmueble(numeroInmueble);
+                bool disponible = admEvento.ObtenerDisponibilidadInmueble(numeroInmueble);
+
+                int indice = dgvInmueblesActual.Rows.Add();
+                dgvInmueblesActual.Rows[indice].Cells["colNumInmueblesAct"].Value = numeroInmueble;
+                dgvInmueblesActual.Rows[indice].Cells["colNombreAct"].Value = nombreInmueble;
+                dgvInmueblesActual.Rows[indice].Cells["colDisponibleAct"].Value = disponible;
+                dgvInmueblesActual.Rows[indice].Cells["colCantDispAct"].Value = cantidadAsignada;
+                dgvInmueblesActual.Rows[indice].Cells["colFechaAsignacionAct"].Value = fechaAsignacion.ToShortDateString();
             }
         }
     }
