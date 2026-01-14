@@ -1,4 +1,5 @@
-﻿using Modelo;
+﻿using Datos;
+using Modelo;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace Controlador
         public List<Cliente> listaCliente = AdmCliente.ObtenerTodosLosClientes();
         public List<Reserva> listaReserva = AdmReserva.ObtenerTodosLasReservas();
         public List<Evento> listaEvento = AdmEvento.ObtenerTodosLosEventos();
+        Conexion cn = null;
 
         public void BuscarCliente(ComboBox cmNumeroEvento, GroupBox groupBoxCliente, string cedula)
         {
@@ -1007,6 +1009,19 @@ namespace Controlador
             }
 
             return false;
+        }
+
+        private void Conectar()
+        {
+            string res = cn.conectar();
+            if (res[0] == '1')
+            {
+                MessageBox.Show("Conexión exitosa");
+            }
+            else if (res[0] == '0')
+            {
+                MessageBox.Show(res, "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
