@@ -372,7 +372,9 @@ namespace Controlador
                 listaInmueblesEvento.Add(copia);
             }
             
+            // Usar el constructor correcto que incluye IdEvento Y NumEventos
             evento = new Evento(
+                numEventos,
                 numEventos,
                 cliente,
                 tipoEvento,
@@ -387,40 +389,6 @@ namespace Controlador
             listaEventos.Add(evento);
             
             listaEventoInmueble.Clear();
-        }
-        
-        public string ObtenerInformacionEvento(Evento eventoParam)
-        {
-            if (eventoParam == null)
-            {
-                return "No hay información del evento disponible";
-            }
-
-            StringBuilder info = new StringBuilder();
-            info.AppendLine("=== INFORMACIÓN DEL EVENTO ===");
-            info.AppendLine("Num. Evento: " + eventoParam.NumEventos.ToString());
-            info.AppendLine("Cliente: " + eventoParam.ObtenerNombreCliente());
-            info.AppendLine("Tipo de Evento: " + eventoParam.TipoEvento);
-            info.AppendLine("Nombre del Evento: " + eventoParam.NombreEvento);
-            info.AppendLine("Descripción: " + eventoParam.DescripcionEvento);
-            info.AppendLine("Número de Personas: " + eventoParam.NumPersonasEvento.ToString());
-            info.AppendLine("Dirección: " + eventoParam.DireccionEvento);
-            info.AppendLine("Estado: " + eventoParam.EstadoEvento);
-            
-            if (eventoParam.EventoInmueble != null && eventoParam.EventoInmueble.Count > 0)
-            {
-                info.AppendLine("=== INMUEBLES ASIGNADOS ===");
-                for (int i = 0; i < eventoParam.EventoInmueble.Count; i++)
-                {
-                    EventoInmueble ei = eventoParam.EventoInmueble[i];
-                    if (ei.inmueble != null)
-                    {
-                        info.AppendLine("Inmueble: " + ei.inmueble.nombreInmueble + " - Cantidad: " + ei.cantidadInmueble.ToString());
-                    }
-                }
-            }
-            
-            return info.ToString();
         }
         
         public void CargarTablaEventos(DataGridView dgvEventos)

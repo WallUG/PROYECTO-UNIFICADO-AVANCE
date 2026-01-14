@@ -59,8 +59,8 @@ namespace Controlador
         public string Registrar(string nombre, string tipo, int cantidad, double precio, bool disponible)
         {
             int id = inmuebleL.Count() + 1;
-            //Pasar el parametro numeroInmueble
-            string numero = "00" + inmuebleL.Count();//contruyo el numero del inmueble personalisado
+            //Pasar el parametro numeroInmueble - CORREGIDO: Comienza desde 1
+            string numero = "00" + id.ToString();//construyo el numero del inmueble personalizado
             Inmueble inmu = new Inmueble(id, numero, nombre, tipo, cantidad, precio);
             inmu.inmuebleDisponible = disponible;
 

@@ -17,7 +17,11 @@ namespace Vista
     {   
         private AdmEvento admEvento = new AdmEvento();
         private bool clienteEncontrado = false;
-        private Dictionary<string, int> seleccionesTemporales = new Dictionary<string, int>();
+        
+        // Reemplazo de Dictionary por listas paralelas
+        private List<string> seleccionesNumerosInmuebles = new List<string>();
+        private List<int> seleccionesCantidades = new List<int>();
+        
         private int filaActivaParaCantidad = -1;
         private int cantidadMaximaDisponible = 0;
         private bool actualizandoSeleccion = false;
@@ -60,7 +64,8 @@ namespace Vista
             nudCantidadInmueble.Enabled = false;
             
             // Paso 6: Reiniciar selecciones temporales
-            seleccionesTemporales.Clear();
+            seleccionesNumerosInmuebles.Clear();
+            seleccionesCantidades.Clear();
             filaActivaParaCantidad = -1;
 
             // Paso 7: Reiniciar bandera de actualización
@@ -210,7 +215,7 @@ namespace Vista
             }
 
             // Paso 4: Validar que se haya seleccionado al menos un inmueble
-            if (seleccionesTemporales.Count == 0)
+            if (seleccionesNumerosInmuebles.Count == 0)
             {
                 MessageBox.Show("Debe seleccionar al menos un inmueble.", 
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -218,10 +223,10 @@ namespace Vista
             }
 
             // Paso 5: Validar cantidades de cada inmueble seleccionado
-            foreach (KeyValuePair<string, int> seleccion in seleccionesTemporales)
+            for (int i = 0; i < seleccionesNumerosInmuebles.Count; i++)
             {
-                string numeroInmueble = seleccion.Key;
-                int cantidadAsignada = seleccion.Value;
+                string numeroInmueble = seleccionesNumerosInmuebles[i];
+                int cantidadAsignada = seleccionesCantidades[i];
                 
                 if (cantidadAsignada <= 0)
                 {
@@ -251,10 +256,10 @@ namespace Vista
             admEvento.LimpiarInmueblesSeleccionados();
 
             // Paso 8: Agregar los inmuebles seleccionados al controlador (AQUI se crean los objetos EventoInmueble)
-            foreach (KeyValuePair<string, int> seleccion in seleccionesTemporales)
+            for (int i = 0; i < seleccionesNumerosInmuebles.Count; i++)
             {
-                string numeroInmueble = seleccion.Key;
-                int cantidadAsignada = seleccion.Value;
+                string numeroInmueble = seleccionesNumerosInmuebles[i];
+                int cantidadAsignada = seleccionesCantidades[i];
                 admEvento.ActualizarInmuebleSeleccionado(numeroInmueble, cantidadAsignada, fechaAsignacion);
             }
 
@@ -263,9 +268,9 @@ namespace Vista
 
             // Obtener la cantidad total de inmuebles para pasar al método
             int cantidadTotalInmuebles = 0;
-            foreach (KeyValuePair<string, int> seleccion in seleccionesTemporales)
+            foreach (int cantidad in seleccionesCantidades)
             {
-                cantidadTotalInmuebles = cantidadTotalInmuebles + seleccion.Value;
+                cantidadTotalInmuebles += cantidad;
             }
 
             admEvento.RegistrarEventoCompleto(
@@ -355,7 +360,8 @@ namespace Vista
             dgvInmuebles.Rows.Clear();
 
             // Limpiar selecciones temporales
-            seleccionesTemporales.Clear();
+            seleccionesNumerosInmuebles.Clear();
+            seleccionesCantidades.Clear();
             filaActivaParaCantidad = -1;
 
             // Reiniciar bandera de actualización
@@ -447,7 +453,8 @@ namespace Vista
             nudCantidadInmueble.Enabled = true;
             
             // Limpiar selecciones temporales al cambiar de tipo
-            seleccionesTemporales.Clear();
+            seleccionesNumerosInmuebles.Clear();
+            seleccionesCantidades.Clear();
 
             admEvento.LlenarDescripcionInmuebleLocales(dgvInmuebles, Convert.ToString(cmbTipoInmueble.SelectedItem));
         }
@@ -487,9 +494,10 @@ namespace Vista
 
             if (marcado)
             {
-                if (!seleccionesTemporales.ContainsKey(numInmuebles))
+                if (!seleccionesNumerosInmuebles.Contains(numInmuebles))
                 {
-                    seleccionesTemporales.Add(numInmuebles, cantidadDisponible);
+                    seleccionesNumerosInmuebles.Add(numInmuebles);
+                    seleccionesCantidades.Add(cantidadDisponible);
                 }
 
                 filaActivaParaCantidad = e.RowIndex;
@@ -505,9 +513,11 @@ namespace Vista
             }
             else
             {
-                if (seleccionesTemporales.ContainsKey(numInmuebles))
+                int index = seleccionesNumerosInmuebles.IndexOf(numInmuebles);
+                if (index >= 0)
                 {
-                    seleccionesTemporales.Remove(numInmuebles);
+                    seleccionesNumerosInmuebles.RemoveAt(index);
+                    seleccionesCantidades.RemoveAt(index);
                 }
 
                 if (filaActivaParaCantidad == e.RowIndex)
@@ -536,9 +546,13 @@ namespace Vista
                             }
                             
                             int cantidadGuardada = cantidadMaximaDisponible;
-                            if (seleccionesTemporales.ContainsKey(numInmueblesActual))
+                            if (seleccionesNumerosInmuebles.Contains(numInmueblesActual))
                             {
-                                cantidadGuardada = seleccionesTemporales[numInmueblesActual];
+                                int indexGuardado = seleccionesNumerosInmuebles.IndexOf(numInmueblesActual);
+                                if (indexGuardado >= 0 && indexGuardado < seleccionesCantidades.Count)
+                                {
+                                    cantidadGuardada = seleccionesCantidades[indexGuardado];
+                                }
                             }
 
                             nudCantidadInmueble.Maximum = cantidadMaximaDisponible;
@@ -593,9 +607,13 @@ namespace Vista
 
                     // Obtener la cantidad guardada para este inmueble
                     int cantidadGuardada = cantidadDisponible;
-                    if (seleccionesTemporales.ContainsKey(idInmueble))
+                    if (seleccionesNumerosInmuebles.Contains(idInmueble))
                     {
-                        cantidadGuardada = seleccionesTemporales[idInmueble];
+                        int indexGuardado = seleccionesNumerosInmuebles.IndexOf(idInmueble);
+                        if (indexGuardado >= 0 && indexGuardado < seleccionesCantidades.Count)
+                        {
+                            cantidadGuardada = seleccionesCantidades[indexGuardado];
+                        }
                     }
 
                     // Configurar el NumericUpDown
@@ -638,9 +656,10 @@ namespace Vista
             }
 
             // Actualizar en las selecciones temporales (solo datos, no objetos)
-            if (seleccionesTemporales.ContainsKey(idInmueble))
+            int index = seleccionesNumerosInmuebles.IndexOf(idInmueble);
+            if (index >= 0)
             {
-                seleccionesTemporales[idInmueble] = cantidadAsignada;
+                seleccionesCantidades[index] = cantidadAsignada;
             }
         }
     }
