@@ -68,35 +68,5 @@ namespace Modelo
             }
             return total;
         }
-        
-        public string mostrarEvento()
-        {
-            StringBuilder info = new StringBuilder();
-            info.AppendLine("=== INFORMACIÓN DEL EVENTO ===");
-            info.AppendLine("ID Evento: " + IdEvento.ToString());
-            info.AppendLine("Cliente: " + ObtenerNombreCliente());
-            info.AppendLine("Tipo de Evento: " + TipoEvento);
-            info.AppendLine("Nombre del Evento: " + NombreEvento);
-            info.AppendLine("Descripción: " + DescripcionEvento);
-            info.AppendLine("Número de Personas: " + NumPersonasEvento.ToString());
-            info.AppendLine("Dirección: " + DireccionEvento);
-            info.AppendLine("Estado: " + EstadoEvento);
-            
-            // Mostrar información de inmuebles asignados
-            if (EventoInmueble != null && EventoInmueble.Count > 0)
-            {
-                info.AppendLine("=== INMUEBLES ASIGNADOS ===");
-                for (int i = 0; i < EventoInmueble.Count; i++)
-                {
-                    EventoInmueble ei = EventoInmueble[i];
-                    if (ei.inmueble != null)
-                    {
-                        info.AppendLine("Inmueble: " + ei.inmueble.nombreInmueble + " - Cantidad: " + ei.cantidadInmueble.ToString());
-                    }
-                }
-            }
-            
-            return info.ToString();
-        }
     }
 }
