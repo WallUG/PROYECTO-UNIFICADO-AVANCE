@@ -48,27 +48,10 @@
             this.rdbNumEventos = new System.Windows.Forms.RadioButton();
             this.rdbCedulaORuc = new System.Windows.Forms.RadioButton();
             this.btnActualizarListaEvento = new System.Windows.Forms.Button();
-            this.gbEditarEvento = new System.Windows.Forms.GroupBox();
-            this.gbTablaEvento = new System.Windows.Forms.GroupBox();
             this.btnEditarEvento = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbTipoEvento = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtNombreEvento = new System.Windows.Forms.TextBox();
-            this.txtNumPersonasEvento = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtDescripcionEvento = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtbDireccionUbicacion = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.cmbEstadoEvento = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).BeginInit();
             this.gbBuscarPor.SuspendLayout();
             this.gbFiltrarPor.SuspendLayout();
-            this.gbEditarEvento.SuspendLayout();
-            this.gbTablaEvento.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -95,7 +78,7 @@
             this.colNumPersonas,
             this.colDireccionEvento,
             this.colEstadoEvento});
-            this.dgvEventos.Location = new System.Drawing.Point(20, 59);
+            this.dgvEventos.Location = new System.Drawing.Point(71, 305);
             this.dgvEventos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEventos.Name = "dgvEventos";
             this.dgvEventos.ReadOnly = true;
@@ -284,7 +267,7 @@
             // 
             this.btnActualizarListaEvento.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizarListaEvento.ForeColor = System.Drawing.Color.Blue;
-            this.btnActualizarListaEvento.Location = new System.Drawing.Point(20, 323);
+            this.btnActualizarListaEvento.Location = new System.Drawing.Point(71, 584);
             this.btnActualizarListaEvento.Name = "btnActualizarListaEvento";
             this.btnActualizarListaEvento.Size = new System.Drawing.Size(139, 46);
             this.btnActualizarListaEvento.TabIndex = 33;
@@ -292,202 +275,27 @@
             this.btnActualizarListaEvento.UseVisualStyleBackColor = true;
             this.btnActualizarListaEvento.Click += new System.EventHandler(this.btnActualizarListaEvento_Click);
             // 
-            // gbEditarEvento
-            // 
-            this.gbEditarEvento.Controls.Add(this.btnGuardar);
-            this.gbEditarEvento.Controls.Add(this.txtbDireccionUbicacion);
-            this.gbEditarEvento.Controls.Add(this.label16);
-            this.gbEditarEvento.Controls.Add(this.cmbEstadoEvento);
-            this.gbEditarEvento.Controls.Add(this.label8);
-            this.gbEditarEvento.Controls.Add(this.txtNumPersonasEvento);
-            this.gbEditarEvento.Controls.Add(this.label7);
-            this.gbEditarEvento.Controls.Add(this.txtDescripcionEvento);
-            this.gbEditarEvento.Controls.Add(this.label6);
-            this.gbEditarEvento.Controls.Add(this.label4);
-            this.gbEditarEvento.Controls.Add(this.cmbTipoEvento);
-            this.gbEditarEvento.Controls.Add(this.label5);
-            this.gbEditarEvento.Controls.Add(this.txtNombreEvento);
-            this.gbEditarEvento.Location = new System.Drawing.Point(27, 693);
-            this.gbEditarEvento.Name = "gbEditarEvento";
-            this.gbEditarEvento.Size = new System.Drawing.Size(1176, 308);
-            this.gbEditarEvento.TabIndex = 34;
-            this.gbEditarEvento.TabStop = false;
-            this.gbEditarEvento.Text = "Editar Evento";
-            // 
-            // gbTablaEvento
-            // 
-            this.gbTablaEvento.Controls.Add(this.btnEditarEvento);
-            this.gbTablaEvento.Controls.Add(this.dgvEventos);
-            this.gbTablaEvento.Controls.Add(this.btnActualizarListaEvento);
-            this.gbTablaEvento.Location = new System.Drawing.Point(27, 287);
-            this.gbTablaEvento.Name = "gbTablaEvento";
-            this.gbTablaEvento.Size = new System.Drawing.Size(1176, 391);
-            this.gbTablaEvento.TabIndex = 35;
-            this.gbTablaEvento.TabStop = false;
-            this.gbTablaEvento.Text = "Tabla Evento";
-            // 
             // btnEditarEvento
             // 
             this.btnEditarEvento.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarEvento.ForeColor = System.Drawing.Color.Blue;
-            this.btnEditarEvento.Location = new System.Drawing.Point(521, 323);
+            this.btnEditarEvento.Location = new System.Drawing.Point(577, 584);
             this.btnEditarEvento.Name = "btnEditarEvento";
             this.btnEditarEvento.Size = new System.Drawing.Size(139, 46);
             this.btnEditarEvento.TabIndex = 34;
             this.btnEditarEvento.Text = "Editar";
             this.btnEditarEvento.UseVisualStyleBackColor = true;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(16, 52);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 19);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Tipo de Evento:";
-            // 
-            // cmbTipoEvento
-            // 
-            this.cmbTipoEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTipoEvento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTipoEvento.FormattingEnabled = true;
-            this.cmbTipoEvento.Location = new System.Drawing.Point(192, 49);
-            this.cmbTipoEvento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cmbTipoEvento.Name = "cmbTipoEvento";
-            this.cmbTipoEvento.Size = new System.Drawing.Size(309, 27);
-            this.cmbTipoEvento.TabIndex = 11;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(16, 133);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 19);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Nombre:";
-            // 
-            // txtNombreEvento
-            // 
-            this.txtNombreEvento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreEvento.Location = new System.Drawing.Point(192, 130);
-            this.txtNombreEvento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtNombreEvento.MaxLength = 100;
-            this.txtNombreEvento.Name = "txtNombreEvento";
-            this.txtNombreEvento.Size = new System.Drawing.Size(309, 27);
-            this.txtNombreEvento.TabIndex = 13;
-            // 
-            // txtNumPersonasEvento
-            // 
-            this.txtNumPersonasEvento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumPersonasEvento.Location = new System.Drawing.Point(744, 49);
-            this.txtNumPersonasEvento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtNumPersonasEvento.MaxLength = 5000;
-            this.txtNumPersonasEvento.Name = "txtNumPersonasEvento";
-            this.txtNumPersonasEvento.Size = new System.Drawing.Size(120, 27);
-            this.txtNumPersonasEvento.TabIndex = 25;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(566, 52);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(166, 19);
-            this.label7.TabIndex = 24;
-            this.label7.Text = "Número de personas:";
-            // 
-            // txtDescripcionEvento
-            // 
-            this.txtDescripcionEvento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcionEvento.Location = new System.Drawing.Point(194, 171);
-            this.txtDescripcionEvento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtDescripcionEvento.MaxLength = 100;
-            this.txtDescripcionEvento.Multiline = true;
-            this.txtDescripcionEvento.Name = "txtDescripcionEvento";
-            this.txtDescripcionEvento.Size = new System.Drawing.Size(307, 66);
-            this.txtDescripcionEvento.TabIndex = 23;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.SystemColors.Control;
-            this.label6.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(16, 171);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 19);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Descripción:";
-            // 
-            // txtbDireccionUbicacion
-            // 
-            this.txtbDireccionUbicacion.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbDireccionUbicacion.Location = new System.Drawing.Point(744, 97);
-            this.txtbDireccionUbicacion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtbDireccionUbicacion.MaxLength = 100;
-            this.txtbDireccionUbicacion.Multiline = true;
-            this.txtbDireccionUbicacion.Name = "txtbDireccionUbicacion";
-            this.txtbDireccionUbicacion.Size = new System.Drawing.Size(307, 66);
-            this.txtbDireccionUbicacion.TabIndex = 29;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(566, 100);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(163, 19);
-            this.label16.TabIndex = 28;
-            this.label16.Text = "Dirección/Ubicación:";
-            // 
-            // cmbEstadoEvento
-            // 
-            this.cmbEstadoEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEstadoEvento.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEstadoEvento.FormattingEnabled = true;
-            this.cmbEstadoEvento.Location = new System.Drawing.Point(742, 198);
-            this.cmbEstadoEvento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cmbEstadoEvento.Name = "cmbEstadoEvento";
-            this.cmbEstadoEvento.Size = new System.Drawing.Size(309, 27);
-            this.cmbEstadoEvento.TabIndex = 27;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(566, 201);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 19);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Estado:";
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.Blue;
-            this.btnGuardar.Location = new System.Drawing.Point(521, 245);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(139, 46);
-            this.btnGuardar.TabIndex = 35;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
             // FrmEditarEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1233, 1055);
-            this.Controls.Add(this.gbTablaEvento);
-            this.Controls.Add(this.gbEditarEvento);
+            this.ClientSize = new System.Drawing.Size(1233, 655);
+            this.Controls.Add(this.dgvEventos);
+            this.Controls.Add(this.btnEditarEvento);
             this.Controls.Add(this.gbBuscarPor);
+            this.Controls.Add(this.btnActualizarListaEvento);
             this.Controls.Add(this.gbFiltrarPor);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -501,9 +309,6 @@
             this.gbBuscarPor.PerformLayout();
             this.gbFiltrarPor.ResumeLayout(false);
             this.gbFiltrarPor.PerformLayout();
-            this.gbEditarEvento.ResumeLayout(false);
-            this.gbEditarEvento.PerformLayout();
-            this.gbTablaEvento.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -531,21 +336,6 @@
         private System.Windows.Forms.RadioButton rdbNumEventos;
         private System.Windows.Forms.RadioButton rdbCedulaORuc;
         private System.Windows.Forms.Button btnActualizarListaEvento;
-        private System.Windows.Forms.GroupBox gbEditarEvento;
-        private System.Windows.Forms.GroupBox gbTablaEvento;
         private System.Windows.Forms.Button btnEditarEvento;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbTipoEvento;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtNombreEvento;
-        private System.Windows.Forms.TextBox txtNumPersonasEvento;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtDescripcionEvento;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtbDireccionUbicacion;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox cmbEstadoEvento;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnGuardar;
     }
 }
