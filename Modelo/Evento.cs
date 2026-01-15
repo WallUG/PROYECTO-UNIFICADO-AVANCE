@@ -18,6 +18,7 @@ namespace Modelo
         public int NumPersonasEvento { get; set; }
         public string DireccionEvento { get; set; }
         public string EstadoEvento { get; set; }
+        public int NumModificacionesEvento { get; set; }
         
         public List<EventoInmueble> EventoInmueble { get; set; }
 
@@ -32,6 +33,7 @@ namespace Modelo
             this.DireccionEvento = direccionEvento;
             this.EstadoEvento = estadoEvento;
             this.EventoInmueble = eventoInmueble;
+            this.NumModificacionesEvento = 0;
         }
         public Evento(int idEvento, int numEventos, Cliente cliente, string tipoEvento, string nombreEvento, string descripcionEvento, int numPersonasEvento, string direccionEvento, string estadoEvento, List<EventoInmueble> eventoInmueble)
         {
@@ -45,6 +47,7 @@ namespace Modelo
             this.DireccionEvento = direccionEvento;
             this.EstadoEvento = estadoEvento;
             this.EventoInmueble = eventoInmueble;
+            this.NumModificacionesEvento = 0;
         }
         
         public string ObtenerNombreCliente()

@@ -127,7 +127,7 @@ namespace Controlador
             return clienteNombresEncontrado + " " + clienteApellidosEncontrado;
         }
 
-        public string ObtenerCedulaClienteEncontrado()
+        public string ObtenerCedulaClienteEncuentrado()
         {
             return clienteCedulaEncontrado;
         }
@@ -355,7 +355,7 @@ namespace Controlador
 
         public void ActualizarInmuebleSeleccionado(string numeroInmueble, int cantidadAsignada, DateTime fechaAsignacion)
         {
-            bool encontrado = false;
+            bool enviado = false;
             for (int i = 0; i < listaEventoInmueble.Count; i++)
             {
                 if (listaEventoInmueble[i].inmueble != null &&
@@ -363,12 +363,12 @@ namespace Controlador
                 {
                     listaEventoInmueble[i].ActualizarCantidadAsignada(cantidadAsignada);
                     listaEventoInmueble[i].ActualizarFechaAsignacion(fechaAsignacion);
-                    encontrado = true;
+                    enviado = true;
                     break;
                 }
             }
 
-            if (!encontrado)
+            if (!enviado)
             {
                 Inmueble inmueble = AdmInmueble.ObtenerInmueblePorNumInmuebles(numeroInmueble);
                 if (inmueble != null)
@@ -429,6 +429,7 @@ namespace Controlador
                 dgvEventos.Rows[indice].Cells["colNumPersonas"].Value = evento.NumPersonasEvento;
                 dgvEventos.Rows[indice].Cells["colDireccionEvento"].Value = evento.DireccionEvento;
                 dgvEventos.Rows[indice].Cells["colEstadoEvento"].Value = evento.EstadoEvento;
+                dgvEventos.Rows[indice].Cells["colNumModificacionesEvento"].Value = evento.NumModificacionesEvento;
                 indice++;
             }
         }
@@ -648,6 +649,7 @@ namespace Controlador
                     dgvEventos.Rows[indice].Cells["colNumPersonas"].Value = eventoActual.NumPersonasEvento;
                     dgvEventos.Rows[indice].Cells["colDireccionEvento"].Value = eventoActual.DireccionEvento;
                     dgvEventos.Rows[indice].Cells["colEstadoEvento"].Value = eventoActual.EstadoEvento;
+                    dgvEventos.Rows[indice].Cells["colNumModificacionesEvento"].Value = eventoActual.NumModificacionesEvento;
                     indice++;
                 }
             }
@@ -925,6 +927,7 @@ namespace Controlador
                     listaEventos[i].NumPersonasEvento = numPersonas;
                     listaEventos[i].DireccionEvento = direccionEvento;
                     listaEventos[i].EstadoEvento = estadoEvento;
+                    listaEventos[i].NumModificacionesEvento = listaEventos[i].NumModificacionesEvento + 1;
 
                     List<EventoInmueble> listaInmueblesActualizada = new List<EventoInmueble>();
                     for (int j = 0; j < listaEventoInmueble.Count; j++)

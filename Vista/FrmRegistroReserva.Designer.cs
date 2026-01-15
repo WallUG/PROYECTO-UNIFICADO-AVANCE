@@ -160,7 +160,7 @@
             this.cmbTipoEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoEvento.FormattingEnabled = true;
             this.cmbTipoEvento.Location = new System.Drawing.Point(160, 100);
-            this.cmbTipoEvento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTipoEvento.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTipoEvento.Name = "cmbTipoEvento";
             this.cmbTipoEvento.Size = new System.Drawing.Size(400, 24);
             this.cmbTipoEvento.TabIndex = 13;
@@ -170,7 +170,7 @@
             this.cmbTipoSolicitud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoSolicitud.FormattingEnabled = true;
             this.cmbTipoSolicitud.Location = new System.Drawing.Point(160, 137);
-            this.cmbTipoSolicitud.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTipoSolicitud.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTipoSolicitud.Name = "cmbTipoSolicitud";
             this.cmbTipoSolicitud.Size = new System.Drawing.Size(400, 24);
             this.cmbTipoSolicitud.TabIndex = 14;
@@ -178,7 +178,7 @@
             // dtpFechRerserva
             // 
             this.dtpFechRerserva.Location = new System.Drawing.Point(160, 34);
-            this.dtpFechRerserva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechRerserva.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechRerserva.MaxDate = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             this.dtpFechRerserva.MinDate = new System.DateTime(2025, 1, 1, 0, 0, 0, 0);
             this.dtpFechRerserva.Name = "dtpFechRerserva";
@@ -189,7 +189,7 @@
             // 
             this.dtpHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpHoraInicio.Location = new System.Drawing.Point(160, 69);
-            this.dtpHoraInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpHoraInicio.Margin = new System.Windows.Forms.Padding(4);
             this.dtpHoraInicio.MaxDate = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             this.dtpHoraInicio.MinDate = new System.DateTime(2025, 1, 1, 0, 0, 0, 0);
             this.dtpHoraInicio.Name = "dtpHoraInicio";
@@ -200,7 +200,7 @@
             // 
             this.dtpHoraFin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpHoraFin.Location = new System.Drawing.Point(160, 103);
-            this.dtpHoraFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpHoraFin.Margin = new System.Windows.Forms.Padding(4);
             this.dtpHoraFin.MaxDate = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             this.dtpHoraFin.MinDate = new System.DateTime(2025, 1, 1, 0, 0, 0, 0);
             this.dtpHoraFin.Name = "dtpHoraFin";
@@ -210,7 +210,12 @@
             // nudCantPersonas
             // 
             this.nudCantPersonas.Location = new System.Drawing.Point(229, 33);
-            this.nudCantPersonas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudCantPersonas.Margin = new System.Windows.Forms.Padding(4);
+            this.nudCantPersonas.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nudCantPersonas.Minimum = new decimal(new int[] {
             1,
             0,
@@ -231,7 +236,7 @@
             this.btnGuardar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Location = new System.Drawing.Point(427, 580);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(217, 39);
             this.btnGuardar.TabIndex = 19;
@@ -253,7 +258,7 @@
             // txtcontenido
             // 
             this.txtcontenido.Location = new System.Drawing.Point(20, 31);
-            this.txtcontenido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtcontenido.Margin = new System.Windows.Forms.Padding(4);
             this.txtcontenido.Multiline = true;
             this.txtcontenido.Name = "txtcontenido";
             this.txtcontenido.ReadOnly = true;
@@ -266,7 +271,7 @@
             this.cmbNombEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNombEvento.FormattingEnabled = true;
             this.cmbNombEvento.Location = new System.Drawing.Point(160, 32);
-            this.cmbNombEvento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbNombEvento.Margin = new System.Windows.Forms.Padding(4);
             this.cmbNombEvento.Name = "cmbNombEvento";
             this.cmbNombEvento.Size = new System.Drawing.Size(249, 24);
             this.cmbNombEvento.TabIndex = 22;
@@ -277,7 +282,7 @@
             this.cmbClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbClientes.FormattingEnabled = true;
             this.cmbClientes.Location = new System.Drawing.Point(160, 32);
-            this.cmbClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbClientes.Margin = new System.Windows.Forms.Padding(4);
             this.cmbClientes.Name = "cmbClientes";
             this.cmbClientes.Size = new System.Drawing.Size(400, 24);
             this.cmbClientes.TabIndex = 23;
@@ -298,7 +303,7 @@
             this.cmbIdEvento.Enabled = false;
             this.cmbIdEvento.FormattingEnabled = true;
             this.cmbIdEvento.Location = new System.Drawing.Point(160, 66);
-            this.cmbIdEvento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbIdEvento.Margin = new System.Windows.Forms.Padding(4);
             this.cmbIdEvento.Name = "cmbIdEvento";
             this.cmbIdEvento.Size = new System.Drawing.Size(249, 24);
             this.cmbIdEvento.TabIndex = 26;
@@ -315,7 +320,7 @@
             // btnSeleccionar
             // 
             this.btnSeleccionar.Location = new System.Drawing.Point(429, 30);
-            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSeleccionar.Margin = new System.Windows.Forms.Padding(4);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(131, 28);
             this.btnSeleccionar.TabIndex = 28;
@@ -333,9 +338,9 @@
             this.groupBoxEvento.Controls.Add(this.lblTipoEvento);
             this.groupBoxEvento.Controls.Add(this.cmbTipoEvento);
             this.groupBoxEvento.Location = new System.Drawing.Point(205, 74);
-            this.groupBoxEvento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxEvento.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxEvento.Name = "groupBoxEvento";
-            this.groupBoxEvento.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxEvento.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxEvento.Size = new System.Drawing.Size(580, 145);
             this.groupBoxEvento.TabIndex = 29;
             this.groupBoxEvento.TabStop = false;
@@ -346,9 +351,9 @@
             this.groupBoxCliente.Controls.Add(this.lblNombre);
             this.groupBoxCliente.Controls.Add(this.cmbClientes);
             this.groupBoxCliente.Location = new System.Drawing.Point(205, 226);
-            this.groupBoxCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxCliente.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxCliente.Name = "groupBoxCliente";
-            this.groupBoxCliente.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxCliente.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxCliente.Size = new System.Drawing.Size(580, 80);
             this.groupBoxCliente.TabIndex = 30;
             this.groupBoxCliente.TabStop = false;
@@ -359,9 +364,9 @@
             this.groupBoxDetalles.Controls.Add(this.lblCantPersonas);
             this.groupBoxDetalles.Controls.Add(this.nudCantPersonas);
             this.groupBoxDetalles.Location = new System.Drawing.Point(205, 315);
-            this.groupBoxDetalles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxDetalles.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxDetalles.Name = "groupBoxDetalles";
-            this.groupBoxDetalles.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxDetalles.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxDetalles.Size = new System.Drawing.Size(580, 75);
             this.groupBoxDetalles.TabIndex = 31;
             this.groupBoxDetalles.TabStop = false;
@@ -378,9 +383,9 @@
             this.groupBoxFechaHora.Controls.Add(this.lblTipoSolicitud);
             this.groupBoxFechaHora.Controls.Add(this.cmbTipoSolicitud);
             this.groupBoxFechaHora.Location = new System.Drawing.Point(205, 398);
-            this.groupBoxFechaHora.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxFechaHora.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxFechaHora.Name = "groupBoxFechaHora";
-            this.groupBoxFechaHora.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxFechaHora.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxFechaHora.Size = new System.Drawing.Size(580, 175);
             this.groupBoxFechaHora.TabIndex = 32;
             this.groupBoxFechaHora.TabStop = false;
@@ -390,9 +395,9 @@
             // 
             this.groupBoxResultado.Controls.Add(this.txtcontenido);
             this.groupBoxResultado.Location = new System.Drawing.Point(16, 630);
-            this.groupBoxResultado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxResultado.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxResultado.Name = "groupBoxResultado";
-            this.groupBoxResultado.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxResultado.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxResultado.Size = new System.Drawing.Size(960, 165);
             this.groupBoxResultado.TabIndex = 33;
             this.groupBoxResultado.TabStop = false;
@@ -411,7 +416,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnGuardar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmRegistroReserva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

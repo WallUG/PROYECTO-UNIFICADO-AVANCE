@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvEventos = new System.Windows.Forms.DataGridView();
-            this.colNro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumEventos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipoEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombreEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDescripcionEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDireccionEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstadoEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btnActualizarListaEvento = new System.Windows.Forms.Button();
             this.lblNumEventos = new System.Windows.Forms.Label();
@@ -48,6 +40,15 @@
             this.gbFiltrarPor = new System.Windows.Forms.GroupBox();
             this.gbBuscarPor = new System.Windows.Forms.GroupBox();
             this.btnFiltrar = new System.Windows.Forms.Button();
+            this.colNro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumEventos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipoEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombreEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescripcionEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumPersonas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDireccionEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstadoEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumModificacionesEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).BeginInit();
             this.gbFiltrarPor.SuspendLayout();
             this.gbBuscarPor.SuspendLayout();
@@ -66,93 +67,22 @@
             this.colDescripcionEvento,
             this.colNumPersonas,
             this.colDireccionEvento,
-            this.colEstadoEvento});
+            this.colEstadoEvento,
+            this.colNumModificacionesEvento});
             this.dgvEventos.Location = new System.Drawing.Point(47, 298);
             this.dgvEventos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEventos.Name = "dgvEventos";
             this.dgvEventos.ReadOnly = true;
             this.dgvEventos.RowHeadersWidth = 51;
             this.dgvEventos.RowTemplate.Height = 24;
-            this.dgvEventos.Size = new System.Drawing.Size(1113, 348);
+            this.dgvEventos.Size = new System.Drawing.Size(1272, 348);
             this.dgvEventos.TabIndex = 0;
-            // 
-            // colNro
-            // 
-            this.colNro.HeaderText = "Nro.";
-            this.colNro.MinimumWidth = 6;
-            this.colNro.Name = "colNro";
-            this.colNro.ReadOnly = true;
-            this.colNro.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNro.Width = 80;
-            // 
-            // colNumEventos
-            // 
-            this.colNumEventos.HeaderText = "Número Eventos";
-            this.colNumEventos.MinimumWidth = 15;
-            this.colNumEventos.Name = "colNumEventos";
-            this.colNumEventos.ReadOnly = true;
-            this.colNumEventos.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNumEventos.Width = 125;
-            // 
-            // colTipoEvento
-            // 
-            this.colTipoEvento.HeaderText = "Tipo de Evento";
-            this.colTipoEvento.MinimumWidth = 15;
-            this.colTipoEvento.Name = "colTipoEvento";
-            this.colTipoEvento.ReadOnly = true;
-            this.colTipoEvento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colTipoEvento.Width = 125;
-            // 
-            // colNombreEvento
-            // 
-            this.colNombreEvento.HeaderText = "Nombre del Evento";
-            this.colNombreEvento.MinimumWidth = 15;
-            this.colNombreEvento.Name = "colNombreEvento";
-            this.colNombreEvento.ReadOnly = true;
-            this.colNombreEvento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNombreEvento.Width = 140;
-            // 
-            // colDescripcionEvento
-            // 
-            this.colDescripcionEvento.HeaderText = "Descripción del Evento";
-            this.colDescripcionEvento.MinimumWidth = 15;
-            this.colDescripcionEvento.Name = "colDescripcionEvento";
-            this.colDescripcionEvento.ReadOnly = true;
-            this.colDescripcionEvento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colDescripcionEvento.Width = 160;
-            // 
-            // colNumPersonas
-            // 
-            this.colNumPersonas.HeaderText = "Número de Personas";
-            this.colNumPersonas.MinimumWidth = 15;
-            this.colNumPersonas.Name = "colNumPersonas";
-            this.colNumPersonas.ReadOnly = true;
-            this.colNumPersonas.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNumPersonas.Width = 125;
-            // 
-            // colDireccionEvento
-            // 
-            this.colDireccionEvento.HeaderText = "Dirección/Ubicación";
-            this.colDireccionEvento.MinimumWidth = 15;
-            this.colDireccionEvento.Name = "colDireccionEvento";
-            this.colDireccionEvento.ReadOnly = true;
-            this.colDireccionEvento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colDireccionEvento.Width = 200;
-            // 
-            // colEstadoEvento
-            // 
-            this.colEstadoEvento.HeaderText = "Estado";
-            this.colEstadoEvento.MinimumWidth = 15;
-            this.colEstadoEvento.Name = "colEstadoEvento";
-            this.colEstadoEvento.ReadOnly = true;
-            this.colEstadoEvento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colEstadoEvento.Width = 125;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Black", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(509, 20);
+            this.label1.Location = new System.Drawing.Point(599, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(193, 32);
             this.label1.TabIndex = 1;
@@ -162,7 +92,7 @@
             // 
             this.btnActualizarListaEvento.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizarListaEvento.ForeColor = System.Drawing.Color.Blue;
-            this.btnActualizarListaEvento.Location = new System.Drawing.Point(532, 653);
+            this.btnActualizarListaEvento.Location = new System.Drawing.Point(611, 664);
             this.btnActualizarListaEvento.Name = "btnActualizarListaEvento";
             this.btnActualizarListaEvento.Size = new System.Drawing.Size(139, 46);
             this.btnActualizarListaEvento.TabIndex = 5;
@@ -240,7 +170,7 @@
             this.gbFiltrarPor.Controls.Add(this.rdbNumEventos);
             this.gbFiltrarPor.Controls.Add(this.rdbCedulaORuc);
             this.gbFiltrarPor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbFiltrarPor.Location = new System.Drawing.Point(151, 75);
+            this.gbFiltrarPor.Location = new System.Drawing.Point(286, 77);
             this.gbFiltrarPor.Name = "gbFiltrarPor";
             this.gbFiltrarPor.Size = new System.Drawing.Size(263, 127);
             this.gbFiltrarPor.TabIndex = 26;
@@ -255,7 +185,7 @@
             this.gbBuscarPor.Controls.Add(this.txtCiRucCliente);
             this.gbBuscarPor.Controls.Add(this.lblCedulaORuc);
             this.gbBuscarPor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbBuscarPor.Location = new System.Drawing.Point(448, 75);
+            this.gbBuscarPor.Location = new System.Drawing.Point(583, 77);
             this.gbBuscarPor.Name = "gbBuscarPor";
             this.gbBuscarPor.Size = new System.Drawing.Size(442, 198);
             this.gbBuscarPor.TabIndex = 27;
@@ -274,12 +204,93 @@
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
+            // colNro
+            // 
+            this.colNro.HeaderText = "Nro.";
+            this.colNro.MinimumWidth = 6;
+            this.colNro.Name = "colNro";
+            this.colNro.ReadOnly = true;
+            this.colNro.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNro.Width = 80;
+            // 
+            // colNumEventos
+            // 
+            this.colNumEventos.HeaderText = "Número Eventos";
+            this.colNumEventos.MinimumWidth = 15;
+            this.colNumEventos.Name = "colNumEventos";
+            this.colNumEventos.ReadOnly = true;
+            this.colNumEventos.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNumEventos.Width = 125;
+            // 
+            // colTipoEvento
+            // 
+            this.colTipoEvento.HeaderText = "Tipo de Evento";
+            this.colTipoEvento.MinimumWidth = 15;
+            this.colTipoEvento.Name = "colTipoEvento";
+            this.colTipoEvento.ReadOnly = true;
+            this.colTipoEvento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colTipoEvento.Width = 125;
+            // 
+            // colNombreEvento
+            // 
+            this.colNombreEvento.HeaderText = "Nombre del Evento";
+            this.colNombreEvento.MinimumWidth = 15;
+            this.colNombreEvento.Name = "colNombreEvento";
+            this.colNombreEvento.ReadOnly = true;
+            this.colNombreEvento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNombreEvento.Width = 140;
+            // 
+            // colDescripcionEvento
+            // 
+            this.colDescripcionEvento.HeaderText = "Descripción del Evento";
+            this.colDescripcionEvento.MinimumWidth = 15;
+            this.colDescripcionEvento.Name = "colDescripcionEvento";
+            this.colDescripcionEvento.ReadOnly = true;
+            this.colDescripcionEvento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colDescripcionEvento.Width = 160;
+            // 
+            // colNumPersonas
+            // 
+            this.colNumPersonas.HeaderText = "Número de Personas";
+            this.colNumPersonas.MinimumWidth = 15;
+            this.colNumPersonas.Name = "colNumPersonas";
+            this.colNumPersonas.ReadOnly = true;
+            this.colNumPersonas.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNumPersonas.Width = 125;
+            // 
+            // colDireccionEvento
+            // 
+            this.colDireccionEvento.HeaderText = "Dirección/Ubicación";
+            this.colDireccionEvento.MinimumWidth = 15;
+            this.colDireccionEvento.Name = "colDireccionEvento";
+            this.colDireccionEvento.ReadOnly = true;
+            this.colDireccionEvento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colDireccionEvento.Width = 200;
+            // 
+            // colEstadoEvento
+            // 
+            this.colEstadoEvento.HeaderText = "Estado";
+            this.colEstadoEvento.MinimumWidth = 15;
+            this.colEstadoEvento.Name = "colEstadoEvento";
+            this.colEstadoEvento.ReadOnly = true;
+            this.colEstadoEvento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colEstadoEvento.Width = 125;
+            // 
+            // colNumModificacionesEvento
+            // 
+            this.colNumModificacionesEvento.HeaderText = "Nro. de Modificaciones";
+            this.colNumModificacionesEvento.MinimumWidth = 6;
+            this.colNumModificacionesEvento.Name = "colNumModificacionesEvento";
+            this.colNumModificacionesEvento.ReadOnly = true;
+            this.colNumModificacionesEvento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNumModificacionesEvento.Width = 140;
+            // 
             // FrmListarEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1233, 722);
+            this.ClientSize = new System.Drawing.Size(1332, 722);
             this.Controls.Add(this.gbBuscarPor);
             this.Controls.Add(this.gbFiltrarPor);
             this.Controls.Add(this.btnActualizarListaEvento);
@@ -304,14 +315,6 @@
 
         private System.Windows.Forms.DataGridView dgvEventos;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNumEventos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoEvento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombreEvento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcionEvento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNumPersonas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDireccionEvento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEstadoEvento;
         private System.Windows.Forms.Button btnActualizarListaEvento;
         private System.Windows.Forms.Label lblNumEventos;
         private System.Windows.Forms.TextBox txtNumEventos;
@@ -322,5 +325,14 @@
         private System.Windows.Forms.GroupBox gbFiltrarPor;
         private System.Windows.Forms.GroupBox gbBuscarPor;
         private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumEventos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoEvento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombreEvento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcionEvento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumPersonas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDireccionEvento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEstadoEvento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumModificacionesEvento;
     }
 }
