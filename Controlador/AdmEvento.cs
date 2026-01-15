@@ -28,20 +28,20 @@ namespace Controlador
         private string datoDireccionEvento = "";
         private string datoEstadoEvento = "";
 
-        private string[] tiposEvento = { 
-            "Cumpleaños", 
-            "Boda", 
-            "Graduación", 
-            "Corporativo", 
-            "Conferencia", 
-            "Otro" 
+        private string[] tiposEvento = {
+            "Cumpleaños",
+            "Boda",
+            "Graduación",
+            "Corporativo",
+            "Conferencia",
+            "Otro"
         };
-        
-        private string[] estadosEvento = { 
-            "Planificado", 
-            "Confirmado", 
-            "Realizado", 
-            "Cancelado" 
+
+        private string[] estadosEvento = {
+            "Planificado",
+            "Confirmado",
+            "Realizado",
+            "Cancelado"
         };
 
         public static Evento ObtenerEventoPorNumEventos(int numEventos)
@@ -74,7 +74,7 @@ namespace Controlador
             List<Cliente> clientes = AdmCliente.ObtenerTodosLosClientes();
             return clientes.Count > 0;
         }
-        
+
         public bool BuscarClientePorCedulaORuc(string ciORuc)
         {
             clienteFueEncontrado = false;
@@ -123,12 +123,12 @@ namespace Controlador
         {
             return clienteFueEncontrado;
         }
-        
+
         public bool HayClienteSeleccionado()
         {
             return cliente != null;
         }
-        
+
         public void LimpiarClienteSeleccionado()
         {
             cliente = null;
@@ -136,7 +136,7 @@ namespace Controlador
             clienteNombresEncontrado = "";
             clienteApellidosEncontrado = "";
         }
-        
+
         public void LlenarTiposEvento(ComboBox cmb)
         {
             cmb.Items.Clear();
@@ -145,7 +145,7 @@ namespace Controlador
                 cmb.Items.Add(tiposEvento[i]);
             }
         }
-        
+
         public void LlenarEstadosEvento(ComboBox cmb)
         {
             cmb.Items.Clear();
@@ -154,12 +154,12 @@ namespace Controlador
                 cmb.Items.Add(estadosEvento[i]);
             }
         }
-        
+
         public int GenerarNuevoNumEventos()
         {
             return listaEventos.Count + 1;
         }
-        
+
         public void CargarDatosPredeterminados(string tipoEvento)
         {
             datoNombreEvento = "Evento genérico";
@@ -242,13 +242,13 @@ namespace Controlador
         {
             return datoEstadoEvento;
         }
-        
+
         public List<Evento> ObtenerEventos()
         {
             return listaEventos;
         }
-        
-        public bool EsVacio(string tipoEvento, string nombreEvento, string descEvento, 
+
+        public bool EsVacio(string tipoEvento, string nombreEvento, string descEvento,
             int numPersonas, string direccionEvento, string estadoEvento)
         {
             bool tipoVacio = string.IsNullOrEmpty(tipoEvento);
@@ -257,15 +257,15 @@ namespace Controlador
             bool personasVacio = (numPersonas == 0);
             bool direccionVacio = string.IsNullOrEmpty(direccionEvento);
             bool estadoVacio = string.IsNullOrEmpty(estadoEvento);
-            
+
             if (tipoVacio || nombreVacio || descVacio || personasVacio || direccionVacio || estadoVacio)
             {
                 return true;
             }
-            
+
             return false;
         }
-        
+
         public bool HayInmueblesSeleccionados()
         {
             if (listaEventoInmueble == null || listaEventoInmueble.Count == 0)
@@ -293,7 +293,7 @@ namespace Controlador
         {
             for (int i = listaEventoInmueble.Count - 1; i >= 0; i--)
             {
-                if (listaEventoInmueble[i].inmueble != null && 
+                if (listaEventoInmueble[i].inmueble != null &&
                     listaEventoInmueble[i].ObtenerNumInmuebles() == numeroInmueble)
                 {
                     listaEventoInmueble.RemoveAt(i);
@@ -305,14 +305,14 @@ namespace Controlador
         public int ObtenerCantidadDisponibleInmueble(string numeroInmueble)
         {
             Inmueble inmueble = AdmInmueble.ObtenerInmueblePorNumInmuebles(numeroInmueble);
-            
+
             if (inmueble != null)
             {
                 EventoInmueble eventoInmuebleTemporal = new EventoInmueble();
                 eventoInmuebleTemporal.inmueble = inmueble;
                 return eventoInmuebleTemporal.ObtenerCantidadDisponibleInmueble();
             }
-            
+
             return 0;
         }
 
@@ -326,7 +326,7 @@ namespace Controlador
                 eventoInmuebleTemporal.inmueble = inmueble;
                 return eventoInmuebleTemporal.EsCantidadValida(cantidadSolicitada);
             }
-            
+
             return false;
         }
 
@@ -335,7 +335,7 @@ namespace Controlador
             bool encontrado = false;
             for (int i = 0; i < listaEventoInmueble.Count; i++)
             {
-                if (listaEventoInmueble[i].inmueble != null && 
+                if (listaEventoInmueble[i].inmueble != null &&
                     listaEventoInmueble[i].ObtenerNumInmuebles() == numeroInmueble)
                 {
                     listaEventoInmueble[i].ActualizarCantidadAsignada(cantidadAsignada);
@@ -355,11 +355,11 @@ namespace Controlador
                 }
             }
         }
-        
-        public void RegistrarEventoCompleto(int numEventos, string tipoEvento, string nombreEvento, string descripcionEvento, int numPersonas, string direccionEvento, 
-            string estadoEvento, 
-            string tipoInmueble, 
-            int cantidadInmueble, 
+
+        public void RegistrarEventoCompleto(int numEventos, string tipoEvento, string nombreEvento, string descripcionEvento, int numPersonas, string direccionEvento,
+            string estadoEvento,
+            string tipoInmueble,
+            int cantidadInmueble,
             DateTime fechaAsignacion)
         {
             List<EventoInmueble> listaInmueblesEvento = new List<EventoInmueble>();
@@ -371,7 +371,7 @@ namespace Controlador
                 copia.fechaAsignacionInmueble = listaEventoInmueble[i].fechaAsignacionInmueble;
                 listaInmueblesEvento.Add(copia);
             }
-            
+
             evento = new Evento(
                 numEventos,
                 numEventos,
@@ -384,16 +384,16 @@ namespace Controlador
                 estadoEvento,
                 listaInmueblesEvento
             );
-            
+
             listaEventos.Add(evento);
-            
+
             listaEventoInmueble.Clear();
         }
-        
+
         public void CargarTablaEventos(DataGridView dgvEventos)
         {
             dgvEventos.Rows.Clear();
-            int indice=0;
+            int indice = 0;
 
             foreach (Evento evento in listaEventos)
             {
@@ -406,17 +406,17 @@ namespace Controlador
                 dgvEventos.Rows[indice].Cells["colNumPersonas"].Value = evento.NumPersonasEvento;
                 dgvEventos.Rows[indice].Cells["colDireccionEvento"].Value = evento.DireccionEvento;
                 dgvEventos.Rows[indice].Cells["colEstadoEvento"].Value = evento.EstadoEvento;
-                indice ++;
+                indice++;
             }
         }
-        
+
         public void LlenarDescripcionInmuebleLocales(DataGridView dgvInmuebles, string filtro)
         {
             dgvInmuebles.Rows.Clear();
 
             List<Inmueble> listaActual = AdmInmueble.ObtenerTodosLosInmuebles();
 
-            if(listaActual.Count == 0)
+            if (listaActual.Count == 0)
             {
                 MessageBox.Show("No hay inmuebles registrados en el sistema.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -425,7 +425,7 @@ namespace Controlador
             for (int i = 0; i < listaActual.Count; i++)
             {
                 Inmueble inm = listaActual[i];
-                if(inm.tipoInmueble == filtro)
+                if (inm.tipoInmueble == filtro)
                 {
                     EventoInmueble eventoInmuebleTemporal = new EventoInmueble();
                     eventoInmuebleTemporal.inmueble = inm;
@@ -468,7 +468,7 @@ namespace Controlador
         {
             for (int i = 0; i < listaEventoInmueble.Count; i++)
             {
-                if (listaEventoInmueble[i].inmueble != null && 
+                if (listaEventoInmueble[i].inmueble != null &&
                     listaEventoInmueble[i].ObtenerNumInmuebles() == numeroInmueble)
                 {
                     return listaEventoInmueble[i];
@@ -480,7 +480,7 @@ namespace Controlador
         public void SincronizarInmuebleTemp(string numeroInmueble, int cantidadAsignada, DateTime fechaAsignacion)
         {
             Inmueble inmuebleActual = AdmInmueble.ObtenerInmueblePorNumInmuebles(numeroInmueble);
-            
+
             if (inmuebleActual != null)
             {
                 EventoInmueble eventoInmueble = new EventoInmueble(inmuebleActual, cantidadAsignada, fechaAsignacion);
@@ -501,42 +501,42 @@ namespace Controlador
         public int ObtenerCantidadRealDisponible(string numeroInmueble)
         {
             Inmueble inmueble = AdmInmueble.ObtenerInmueblePorNumInmuebles(numeroInmueble);
-            
+
             if (inmueble != null)
             {
                 EventoInmueble eventoInmTemp = new EventoInmueble();
                 eventoInmTemp.inmueble = inmueble;
                 return eventoInmTemp.ObtenerCantidadDisponibleInmueble();
             }
-            
+
             return 0;
         }
 
         public string ObtenerNombreInmueble(string numeroInmueble)
         {
             Inmueble inmueble = AdmInmueble.ObtenerInmueblePorNumInmuebles(numeroInmueble);
-            
+
             if (inmueble != null)
             {
                 EventoInmueble eventoInmTemp = new EventoInmueble();
                 eventoInmTemp.inmueble = inmueble;
                 return eventoInmTemp.ObtenerNombreInmueble();
             }
-            
+
             return "";
         }
 
         public bool ObtenerDisponibilidadInmueble(string numeroInmueble)
         {
             Inmueble inmueble = AdmInmueble.ObtenerInmueblePorNumInmuebles(numeroInmueble);
-            
+
             if (inmueble != null)
             {
                 EventoInmueble eventoInmTemp = new EventoInmueble();
                 eventoInmTemp.inmueble = inmueble;
                 return eventoInmTemp.EstaDisponible();
             }
-            
+
             return false;
         }
 
@@ -637,9 +637,9 @@ namespace Controlador
             {
                 return false;
             }
-            
+
             int numerosEvento = Convert.ToInt32(valorCelda);
-            
+
             for (int i = 0; i < listaEventos.Count; i++)
             {
                 if (listaEventos[i].NumEventos == numerosEvento)
