@@ -598,7 +598,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1310, 836);
+            this.ClientSize = new System.Drawing.Size(1310, 869);
             this.Controls.Add(this.gbListaInmueblesSele);
             this.Controls.Add(this.gbInformacionCliente);
             this.Controls.Add(this.gbBuscarCliente);

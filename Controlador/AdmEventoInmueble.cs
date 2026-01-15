@@ -12,6 +12,11 @@ namespace Controlador
     {
         static List<EventoInmueble> listaEventoInmueblesTemp = new List<EventoInmueble>();
 
+        public static string[] ObtenerTiposInmueble()
+        {
+            return AdmInmueble.ObtenerTiposInmueble();
+        }
+
         public static EventoInmueble CrearEventoInmueble(Inmueble inmueble, int cantidad, DateTime fechaAsignacion)
         {
             EventoInmueble eventoInmueble = new EventoInmueble();

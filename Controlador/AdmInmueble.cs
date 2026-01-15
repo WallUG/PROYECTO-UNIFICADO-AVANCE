@@ -21,7 +21,12 @@ namespace Controlador
         static List<Inmueble> inmuebleL = new List<Inmueble>();
 
         // Array de Inmueble dinamico (Visual)
-        string[] tipoIn = { "Locales", "Accesorios", "Servicios"};
+        private static string[] tipoIn = { "Locales", "Accesorios", "Servicios"};
+
+        public static string[] ObtenerTiposInmueble()
+        {
+            return tipoIn;
+        }
 
         // Método para obtener un Inmueble
         public static Inmueble ObtenerInmueblePorNumInmuebles(string numeroInmueble)

@@ -17,7 +17,6 @@ namespace Controlador
         public Evento evento = null;
         public Cliente cliente = null;
         public List<EventoInmueble> listaEventoInmueble = new List<EventoInmueble>();
-        public string[] tipoInmuebles = { "Locales", "Accesorios", "Servicios" };
         Conexion conexion = null;
 
         private string clienteNombresEncontrado = "";
@@ -71,9 +70,10 @@ namespace Controlador
 
         public void LlenarComboTipo(ComboBox cmbTipoInmueble)
         {
-            for (int i = 0; i < tipoInmuebles.Length; i++)
+            string[] tiposInmueble = AdmEventoInmueble.ObtenerTiposInmueble();
+            for (int i = 0; i < tiposInmueble.Length; i++)
             {
-                cmbTipoInmueble.Items.Add(tipoInmuebles[i]);
+                cmbTipoInmueble.Items.Add(tiposInmueble[i]);
             }
         }
 
