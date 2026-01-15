@@ -1012,7 +1012,7 @@ namespace Controlador
 
         private void Conectar()
         {
-            string res = cn.conectar();
+            string res = cn.Conectar();
             if (res[0] == '1')
             {
                 MessageBox.Show("Conexión exitosa");

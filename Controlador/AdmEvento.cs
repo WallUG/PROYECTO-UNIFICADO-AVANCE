@@ -1,4 +1,5 @@
-﻿using Modelo;
+﻿using Datos;
+using Modelo;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Controlador
         public Cliente cliente = null;
         public List<EventoInmueble> listaEventoInmueble = new List<EventoInmueble>();
         public string[] tipoInmuebles = { "Locales", "Accesorios", "Servicios" };
+        Conexion conexion = null;
 
         private string clienteNombresEncontrado = "";
         private string clienteApellidosEncontrado = "";
@@ -183,7 +185,7 @@ namespace Controlador
             return listaEventos.Count + 1;
         }
 
-        public void CargarDatosPredeterminados(string tipoEvento)
+        public void CargarDatosPredeterminadosEvento(string tipoEvento)
         {
             datoNombreEvento = "Evento genérico";
             datoDescripcionEvento = "Descripción del evento genérico";
@@ -227,7 +229,7 @@ namespace Controlador
             {
                 datoNombreEvento = "Conferencia de tecnología";
                 datoDescripcionEvento = "Evento para discutir las últimas tendencias";
-                datoNumeroPersonas = 200;
+                datoNumeroPersonas = 150;
                 datoDireccionEvento = "Dirección de la conferencia";
                 datoEstadoEvento = "Planificado";
             }
@@ -957,6 +959,22 @@ namespace Controlador
             {
                 MessageBox.Show("No se encontró el evento a editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+        }
+
+        private void Conectar()
+        {
+            conexion = new Conexion();
+            string res = conexion.Conectar();
+
+            if (res[0] == '1')
+            {
+                MessageBox.Show("Conexión a la Base de Datos exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conexion.Desconectar();
+            }
+            else if (res[0] == '0')
+            {
+                MessageBox.Show(res, "Error de conexión a la Base de Datos!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

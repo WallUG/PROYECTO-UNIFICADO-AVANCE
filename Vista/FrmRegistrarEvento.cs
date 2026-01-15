@@ -100,7 +100,7 @@ namespace Vista
                 string nombres = admEvento.ObtenerNombresClienteEncontrado();
                 string apellidos = admEvento.ObtenerApellidosClienteEncontrado();
 
-                MessageBox.Show("Cliente encontrado!" + nombreCompleto, 
+                MessageBox.Show("Cliente encontrado!\n" + nombres + " " + apellidos, 
                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
                 btnBuscarCliente.Enabled = false;
@@ -125,7 +125,7 @@ namespace Vista
             {
                 string tipoSeleccionado = cmbTipoEvento.SelectedItem.ToString();
                 
-                admEvento.CargarDatosPredeterminados(tipoSeleccionado);
+                admEvento.CargarDatosPredeterminadosEvento(tipoSeleccionado);
                 
                 string nombreEvento = admEvento.ObtenerNombreEventoPredeterminado();
                 string descripcionEvento = admEvento.ObtenerDescripcionEventoPredeterminado();

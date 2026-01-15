@@ -12,14 +12,14 @@ namespace Datos
     {
         private static string cadenaConexion = ConfigurationManager.ConnectionStrings["ConexionDB"].ConnectionString;
         public SqlConnection sql { get; set; }
-        public string conectar()
+        public string Conectar()
         {
             try
             {
                 sql = new SqlConnection(cadenaConexion);
                 sql.ConnectionString = cadenaConexion;
                 sql.Open();
-                return "Conexion exitosa";
+                return "Conexión exitosa!";
             }
             catch (Exception ex)
             {
@@ -27,12 +27,12 @@ namespace Datos
             }
         }
 
-        public string desconectar()
+        public string Desconectar()
         {
             try
             {
                 sql.Close();
-                return "Desconexion exitosa";
+                return "Desconexión exitosa!";
             }
             catch (Exception ex)
             {
