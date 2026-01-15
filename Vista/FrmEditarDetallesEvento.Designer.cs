@@ -569,6 +569,7 @@
             this.Name = "FrmEditarDetallesEvento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Evento";
+            this.Load += new System.EventHandler(this.FrmEditarDetallesEvento_Load);
             this.gbListaInmueblesSele.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInmueblesActual)).EndInit();
             this.gbInformacionCliente.ResumeLayout(false);

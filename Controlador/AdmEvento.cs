@@ -688,5 +688,16 @@ namespace Controlador
             }
             return null;
         }
+
+        public void CargarEventoParaEditar(GroupBox gbInformacionCliente, GroupBox gbCreacionEvento, GroupBox gbAsignarInmuebles, GroupBox gbListaInmueblesSele)
+        {
+            Evento evento = ObtenerEventoPorNumero(numeroEditarEvento);
+
+            if (evento == null)
+            {
+                MessageBox.Show("No se encontró el evento a editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
     }
 }
