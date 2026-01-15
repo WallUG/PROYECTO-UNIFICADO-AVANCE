@@ -21,6 +21,7 @@ namespace Controlador
         private string clienteNombresEncontrado = "";
         private string clienteApellidosEncontrado = "";
         private bool clienteFueEncontrado = false;
+        private string clienteCedulaEncontrado = "";
 
         private string datoNombreEvento = "";
         private string datoDescripcionEvento = "";
@@ -42,6 +43,11 @@ namespace Controlador
             "Confirmado",
             "Realizado",
             "Cancelado"
+        };
+
+        private string[] estadosEventoEditables = {
+            "Planificado",
+            "Confirmado"
         };
 
         public static Evento ObtenerEventoPorNumEventos(int numEventos)
@@ -80,6 +86,7 @@ namespace Controlador
             clienteFueEncontrado = false;
             clienteNombresEncontrado = "";
             clienteApellidosEncontrado = "";
+            clienteCedulaEncontrado = "";
 
             if (string.IsNullOrEmpty(ciORuc))
             {
@@ -97,6 +104,7 @@ namespace Controlador
                     clienteFueEncontrado = true;
                     clienteNombresEncontrado = clientebusqueda.Nombre;
                     clienteApellidosEncontrado = clientebusqueda.Apellido;
+                    clienteCedulaEncontrado = clientebusqueda.CedulaORuc;
                     cliente = clientebusqueda;
                     return true;
                 }
@@ -119,6 +127,11 @@ namespace Controlador
             return clienteNombresEncontrado + " " + clienteApellidosEncontrado;
         }
 
+        public string ObtenerCedulaClienteEncontrado()
+        {
+            return clienteCedulaEncontrado;
+        }
+
         public bool ClienteFueEncontrado()
         {
             return clienteFueEncontrado;
@@ -135,6 +148,7 @@ namespace Controlador
             clienteFueEncontrado = false;
             clienteNombresEncontrado = "";
             clienteApellidosEncontrado = "";
+            clienteCedulaEncontrado = "";
         }
 
         public void LlenarTiposEvento(ComboBox cmb)
@@ -152,6 +166,15 @@ namespace Controlador
             for (int i = 0; i < estadosEvento.Length; i++)
             {
                 cmb.Items.Add(estadosEvento[i]);
+            }
+        }
+
+        public void LlenarEstadosEventoEditables(ComboBox cmb)
+        {
+            cmb.Items.Clear();
+            for (int i = 0; i < estadosEventoEditables.Length; i++)
+            {
+                cmb.Items.Add(estadosEventoEditables[i]);
             }
         }
 
@@ -689,11 +712,245 @@ namespace Controlador
             return null;
         }
 
+        public bool ExisteEventoParaEditar(int numEvento)
+        {
+            for (int i = 0; i < listaEventos.Count; i++)
+            {
+                if (listaEventos[i].NumEventos == numEvento)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void PrepararEdicionEvento(int numEvento)
+        {
+            Evento eventoEditar = ObtenerEventoPorNumero(numEvento);
+            if (eventoEditar != null && eventoEditar.Cliente != null)
+            {
+                cliente = eventoEditar.Cliente;
+                clienteFueEncontrado = true;
+                clienteNombresEncontrado = eventoEditar.Cliente.Nombre;
+                clienteApellidosEncontrado = eventoEditar.Cliente.Apellido;
+                clienteCedulaEncontrado = eventoEditar.Cliente.CedulaORuc;
+            }
+
+            listaEventoInmueble.Clear();
+            if (eventoEditar != null && eventoEditar.EventoInmueble != null)
+            {
+                for (int i = 0; i < eventoEditar.EventoInmueble.Count; i++)
+                {
+                    EventoInmueble original = eventoEditar.EventoInmueble[i];
+                    EventoInmueble copia = new EventoInmueble();
+                    copia.inmueble = original.inmueble;
+                    copia.cantidadInmueble = original.cantidadInmueble;
+                    copia.fechaAsignacionInmueble = original.fechaAsignacionInmueble;
+                    listaEventoInmueble.Add(copia);
+                }
+            }
+        }
+
+        public string ObtenerCedulaClienteEvento(int numEvento)
+        {
+            Evento eventoEditar = ObtenerEventoPorNumero(numEvento);
+            if (eventoEditar != null && eventoEditar.Cliente != null)
+            {
+                return eventoEditar.Cliente.CedulaORuc;
+            }
+            return "";
+        }
+
+        public string ObtenerNombresClienteEvento(int numEvento)
+        {
+            Evento eventoEditar = ObtenerEventoPorNumero(numEvento);
+            if (eventoEditar != null && eventoEditar.Cliente != null)
+            {
+                return eventoEditar.Cliente.Nombre;
+            }
+            return "";
+        }
+
+        public string ObtenerApellidosClienteEvento(int numEvento)
+        {
+            Evento eventoEditar = ObtenerEventoPorNumero(numEvento);
+            if (eventoEditar != null && eventoEditar.Cliente != null)
+            {
+                return eventoEditar.Cliente.Apellido;
+            }
+            return "";
+        }
+
+        public string ObtenerTipoEventoPorNumero(int numEvento)
+        {
+            Evento eventoEditar = ObtenerEventoPorNumero(numEvento);
+            if (eventoEditar != null)
+            {
+                return eventoEditar.TipoEvento;
+            }
+            return "";
+        }
+
+        public string ObtenerNombreEventoPorNumero(int numEvento)
+        {
+            Evento eventoEditar = ObtenerEventoPorNumero(numEvento);
+            if (eventoEditar != null)
+            {
+                return eventoEditar.NombreEvento;
+            }
+            return "";
+        }
+
+        public string ObtenerDescripcionEventoPorNumero(int numEvento)
+        {
+            Evento eventoEditar = ObtenerEventoPorNumero(numEvento);
+            if (eventoEditar != null)
+            {
+                return eventoEditar.DescripcionEvento;
+            }
+            return "";
+        }
+
+        public int ObtenerNumPersonasEventoPorNumero(int numEvento)
+        {
+            Evento eventoEditar = ObtenerEventoPorNumero(numEvento);
+            if (eventoEditar != null)
+            {
+                return eventoEditar.NumPersonasEvento;
+            }
+            return 0;
+        }
+
+        public string ObtenerDireccionEventoPorNumero(int numEvento)
+        {
+            Evento eventoEditar = ObtenerEventoPorNumero(numEvento);
+            if (eventoEditar != null)
+            {
+                return eventoEditar.DireccionEvento;
+            }
+            return "";
+        }
+
+        public string ObtenerEstadoEventoPorNumero(int numEvento)
+        {
+            Evento eventoEditar = ObtenerEventoPorNumero(numEvento);
+            if (eventoEditar != null)
+            {
+                return eventoEditar.EstadoEvento;
+            }
+            return "";
+        }
+
+        public List<string> ObtenerNumerosInmueblesEvento(int numEvento)
+        {
+            List<string> numeros = new List<string>();
+            Evento eventoEditar = ObtenerEventoPorNumero(numEvento);
+
+            if (eventoEditar != null && eventoEditar.EventoInmueble != null)
+            {
+                for (int i = 0; i < eventoEditar.EventoInmueble.Count; i++)
+                {
+                    if (eventoEditar.EventoInmueble[i].inmueble != null)
+                    {
+                        numeros.Add(eventoEditar.EventoInmueble[i].ObtenerNumInmuebles());
+                    }
+                }
+            }
+
+            return numeros;
+        }
+
+        public List<int> ObtenerCantidadesInmueblesEvento(int numEvento)
+        {
+            List<int> cantidades = new List<int>();
+            Evento eventoEditar = ObtenerEventoPorNumero(numEvento);
+
+            if (eventoEditar != null && eventoEditar.EventoInmueble != null)
+            {
+                for (int i = 0; i < eventoEditar.EventoInmueble.Count; i++)
+                {
+                    cantidades.Add(eventoEditar.EventoInmueble[i].cantidadInmueble);
+                }
+            }
+
+            return cantidades;
+        }
+
+        public DateTime ObtenerFechaAsignacionInmueblesEvento(int numEvento)
+        {
+            Evento eventoEditar = ObtenerEventoPorNumero(numEvento);
+
+            if (eventoEditar != null && eventoEditar.EventoInmueble != null && eventoEditar.EventoInmueble.Count > 0)
+            {
+                return eventoEditar.EventoInmueble[0].fechaAsignacionInmueble;
+            }
+
+            return DateTime.MinValue;
+        }
+
+        public int ObtenerIndiceTipoEvento(string tipoEvento)
+        {
+            for (int i = 0; i < tiposEvento.Length; i++)
+            {
+                if (tiposEvento[i] == tipoEvento)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public int ObtenerIndiceEstadoEventoEditable(string estadoEvento)
+        {
+            for (int i = 0; i < estadosEventoEditables.Length; i++)
+            {
+                if (estadosEventoEditables[i] == estadoEvento)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public bool ActualizarEventoExistente(int numEventos, string tipoEvento, string nombreEvento,
+            string descripcionEvento, int numPersonas, string direccionEvento, string estadoEvento)
+        {
+            for (int i = 0; i < listaEventos.Count; i++)
+            {
+                if (listaEventos[i].NumEventos == numEventos)
+                {
+                    listaEventos[i].TipoEvento = tipoEvento;
+                    listaEventos[i].NombreEvento = nombreEvento;
+                    listaEventos[i].DescripcionEvento = descripcionEvento;
+                    listaEventos[i].NumPersonasEvento = numPersonas;
+                    listaEventos[i].DireccionEvento = direccionEvento;
+                    listaEventos[i].EstadoEvento = estadoEvento;
+
+                    List<EventoInmueble> listaInmueblesActualizada = new List<EventoInmueble>();
+                    for (int j = 0; j < listaEventoInmueble.Count; j++)
+                    {
+                        EventoInmueble copia = new EventoInmueble();
+                        copia.inmueble = listaEventoInmueble[j].inmueble;
+                        copia.cantidadInmueble = listaEventoInmueble[j].cantidadInmueble;
+                        copia.fechaAsignacionInmueble = listaEventoInmueble[j].fechaAsignacionInmueble;
+                        listaInmueblesActualizada.Add(copia);
+                    }
+
+                    listaEventos[i].EventoInmueble = listaInmueblesActualizada;
+
+                    listaEventoInmueble.Clear();
+
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void CargarEventoParaEditar(GroupBox gbInformacionCliente, GroupBox gbCreacionEvento, GroupBox gbAsignarInmuebles, GroupBox gbListaInmueblesSele)
         {
-            Evento evento = ObtenerEventoPorNumero(numeroEditarEvento);
+            Evento eventoEditar = ObtenerEventoPorNumero(numeroEditarEvento);
 
-            if (evento == null)
+            if (eventoEditar == null)
             {
                 MessageBox.Show("No se encontró el evento a editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
