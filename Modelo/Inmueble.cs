@@ -21,9 +21,9 @@ namespace Modelo
 
         // Constructor con parámetros
         // Añadir parametro numeroInmbueble1
-        public Inmueble(int id, string numeroInmueble1, string nombre, string tipo, int cantidad, double precio)
+        public Inmueble(string numeroInmueble1, string nombre, string tipo, int cantidad, double precio)//ID
             {
-                idInmueble = id;
+                //idInmueble = id;
                 numeroInmueble = numeroInmueble1;
                 nombreInmueble = nombre;
                 tipoInmueble = tipo;
@@ -46,7 +46,8 @@ namespace Modelo
             // Metodo mostrarInmueble
             public void MostrarInmueble()
             {
-                Console.WriteLine("ID: " + idInmueble);
+                //Console.WriteLine("ID: " + idInmueble);
+                Console.WriteLine("Numero de Inmueble: " + numeroInmueble);
                 Console.WriteLine("Nombre: " + nombreInmueble);
                 Console.WriteLine("Tipo: " + tipoInmueble);
                 Console.WriteLine("Cantidad Disponible: " + cantidadInmuebleDisponible);
@@ -56,7 +57,8 @@ namespace Modelo
 
             public override string ToString()
             {
-                return "ID: " + idInmueble +
+                return //"ID: " + idInmueble +
+                       "Numero de Inmueble: " + numeroInmueble +
                        "\nNombre: " + nombreInmueble +
                        "\nTipo: " + tipoInmueble +
                        "\nCantidad Disponible: " + cantidadInmuebleDisponible +

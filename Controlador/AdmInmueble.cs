@@ -58,10 +58,13 @@ namespace Controlador
         //Registrar (Visual) Hace la logica
         public string Registrar(string nombre, string tipo, int cantidad, double precio, bool disponible)
         {
-            int id = inmuebleL.Count() + 1;
+            //int id = inmuebleL.Count() + 1;
             //Pasar el parametro numeroInmueble - CORREGIDO: Comienza desde 1
-            string numero = "00" + id.ToString();//construyo el numero del inmueble personalizado
-            Inmueble inmu = new Inmueble(id, numero, nombre, tipo, cantidad, precio);
+            //string numero = "00" + id.ToString();//construyo el numero del inmueble personalizado
+
+            int numeroInmueble = inmuebleL.Count() + 1;
+            string numero = "00" + numeroInmueble.ToString();
+            Inmueble inmu = new Inmueble(numero, nombre, tipo, cantidad, precio);//ID
             inmu.inmuebleDisponible = disponible;
 
             if (inmu.RegistrarInmueble())//llama a metodo del modelo

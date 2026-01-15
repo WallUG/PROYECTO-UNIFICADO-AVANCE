@@ -223,10 +223,10 @@
             // 
             // btnAplicarFiltro
             // 
-            this.btnAplicarFiltro.Location = new System.Drawing.Point(608, 36);
+            this.btnAplicarFiltro.Location = new System.Drawing.Point(600, 36);
             this.btnAplicarFiltro.Margin = new System.Windows.Forms.Padding(2);
             this.btnAplicarFiltro.Name = "btnAplicarFiltro";
-            this.btnAplicarFiltro.Size = new System.Drawing.Size(111, 58);
+            this.btnAplicarFiltro.Size = new System.Drawing.Size(119, 58);
             this.btnAplicarFiltro.TabIndex = 37;
             this.btnAplicarFiltro.Text = "Aplicar Filtro";
             this.btnAplicarFiltro.UseVisualStyleBackColor = true;

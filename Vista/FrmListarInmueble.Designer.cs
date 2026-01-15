@@ -126,12 +126,12 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(621, 36);
+            this.btnActualizar.Location = new System.Drawing.Point(621, 39);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(130, 58);
+            this.btnActualizar.Size = new System.Drawing.Size(130, 55);
             this.btnActualizar.TabIndex = 2;
-            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.Text = "Aplicar filtros";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
