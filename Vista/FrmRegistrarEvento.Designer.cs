@@ -183,7 +183,7 @@
             this.btnGuardarEvento.Name = "btnGuardarEvento";
             this.btnGuardarEvento.Size = new System.Drawing.Size(195, 40);
             this.btnGuardarEvento.TabIndex = 16;
-            this.btnGuardarEvento.Text = "Guardar Evento";
+            this.btnGuardarEvento.Text = "Guardar";
             this.btnGuardarEvento.UseVisualStyleBackColor = false;
             this.btnGuardarEvento.Click += new System.EventHandler(this.btnGuardarEvento_Click);
             // 
@@ -609,7 +609,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmRegistrarEvento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registrar evento";
+            this.Text = "Registrar Evento";
             this.gbCreacionEvento.ResumeLayout(false);
             this.gbCreacionEvento.PerformLayout();
             this.gbAsignarInmuebles.ResumeLayout(false);
