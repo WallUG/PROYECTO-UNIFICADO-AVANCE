@@ -17,6 +17,7 @@ namespace Vista
         public FrmEditarEvento()
         {
             InitializeComponent();
+            admEvento.CargarTablaEventos(dgvEventos);
         }
 
         private void selectradionButton_CheckedChanged(object sender, EventArgs e)
@@ -67,6 +68,26 @@ namespace Vista
             }
 
             MessageBox.Show("Lista de eventos actualizada correctamente.", "Actualizar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnEditarEvento_Click(object sender, EventArgs e)
+        {
+            int indice = 0;
+            if (dgvEventos.SelectedRows.Count == 1)
+            {
+                indice = dgvEventos.CurrentRow.Index;
+                Boolean resultado = admEvento.EventoEsEditable(indice, dgvEventos);
+                if (resultado)
+                {
+                    admEvento.GuardarNumeroEditarEvento(indice, dgvEventos);
+                    FrmEditarDetallesEvento editarDetallesEvento = new FrmEditarDetallesEvento();
+                    editarDetallesEvento.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un evento para editar.", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

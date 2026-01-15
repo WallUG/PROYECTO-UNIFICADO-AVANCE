@@ -11,11 +11,12 @@ namespace Controlador
 {
     public class AdmEvento
     {
-        private static List<Evento> listaEventos = new List<Evento>();
-        private Evento evento = null;
-        private Cliente cliente = null;
-        List<EventoInmueble> listaEventoInmueble = new List<EventoInmueble>();
-        string[] tipoInmuebles = { "Locales", "Accesorios", "Servicios" };
+        public static List<Evento> listaEventos = new List<Evento>();
+        public static int numeroEditarEvento = 0;
+        public Evento evento = null;
+        public Cliente cliente = null;
+        public List<EventoInmueble> listaEventoInmueble = new List<EventoInmueble>();
+        public string[] tipoInmuebles = { "Locales", "Accesorios", "Servicios" };
 
         private string clienteNombresEncontrado = "";
         private string clienteApellidosEncontrado = "";
@@ -627,6 +628,65 @@ namespace Controlador
                     indice++;
                 }
             }
+        }
+
+        public bool EventoEsEditable(int indice, DataGridView dgvEventos)
+        {
+            object valorCelda = dgvEventos.Rows[indice].Cells["colNumEventos"].Value;
+            if (valorCelda == null)
+            {
+                return false;
+            }
+            
+            int numerosEvento = Convert.ToInt32(valorCelda);
+            
+            for (int i = 0; i < listaEventos.Count; i++)
+            {
+                if (listaEventos[i].NumEventos == numerosEvento)
+                {
+                    if (listaEventos[i].EstadoEvento == "Realizado")
+                    {
+                        MessageBox.Show("El evento ya ha sido realizado y no puede ser editado.", "Editar Evento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+                    else if (listaEventos[i].EstadoEvento == "Cancelado")
+                    {
+                        MessageBox.Show("El evento está cancelado y no puede ser editado.", "Editar Evento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public void GuardarNumeroEditarEvento(int indice, DataGridView dgvEventos)
+        {
+            object valorCelda = dgvEventos.Rows[indice].Cells["colNumEventos"].Value;
+            if (valorCelda != null)
+            {
+                numeroEditarEvento = Convert.ToInt32(valorCelda);
+            }
+        }
+
+        public int ObtenerNumeroEventoEditar()
+        {
+            return numeroEditarEvento;
+        }
+
+        public Evento ObtenerEventoPorNumero(int numEvento)
+        {
+            for (int i = 0; i < listaEventos.Count; i++)
+            {
+                if (listaEventos[i].NumEventos == numEvento)
+                {
+                    return listaEventos[i];
+                }
+            }
+            return null;
         }
     }
 }

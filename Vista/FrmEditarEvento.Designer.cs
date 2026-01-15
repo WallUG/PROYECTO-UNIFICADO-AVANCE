@@ -285,6 +285,7 @@
             this.btnEditarEvento.TabIndex = 34;
             this.btnEditarEvento.Text = "Editar";
             this.btnEditarEvento.UseVisualStyleBackColor = true;
+            this.btnEditarEvento.Click += new System.EventHandler(this.btnEditarEvento_Click);
             // 
             // FrmEditarEvento
             // 
