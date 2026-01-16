@@ -1,4 +1,5 @@
-﻿using Modelo;
+﻿using Datos;
+using Modelo;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Controlador
     {
 
         //VISUAL
+        Conexion conexion = null;
 
         Inmueble inmu = null;
 
@@ -201,6 +203,23 @@ namespace Controlador
                 }
             }
         }
+
+        private void Conectar()
+        {
+            conexion = new Conexion();
+            string res = conexion.Conectar();
+
+            if (res[0] == '1')
+            {
+                MessageBox.Show("Conexión a la Base de Datos exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conexion.Desconectar();
+            }
+            else if (res[0] == '0')
+            {
+                MessageBox.Show(res, "Error de conexión a la Base de Datos!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
 
