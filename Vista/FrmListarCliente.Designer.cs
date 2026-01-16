@@ -48,73 +48,76 @@
             this.colCedula,
             this.colNumCedular,
             this.colCorreo});
-            this.dgvListaCliente.Location = new System.Drawing.Point(12, 48);
+            this.dgvListaCliente.Location = new System.Drawing.Point(15, 309);
+            this.dgvListaCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvListaCliente.Name = "dgvListaCliente";
             this.dgvListaCliente.RowHeadersWidth = 51;
             this.dgvListaCliente.RowTemplate.Height = 24;
-            this.dgvListaCliente.Size = new System.Drawing.Size(1059, 347);
+            this.dgvListaCliente.Size = new System.Drawing.Size(1191, 217);
             this.dgvListaCliente.TabIndex = 0;
             // 
             // colId
             // 
+            this.colId.FillWeight = 200F;
             this.colId.Frozen = true;
             this.colId.HeaderText = "ID";
             this.colId.MinimumWidth = 6;
             this.colId.Name = "colId";
             this.colId.ReadOnly = true;
-            this.colId.Width = 125;
+            this.colId.Width = 200;
             // 
             // colNombre
             // 
-            this.colNombre.Frozen = true;
+            this.colNombre.FillWeight = 200F;
             this.colNombre.HeaderText = "Nombre";
             this.colNombre.MinimumWidth = 6;
             this.colNombre.Name = "colNombre";
             this.colNombre.ReadOnly = true;
-            this.colNombre.Width = 125;
+            this.colNombre.Width = 250;
             // 
             // colApellidos
             // 
-            this.colApellidos.Frozen = true;
+            this.colApellidos.FillWeight = 200F;
             this.colApellidos.HeaderText = "Apellidos";
             this.colApellidos.MinimumWidth = 6;
             this.colApellidos.Name = "colApellidos";
             this.colApellidos.ReadOnly = true;
-            this.colApellidos.Width = 125;
+            this.colApellidos.Width = 200;
             // 
             // colCedula
             // 
-            this.colCedula.Frozen = true;
+            this.colCedula.FillWeight = 200F;
             this.colCedula.HeaderText = "Cedula";
             this.colCedula.MinimumWidth = 6;
             this.colCedula.Name = "colCedula";
             this.colCedula.ReadOnly = true;
-            this.colCedula.Width = 125;
+            this.colCedula.Width = 175;
             // 
             // colNumCedular
             // 
-            this.colNumCedular.Frozen = true;
+            this.colNumCedular.FillWeight = 200F;
             this.colNumCedular.HeaderText = "Numero Cel.";
             this.colNumCedular.MinimumWidth = 6;
             this.colNumCedular.Name = "colNumCedular";
             this.colNumCedular.ReadOnly = true;
-            this.colNumCedular.Width = 125;
+            this.colNumCedular.Width = 175;
             // 
             // colCorreo
             // 
-            this.colCorreo.Frozen = true;
+            this.colCorreo.FillWeight = 200F;
             this.colCorreo.HeaderText = "Correo";
             this.colCorreo.MinimumWidth = 6;
             this.colCorreo.Name = "colCorreo";
             this.colCorreo.ReadOnly = true;
-            this.colCorreo.Width = 125;
+            this.colCorreo.Width = 200;
             // 
             // FrmListarCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1083, 450);
+            this.ClientSize = new System.Drawing.Size(1218, 562);
             this.Controls.Add(this.dgvListaCliente);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmListarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Clientes";
