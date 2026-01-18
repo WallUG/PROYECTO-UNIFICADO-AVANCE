@@ -116,7 +116,7 @@
             // btnEliminarCliente
             // 
             this.btnEliminarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarCliente.Location = new System.Drawing.Point(532, 465);
+            this.btnEliminarCliente.Location = new System.Drawing.Point(553, 469);
             this.btnEliminarCliente.Name = "btnEliminarCliente";
             this.btnEliminarCliente.Size = new System.Drawing.Size(142, 40);
             this.btnEliminarCliente.TabIndex = 2;
@@ -127,7 +127,7 @@
             // 
             this.lblEliminarCliente.AutoSize = true;
             this.lblEliminarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEliminarCliente.Location = new System.Drawing.Point(511, 36);
+            this.lblEliminarCliente.Location = new System.Drawing.Point(492, 34);
             this.lblEliminarCliente.Name = "lblEliminarCliente";
             this.lblEliminarCliente.Size = new System.Drawing.Size(231, 32);
             this.lblEliminarCliente.TabIndex = 3;
