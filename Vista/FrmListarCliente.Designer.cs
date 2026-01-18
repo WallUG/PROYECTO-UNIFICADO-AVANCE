@@ -115,11 +115,11 @@
             // 
             this.lblListarClientes.AutoSize = true;
             this.lblListarClientes.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.lblListarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListarClientes.Location = new System.Drawing.Point(453, 50);
+            this.lblListarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListarClientes.Location = new System.Drawing.Point(464, 18);
             this.lblListarClientes.Name = "lblListarClientes";
             this.lblListarClientes.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblListarClientes.Size = new System.Drawing.Size(223, 26);
+            this.lblListarClientes.Size = new System.Drawing.Size(279, 32);
             this.lblListarClientes.TabIndex = 1;
             this.lblListarClientes.Text = "LISTAR CLIENTES ";
             // 
