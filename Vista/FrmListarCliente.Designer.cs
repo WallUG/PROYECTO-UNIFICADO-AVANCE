@@ -35,6 +35,7 @@
             this.colCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNumCedular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblListarClientes = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +65,6 @@
             this.colId.MinimumWidth = 6;
             this.colId.Name = "colId";
             this.colId.ReadOnly = true;
-            this.colId.Width = 200;
             // 
             // colNombre
             // 
@@ -91,7 +91,7 @@
             this.colCedula.MinimumWidth = 6;
             this.colCedula.Name = "colCedula";
             this.colCedula.ReadOnly = true;
-            this.colCedula.Width = 175;
+            this.colCedula.Width = 200;
             // 
             // colNumCedular
             // 
@@ -109,13 +109,26 @@
             this.colCorreo.MinimumWidth = 6;
             this.colCorreo.Name = "colCorreo";
             this.colCorreo.ReadOnly = true;
-            this.colCorreo.Width = 200;
+            this.colCorreo.Width = 250;
+            // 
+            // lblListarClientes
+            // 
+            this.lblListarClientes.AutoSize = true;
+            this.lblListarClientes.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.lblListarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListarClientes.Location = new System.Drawing.Point(453, 50);
+            this.lblListarClientes.Name = "lblListarClientes";
+            this.lblListarClientes.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblListarClientes.Size = new System.Drawing.Size(223, 26);
+            this.lblListarClientes.TabIndex = 1;
+            this.lblListarClientes.Text = "LISTAR CLIENTES ";
             // 
             // FrmListarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1218, 562);
+            this.Controls.Add(this.lblListarClientes);
             this.Controls.Add(this.dgvListaCliente);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmListarCliente";
@@ -123,6 +136,7 @@
             this.Text = "Lista de Clientes";
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCliente)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -135,5 +149,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumCedular;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCorreo;
+        private System.Windows.Forms.Label lblListarClientes;
     }
 }
