@@ -189,5 +189,10 @@ namespace Controlador
                 indice++;
             }
         }
+
+        public static void EliminarCliente(int indice, DataGridView dgvEliminarCliente)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

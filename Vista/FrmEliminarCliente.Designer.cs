@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class FrmEliminarCliente
+    partial class EliminarCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -122,6 +122,7 @@
             this.btnEliminarCliente.TabIndex = 2;
             this.btnEliminarCliente.Text = "ELIMINAR";
             this.btnEliminarCliente.UseVisualStyleBackColor = true;
+            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
             // 
             // lblEliminarCliente
             // 
@@ -133,7 +134,7 @@
             this.lblEliminarCliente.TabIndex = 3;
             this.lblEliminarCliente.Text = "Eliminar Cliente";
             // 
-            // FrmEliminarCliente
+            // EliminarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -141,7 +142,7 @@
             this.Controls.Add(this.lblEliminarCliente);
             this.Controls.Add(this.btnEliminarCliente);
             this.Controls.Add(this.dgvEliminarCliente);
-            this.Name = "FrmEliminarCliente";
+            this.Name = "EliminarCliente";
             this.Text = "FrmEliminarCliente";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEliminarCliente)).EndInit();
             this.ResumeLayout(false);
