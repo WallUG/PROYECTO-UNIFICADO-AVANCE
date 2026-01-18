@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvListaCliente = new System.Windows.Forms.DataGridView();
+            this.dgvEliminarCliente = new System.Windows.Forms.DataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colApellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,26 +37,26 @@
             this.colCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminarCliente = new System.Windows.Forms.Button();
             this.lblEliminarCliente = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEliminarCliente)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvListaCliente
+            // dgvEliminarCliente
             // 
-            this.dgvListaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvEliminarCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEliminarCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
             this.colNombre,
             this.colApellidos,
             this.colCedula,
             this.colNumCedular,
             this.colCorreo});
-            this.dgvListaCliente.Location = new System.Drawing.Point(23, 227);
-            this.dgvListaCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dgvListaCliente.Name = "dgvListaCliente";
-            this.dgvListaCliente.RowHeadersWidth = 51;
-            this.dgvListaCliente.RowTemplate.Height = 24;
-            this.dgvListaCliente.Size = new System.Drawing.Size(1191, 217);
-            this.dgvListaCliente.TabIndex = 1;
+            this.dgvEliminarCliente.Location = new System.Drawing.Point(23, 227);
+            this.dgvEliminarCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvEliminarCliente.Name = "dgvEliminarCliente";
+            this.dgvEliminarCliente.RowHeadersWidth = 51;
+            this.dgvEliminarCliente.RowTemplate.Height = 24;
+            this.dgvEliminarCliente.Size = new System.Drawing.Size(1191, 217);
+            this.dgvEliminarCliente.TabIndex = 1;
             // 
             // colId
             // 
@@ -140,10 +140,10 @@
             this.ClientSize = new System.Drawing.Size(1232, 541);
             this.Controls.Add(this.lblEliminarCliente);
             this.Controls.Add(this.btnEliminarCliente);
-            this.Controls.Add(this.dgvListaCliente);
+            this.Controls.Add(this.dgvEliminarCliente);
             this.Name = "FrmEliminarCliente";
             this.Text = "FrmEliminarCliente";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEliminarCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,7 +151,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvListaCliente;
+        private System.Windows.Forms.DataGridView dgvEliminarCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colApellidos;

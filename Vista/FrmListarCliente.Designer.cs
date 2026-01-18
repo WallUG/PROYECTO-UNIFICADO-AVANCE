@@ -65,6 +65,7 @@
             this.colId.MinimumWidth = 6;
             this.colId.Name = "colId";
             this.colId.ReadOnly = true;
+            this.colId.Width = 150;
             // 
             // colNombre
             // 
@@ -114,9 +115,9 @@
             // lblListarClientes
             // 
             this.lblListarClientes.AutoSize = true;
-            this.lblListarClientes.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.lblListarClientes.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.lblListarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListarClientes.Location = new System.Drawing.Point(464, 18);
+            this.lblListarClientes.Location = new System.Drawing.Point(464, 43);
             this.lblListarClientes.Name = "lblListarClientes";
             this.lblListarClientes.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblListarClientes.Size = new System.Drawing.Size(279, 32);
