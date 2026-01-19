@@ -13,18 +13,20 @@ namespace Vista
 {
     public partial class EliminarCliente : Form
     {
+        AdmCliente AdmCliente = new AdmCliente();
         public EliminarCliente()
         {
             InitializeComponent();
+            AdmCliente.CargarTablaCliente(dgvCliente);
         }
 
         private void btnEliminarCliente_Click(object sender, EventArgs e)
         {
             int indice = 0;
-            if (dgvEliminarCliente.SelectedRows.Count==1)
+            if (dgvCliente.SelectedRows.Count==1)
             {
-                indice = dgvEliminarCliente.CurrentRow.Index;
-                AdmCliente.EliminarCliente(indice, dgvEliminarCliente);
+                indice = dgvCliente.CurrentRow.Index;
+                AdmCliente.EliminarCliente(indice, dgvCliente);
                 //AdmCliente.CargarTablaCliente(dgvEliminarCliente);
             }
             else

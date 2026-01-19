@@ -17,7 +17,13 @@ namespace Vista
         public FrmListarCliente()
         {
             InitializeComponent();
-            AdmCliente.MostrarClientes(dgvListaCliente);
+            //AdmCliente.MostrarClientes(dgvListaCliente);
+            CargarCLientes();
+        }
+
+        private void CargarCLientes()
+        {
+            AdmCliente.CargarTablaCliente(dgvCliente);
         }
     }
 }

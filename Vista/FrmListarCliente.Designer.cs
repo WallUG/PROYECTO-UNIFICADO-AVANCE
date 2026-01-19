@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvListaCliente = new System.Windows.Forms.DataGridView();
+            this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colApellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,26 +36,26 @@
             this.colNumCedular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblListarClientes = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvListaCliente
+            // dgvCliente
             // 
-            this.dgvListaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
             this.colNombre,
             this.colApellidos,
             this.colCedula,
             this.colNumCedular,
             this.colCorreo});
-            this.dgvListaCliente.Location = new System.Drawing.Point(15, 309);
-            this.dgvListaCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dgvListaCliente.Name = "dgvListaCliente";
-            this.dgvListaCliente.RowHeadersWidth = 51;
-            this.dgvListaCliente.RowTemplate.Height = 24;
-            this.dgvListaCliente.Size = new System.Drawing.Size(1191, 217);
-            this.dgvListaCliente.TabIndex = 0;
+            this.dgvCliente.Location = new System.Drawing.Point(15, 309);
+            this.dgvCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvCliente.Name = "dgvCliente";
+            this.dgvCliente.RowHeadersWidth = 51;
+            this.dgvCliente.RowTemplate.Height = 24;
+            this.dgvCliente.Size = new System.Drawing.Size(1191, 217);
+            this.dgvCliente.TabIndex = 0;
             // 
             // colId
             // 
@@ -130,12 +130,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1218, 562);
             this.Controls.Add(this.lblListarClientes);
-            this.Controls.Add(this.dgvListaCliente);
+            this.Controls.Add(this.dgvCliente);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmListarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Clientes";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,7 +143,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvListaCliente;
+        private System.Windows.Forms.DataGridView dgvCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colApellidos;
