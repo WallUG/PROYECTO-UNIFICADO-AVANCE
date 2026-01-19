@@ -45,7 +45,7 @@
             this.lblEliminarClientesClientes.AutoSize = true;
             this.lblEliminarClientesClientes.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.lblEliminarClientesClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEliminarClientesClientes.Location = new System.Drawing.Point(679, 88);
+            this.lblEliminarClientesClientes.Location = new System.Drawing.Point(653, 36);
             this.lblEliminarClientesClientes.Name = "lblEliminarClientesClientes";
             this.lblEliminarClientesClientes.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblEliminarClientesClientes.Size = new System.Drawing.Size(314, 32);
@@ -62,7 +62,7 @@
             this.colCedula,
             this.colNumCedular,
             this.colCorreo});
-            this.dgvClientes.Location = new System.Drawing.Point(228, 240);
+            this.dgvClientes.Location = new System.Drawing.Point(238, 286);
             this.dgvClientes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.RowHeadersWidth = 51;
@@ -127,7 +127,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(753, 533);
+            this.btnEliminar.Location = new System.Drawing.Point(787, 558);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(150, 52);
             this.btnEliminar.TabIndex = 4;
