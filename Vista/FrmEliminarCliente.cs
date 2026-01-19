@@ -16,17 +16,18 @@ namespace Vista
         AdmCliente admCliente = new AdmCliente();
         public FrmEliminarCliente()
         {
-            admCliente.MostrarClientes(dgvCliente);
+        //    admCliente.MostrarClientes(dgvClientes);
             InitializeComponent();
+            admCliente.MostrarClientes(dgvClientes);
         }
 
         private void btnEliminarCliente_Click(object sender, EventArgs e)
         {
             int indice = 0;
-            if (dgvCliente.SelectedRows.Count == 1)
+            if (dgvClientes.SelectedRows.Count == 1)
             {
-                indice = dgvCliente.CurrentRow.Index;
-                admCliente.EliminarCliente(indice, dgvCliente);
+                indice = dgvClientes.CurrentRow.Index;
+                admCliente.EliminarCliente(indice, dgvClientes);
                 //AdmCliente.CargarTablaCliente(dgvEliminarCliente);
             }
             else
