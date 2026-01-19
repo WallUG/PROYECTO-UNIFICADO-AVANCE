@@ -190,12 +190,21 @@ namespace Controlador
             }
         }
 
-      
 
-       
+
+
         public void EliminarCliente(int indice, DataGridView dgvCliente)
         {
-            throw new NotImplementedException();
+            string cedula = dgvCliente.Rows[indice].Cells["colCedula"].Value.ToString();
+            DialogResult resultado = MessageBox.Show("¿Está seguro de que desea eliminar el cliente con cédula "
+                + cedula + "?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (resultado == DialogResult.Yes)
+            {
+                listaCliente.RemoveAt(indice);
+                MostrarClientes(dgvCliente);
+                MessageBox.Show("Cliente eliminado correctamente.", "Eliminación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
 
         public int GetCantidadLista()

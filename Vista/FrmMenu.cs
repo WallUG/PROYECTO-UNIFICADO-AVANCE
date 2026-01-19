@@ -40,7 +40,16 @@ namespace Visual
         private void mniListarCliente_Click(object sender, EventArgs e)
         {
             //Cliente
-            FrmListarCliente frmLisCliente = new FrmListarCliente();
+            if (admCliente.GetCantidadLista() > 0)
+            {
+                FrmListarCliente FrmLisCliente = new FrmListarCliente();
+                FrmLisCliente.ShowDialog();
+            }
+            else {
+                MessageBox.Show("No hay clientes registradas para listar.", "Advertencia");
+
+            }
+                FrmListarCliente frmLisCliente = new FrmListarCliente();
             frmLisCliente.ShowDialog();
         }
 

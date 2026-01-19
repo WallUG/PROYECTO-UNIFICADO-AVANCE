@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblListarClientes = new System.Windows.Forms.Label();
+            this.lblEliminarClientesClientes = new System.Windows.Forms.Label();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,17 +40,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblListarClientes
+            // lblEliminarClientesClientes
             // 
-            this.lblListarClientes.AutoSize = true;
-            this.lblListarClientes.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblListarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListarClientes.Location = new System.Drawing.Point(679, 88);
-            this.lblListarClientes.Name = "lblListarClientes";
-            this.lblListarClientes.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblListarClientes.Size = new System.Drawing.Size(279, 32);
-            this.lblListarClientes.TabIndex = 3;
-            this.lblListarClientes.Text = "LISTAR CLIENTES ";
+            this.lblEliminarClientesClientes.AutoSize = true;
+            this.lblEliminarClientesClientes.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblEliminarClientesClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEliminarClientesClientes.Location = new System.Drawing.Point(679, 88);
+            this.lblEliminarClientesClientes.Name = "lblEliminarClientesClientes";
+            this.lblEliminarClientesClientes.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblEliminarClientesClientes.Size = new System.Drawing.Size(314, 32);
+            this.lblEliminarClientesClientes.TabIndex = 3;
+            this.lblEliminarClientesClientes.Text = "ELIMINAR CLIENTES ";
             // 
             // dgvCliente
             // 
@@ -141,7 +141,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1651, 659);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.lblListarClientes);
+            this.Controls.Add(this.lblEliminarClientesClientes);
             this.Controls.Add(this.dgvCliente);
             this.Name = "FrmEliminarCliente";
             this.Text = "FrmEliminarCliente";
@@ -153,7 +153,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblListarClientes;
+        private System.Windows.Forms.Label lblEliminarClientesClientes;
         private System.Windows.Forms.DataGridView dgvCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
