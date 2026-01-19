@@ -23,7 +23,7 @@ namespace Vista
 
         private void CargarCLientes()
         {
-            AdmCliente.CargarTablaCliente(dgvCliente);
+            AdmCliente.MostrarClientes(dgvCliente);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class EliminarCliente
+    partial class FrmEliminarCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblListarClientes = new System.Windows.Forms.Label();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -35,10 +36,21 @@
             this.colCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNumCedular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEliminarCliente = new System.Windows.Forms.Button();
-            this.lblEliminarCliente = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
+            // 
+            // lblListarClientes
+            // 
+            this.lblListarClientes.AutoSize = true;
+            this.lblListarClientes.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblListarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListarClientes.Location = new System.Drawing.Point(679, 88);
+            this.lblListarClientes.Name = "lblListarClientes";
+            this.lblListarClientes.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblListarClientes.Size = new System.Drawing.Size(279, 32);
+            this.lblListarClientes.TabIndex = 3;
+            this.lblListarClientes.Text = "LISTAR CLIENTES ";
             // 
             // dgvCliente
             // 
@@ -50,13 +62,13 @@
             this.colCedula,
             this.colNumCedular,
             this.colCorreo});
-            this.dgvCliente.Location = new System.Drawing.Point(23, 227);
+            this.dgvCliente.Location = new System.Drawing.Point(228, 240);
             this.dgvCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.RowHeadersWidth = 51;
             this.dgvCliente.RowTemplate.Height = 24;
             this.dgvCliente.Size = new System.Drawing.Size(1191, 217);
-            this.dgvCliente.TabIndex = 1;
+            this.dgvCliente.TabIndex = 2;
             // 
             // colId
             // 
@@ -113,36 +125,25 @@
             this.colCorreo.ReadOnly = true;
             this.colCorreo.Width = 250;
             // 
-            // btnEliminarCliente
+            // btnEliminar
             // 
-            this.btnEliminarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarCliente.Location = new System.Drawing.Point(553, 469);
-            this.btnEliminarCliente.Name = "btnEliminarCliente";
-            this.btnEliminarCliente.Size = new System.Drawing.Size(142, 40);
-            this.btnEliminarCliente.TabIndex = 2;
-            this.btnEliminarCliente.Text = "ELIMINAR";
-            this.btnEliminarCliente.UseVisualStyleBackColor = true;
-            this.btnEliminarCliente.Click += new System.EventHandler(this.btnEliminarCliente_Click);
+            this.btnEliminar.Location = new System.Drawing.Point(753, 533);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(150, 52);
+            this.btnEliminar.TabIndex = 4;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminarCliente_Click);
             // 
-            // lblEliminarCliente
-            // 
-            this.lblEliminarCliente.AutoSize = true;
-            this.lblEliminarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEliminarCliente.Location = new System.Drawing.Point(492, 34);
-            this.lblEliminarCliente.Name = "lblEliminarCliente";
-            this.lblEliminarCliente.Size = new System.Drawing.Size(231, 32);
-            this.lblEliminarCliente.TabIndex = 3;
-            this.lblEliminarCliente.Text = "Eliminar Cliente";
-            // 
-            // EliminarCliente
+            // FrmEliminarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1232, 541);
-            this.Controls.Add(this.lblEliminarCliente);
-            this.Controls.Add(this.btnEliminarCliente);
+            this.ClientSize = new System.Drawing.Size(1651, 659);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.lblListarClientes);
             this.Controls.Add(this.dgvCliente);
-            this.Name = "EliminarCliente";
+            this.Name = "FrmEliminarCliente";
             this.Text = "FrmEliminarCliente";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.ResumeLayout(false);
@@ -152,6 +153,7 @@
 
         #endregion
 
+        private System.Windows.Forms.Label lblListarClientes;
         private System.Windows.Forms.DataGridView dgvCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
@@ -159,7 +161,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumCedular;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCorreo;
-        private System.Windows.Forms.Button btnEliminarCliente;
-        private System.Windows.Forms.Label lblEliminarCliente;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

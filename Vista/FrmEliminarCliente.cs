@@ -11,27 +11,27 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class EliminarCliente : Form
+    public partial class FrmEliminarCliente : Form
     {
-        AdmCliente AdmCliente = new AdmCliente();
-        public EliminarCliente()
+        AdmCliente admCliente = new AdmCliente();
+        public FrmEliminarCliente()
         {
+            admCliente.MostrarClientes(dgvCliente);
             InitializeComponent();
-            AdmCliente.CargarTablaCliente(dgvCliente);
         }
 
         private void btnEliminarCliente_Click(object sender, EventArgs e)
         {
             int indice = 0;
-            if (dgvCliente.SelectedRows.Count==1)
+            if (dgvCliente.SelectedRows.Count == 1)
             {
                 indice = dgvCliente.CurrentRow.Index;
-                AdmCliente.EliminarCliente(indice, dgvCliente);
+                admCliente.EliminarCliente(indice, dgvCliente);
                 //AdmCliente.CargarTablaCliente(dgvEliminarCliente);
             }
             else
             {
-                MessageBox.Show("Seleccione un evento para eliminar.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione un cliente para eliminar.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

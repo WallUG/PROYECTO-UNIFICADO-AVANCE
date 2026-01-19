@@ -192,14 +192,16 @@ namespace Controlador
 
       
 
-        public void CargarTablaCliente(DataGridView dgvListaCliente)
+       
+        public void EliminarCliente(int indice, DataGridView dgvCliente)
         {
             throw new NotImplementedException();
         }
 
-        public void EliminarCliente(int indice, DataGridView dgvCliente)
+        public int GetCantidadLista()
         {
-            throw new NotImplementedException();
+            listaCliente.Count();
+            return listaCliente.Count;
         }
     }
 }

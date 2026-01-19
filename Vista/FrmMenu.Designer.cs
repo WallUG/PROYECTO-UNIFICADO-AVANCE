@@ -34,6 +34,8 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mniEditarCliente = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniEliminarCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eventoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mniRegistrarEvento = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,8 +77,6 @@
             this.mniSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mniAutor = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +93,6 @@
             this.acercaDeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(900, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
@@ -105,8 +104,8 @@
             this.toolStripSeparator1,
             this.listarToolStripMenuItem,
             this.toolStripSeparator2,
-            this.editarToolStripMenuItem1,
-            this.eliminarToolStripMenuItem2,
+            this.mniEditarCliente,
+            this.mniEliminarCliente,
             this.salirToolStripMenuItem});
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
             this.clienteToolStripMenuItem.Size = new System.Drawing.Size(81, 29);
@@ -135,6 +134,19 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(267, 6);
+            // 
+            // mniEditarCliente
+            // 
+            this.mniEditarCliente.Name = "mniEditarCliente";
+            this.mniEditarCliente.Size = new System.Drawing.Size(270, 34);
+            this.mniEditarCliente.Text = "Editar";
+            // 
+            // mniEliminarCliente
+            // 
+            this.mniEliminarCliente.Name = "mniEliminarCliente";
+            this.mniEliminarCliente.Size = new System.Drawing.Size(270, 34);
+            this.mniEliminarCliente.Text = "Eliminar";
+            this.mniEliminarCliente.Click += new System.EventHandler(this.mniEliminarCliente_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -429,18 +441,6 @@
             this.mniAutor.Text = "Autor";
             this.mniAutor.Click += new System.EventHandler(this.mniAutor_Click);
             // 
-            // eliminarToolStripMenuItem2
-            // 
-            this.eliminarToolStripMenuItem2.Name = "eliminarToolStripMenuItem2";
-            this.eliminarToolStripMenuItem2.Size = new System.Drawing.Size(270, 34);
-            this.eliminarToolStripMenuItem2.Text = "Eliminar";
-            // 
-            // editarToolStripMenuItem1
-            // 
-            this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
-            this.editarToolStripMenuItem1.Text = "Editar";
-            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -510,7 +510,7 @@
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
-        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem mniEditarCliente;
+        private System.Windows.Forms.ToolStripMenuItem mniEliminarCliente;
     }
 }

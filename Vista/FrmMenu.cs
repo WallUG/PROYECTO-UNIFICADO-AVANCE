@@ -18,6 +18,7 @@ namespace Visual
         AdmFactura admFactura = new AdmFactura();
         AdmInmueble admInmueble = new AdmInmueble();
         AdmReserva admReserva = new AdmReserva();
+        AdmCliente admCliente = new AdmCliente();
 
         public FrmMenu()
         {
@@ -219,6 +220,19 @@ namespace Visual
         {
             FrmEditarFactura frmEditarFactura = new FrmEditarFactura();
             frmEditarFactura.ShowDialog();
+        }
+
+        private void mniEliminarCliente_Click(object sender, EventArgs e)
+        {
+            if (admCliente.GetCantidadLista() > 0)
+            {
+                FrmEliminarCliente frmEliminarCliente = new FrmEliminarCliente();
+                frmEliminarCliente.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay clientes registradas para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
