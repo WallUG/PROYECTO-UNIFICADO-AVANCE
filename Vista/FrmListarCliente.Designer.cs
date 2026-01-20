@@ -36,6 +36,10 @@
             this.colNumCedular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblListarClientes = new System.Windows.Forms.Label();
+            this.lblFiltro = new System.Windows.Forms.Label();
+            this.rbtnBuscarporcedula = new System.Windows.Forms.RadioButton();
+            this.rbtBuscarportelefono = new System.Windows.Forms.RadioButton();
+            this.tnFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,18 +121,67 @@
             this.lblListarClientes.AutoSize = true;
             this.lblListarClientes.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.lblListarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListarClientes.Location = new System.Drawing.Point(464, 43);
+            this.lblListarClientes.Location = new System.Drawing.Point(437, 9);
             this.lblListarClientes.Name = "lblListarClientes";
             this.lblListarClientes.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblListarClientes.Size = new System.Drawing.Size(279, 32);
             this.lblListarClientes.TabIndex = 1;
             this.lblListarClientes.Text = "LISTAR CLIENTES ";
             // 
+            // lblFiltro
+            // 
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltro.Location = new System.Drawing.Point(68, 96);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(289, 29);
+            this.lblFiltro.TabIndex = 2;
+            this.lblFiltro.Text = "OPCIONES DE FILTRO";
+            // 
+            // rbtnBuscarporcedula
+            // 
+            this.rbtnBuscarporcedula.AutoSize = true;
+            this.rbtnBuscarporcedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnBuscarporcedula.Location = new System.Drawing.Point(89, 146);
+            this.rbtnBuscarporcedula.Name = "rbtnBuscarporcedula";
+            this.rbtnBuscarporcedula.Size = new System.Drawing.Size(227, 24);
+            this.rbtnBuscarporcedula.TabIndex = 3;
+            this.rbtnBuscarporcedula.TabStop = true;
+            this.rbtnBuscarporcedula.Text = "BUSCAR POR CEDULA";
+            this.rbtnBuscarporcedula.UseVisualStyleBackColor = true;
+            // 
+            // rbtBuscarportelefono
+            // 
+            this.rbtBuscarportelefono.AutoSize = true;
+            this.rbtBuscarportelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtBuscarportelefono.Location = new System.Drawing.Point(89, 191);
+            this.rbtBuscarportelefono.Name = "rbtBuscarportelefono";
+            this.rbtBuscarportelefono.Size = new System.Drawing.Size(248, 24);
+            this.rbtBuscarportelefono.TabIndex = 4;
+            this.rbtBuscarportelefono.TabStop = true;
+            this.rbtBuscarportelefono.Text = "BUSCAR POR TELEFONO";
+            this.rbtBuscarportelefono.UseVisualStyleBackColor = true;
+            // 
+            // tnFiltrar
+            // 
+            this.tnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tnFiltrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tnFiltrar.Location = new System.Drawing.Point(520, 146);
+            this.tnFiltrar.Name = "tnFiltrar";
+            this.tnFiltrar.Size = new System.Drawing.Size(134, 52);
+            this.tnFiltrar.TabIndex = 5;
+            this.tnFiltrar.Text = "FILTRAR";
+            this.tnFiltrar.UseVisualStyleBackColor = true;
+            // 
             // FrmListarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1218, 562);
+            this.Controls.Add(this.tnFiltrar);
+            this.Controls.Add(this.rbtBuscarportelefono);
+            this.Controls.Add(this.rbtnBuscarporcedula);
+            this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.lblListarClientes);
             this.Controls.Add(this.dgvCliente);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -151,5 +204,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumCedular;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCorreo;
         private System.Windows.Forms.Label lblListarClientes;
+        private System.Windows.Forms.Label lblFiltro;
+        private System.Windows.Forms.RadioButton rbtnBuscarporcedula;
+        private System.Windows.Forms.RadioButton rbtBuscarportelefono;
+        private System.Windows.Forms.Button tnFiltrar;
     }
 }

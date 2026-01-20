@@ -46,7 +46,7 @@ namespace Visual
                 FrmLisCliente.ShowDialog();
             }
             else {
-                MessageBox.Show("No hay clientes registradas para listar.", "Advertencia");
+                MessageBox.Show("No hay clientes registrada.", "Advertencia");
 
             }
                 FrmListarCliente frmLisCliente = new FrmListarCliente();
