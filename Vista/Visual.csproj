@@ -58,6 +58,12 @@
     <Compile Include="FrmBienvenida.Designer.cs">
       <DependentUpon>FrmBienvenida.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEditarCLiente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditarCLiente.Designer.cs">
+      <DependentUpon>FrmEditarCLiente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEditarDetallesEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBienvenida.resx">
       <DependentUpon>FrmBienvenida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditarCLiente.resx">
+      <DependentUpon>FrmEditarCLiente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEditarDetallesEvento.resx">
       <DependentUpon>FrmEditarDetallesEvento.cs</DependentUpon>
