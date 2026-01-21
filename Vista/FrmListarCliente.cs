@@ -25,5 +25,13 @@ namespace Vista
         {
             AdmCliente.MostrarClientes(dgvCliente);
         }
+
+        private void tnFiltrar_Click(object sender, EventArgs e)
+        {
+            string cedulaoruc = txtBuscarxcedula.Text;
+            AdmCliente.FiltrarCliente(cedulaoruc, dgvCliente);
+        }
+
+       
     }
 }

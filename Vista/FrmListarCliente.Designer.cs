@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.dgvCliente = new System.Windows.Forms.DataGridView();
+            this.lblListarClientes = new System.Windows.Forms.Label();
+            this.lblFiltros = new System.Windows.Forms.Label();
+            this.txtBuscarxcedula = new System.Windows.Forms.TextBox();
+            this.lblBuscarxcedula = new System.Windows.Forms.Label();
+            this.tnFiltrar = new System.Windows.Forms.Button();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colApellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumCedular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblListarClientes = new System.Windows.Forms.Label();
-            this.tnFiltrar = new System.Windows.Forms.Button();
-            this.lblBuscarxcedula = new System.Windows.Forms.Label();
-            this.txtBuscarxcedula = new System.Windows.Forms.TextBox();
-            this.lblFiltros = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +51,7 @@
             this.colNombre,
             this.colApellidos,
             this.colCedula,
-            this.colNumCedular,
+            this.colTelefono,
             this.colCorreo});
             this.dgvCliente.Location = new System.Drawing.Point(15, 309);
             this.dgvCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -60,6 +60,61 @@
             this.dgvCliente.RowTemplate.Height = 24;
             this.dgvCliente.Size = new System.Drawing.Size(1191, 217);
             this.dgvCliente.TabIndex = 0;
+            // 
+            // lblListarClientes
+            // 
+            this.lblListarClientes.AutoSize = true;
+            this.lblListarClientes.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblListarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblListarClientes.Location = new System.Drawing.Point(437, 9);
+            this.lblListarClientes.Name = "lblListarClientes";
+            this.lblListarClientes.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblListarClientes.Size = new System.Drawing.Size(279, 32);
+            this.lblListarClientes.TabIndex = 1;
+            this.lblListarClientes.Text = "LISTAR CLIENTES ";
+            // 
+            // lblFiltros
+            // 
+            this.lblFiltros.AutoSize = true;
+            this.lblFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltros.Location = new System.Drawing.Point(294, 88);
+            this.lblFiltros.Name = "lblFiltros";
+            this.lblFiltros.Size = new System.Drawing.Size(112, 29);
+            this.lblFiltros.TabIndex = 23;
+            this.lblFiltros.Text = "FILTRO:";
+           
+            // 
+            // txtBuscarxcedula
+            // 
+            this.txtBuscarxcedula.Location = new System.Drawing.Point(574, 154);
+            this.txtBuscarxcedula.MaxLength = 12;
+            this.txtBuscarxcedula.Name = "txtBuscarxcedula";
+            this.txtBuscarxcedula.Size = new System.Drawing.Size(236, 26);
+            this.txtBuscarxcedula.TabIndex = 22;
+           
+            // 
+            // lblBuscarxcedula
+            // 
+            this.lblBuscarxcedula.AutoSize = true;
+            this.lblBuscarxcedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscarxcedula.Location = new System.Drawing.Point(304, 160);
+            this.lblBuscarxcedula.Name = "lblBuscarxcedula";
+            this.lblBuscarxcedula.Size = new System.Drawing.Size(207, 20);
+            this.lblBuscarxcedula.TabIndex = 21;
+            this.lblBuscarxcedula.Text = "BUSCAR POR CEDULA:\r\n";
+           
+            // 
+            // tnFiltrar
+            // 
+            this.tnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tnFiltrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tnFiltrar.Location = new System.Drawing.Point(590, 218);
+            this.tnFiltrar.Name = "tnFiltrar";
+            this.tnFiltrar.Size = new System.Drawing.Size(134, 52);
+            this.tnFiltrar.TabIndex = 20;
+            this.tnFiltrar.Text = "FILTRAR";
+            this.tnFiltrar.UseVisualStyleBackColor = true;
+            this.tnFiltrar.Click += new System.EventHandler(this.tnFiltrar_Click);
             // 
             // colId
             // 
@@ -98,14 +153,14 @@
             this.colCedula.ReadOnly = true;
             this.colCedula.Width = 200;
             // 
-            // colNumCedular
+            // colTelefono
             // 
-            this.colNumCedular.FillWeight = 200F;
-            this.colNumCedular.HeaderText = "Numero Cel.";
-            this.colNumCedular.MinimumWidth = 6;
-            this.colNumCedular.Name = "colNumCedular";
-            this.colNumCedular.ReadOnly = true;
-            this.colNumCedular.Width = 175;
+            this.colTelefono.FillWeight = 200F;
+            this.colTelefono.HeaderText = "Telefono cel";
+            this.colTelefono.MinimumWidth = 6;
+            this.colTelefono.Name = "colTelefono";
+            this.colTelefono.ReadOnly = true;
+            this.colTelefono.Width = 250;
             // 
             // colCorreo
             // 
@@ -114,57 +169,7 @@
             this.colCorreo.MinimumWidth = 6;
             this.colCorreo.Name = "colCorreo";
             this.colCorreo.ReadOnly = true;
-            this.colCorreo.Width = 250;
-            // 
-            // lblListarClientes
-            // 
-            this.lblListarClientes.AutoSize = true;
-            this.lblListarClientes.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblListarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListarClientes.Location = new System.Drawing.Point(437, 9);
-            this.lblListarClientes.Name = "lblListarClientes";
-            this.lblListarClientes.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblListarClientes.Size = new System.Drawing.Size(279, 32);
-            this.lblListarClientes.TabIndex = 1;
-            this.lblListarClientes.Text = "LISTAR CLIENTES ";
-            // 
-            // tnFiltrar
-            // 
-            this.tnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tnFiltrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tnFiltrar.Location = new System.Drawing.Point(530, 186);
-            this.tnFiltrar.Name = "tnFiltrar";
-            this.tnFiltrar.Size = new System.Drawing.Size(134, 52);
-            this.tnFiltrar.TabIndex = 5;
-            this.tnFiltrar.Text = "FILTRAR";
-            this.tnFiltrar.UseVisualStyleBackColor = true;
-            // 
-            // lblBuscarxcedula
-            // 
-            this.lblBuscarxcedula.AutoSize = true;
-            this.lblBuscarxcedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscarxcedula.Location = new System.Drawing.Point(239, 124);
-            this.lblBuscarxcedula.Name = "lblBuscarxcedula";
-            this.lblBuscarxcedula.Size = new System.Drawing.Size(207, 20);
-            this.lblBuscarxcedula.TabIndex = 6;
-            this.lblBuscarxcedula.Text = "BUSCAR POR CEDULA:\r\n";
-            // 
-            // txtBuscarxcedula
-            // 
-            this.txtBuscarxcedula.Location = new System.Drawing.Point(514, 121);
-            this.txtBuscarxcedula.Name = "txtBuscarxcedula";
-            this.txtBuscarxcedula.Size = new System.Drawing.Size(236, 26);
-            this.txtBuscarxcedula.TabIndex = 8;
-            // 
-            // lblFiltros
-            // 
-            this.lblFiltros.AutoSize = true;
-            this.lblFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltros.Location = new System.Drawing.Point(552, 62);
-            this.lblFiltros.Name = "lblFiltros";
-            this.lblFiltros.Size = new System.Drawing.Size(112, 29);
-            this.lblFiltros.TabIndex = 10;
-            this.lblFiltros.Text = "FILTRO:";
+            this.colCorreo.Width = 175;
             // 
             // FrmListarCliente
             // 
@@ -190,16 +195,16 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvCliente;
+        private System.Windows.Forms.Label lblListarClientes;
+        private System.Windows.Forms.Label lblFiltros;
+        private System.Windows.Forms.TextBox txtBuscarxcedula;
+        private System.Windows.Forms.Label lblBuscarxcedula;
+        private System.Windows.Forms.Button tnFiltrar;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colApellidos;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNumCedular;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCorreo;
-        private System.Windows.Forms.Label lblListarClientes;
-        private System.Windows.Forms.Button tnFiltrar;
-        private System.Windows.Forms.Label lblBuscarxcedula;
-        private System.Windows.Forms.TextBox txtBuscarxcedula;
-        private System.Windows.Forms.Label lblFiltros;
     }
 }

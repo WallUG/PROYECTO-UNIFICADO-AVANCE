@@ -35,5 +35,11 @@ namespace Vista
                 MessageBox.Show("Seleccione un cliente para eliminar.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void tnFiltrar_Click(object sender, EventArgs e)
+        {
+            string cedulaoruc = txtBuscarxcedula.Text;
+            admCliente.FiltrarCliente(cedulaoruc, dgvClientes);
+        }
     }
 }

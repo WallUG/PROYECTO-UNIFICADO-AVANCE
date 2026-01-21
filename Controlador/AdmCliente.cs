@@ -184,7 +184,7 @@ namespace Controlador
                 dgvCliente.Rows[indice].Cells["colNombre"].Value = cliente.Nombre;
                 dgvCliente.Rows[indice].Cells["colApellidos"].Value = cliente.Apellido;
                 dgvCliente.Rows[indice].Cells["colCedula"].Value = cliente.CedulaORuc;
-                dgvCliente.Rows[indice].Cells["colNumCedular"].Value = cliente.Telefono;
+                dgvCliente.Rows[indice].Cells["colTelefono"].Value = cliente.Telefono;
                 dgvCliente.Rows[indice].Cells["colCorreo"].Value = cliente.CorreoElectronico;
                 indice++;
             }
@@ -211,6 +211,27 @@ namespace Controlador
         {
             listaCliente.Count();
             return listaCliente.Count;
+        }
+
+        public void FiltrarCliente(string cedulaoruc, DataGridView dgvClientes)
+        {
+           Cliente clt= listaCliente.Find(c => c.CedulaORuc == cedulaoruc);
+            if (clt != null)
+            {
+                dgvClientes.Rows.Clear();
+                dgvClientes.Rows.Add();
+                int indice = dgvClientes.Rows.Add();
+                dgvClientes.Rows[indice].Cells["colId"].Value = clt.Id;
+                dgvClientes.Rows[indice].Cells["colNombre"].Value = clt.Nombre;
+                dgvClientes.Rows[indice].Cells["colApellidos"].Value = clt.Apellido;
+                dgvClientes.Rows[indice].Cells["colCedula"].Value = clt.CedulaORuc;
+                dgvClientes.Rows[indice].Cells["colTelefono"].Value = clt.Telefono;
+                dgvClientes.Rows[indice].Cells["colCorreo"].Value = clt.CorreoElectronico;
+            }
+            else
+            {
+                MessageBox.Show("No se encontró ningún cliente con la cédula o RUC proporcionada.");
+            }
         }
     }
 }
