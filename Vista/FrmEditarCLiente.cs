@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,58 @@ namespace Vista
 {
     public partial class FrmEditarCLiente : Form
     {
+        AdmCliente AdmCliente = new AdmCliente();
         public FrmEditarCLiente()
         {
             InitializeComponent();
+            CargarCLientes();
+        }
+        private void CargarCLientes()
+        {
+            AdmCliente.MostrarClientes(dgvCliente);
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char caracter = e.KeyChar;
+            bool esLetra = Char.IsLetter(caracter);
+            bool esEspacio = (caracter == ' ');
+            bool esBackspace = (caracter == (char)Keys.Back);
+
+            if (!esLetra && !esEspacio && !esBackspace)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char caracter = e.KeyChar;
+            bool esLetra = Char.IsLetter(caracter);
+            bool esEspacio = (caracter == ' ');
+            bool esBackspace = (caracter == (char)Keys.Back);
+
+            if (!esLetra && !esEspacio && !esBackspace)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char caracter = e.KeyChar;
+            bool esDigito = Char.IsDigit(caracter);
+            bool esBackspace = (caracter == (char)Keys.Back);
+
+            if (!esDigito && !esBackspace)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

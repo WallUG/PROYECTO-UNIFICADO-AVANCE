@@ -140,6 +140,7 @@
             this.mniEditarCliente.Name = "mniEditarCliente";
             this.mniEditarCliente.Size = new System.Drawing.Size(270, 34);
             this.mniEditarCliente.Text = "Editar";
+            this.mniEditarCliente.Click += new System.EventHandler(this.mniEditarCliente_Click);
             // 
             // mniEliminarCliente
             // 

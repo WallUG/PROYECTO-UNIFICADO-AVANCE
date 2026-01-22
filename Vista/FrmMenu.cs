@@ -243,5 +243,18 @@ namespace Visual
                 MessageBox.Show("No hay clientes registradas para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void mniEditarCliente_Click(object sender, EventArgs e)
+        {
+            if (admCliente.GetCantidadLista() > 0)
+            {
+                FrmEditarCLiente frmEditarCliente = new FrmEditarCLiente();
+                frmEditarCliente.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No hay clientes registradas para editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
