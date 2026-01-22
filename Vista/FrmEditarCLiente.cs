@@ -13,15 +13,17 @@ namespace Vista
 {
     public partial class FrmEditarCLiente : Form
     {
-        AdmCliente AdmCliente = new AdmCliente();
+        AdmCliente admCliente = new AdmCliente();
+       
         public FrmEditarCLiente()
         {
             InitializeComponent();
+            //admCliente.MostrarClientes(dgvClientes);
             CargarCLientes();
         }
         private void CargarCLientes()
         {
-            AdmCliente.MostrarClientes(dgvCliente);
+            admCliente.MostrarClientes(dgvCliente);
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -64,6 +66,13 @@ namespace Vista
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void tnFiltrar_Click(object sender, EventArgs e)
+        {
+            string cedulaoruc = txtBuscarxcedula.Text;
+            admCliente.FiltrarCliente(cedulaoruc, dgvCliente);
 
         }
     }

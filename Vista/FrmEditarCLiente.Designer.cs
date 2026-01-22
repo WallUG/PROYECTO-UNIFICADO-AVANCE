@@ -100,6 +100,7 @@
             this.tnFiltrar.TabIndex = 24;
             this.tnFiltrar.Text = "FILTRAR";
             this.tnFiltrar.UseVisualStyleBackColor = true;
+            this.tnFiltrar.Click += new System.EventHandler(this.tnFiltrar_Click);
             // 
             // dgvCliente
             // 
