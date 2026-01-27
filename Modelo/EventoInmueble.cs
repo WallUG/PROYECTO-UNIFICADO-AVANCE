@@ -13,16 +13,27 @@ namespace Modelo
         public Inmueble inmueble { get; set; }
         public int cantidadInmueble { get; set; }
         public DateTime fechaAsignacionInmueble { get; set; }
-
         public List<Inmueble> listaInmuebles = new List<Inmueble>();
+        private int cantidadAsignada;
+        private DateTime fechaAsignacion;
 
-        public EventoInmueble() { }
-
-        public EventoInmueble(Inmueble inmueble, int cantidad, DateTime fecha)
+        public EventoInmueble(Inmueble inmueble, int cantidadInmueble, DateTime fechaAsignacionInmueble, List<Inmueble> listaInmuebles)
         {
             this.inmueble = inmueble;
-            this.cantidadInmueble = cantidad;
-            this.fechaAsignacionInmueble = fecha;
+            this.cantidadInmueble = cantidadInmueble;
+            this.fechaAsignacionInmueble = fechaAsignacionInmueble;
+            this.listaInmuebles = listaInmuebles;
+        }
+
+        public EventoInmueble(Inmueble inmueble, int cantidadAsignada, DateTime fechaAsignacion)
+        {
+            this.inmueble = inmueble;
+            this.cantidadAsignada = cantidadAsignada;
+            this.fechaAsignacion = fechaAsignacion;
+        }
+
+        public EventoInmueble()
+        {
         }
 
         public bool AsignarCantidadInmueble()

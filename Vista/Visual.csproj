@@ -130,6 +130,18 @@
     <Compile Include="FrmListarCliente.Designer.cs">
       <DependentUpon>FrmListarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListarEvento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListarEvento.Designer.cs">
+      <DependentUpon>FrmListarEvento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistrarEvento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrarEvento.Designer.cs">
+      <DependentUpon>FrmRegistrarEvento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRegistroCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,12 +153,6 @@
     </Compile>
     <Compile Include="FrmRegistroFactura.Designer.cs">
       <DependentUpon>FrmRegistroFactura.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmListarEvento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmListarEvento.Designer.cs">
-      <DependentUpon>FrmListarEvento.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListarFactura.cs">
       <SubType>Form</SubType>
@@ -171,12 +177,6 @@
     </Compile>
     <Compile Include="FrmMenu.Designer.cs">
       <DependentUpon>FrmMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmRegistrarEvento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmRegistrarEvento.Designer.cs">
-      <DependentUpon>FrmRegistrarEvento.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistroInmueble.cs">
       <SubType>Form</SubType>
@@ -234,14 +234,17 @@
     <EmbeddedResource Include="FrmListarCliente.resx">
       <DependentUpon>FrmListarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmListarEvento.resx">
+      <DependentUpon>FrmListarEvento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrarEvento.resx">
+      <DependentUpon>FrmRegistrarEvento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistroCliente.resx">
       <DependentUpon>FrmRegistroCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistroFactura.resx">
       <DependentUpon>FrmRegistroFactura.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmListarEvento.resx">
-      <DependentUpon>FrmListarEvento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListarFactura.resx">
       <DependentUpon>FrmListarFactura.cs</DependentUpon>
@@ -254,9 +257,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegistrarEvento.resx">
-      <DependentUpon>FrmRegistrarEvento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistroInmueble.resx">
       <DependentUpon>FrmRegistroInmueble.cs</DependentUpon>

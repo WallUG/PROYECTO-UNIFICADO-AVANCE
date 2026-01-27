@@ -13,15 +13,12 @@ using System.Windows.Forms;
 namespace Vista
 {
     public partial class FrmListarEvento : Form
-    {        
-        // Controlador para la lógica de negocio de eventos
+    {
         private AdmEvento admEvento = new AdmEvento();
         
         public FrmListarEvento()
         {
             InitializeComponent();
-
-            // Cargar los eventos en el DataGridView
             CargarEventos();
         }
         
@@ -78,6 +75,30 @@ namespace Vista
             }
 
             MessageBox.Show("Lista de eventos actualizada correctamente.", "Actualizar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void txtCiRucCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char caracter = e.KeyChar;
+            bool esDigito = Char.IsDigit(caracter);
+            bool esBackspace = (caracter == (char)Keys.Back);
+
+            if (!esDigito && !esBackspace)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNumEventos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char caracter = e.KeyChar;
+            bool esDigito = Char.IsDigit(caracter);
+            bool esBackspace = (caracter == (char)Keys.Back);
+
+            if (!esDigito && !esBackspace)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

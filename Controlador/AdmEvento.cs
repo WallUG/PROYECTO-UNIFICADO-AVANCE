@@ -17,7 +17,8 @@ namespace Controlador
         public Evento evento = null;
         public Cliente cliente = null;
         public List<EventoInmueble> listaEventoInmueble = new List<EventoInmueble>();
-        Conexion conexion = null;
+        ConexionBDD cnBDD = null;
+        DatosEvento datosEvento = null;
 
         private string clienteNombresEncontrado = "";
         private string clienteApellidosEncontrado = "";
@@ -50,6 +51,49 @@ namespace Controlador
             "Planificado",
             "Confirmado"
         };
+
+        public AdmEvento()
+        {
+            ConsultarEventosBDD();
+        }
+        private void EliminarEventosBDD(Evento evento)
+        {
+            cnBDD = new ConexionBDD();
+            DatosEvento datosEvento = new DatosEvento();
+            string msj = cnBDD.Conectar();
+            if (msj[0] == '1')
+            {
+                datosEvento.EliminarEventos(evento, cnBDD.sql);
+                cnBDD.Desconectar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
+            }
+        }
+
+        private void ConsultarEventosBDD()
+        {
+            cnBDD = new ConexionBDD();
+            datosEvento = new DatosEvento();
+            string msj = cnBDD.Conectar();
+
+            if (msj[0] == '1')
+            {
+                listaEventos = datosEvento.ConsultarEventos(cnBDD.sql);
+                if (listaEventos.Count == 0)
+                {
+                    MessageBox.Show("No existen registros de Eventos en la Base de Datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                cnBDD.Desconectar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj, "Error de conexión a la Base de Datos!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         public static Evento ObtenerEventoPorNumEventos(int numEventos)
         {
@@ -381,10 +425,8 @@ namespace Controlador
             }
         }
 
-        public void RegistrarEventoCompleto(int numEventos, string tipoEvento, string nombreEvento, string descripcionEvento, int numPersonas, string direccionEvento,
-            string estadoEvento,
-            string tipoInmueble,
-            int cantidadInmueble,
+        public void RegistrarEventoCompleto(int numEventos, string tipoEvento, string nombreEvento, string descripcionEvento,
+            int numPersonas, string direccionEvento, string estadoEvento, string tipoInmueble, int cantidadInmueble,
             DateTime fechaAsignacion)
         {
             List<EventoInmueble> listaInmueblesEvento = new List<EventoInmueble>();
@@ -399,7 +441,6 @@ namespace Controlador
 
             evento = new Evento(
                 numEventos,
-                numEventos,
                 cliente,
                 tipoEvento,
                 nombreEvento,
@@ -411,12 +452,14 @@ namespace Controlador
             );
 
             listaEventos.Add(evento);
+            RegistrarEventoBDD(evento);
 
             listaEventoInmueble.Clear();
         }
 
         public void CargarTablaEventos(DataGridView dgvEventos)
         {
+            Cliente cliente = new Cliente();
             dgvEventos.Rows.Clear();
             int indice = 0;
 
@@ -424,6 +467,7 @@ namespace Controlador
             {
                 dgvEventos.Rows.Add();
                 dgvEventos.Rows[indice].Cells["colNro"].Value = indice + 1;
+                dgvEventos.Rows[indice].Cells["colCedulaORuc"].Value = evento.Cliente.CedulaORuc;
                 dgvEventos.Rows[indice].Cells["colNumEventos"].Value = evento.NumEventos;
                 dgvEventos.Rows[indice].Cells["colTipoEvento"].Value = evento.TipoEvento;
                 dgvEventos.Rows[indice].Cells["colNombreEvento"].Value = evento.NombreEvento;
@@ -571,29 +615,29 @@ namespace Controlador
             return listaEventos.Count;
         }
 
-        public void EliminarEvento(int indice, DataGridView dgvEvento)
+        public void EliminarEvento(int indice, DataGridView dgvEventos)
         {
-            string numEventos = dgvEvento.Rows[indice].Cells["colNumEventos"].Value.ToString();
-            DialogResult result = MessageBox.Show("Desea eliminar el Evento " + numEventos + "?",
+            string numEventos = dgvEventos.Rows[indice].Cells["colNumEventos"].Value.ToString();
+            DialogResult resultado = MessageBox.Show("Desea eliminar el Evento " + numEventos + "?",
                 "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if (resultado == DialogResult.Yes)
             {
-                dgvEvento.Rows.RemoveAt(indice);
-
                 for (int i = 0; i < listaEventos.Count; i++)
                 {
                     if (listaEventos[i].NumEventos.ToString() == numEventos)
                     {
+                        EliminarEventosBDD(listaEventos[i]);
                         listaEventos.RemoveAt(i);
-                        break;
+                        MessageBox.Show("Evento eliminado correctamente!", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
                     }
                 }
-                MessageBox.Show("Registro Evento " + numEventos + " se eliminó correctamente!");
             }
             else
             {
                 MessageBox.Show("La operación se canceló", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
         }
 
         public bool EsVacio(string txtNumCedula, string txtNumEventos)
@@ -607,6 +651,7 @@ namespace Controlador
 
         public void VerificarFiltros(string txtCiRucCliente, string txtNumEventos, DataGridView dgvEventos)
         {
+            Cliente cliente = new Cliente();
             dgvEventos.Rows.Clear();
             int indice = 0;
 
@@ -644,6 +689,7 @@ namespace Controlador
                 {
                     dgvEventos.Rows.Add();
                     dgvEventos.Rows[indice].Cells["colNro"].Value = indice + 1;
+                    dgvEventos.Rows[indice].Cells["colCedulaORuc"].Value = eventoActual.Cliente.CedulaORuc;
                     dgvEventos.Rows[indice].Cells["colNumEventos"].Value = eventoActual.NumEventos;
                     dgvEventos.Rows[indice].Cells["colTipoEvento"].Value = eventoActual.TipoEvento;
                     dgvEventos.Rows[indice].Cells["colNombreEvento"].Value = eventoActual.NombreEvento;
@@ -962,19 +1008,46 @@ namespace Controlador
             }
         }
 
-        private void Conectar()
+        public void Conectar()
         {
-            conexion = new Conexion();
-            string res = conexion.Conectar();
+            cnBDD = new ConexionBDD();
+            string msj = cnBDD.Conectar();
 
-            if (res[0] == '1')
+            if (msj[0] == '1')
             {
                 MessageBox.Show("Conexión a la Base de Datos exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                conexion.Desconectar();
+                cnBDD.Desconectar();
             }
-            else if (res[0] == '0')
+            else if (msj[0] == '0')
             {
-                MessageBox.Show(res, "Error de conexión a la Base de Datos!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(msj, "Error de conexión a la Base de Datos!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RegistrarEventoBDD(Evento evento)
+        {
+            cnBDD = new ConexionBDD();
+            datosEvento = new DatosEvento();
+            string msj = cnBDD.Conectar();
+            string resp = "";
+
+            if (msj[0] == '1')
+            {
+                resp = datosEvento.RegistrarEvento(evento, cnBDD.sql);
+                if (resp[0] == '1')
+                {
+                    MessageBox.Show("Los datos del Evento se registraron en la Base de Datos exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (resp[0] == '0')
+                {
+                    MessageBox.Show(resp, "Error al guardar los datos del Evento en la Base de Datos!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                cnBDD.Desconectar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj, "Error de conexión a la Base de Datos!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

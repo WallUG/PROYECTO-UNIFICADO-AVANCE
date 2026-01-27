@@ -89,5 +89,29 @@ namespace Vista
                 MessageBox.Show("Seleccione un evento para editar.", "Editar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void txtNumEventos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char caracter = e.KeyChar;
+            bool esDigito = Char.IsDigit(caracter);
+            bool esBackspace = (caracter == (char)Keys.Back);
+
+            if (!esDigito && !esBackspace)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCiRucCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char caracter = e.KeyChar;
+            bool esDigito = Char.IsDigit(caracter);
+            bool esBackspace = (caracter == (char)Keys.Back);
+
+            if (!esDigito && !esBackspace)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

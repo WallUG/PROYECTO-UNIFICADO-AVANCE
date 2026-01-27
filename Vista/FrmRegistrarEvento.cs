@@ -377,7 +377,6 @@ namespace Vista
                 e.Handled = true;
             }
         }
-
         
         private void txtNumPersonasEvento_KeyPress(object sender, KeyPressEventArgs e)
         {

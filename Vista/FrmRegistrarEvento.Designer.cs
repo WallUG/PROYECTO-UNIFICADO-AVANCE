@@ -178,7 +178,7 @@
             this.btnGuardarEvento.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnGuardarEvento.Font = new System.Drawing.Font("Arial Black", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarEvento.ForeColor = System.Drawing.Color.Blue;
-            this.btnGuardarEvento.Location = new System.Drawing.Point(865, 783);
+            this.btnGuardarEvento.Location = new System.Drawing.Point(866, 765);
             this.btnGuardarEvento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnGuardarEvento.Name = "btnGuardarEvento";
             this.btnGuardarEvento.Size = new System.Drawing.Size(195, 40);
@@ -197,6 +197,7 @@
             this.cmbEstadoEvento.Name = "cmbEstadoEvento";
             this.cmbEstadoEvento.Size = new System.Drawing.Size(309, 27);
             this.cmbEstadoEvento.TabIndex = 18;
+            this.cmbEstadoEvento.SelectedIndexChanged += new System.EventHandler(this.cmbEstadoEvento_SelectedIndexChanged);
             // 
             // gbCreacionEvento
             // 

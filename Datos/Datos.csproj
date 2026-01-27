@@ -43,6 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
+    <Compile Include="ConexionBDD.cs" />
+    <Compile Include="DatosCliente.cs" />
+    <Compile Include="DatosEvento.cs" />
+    <Compile Include="DatosEventoInmueble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

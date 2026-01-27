@@ -36,6 +36,8 @@
             this.colCantDispAct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFechaAsignacionAct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbInformacionCliente = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtCiRucCliente = new System.Windows.Forms.TextBox();
             this.txtApellidosCliente = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtNombresCliente = new System.Windows.Forms.TextBox();
@@ -67,8 +69,6 @@
             this.txtDescripcionEvento = new System.Windows.Forms.TextBox();
             this.txtNombreEvento = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtCiRucCliente = new System.Windows.Forms.TextBox();
             this.gbListaInmueblesSele.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInmueblesActual)).BeginInit();
             this.gbInformacionCliente.SuspendLayout();
@@ -164,6 +164,28 @@
             this.gbInformacionCliente.TabStop = false;
             this.gbInformacionCliente.Text = "Información del Cliente";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(10, 49);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(118, 19);
+            this.label14.TabIndex = 30;
+            this.label14.Text = "Cédula o RUC:";
+            // 
+            // txtCiRucCliente
+            // 
+            this.txtCiRucCliente.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCiRucCliente.Location = new System.Drawing.Point(188, 46);
+            this.txtCiRucCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCiRucCliente.MaxLength = 13;
+            this.txtCiRucCliente.Name = "txtCiRucCliente";
+            this.txtCiRucCliente.Size = new System.Drawing.Size(160, 27);
+            this.txtCiRucCliente.TabIndex = 31;
+            this.txtCiRucCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCiRucCliente_KeyPress);
+            // 
             // txtApellidosCliente
             // 
             this.txtApellidosCliente.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -251,6 +273,9 @@
             this.dgvInmuebles.RowTemplate.Height = 24;
             this.dgvInmuebles.Size = new System.Drawing.Size(661, 274);
             this.dgvInmuebles.TabIndex = 27;
+            this.dgvInmuebles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInmuebles_CellClick);
+            this.dgvInmuebles.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInmuebles_CellValueChanged);
+            this.dgvInmuebles.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvInmuebles_CurrentCellDirtyStateChanged);
             // 
             // colSeleccionar
             // 
@@ -330,6 +355,7 @@
             this.cmbTipoInmueble.Name = "cmbTipoInmueble";
             this.cmbTipoInmueble.Size = new System.Drawing.Size(163, 27);
             this.cmbTipoInmueble.TabIndex = 26;
+            this.cmbTipoInmueble.SelectedIndexChanged += new System.EventHandler(this.selectTipoInmueble);
             // 
             // label12
             // 
@@ -366,6 +392,7 @@
             0,
             0,
             0});
+            this.nudCantidadInmueble.ValueChanged += new System.EventHandler(this.nudCantidadInmueble_ValueChanged);
             // 
             // label11
             // 
@@ -409,6 +436,7 @@
             this.txtNumPersonasEvento.Name = "txtNumPersonasEvento";
             this.txtNumPersonasEvento.Size = new System.Drawing.Size(120, 27);
             this.txtNumPersonasEvento.TabIndex = 21;
+            this.txtNumPersonasEvento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumPersonasEvento_KeyPress_1);
             // 
             // txtbDireccionUbicacion
             // 
@@ -420,6 +448,7 @@
             this.txtbDireccionUbicacion.Name = "txtbDireccionUbicacion";
             this.txtbDireccionUbicacion.Size = new System.Drawing.Size(307, 66);
             this.txtbDireccionUbicacion.TabIndex = 20;
+            this.txtbDireccionUbicacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbDireccionUbicacion_KeyPress);
             // 
             // label16
             // 
@@ -453,6 +482,7 @@
             this.cmbTipoEvento.Name = "cmbTipoEvento";
             this.cmbTipoEvento.Size = new System.Drawing.Size(309, 27);
             this.cmbTipoEvento.TabIndex = 6;
+            this.cmbTipoEvento.SelectedIndexChanged += new System.EventHandler(this.cmbTipoEvento_SelectedIndexChanged);
             // 
             // cmbEstadoEvento
             // 
@@ -464,6 +494,7 @@
             this.cmbEstadoEvento.Name = "cmbEstadoEvento";
             this.cmbEstadoEvento.Size = new System.Drawing.Size(309, 27);
             this.cmbEstadoEvento.TabIndex = 18;
+            this.cmbEstadoEvento.SelectedIndexChanged += new System.EventHandler(this.cmbEstadoEvento_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -508,6 +539,7 @@
             this.txtDescripcionEvento.Name = "txtDescripcionEvento";
             this.txtDescripcionEvento.Size = new System.Drawing.Size(307, 66);
             this.txtDescripcionEvento.TabIndex = 11;
+            this.txtDescripcionEvento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripcionEvento_KeyPress);
             // 
             // txtNombreEvento
             // 
@@ -518,6 +550,7 @@
             this.txtNombreEvento.Name = "txtNombreEvento";
             this.txtNombreEvento.Size = new System.Drawing.Size(309, 27);
             this.txtNombreEvento.TabIndex = 9;
+            this.txtNombreEvento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreEvento_KeyPress);
             // 
             // label6
             // 
@@ -530,27 +563,6 @@
             this.label6.Size = new System.Drawing.Size(102, 19);
             this.label6.TabIndex = 10;
             this.label6.Text = "Descripción:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(10, 49);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(118, 19);
-            this.label14.TabIndex = 30;
-            this.label14.Text = "Cédula o RUC:";
-            // 
-            // txtCiRucCliente
-            // 
-            this.txtCiRucCliente.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCiRucCliente.Location = new System.Drawing.Point(188, 46);
-            this.txtCiRucCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtCiRucCliente.MaxLength = 13;
-            this.txtCiRucCliente.Name = "txtCiRucCliente";
-            this.txtCiRucCliente.Size = new System.Drawing.Size(160, 27);
-            this.txtCiRucCliente.TabIndex = 31;
             // 
             // FrmEditarDetallesEvento
             // 
@@ -565,7 +577,6 @@
             this.Controls.Add(this.gbCreacionEvento);
             this.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimizeBox = false;
             this.Name = "FrmEditarDetallesEvento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Evento";
