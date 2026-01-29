@@ -37,7 +37,7 @@
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.txtRuc = new System.Windows.Forms.TextBox();
             this.txtCedula = new System.Windows.Forms.TextBox();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
+            this.txtNumeroCliente = new System.Windows.Forms.TextBox();
             this.lblDireccionCliente = new System.Windows.Forms.Label();
             this.lblCorreoCliente = new System.Windows.Forms.Label();
             this.lblTelefonoCliente = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.lblNombreCliente = new System.Windows.Forms.Label();
             this.lblRuc = new System.Windows.Forms.Label();
             this.lblCedula = new System.Windows.Forms.Label();
-            this.lblIdCliente = new System.Windows.Forms.Label();
+            this.lblNumeroCliente = new System.Windows.Forms.Label();
             this.groupBoxEvento = new System.Windows.Forms.GroupBox();
             this.txtReservaFecha = new System.Windows.Forms.TextBox();
             this.lblReservaFecha = new System.Windows.Forms.Label();
@@ -91,6 +91,8 @@
             this.colPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.txtDescuentoAplicado = new System.Windows.Forms.TextBox();
+            this.lblDescuentoAplicado = new System.Windows.Forms.Label();
             this.groupBoxCliente.SuspendLayout();
             this.groupBoxEvento.SuspendLayout();
             this.groupBoxFactura.SuspendLayout();
@@ -108,7 +110,7 @@
             this.groupBoxCliente.Controls.Add(this.txtNombreCliente);
             this.groupBoxCliente.Controls.Add(this.txtRuc);
             this.groupBoxCliente.Controls.Add(this.txtCedula);
-            this.groupBoxCliente.Controls.Add(this.txtIdCliente);
+            this.groupBoxCliente.Controls.Add(this.txtNumeroCliente);
             this.groupBoxCliente.Controls.Add(this.lblDireccionCliente);
             this.groupBoxCliente.Controls.Add(this.lblCorreoCliente);
             this.groupBoxCliente.Controls.Add(this.lblTelefonoCliente);
@@ -116,7 +118,7 @@
             this.groupBoxCliente.Controls.Add(this.lblNombreCliente);
             this.groupBoxCliente.Controls.Add(this.lblRuc);
             this.groupBoxCliente.Controls.Add(this.lblCedula);
-            this.groupBoxCliente.Controls.Add(this.lblIdCliente);
+            this.groupBoxCliente.Controls.Add(this.lblNumeroCliente);
             this.groupBoxCliente.Location = new System.Drawing.Point(16, 74);
             this.groupBoxCliente.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxCliente.Name = "groupBoxCliente";
@@ -200,14 +202,14 @@
             this.txtCedula.TabIndex = 9;
             this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
-            // txtIdCliente
+            // txtNumeroCliente
             // 
-            this.txtIdCliente.Location = new System.Drawing.Point(160, 32);
-            this.txtIdCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.ReadOnly = true;
-            this.txtIdCliente.Size = new System.Drawing.Size(145, 22);
-            this.txtIdCliente.TabIndex = 8;
+            this.txtNumeroCliente.Location = new System.Drawing.Point(160, 32);
+            this.txtNumeroCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumeroCliente.Name = "txtNumeroCliente";
+            this.txtNumeroCliente.ReadOnly = true;
+            this.txtNumeroCliente.Size = new System.Drawing.Size(145, 22);
+            this.txtNumeroCliente.TabIndex = 8;
             // 
             // lblDireccionCliente
             // 
@@ -279,15 +281,15 @@
             this.lblCedula.TabIndex = 1;
             this.lblCedula.Text = "Cédula:";
             // 
-            // lblIdCliente
+            // lblNumeroCliente
             // 
-            this.lblIdCliente.AutoSize = true;
-            this.lblIdCliente.Location = new System.Drawing.Point(20, 36);
-            this.lblIdCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblIdCliente.Name = "lblIdCliente";
-            this.lblIdCliente.Size = new System.Drawing.Size(67, 16);
-            this.lblIdCliente.TabIndex = 0;
-            this.lblIdCliente.Text = "ID Cliente:";
+            this.lblNumeroCliente.AutoSize = true;
+            this.lblNumeroCliente.Location = new System.Drawing.Point(20, 36);
+            this.lblNumeroCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNumeroCliente.Name = "lblNumeroCliente";
+            this.lblNumeroCliente.Size = new System.Drawing.Size(102, 16);
+            this.lblNumeroCliente.TabIndex = 0;
+            this.lblNumeroCliente.Text = "Numero Cliente:";
             // 
             // groupBoxEvento
             // 
@@ -461,6 +463,8 @@
             // 
             // groupBoxFactura
             // 
+            this.groupBoxFactura.Controls.Add(this.txtDescuentoAplicado);
+            this.groupBoxFactura.Controls.Add(this.lblDescuentoAplicado);
             this.groupBoxFactura.Controls.Add(this.txtEstadoFactura);
             this.groupBoxFactura.Controls.Add(this.btnEmitirFactura);
             this.groupBoxFactura.Controls.Add(this.btnAnular);
@@ -556,7 +560,7 @@
             // txtTotal
             // 
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(440, 224);
+            this.txtTotal.Location = new System.Drawing.Point(440, 252);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
@@ -629,7 +633,7 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(313, 228);
+            this.lblTotal.Location = new System.Drawing.Point(313, 256);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(57, 20);
@@ -642,9 +646,9 @@
             this.lblDescuento.Location = new System.Drawing.Point(313, 196);
             this.lblDescuento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescuento.Name = "lblDescuento";
-            this.lblDescuento.Size = new System.Drawing.Size(75, 16);
+            this.lblDescuento.Size = new System.Drawing.Size(90, 16);
             this.lblDescuento.TabIndex = 6;
-            this.lblDescuento.Text = "Descuento:";
+            this.lblDescuento.Text = "Descuento %:";
             // 
             // lblSubtotal
             // 
@@ -786,6 +790,26 @@
             this.lblTitulo.TabIndex = 11;
             this.lblTitulo.Text = "Módulo de Facturación";
             // 
+            // txtDescuentoAplicado
+            // 
+            this.txtDescuentoAplicado.Location = new System.Drawing.Point(453, 222);
+            this.txtDescuentoAplicado.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDescuentoAplicado.Name = "txtDescuentoAplicado";
+            this.txtDescuentoAplicado.ReadOnly = true;
+            this.txtDescuentoAplicado.Size = new System.Drawing.Size(159, 22);
+            this.txtDescuentoAplicado.TabIndex = 19;
+            this.txtDescuentoAplicado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblDescuentoAplicado
+            // 
+            this.lblDescuentoAplicado.AutoSize = true;
+            this.lblDescuentoAplicado.Location = new System.Drawing.Point(313, 226);
+            this.lblDescuentoAplicado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDescuentoAplicado.Name = "lblDescuentoAplicado";
+            this.lblDescuentoAplicado.Size = new System.Drawing.Size(132, 16);
+            this.lblDescuentoAplicado.TabIndex = 18;
+            this.lblDescuentoAplicado.Text = "Descuento Aplicado:";
+            // 
             // FrmRegistroFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -825,7 +849,7 @@
         private System.Windows.Forms.TextBox txtNombreCliente;
         private System.Windows.Forms.TextBox txtRuc;
         private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.TextBox txtIdCliente;
+        private System.Windows.Forms.TextBox txtNumeroCliente;
         private System.Windows.Forms.Label lblDireccionCliente;
         private System.Windows.Forms.Label lblCorreoCliente;
         private System.Windows.Forms.Label lblTelefonoCliente;
@@ -833,7 +857,7 @@
         private System.Windows.Forms.Label lblNombreCliente;
         private System.Windows.Forms.Label lblRuc;
         private System.Windows.Forms.Label lblCedula;
-        private System.Windows.Forms.Label lblIdCliente;
+        private System.Windows.Forms.Label lblNumeroCliente;
         private System.Windows.Forms.Button btnBuscarCliente;
         private System.Windows.Forms.GroupBox groupBoxEvento;
         private System.Windows.Forms.TextBox txtNumPersonasEvento;
@@ -880,6 +904,8 @@
         private System.Windows.Forms.TextBox txtEstadoFactura;
         private System.Windows.Forms.TextBox txtReservaFecha;
         private System.Windows.Forms.Label lblReservaFecha;
+        private System.Windows.Forms.TextBox txtDescuentoAplicado;
+        private System.Windows.Forms.Label lblDescuentoAplicado;
     }
 }
 

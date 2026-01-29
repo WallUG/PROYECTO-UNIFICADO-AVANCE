@@ -14,11 +14,14 @@ namespace Controlador
     {
         public static List<Evento> listaEventos = new List<Evento>();
         public static int numeroEditarEvento = 0;
+        public static int IdEventoDB = 0;
         public Evento evento = null;
         public Cliente cliente = null;
         public List<EventoInmueble> listaEventoInmueble = new List<EventoInmueble>();
         ConexionBDD cnBDD = null;
         DatosEvento datosEvento = null;
+        DatosEventoInmueble datosEventoInmueble = null;
+        EventoInmueble copia = null;
 
         private string clienteNombresEncontrado = "";
         private string clienteApellidosEncontrado = "";
@@ -52,8 +55,7 @@ namespace Controlador
             "Confirmado"
         };
 
-        public AdmEvento()
-        {
+        public AdmEvento() {
             ConsultarEventosBDD();
         }
         private void EliminarEventosBDD(Evento evento)
@@ -72,6 +74,35 @@ namespace Controlador
             }
         }
 
+        private string MostrarDatosListaEventos()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (Evento evento in listaEventos)
+            {
+                foreach(EventoInmueble inmueble in evento.EventoInmueble)
+                {
+                    foreach(Inmueble inm in inmueble.listaInmuebles)
+                    {
+                        sb.AppendLine("Número de Evento: " + evento.NumEventos);
+                        sb.AppendLine("Cliente: " + evento.ObtenerNombreCliente());
+                        sb.AppendLine("Tipo de Evento: " + evento.TipoEvento);
+                        sb.AppendLine("Nombre del Evento: " + evento.NombreEvento);
+                        sb.AppendLine("Descripción del Evento: " + evento.DescripcionEvento);
+                        sb.AppendLine("Número de Personas: " + evento.NumPersonasEvento);
+                        sb.AppendLine("Dirección del Evento: " + evento.DireccionEvento);
+                        sb.AppendLine("Estado del Evento: " + evento.EstadoEvento);
+                        sb.AppendLine("Casto: " + inm.precioInmueble);
+                        sb.AppendLine("Inmueble Asignado: " + inm.nombreInmueble);
+                        sb.AppendLine("Cantidad Asignada: " + inmueble.cantidadInmueble);
+                        sb.AppendLine("Fecha de Asignación: " + inmueble.fechaAsignacionInmueble.ToShortDateString());
+                        sb.AppendLine("----------------------------------------");
+                    }
+                }
+
+            }
+            return sb.ToString();
+        }
+
         private void ConsultarEventosBDD()
         {
             cnBDD = new ConexionBDD();
@@ -81,10 +112,11 @@ namespace Controlador
             if (msj[0] == '1')
             {
                 listaEventos = datosEvento.ConsultarEventos(cnBDD.sql);
-                if (listaEventos.Count == 0)
+                if (listaEventos.Count==0)
                 {
                     MessageBox.Show("No existen registros de Eventos en la Base de Datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                //MessageBox.Show("Eventos cargados desde la Base de Datos:\n" + MostrarDatosListaEventos(), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 cnBDD.Desconectar();
             }
@@ -432,10 +464,10 @@ namespace Controlador
             List<EventoInmueble> listaInmueblesEvento = new List<EventoInmueble>();
             for (int i = 0; i < listaEventoInmueble.Count; i++)
             {
-                EventoInmueble copia = new EventoInmueble();
+                copia = new EventoInmueble();
                 copia.inmueble = listaEventoInmueble[i].inmueble;
-                copia.cantidadInmueble = listaEventoInmueble[i].cantidadInmueble;
-                copia.fechaAsignacionInmueble = listaEventoInmueble[i].fechaAsignacionInmueble;
+                copia.cantidadInmueble = listaEventoInmueble[i].cantidadAsignada;
+                copia.fechaAsignacionInmueble = listaEventoInmueble[i].fechaAsignacion;
                 listaInmueblesEvento.Add(copia);
             }
 
@@ -453,10 +485,11 @@ namespace Controlador
 
             listaEventos.Add(evento);
             RegistrarEventoBDD(evento);
+            RegistrarEventoInmuebleBDD(IdEventoDB, copia);
 
             listaEventoInmueble.Clear();
         }
-
+        
         public void CargarTablaEventos(DataGridView dgvEventos)
         {
             Cliente cliente = new Cliente();
@@ -1024,6 +1057,13 @@ namespace Controlador
             }
         }
 
+        public int ObtenerIdEventoDB()
+        {
+            int id = 0;
+            id = IdEventoDB;
+            return id;
+        }
+
         private void RegistrarEventoBDD(Evento evento)
         {
             cnBDD = new ConexionBDD();
@@ -1033,7 +1073,34 @@ namespace Controlador
 
             if (msj[0] == '1')
             {
-                resp = datosEvento.RegistrarEvento(evento, cnBDD.sql);
+                IdEventoDB = datosEvento.RegistrarEvento(evento, cnBDD.sql);
+                //if(resp[0] == '1')
+                //{
+                //    MessageBox.Show("Los datos del Evento se registraron en la Base de Datos exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
+                //else if(resp[0] == '0')
+                //{
+                //    MessageBox.Show(resp, "Error al guardar los datos del Evento en la Base de Datos!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
+
+                cnBDD.Desconectar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj, "Error de conexión a la Base de Datos!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RegistrarEventoInmuebleBDD(int idEvento, EventoInmueble eventoInmueble)
+        {
+            cnBDD = new ConexionBDD();
+            datosEventoInmueble = new DatosEventoInmueble();
+            string msj = cnBDD.Conectar();
+            string resp = "";
+
+            if (msj[0] == '1')
+            {
+                resp = datosEventoInmueble.RegistrarEventoInmueble(idEvento, eventoInmueble, cnBDD.sql);
                 if (resp[0] == '1')
                 {
                     MessageBox.Show("Los datos del Evento se registraron en la Base de Datos exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1048,6 +1115,30 @@ namespace Controlador
             else if (msj[0] == '0')
             {
                 MessageBox.Show(msj, "Error de conexión a la Base de Datos!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void ActualizarTablaInmueblesActual(DataGridView dgvInmueblesActual)
+        {
+            dgvInmueblesActual.Rows.Clear();
+
+
+            foreach (Evento evento in listaEventos)
+            {
+                foreach (EventoInmueble inmueble in evento.EventoInmueble)
+                {
+                    foreach (Inmueble inm in inmueble.listaInmuebles)
+                    {
+
+
+                        int indice = dgvInmueblesActual.Rows.Add();
+                        dgvInmueblesActual.Rows[indice].Cells["colNumInmueblesAct"].Value = inm.numeroInmueble;
+                        dgvInmueblesActual.Rows[indice].Cells["colNombreAct"].Value = inm.nombreInmueble;
+                        dgvInmueblesActual.Rows[indice].Cells["colDisponibleAct"].Value = inm.inmuebleDisponible;
+                        dgvInmueblesActual.Rows[indice].Cells["colCantDispAct"].Value = inmueble.cantidadInmueble;
+                        dgvInmueblesActual.Rows[indice].Cells["colFechaAsignacionAct"].Value = inmueble.fechaAsignacionInmueble.ToShortDateString();
+                    }
+                }
             }
         }
     }

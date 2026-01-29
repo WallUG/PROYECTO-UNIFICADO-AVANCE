@@ -9,10 +9,12 @@ namespace Modelo
     public class DetalleFactura
     {
         public int IdDetalle { get; set; }
+        public int NumDetalle { get; set; }
+        public int IdFactura { get; set; }
         public string Descripcion { get; set; }
         public int Cantidad { get; set; }
         public double PrecioUnitario { get; set; }
-        public double Subtotal { get; private set; }
+        public double Subtotal { get; set; }
 
         public DetalleFactura()
         {

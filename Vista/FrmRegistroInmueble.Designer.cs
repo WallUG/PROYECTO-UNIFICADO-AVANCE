@@ -43,9 +43,9 @@
             this.txtContenido = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.groupBoxDatos = new System.Windows.Forms.GroupBox();
             this.groupBoxResultado = new System.Windows.Forms.GroupBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
             this.groupBoxDatos.SuspendLayout();
@@ -199,16 +199,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(112, 16);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(277, 29);
-            this.lblTitulo.TabIndex = 16;
-            this.lblTitulo.Text = "Registro de Inmuebles";
-            // 
             // groupBoxDatos
             // 
             this.groupBoxDatos.Controls.Add(this.lblTipo);
@@ -240,14 +230,24 @@
             this.groupBoxResultado.TabStop = false;
             this.groupBoxResultado.Text = "Resultado del Registro";
             // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(99, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(277, 29);
+            this.lblTitulo.TabIndex = 20;
+            this.lblTitulo.Text = "Registro de Inmuebles";
+            // 
             // FrmRegistroInmueble
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 497);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.groupBoxResultado);
             this.Controls.Add(this.groupBoxDatos);
-            this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FrmRegistroInmueble";
@@ -279,9 +279,9 @@
         private System.Windows.Forms.TextBox txtContenido;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.GroupBox groupBoxDatos;
         private System.Windows.Forms.GroupBox groupBoxResultado;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }
 

@@ -15,11 +15,12 @@ namespace Datos
             SqlCommand cmd = null;
 
             string msj = "";
-            string comando = "INSERT INTO Cliente(CedulaCliente,Nombres,Apellidos,NumeroCelular, Correo, Direccion, Estado" +
-                ") VALUES(@CedulaCliente,@Nombres,@Apellidos,@NumeroCelular,@Correo," +
+            string comando = "INSERT INTO Cliente(NumeroCliente,CedulaCliente,Nombres,Apellidos,NumeroCelular, Correo, Direccion, Estado" +
+                ") VALUES(@NumeroCliente,@CedulaCliente,@Nombres,@Apellidos,@NumeroCelular,@Correo," +
                 "@Direccion,@Estado)";
 
             cmd = new SqlCommand(comando, cn);
+            cmd.Parameters.AddWithValue("@NumeroCliente", cliente.NumeroCliente);
             cmd.Parameters.AddWithValue("@CedulaCliente", cliente.CedulaORuc);
             cmd.Parameters.AddWithValue("@Nombres", cliente.Nombre);
             cmd.Parameters.AddWithValue("@Apellidos", cliente.Apellido);
@@ -110,6 +111,7 @@ namespace Datos
                 {
                     cliente = new Cliente(0, "", "", "", "", "", "");
                     cliente.Id = Convert.ToInt32(TablaVirtual["IdCliente"]);
+                    cliente.NumeroCliente = Convert.ToInt32(TablaVirtual["NumeroCliente"]);
                     cliente.CedulaORuc = TablaVirtual["CedulaCliente"].ToString().Trim();
                     cliente.Nombre = TablaVirtual["Nombres"].ToString().Trim();
                     cliente.Apellido = TablaVirtual["Apellidos"].ToString().Trim();

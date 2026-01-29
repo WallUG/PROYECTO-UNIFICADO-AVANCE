@@ -18,7 +18,8 @@ namespace Modelo
         public DateTime FechaEmision { get; set; }
         public double SubTotal { get; set; }
         public double Iva { get; set; }
-        public string Descuento { get; set; }
+        public int Descuento { get; set; }
+        public float DescuentoAplicado { get; set; }
         public List<DetalleFactura> Detalles { get; set; }
         public string Estado { get; set; }
         public double Total { get; set; }
@@ -35,51 +36,15 @@ namespace Modelo
             this.Detalles = new List<DetalleFactura>();
         }
 
-        public Factura(int idFactura, Evento evento)
+        public Factura( Evento evento)
         {
-            this.IdFactura = idFactura;
+            //this.IdFactura = idFactura;
             this.Evento = evento;
             this.SubTotal = 0;
             this.Total = 0;
-            this.Descuento = "No aplica";
+            this.Descuento = 0;
             this.Detalles = new List<DetalleFactura>();
             this.Estado = "Pendiente";
-        }
-
-        // Genera los detalles de factura a partir de los EventoInmueble
-        public void GenerarDetallesFactura()
-        {
-            Detalles.Clear();
-            int idDetalle = 1;
-
-            if (Evento?.EventoInmueble != null)
-            {
-                foreach (EventoInmueble item in Evento.EventoInmueble)
-                {
-                    string descripcion = item.inmueble.nombreInmueble + " - " + item.inmueble.tipoInmueble;
-                    DetalleFactura detalle = new DetalleFactura(
-                        idDetalle,
-                        descripcion,
-                        item.cantidadInmueble,
-                        item.inmueble.precioInmueble
-                    );
-                    Detalles.Add(detalle);
-                    idDetalle++;
-                }
-            }
-        }
-
-        // Calcula el subtotal sumando los subtotales de cada detalle
-        public void CalcularSubTotal()
-        {
-            SubTotal = 0;
-            if (Detalles != null && Detalles.Count > 0)
-            {
-                foreach (DetalleFactura detalle in Detalles)
-                {
-                    SubTotal += detalle.Subtotal;
-                }
-            }
         }
 
         public void CalcularIVA()
@@ -95,37 +60,35 @@ namespace Modelo
         public void GenerarFactura(string descuento)
         {
             FechaEmision = DateTime.Now;
-            GenerarDetallesFactura(); // Generar detalles autom�ticamente
-            CalcularSubTotal();
             AplicarDescuento(descuento);
             CalcularIVA();
             CalcularTotal();
         }
 
-        private void AplicarDescuento(string descuento)
+        public void AplicarDescuento(string descuento)
         {
             try
             {
                 if (descuento != "0.00" && descuento != "0" && !string.IsNullOrWhiteSpace(descuento))
                 {
-                    double porcentajeDescuento = double.Parse(descuento);
-                    // Si el descuento es mayor a 1, asumimos que viene como porcentaje (ej: 10 para 10%)
-                    // y lo convertimos a decimal (0.10)
+
+                    double porcentajeDescuento = float.Parse(descuento);
+                    this.Descuento = (int)porcentajeDescuento; // Guarda el porcentaje del descuento
+
                     if (porcentajeDescuento > 1)
                     {
                         porcentajeDescuento = porcentajeDescuento / 100.0;
                     }
 
-                    // Validar que el descuento est� entre 0% y 100%
                     if (porcentajeDescuento >= 0 && porcentajeDescuento <= 1)
                     {
                         double descuentoMonto = SubTotal * porcentajeDescuento;
-                        this.Descuento = descuentoMonto.ToString("F2"); // Guarda el monto del descuento
+                        this.DescuentoAplicado = (int)descuentoMonto; // Guarda el monto del descuento
                         SubTotal -= descuentoMonto;
                     }
                     else
                     {
-                        this.Descuento = "No aplica";
+                        this.Descuento = 0;
                     }
                 }
             }catch(Exception ex)

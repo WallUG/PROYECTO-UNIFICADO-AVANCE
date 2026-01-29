@@ -18,6 +18,7 @@ namespace Modelo
             public double precioInmueble { get; set; }
             public bool inmuebleDisponible { get; set; }
             public string numeroInmueble { get; set; }//filtro
+            public string Estado { get; set; }
 
         // Constructor con parámetros
         // Añadir parametro numeroInmbueble1
@@ -39,7 +40,7 @@ namespace Modelo
                 {
                     return false;
                 }
-                inmuebleDisponible = true;
+                //inmuebleDisponible = true;
                 return true;
             }
 

@@ -461,6 +461,11 @@ namespace Vista
         {
             dgvInmueblesActual.Rows.Clear();
 
+            if(seleccionesNumerosInmuebles.Count == 0)
+            {
+                admEvento.ActualizarTablaInmueblesActual(dgvInmueblesActual);
+            }
+
             for (int i = 0; i < seleccionesNumerosInmuebles.Count; i++)
             {
                 string numeroInmueble = seleccionesNumerosInmuebles[i];
@@ -591,126 +596,6 @@ namespace Vista
                 MessageBox.Show("No se pudo actualizar el evento.",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void txtCiRucCliente_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char caracter = e.KeyChar;
-            bool esDigito = Char.IsDigit(caracter);
-            bool esBackspace = (caracter == (char)Keys.Back);
-
-            if (!esDigito && !esBackspace)
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void cmbTipoEvento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbTipoEvento.SelectedItem != null)
-            {
-                string tipoSeleccionado = cmbTipoEvento.SelectedItem.ToString();
-
-                admEvento.CargarDatosPredeterminadosEvento(tipoSeleccionado);
-
-                string nombreEvento = admEvento.ObtenerNombreEventoPredeterminado();
-                string descripcionEvento = admEvento.ObtenerDescripcionEventoPredeterminado();
-                int numeroPersonas = admEvento.ObtenerNumeroPersonasPredeterminado();
-                string direccionEvento = admEvento.ObtenerDireccionEventoPredeterminado();
-                string estadoEvento = admEvento.ObtenerEstadoEventoPredeterminado();
-
-                txtNombreEvento.Text = nombreEvento;
-                txtDescripcionEvento.Text = descripcionEvento;
-                txtNumPersonasEvento.Text = numeroPersonas.ToString();
-                txtbDireccionUbicacion.Text = direccionEvento;
-
-                for (int i = 0; i < cmbEstadoEvento.Items.Count; i++)
-                {
-                    if (cmbEstadoEvento.Items[i].ToString() == estadoEvento)
-                    {
-                        cmbEstadoEvento.SelectedIndex = i;
-                        break;
-                    }
-                }
-
-                gbAsignarInmuebles.Enabled = true;
-                nudCantidadInmueble.Enabled = true;
-
-                btnGuardarEvento.Enabled = true;
-            }
-        }
-
-        private void txtNombreEvento_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char caracter = e.KeyChar;
-            bool esLetra = Char.IsLetter(caracter);
-            bool esEspacio = (caracter == ' ');
-            bool esBackspace = (caracter == (char)Keys.Back);
-
-            if (!esLetra && !esEspacio && !esBackspace)
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtDescripcionEvento_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char caracter = e.KeyChar;
-            bool esLetra = Char.IsLetter(caracter);
-            bool esEspacio = (caracter == ' ');
-            bool esBackspace = (caracter == (char)Keys.Back);
-
-            if (!esLetra && !esEspacio && !esBackspace)
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtNumPersonasEvento_KeyPress_1(object sender, KeyPressEventArgs e)
-        {
-            char caracter = e.KeyChar;
-            bool esDigito = Char.IsDigit(caracter);
-            bool esBackspace = (caracter == (char)Keys.Back);
-
-            if (!esDigito && !esBackspace)
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtbDireccionUbicacion_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char caracter = e.KeyChar;
-            bool esLetra = Char.IsLetter(caracter);
-            bool esEspacio = (caracter == ' ');
-            bool esBackspace = (caracter == (char)Keys.Back);
-
-            if (!esLetra && !esEspacio && !esBackspace)
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void cmbEstadoEvento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbEstadoEvento.SelectedItem != null)
-            {
-                gbAsignarInmuebles.Enabled = true;
-                nudCantidadInmueble.Enabled = true;
-                btnGuardarEvento.Enabled = true;
-            }
-        }
-
-        private void selectTipoInmueble(object sender, EventArgs e)
-        {
-            filaActivaParaCantidad = -1;
-            cantidadMaximaDisponible = 0;
-
-            nudCantidadInmueble.Enabled = false;
-
-            admEvento.LlenarDescripcionInmuebleLocales(dgvInmuebles, Convert.ToString(cmbTipoInmueble.SelectedItem));
-
-            RestaurarSeleccionesPrevias();
         }
     }
 }

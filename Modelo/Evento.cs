@@ -20,7 +20,7 @@ namespace Modelo
         public string EstadoEvento { get; set; }
         public int NumModificacionesEvento { get; set; }
         public List<EventoInmueble> EventoInmueble { get; set; }
-
+        
         public Evento(int numEventos, Cliente cliente, string tipoEvento, string nombreEvento, string descripcionEvento, int numPersonasEvento, string direccionEvento, string estadoEvento, List<EventoInmueble> eventoInmueble)
         {
             this.NumEventos = numEventos;
@@ -34,7 +34,7 @@ namespace Modelo
             this.EventoInmueble = eventoInmueble;
             this.NumModificacionesEvento = 0;
         }
-
+        
         public string ObtenerNombreCliente()
         {
             if (Cliente != null)
@@ -43,7 +43,7 @@ namespace Modelo
             }
             return "Sin cliente asignado";
         }
-
+        
         public int ObtenerTotalInmuebles()
         {
             int total = 0;

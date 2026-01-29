@@ -47,6 +47,8 @@
     <Compile Include="DatosCliente.cs" />
     <Compile Include="DatosEvento.cs" />
     <Compile Include="DatosEventoInmueble.cs" />
+    <Compile Include="DatosFactura.cs" />
+    <Compile Include="DatosInmueble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

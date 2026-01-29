@@ -19,11 +19,11 @@ namespace Datos
                 sql = new SqlConnection(cadenaConexion);
                 sql.ConnectionString = cadenaConexion;
                 sql.Open();
-                return "Conexión exitosa!";
+                return "1";
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return "0" + ex.Message;
             }
         }
 
@@ -32,11 +32,11 @@ namespace Datos
             try
             {
                 sql.Close();
-                return "Desconexión exitosa!";
+                return "1";
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return "0" + ex.Message;
             }
         }
     }

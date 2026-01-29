@@ -11,16 +11,18 @@ namespace Datos
 {
     public class DatosEvento
     {
+        DatosEventoInmueble datosEventoInmueble = new DatosEventoInmueble();
         SqlCommand cmd = null;
+        int IdEvento;
 
-        public string RegistrarEvento(Evento evento, SqlConnection sql)
+        public int RegistrarEvento(Evento evento, SqlConnection sql)
         {
             string msj = "";
             string comando = "INSERT INTO Evento(NumEventos, IdCliente, TipoEvento, NombreEvento, DescripcionEvento," +
                 "NumPersonasEvento, DireccionEvento, EstadoEvento, NumModificacionesEvento," +
                 "FechaCreacion, Estado) VALUES(@NumEventos, @IdCliente, @TipoEvento, @NombreEvento," +
                 "@DescripcionEvento, @NumPersonasEvento, @DireccionEvento, @EstadoEvento," +
-                "@NumModificacionesEvento, @FechaCreacion, @Estado)";
+                "@NumModificacionesEvento, @FechaCreacion, @Estado)" + "SELECT CAST(SCOPE_IDENTITY() AS INT)";
 
             cmd = new SqlCommand(comando, sql);
             cmd.Parameters.AddWithValue("@NumEventos", evento.NumEventos);
@@ -37,7 +39,7 @@ namespace Datos
 
             try
             {
-                cmd.ExecuteNonQuery();
+                IdEvento = (int)cmd.ExecuteScalar();
                 msj = "Evento registrado correctamente!";
             }
             catch (Exception ex)
@@ -45,7 +47,7 @@ namespace Datos
                 Console.WriteLine(ex.Message);
                 msj = "Error al registrar el evento: " + ex.Message;
             }
-            return msj;
+            return IdEvento;
         }
 
         public List<Evento> ConsultarEventos(SqlConnection sql)
@@ -68,6 +70,7 @@ namespace Datos
                     evento.IdEvento = Convert.ToInt32(tablaVirtual["IdEvento"]);
                     evento.NumEventos = Convert.ToInt32(tablaVirtual["NumEventos"]);
                     evento.Cliente = new DatosCliente().BuscarClientePorIDCliente(Convert.ToInt32(tablaVirtual["IdCliente"]), cmd.Connection);
+                    evento.EventoInmueble.Add(datosEventoInmueble.ConsultarEventosInmueblesPorId(evento.IdEvento, sql));
                     evento.TipoEvento = tablaVirtual["TipoEvento"].ToString();
                     evento.NombreEvento = tablaVirtual["NombreEvento"].ToString();
                     evento.DescripcionEvento = tablaVirtual["DescripcionEvento"].ToString();

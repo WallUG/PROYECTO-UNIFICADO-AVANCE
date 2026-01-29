@@ -16,8 +16,16 @@ namespace Controlador
         public static List<EventoInmueble> listaEventoInmueblesTemp = new List<EventoInmueble>();
         ConexionBDD cnBDD = null;
         DatosEventoInmueble datosEventoInmueble = null;
+        static AdmEvento admEvento = new AdmEvento();
+        static int idEvento;
 
         public AdmEventoInmueble()
+        {
+            // Constructor vacío - La consulta se debe hacer explícitamente cuando se necesite
+        }
+
+        // Método público para consultar cuando sea necesario
+        public void CargarEventosInmueblesDesdeBaseDatos()
         {
             ConsultarEventoInmuebleBDD();
         }
@@ -56,7 +64,7 @@ namespace Controlador
             eventoInmueble.inmueble = inmueble;
             eventoInmueble.cantidadInmueble = cantidad;
             eventoInmueble.fechaAsignacionInmueble = fechaAsignacion;
-
+            
             return eventoInmueble;
         }
 
@@ -76,8 +84,10 @@ namespace Controlador
             if (!existe)
             {
                 listaEventoInmueblesTemp.Add(eventoInmueble);
-                AdmEventoInmueble instancia = new AdmEventoInmueble();
-                instancia.RegistrarEventoInmuebleBDD(eventoInmueble);
+                idEvento = admEvento.ObtenerNumeroEventoEditar();
+                // Nota: Si necesitas registrar en BDD, hacerlo desde donde se llama este método
+                // o descomentar y crear instancia solo cuando sea necesario:
+                // new AdmEventoInmueble().RegistrarEventoInmuebleBDD(idEvento, eventoInmueble);
             }
         }
 
@@ -91,11 +101,6 @@ namespace Controlador
                     break;
                 }
             }
-        }
-
-        public static List<EventoInmueble> ObtenerTodosLosInmueblesTemp()
-        {
-            return listaEventoInmueblesTemp;
         }
 
         public static void LimpiarInmueblesTemp()
@@ -120,7 +125,7 @@ namespace Controlador
             return listaEventoInmueblesTemp.Count;
         }
 
-        private void RegistrarEventoInmuebleBDD(EventoInmueble eventoInmueble)
+        private void RegistrarEventoInmuebleBDD(int idEvento, EventoInmueble eventoInmueble)
         {
             cnBDD = new ConexionBDD();
             datosEventoInmueble = new DatosEventoInmueble();
@@ -129,7 +134,7 @@ namespace Controlador
 
             if (msj[0] == '1')
             {
-                resp = datosEventoInmueble.RegistrarEventoInmueble(eventoInmueble, cnBDD.sql);
+                resp = datosEventoInmueble.RegistrarEventoInmueble(idEvento, eventoInmueble, cnBDD.sql);
                 if (resp[0] == '1')
                 {
                     MessageBox.Show("Los datos del Evento se registraron en la Base de Datos exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);

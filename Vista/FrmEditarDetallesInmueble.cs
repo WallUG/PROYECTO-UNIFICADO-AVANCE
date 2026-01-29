@@ -9,16 +9,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Visual
+namespace Vista
 {
-    public partial class FrmRegistroInmueble : Form
+    public partial class FrmEditarDetallesInmueble : Form
     {
-        //Creamos una instancia
         AdmInmueble admInmueble = new AdmInmueble();
-        public FrmRegistroInmueble()
+        public FrmEditarDetallesInmueble()
         {
-            InitializeComponent();//crea todos los controles
-            admInmueble.LlenarCombo(cmbTipo);//llamada para llenar combo box
+            AdmInmueble admInmueble = new AdmInmueble();
+            InitializeComponent();
+            admInmueble.LlenarCombo(cmbTipo);
+            CargarDatosInmueble();
+        }
+
+        private void CargarDatosInmueble()
+        {
+            string numeroInmueble = admInmueble.ObtenerNumeroInmuebleEditar();
+
+            if (string.IsNullOrEmpty(numeroInmueble))
+            {
+                MessageBox.Show("No se ha seleccionado ningun Inmueble para editar.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            admInmueble.CargarInmuebleParaEditar(groupBoxInmueble);
         }
 
         //Tipo de inmueble
@@ -61,8 +77,6 @@ namespace Visual
                 e.Handled = true;
                 return;
             }
-
-
         }
 
         //Boton guardar de inmueble
@@ -83,9 +97,10 @@ namespace Visual
             if (!admInmueble.EsVacio(nombre, tipo, cantidad, precio))
             {
                 //Registrar en el controlador
-                contenido = admInmueble.Registrar(nombre, tipo, cantidad, precio, disponible);
+                admInmueble.ModificarInmueble(nombre, tipo, cantidad, precio, disponible);
+                this.Close();
                 //Mostrar resultado
-                txtContenido.Text = contenido;//mostrar resultados
+                //txtContenido.Text = contenido;//mostrar resultados
             }
             else
             {

@@ -13,10 +13,13 @@ namespace Controlador
 
     public class AdmInmueble
     {
-
         //VISUAL
-        Conexion conexion = null;
+        Conexion conexion = new Conexion();
 
+        //BB
+        DatosInmueble datosInmueble = null;
+
+        static string numeroEditarInmueble;
         Inmueble inmu = null;
 
         //Lista Inmueble (Visual)
@@ -24,6 +27,39 @@ namespace Controlador
 
         // Array de Inmueble dinamico (Visual)
         private static string[] tipoIn = { "Locales", "Accesorios", "Servicios"};
+
+
+        //PARA EL SELECT
+        public AdmInmueble()
+        {
+            ConsultarInmuebleBB();
+        }
+
+        private void ConsultarInmuebleBB()
+        {
+            conexion = new Conexion();
+            string res = conexion.Conectar();
+            datosInmueble = new DatosInmueble();//
+            string resp = "";//
+
+            if (res[0] == '1')
+            {
+
+                //Registrar Inmueble en la BB
+                inmuebleL = datosInmueble.ConsultarInmueble(inmu, conexion.sql);//nuevo
+                if (inmuebleL.Count == 0)
+                {
+                    MessageBox.Show("No existen registros de Inmuebles en BDD");
+                }
+                conexion.Desconectar();
+
+            }
+            else if (res[0] == '0')
+            {
+                MessageBox.Show(res);
+            }
+
+        }
 
         public static string[] ObtenerTiposInmueble()
         {
@@ -51,15 +87,32 @@ namespace Controlador
         }
 
         //Verificar si esta vacio (Visual)
+        // En AdmInmueble.cs
+
         public bool EsVacio(string nombre, string tipo, int cantidad, double precio)
         {
-            bool flag = false;
+            // 1. Validar cadenas vacías
             if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(tipo))
             {
-                flag = true;
-                MessageBox.Show("Error: Se necesita todos los campos llenos");
+                MessageBox.Show("Error: Se necesita llenar todos los campos de texto.");
+                return true; // Retorna true porque "está vacío" o invalido
             }
-            return flag;
+
+            // 2. Validar que el precio sea mayor a 0
+            if (precio <= 0)
+            {
+                MessageBox.Show("Error: El precio debe ser mayor a 0.");
+                return true; // Retorna true indicando error
+            }
+
+            // 3. (Opcional) Validar cantidad si es necesario
+            if (cantidad <= 0)
+            {
+                MessageBox.Show("Error: La cantidad debe ser mayor a 0.");
+                return true;
+            }
+
+            return false; // Todo está correcto
         }
 
         //Registrar (Visual) Hace la logica
@@ -72,10 +125,13 @@ namespace Controlador
             int numeroInmueble = inmuebleL.Count() + 1;
             string numero = "00" + numeroInmueble.ToString();
             Inmueble inmu = new Inmueble(numero, nombre, tipo, cantidad, precio);//ID
-            inmu.inmuebleDisponible = disponible;
+
+            //REGISTRAR BB --------------
+            RegistrarInmuebleBB(inmu);
 
             if (inmu.RegistrarInmueble())//llama a metodo del modelo
             {
+                inmu.inmuebleDisponible = disponible;
                 inmuebleL.Add(inmu);//agrega a la lista
                 return inmu.ToString();//muestra el texto
             }
@@ -111,7 +167,6 @@ namespace Controlador
 
             }
         }
-
 
         public void verificarFiltros(string txtNumeroInmueble, string txtTipoInmueble, DataGridView dgvInmueble)/////////
         {
@@ -196,6 +251,8 @@ namespace Controlador
                 {
                     if (inmuebleL[i].numeroInmueble == numeroInmueble)
                     {
+                        //Llamar al metodo de eliminar en la BB
+                        EliminarClienteBDD(inmuebleL[i]);
                         inmuebleL.RemoveAt(i);
                         MessageBox.Show("Inmueble eliminado correctamente.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
@@ -204,7 +261,7 @@ namespace Controlador
             }
         }
 
-        private void Conectar()
+        public void Conectar()
         {
             conexion = new Conexion();
             string res = conexion.Conectar();
@@ -220,7 +277,196 @@ namespace Controlador
             }
         }
 
+
+        //Verificar si es editable
+        public bool EsEditable(int indice, DataGridView dgvInmueble)
+        {
+            string NumeroInmueble = dgvInmueble.Rows[indice].Cells["colNumeroInmueble"].Value.ToString();
+            foreach (Inmueble inmu in inmuebleL)
+            {
+                if (inmu.numeroInmueble == NumeroInmueble)
+                {
+                    if (inmu.cantidadInmuebleDisponible == 0)
+                    {
+                        MessageBox.Show("No puede ser editado no hay inmuebles.");
+                        return false;
+                    }
+                    else if (inmu.inmuebleDisponible == false)
+                    {
+                        MessageBox.Show("No puede ser editado no hay imueble disponible.");
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+            }
+            return true;
+        }
+
+        //Guardar numero editar inmueble
+        public void guardarNumeroEditarInmueble(int indice, DataGridView dgvInmueble)
+        {
+            string numeroInmueble = dgvInmueble.Rows[indice].Cells["colNumeroInmueble"].Value.ToString();
+            numeroEditarInmueble = numeroInmueble;
+        }
+
+        public string ObtenerNumeroInmuebleEditar()
+        {
+            return numeroEditarInmueble;
+        }
+
+        // Obtener inmueble por numero para editar
+        public Inmueble ObtenerInmueblePorNumero(string numeroInmueble)
+        {
+            foreach (Inmueble inmueble in inmuebleL)
+            {
+                if (inmueble.numeroInmueble == numeroInmueble)
+                {
+                    return inmueble;
+                }
+            }
+            return null;
+        }
+
+        // Obtener inmueble por numero para editar
+        public void CargarInmuebleParaEditar(GroupBox groupBoxInmueble)
+        {
+            Inmueble inmueble = ObtenerInmueblePorNumero(numeroEditarInmueble);
+
+            if (inmueble == null)
+            {
+                MessageBox.Show("No se encontró el inmueble a editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Cargar datos del inmueble en los TextBox correspondientes
+            foreach (Control c in groupBoxInmueble.Controls)
+            {
+                if (c is TextBox txt)
+                {
+                    switch (txt.Name)
+                    {
+                        case "txtNombre":
+                            txt.Text = inmueble.nombreInmueble;
+                            break;
+
+                    }
+                }
+
+                if (c is ComboBox cmb)
+                {
+                    switch (cmb.Name)
+                    {
+                        case "cmbTipo":
+                            for (int i= 0; i <cmb.Items.Count; i++)
+                            {
+                                if (cmb.Items[i].ToString() == inmueble.tipoInmueble)
+                                {
+                                    cmb.SelectedIndex=i;
+                                    break;
+                                }
+                            }
+                            break;
+
+                    }
+                }
+
+                if (c is NumericUpDown up)
+                {
+                    switch (up.Name)
+                    {
+                        case "nudCantidad":
+                            up.Text = inmueble.cantidadInmuebleDisponible.ToString();
+                            break;
+                        case "nudPrecio":
+                            up.Text = inmueble.precioInmueble.ToString();
+                            break;
+
+                    }
+                }
+
+                if (c is CheckBox chk)
+                {
+                    if (chk.Name == "chkDisponibilidad")
+                    {
+                        chk.Checked = inmueble.inmuebleDisponible;
+                    }
+                }
+
+            }
+        }
+
+        public void ModificarInmueble(string nombre, string tipo, int cantidad, double precio, bool disponible)
+        {
+            Inmueble inm = ObtenerInmueblePorNumero(numeroEditarInmueble);
+            if (inm != null)
+            {
+                inm.nombreInmueble = nombre;
+                inm.tipoInmueble = tipo;
+                inm.cantidadInmuebleDisponible = cantidad;
+                inm.precioInmueble = precio;
+                inm.inmuebleDisponible = disponible;
+                MessageBox.Show("Inmueble modificado correctamente.", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el inmueble a modificar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+
+        //PARA EL INSERT
+        private void RegistrarInmuebleBB(Inmueble inmu)//Nuevo metodo BB - Creo nueva clase
+        {
+            conexion = new Conexion();
+            string res = conexion.Conectar();
+            datosInmueble = new DatosInmueble();//
+            string resp = "";//
+
+            if (res[0] == '1')
+            {
+
+                //Registrar Inmueble en la BB
+                resp = datosInmueble.RegistrarInmueble(inmu, conexion.sql);//nuevo
+                if (resp[0] == '1')
+                {
+                    MessageBox.Show("Datos de Inmueble guardado en BDD"); ;
+                }
+                else if(resp[0] == '0')
+                {
+                    MessageBox.Show(resp, "Error al guardar en BDD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conexion.Desconectar();
+            }
+            else if (res[0] == '0')
+            {
+                MessageBox.Show(res, "Error de conexión a la Base de Datos!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        //Llamar al metodo de eliminar en la BB
+        public void EliminarClienteBDD(Inmueble inmu)
+        {
+            conexion = new Conexion();
+            DatosInmueble datosInmueble = new DatosInmueble();
+            string msj = conexion.Conectar();
+            if (msj[0] == '1')
+            {
+                datosInmueble.EliminarCliente(inmu, conexion.sql);
+                conexion.Desconectar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
+            }
+        }
+
     }
-}
+
+ }
 
 

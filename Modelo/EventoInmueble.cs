@@ -9,13 +9,15 @@ namespace Modelo
     // Clase EventoInmueble (clase dependiente)
     public class EventoInmueble
     {
+        public int idInmuebleEvento { get; set; }
 
+        public int idEvento { get; set; }
         public Inmueble inmueble { get; set; }
         public int cantidadInmueble { get; set; }
         public DateTime fechaAsignacionInmueble { get; set; }
         public List<Inmueble> listaInmuebles = new List<Inmueble>();
-        private int cantidadAsignada;
-        private DateTime fechaAsignacion;
+        public int cantidadAsignada;
+        public DateTime fechaAsignacion;
 
         public EventoInmueble(Inmueble inmueble, int cantidadInmueble, DateTime fechaAsignacionInmueble, List<Inmueble> listaInmuebles)
         {
@@ -27,6 +29,7 @@ namespace Modelo
 
         public EventoInmueble(Inmueble inmueble, int cantidadAsignada, DateTime fechaAsignacion)
         {
+            this.idEvento = idEvento;
             this.inmueble = inmueble;
             this.cantidadAsignada = cantidadAsignada;
             this.fechaAsignacion = fechaAsignacion;

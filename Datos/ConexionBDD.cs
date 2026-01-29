@@ -10,7 +10,7 @@ namespace Datos
 {
     public class ConexionBDD
     {
-        private static string cadenaConexion = ConfigurationManager.ConnectionStrings["MiConexionCastilloDaniel"].ConnectionString;
+        private static string cadenaConexion = ConfigurationManager.ConnectionStrings["ConexionDB"].ConnectionString;
         public SqlConnection sql { get; set; }
         public string Conectar()
         {

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Controlador
 {
@@ -17,11 +18,17 @@ namespace Controlador
     {
         public static List<Factura> listaFacturas = new List<Factura>();
         static string numeroEditarFactura;
-        public List<EventoInmueble> listaEventoInmueble = AdmEventoInmueble.ObtenerTodosLosInmueblesTemp();
         public List<Cliente> listaCliente = AdmCliente.ObtenerTodosLosClientes();
         public List<Reserva> listaReserva = AdmReserva.ObtenerTodosLasReservas();
         public List<Evento> listaEvento = AdmEvento.ObtenerTodosLosEventos();
-        Conexion cn = null;
+        Conexion cn = new Conexion();
+        DatosFactura datosFac = null;
+        int IdFacturaDB;
+
+        public AdmFactura()
+        {
+            ConsultarFacturasBDD();
+        }
 
         public void BuscarCliente(ComboBox cmNumeroEvento, GroupBox groupBoxCliente, string cedula)
         {
@@ -42,8 +49,8 @@ namespace Controlador
                             {
                                 switch (txt.Name)
                                 {
-                                    case "txtIdCliente":
-                                        txt.Text = item.Id.ToString();
+                                    case "txtNumeroCliente":
+                                        txt.Text = item.NumeroCliente.ToString();
                                         break;
 
                                     case "txtNombreCliente":
@@ -84,8 +91,8 @@ namespace Controlador
                         {
                             switch (txt.Name)
                             {
-                                case "txtIdCliente":
-                                    txt.Text = item.Cliente.Id.ToString();
+                                case "txtNumeroCliente":
+                                    txt.Text = item.Cliente.NumeroCliente.ToString();
                                     break;
 
                                 case "txtNombreCliente":
@@ -319,6 +326,44 @@ namespace Controlador
             return est + "-" + pto + "-" + sec;
         }
 
+        // Genera los detalles de factura a partir de los EventoInmueble
+        public void GenerarDetallesFactura(Factura factura)
+        {
+            factura.Detalles.Clear();
+            int idDetalle = 1;
+
+            if (factura.Evento?.EventoInmueble != null)
+            {
+                foreach (EventoInmueble item in factura.Evento.EventoInmueble)
+                {
+                    string descripcion = item.inmueble.nombreInmueble + " - " + item.inmueble.tipoInmueble;
+                    DetalleFactura detalle = new DetalleFactura(
+                        idDetalle,
+                        descripcion,
+                        item.cantidadInmueble,
+                        item.inmueble.precioInmueble
+                    );
+
+                    factura.Detalles.Add(detalle);
+                    idDetalle++;
+                }
+            }
+        }
+
+        // Calcula el subtotal sumando los subtotales de cada detalle
+        public void CalcularSubTotal(Factura factura)
+        {
+            float SubTotal = 0;
+            factura.SubTotal = SubTotal;
+            if (factura.Detalles != null && factura.Detalles.Count > 0)
+            {
+                foreach (DetalleFactura detalle in factura.Detalles)
+                {
+                    factura.SubTotal += detalle.Subtotal;
+                }
+            }
+        }
+
         public void generarFactura(GroupBox groupBoxFactura, int idEvento, string descuento)
         {
             Factura factura = null;
@@ -352,11 +397,15 @@ namespace Controlador
                     {
                         // Crear la nueva factura
                         int nuevoIndice = listaFacturas.Count + 1;
-                        factura = new Factura(nuevoIndice, item);
-                        listaFacturas.Add(factura);
+                        factura = new Factura(item);
+                        //listaFacturas.Add(factura);
                         MessageBox.Show("Descuento de: " + descuento);
+                        GenerarDetallesFactura(factura);
+                        CalcularSubTotal(factura);
                         factura.GenerarFactura(descuento);
                         factura.NumeroFactura = GenerarNumeroFacturaAuto(listaFacturas, 1, nuevoIndice);
+                        RegistrarFacturaBDD(factura);
+                        RegistrarDetallesFacturaBDD(factura);
                     }
 
                     // Actualizar los controles del GroupBox
@@ -385,7 +434,20 @@ namespace Controlador
                                     txt.Text = factura.Estado;
                                     break;
                                 case "txtDescuento":
-                                    txt.Text = factura.Descuento;
+                                    if (factura.Descuento > 0)
+                                        txt.Text = factura.Descuento.ToString();
+                                    else
+                                    {
+                                        txt.Text = "No Aplica";
+                                    }
+                                    break;
+                                case "txtDescuentoAplicado":
+                                    if (factura.Descuento > 0)
+                                        txt.Text = factura.DescuentoAplicado.ToString();
+                                    else
+                                    {
+                                        txt.Text = "No Aplica";
+                                    }
                                     break;
                             }
                         }
@@ -517,6 +579,7 @@ namespace Controlador
                 {
                     if (listaFacturas[i].NumeroFactura == numeroFacturas)
                     {
+                        EliminarFacturaBDD(numeroFacturas);
                         listaFacturas.RemoveAt(i);
                         MessageBox.Show("Factura eliminada correctamente.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
@@ -708,8 +771,8 @@ namespace Controlador
                 {
                     switch (txt.Name)
                     {
-                        case "txtIdCliente":
-                            txt.Text = factura.Evento.Cliente.Id.ToString();
+                        case "txtNumeroCliente":
+                            txt.Text = factura.Evento.Cliente.NumeroCliente.ToString();
                             break;
                         case "txtCedula":
                             txt.Text = factura.Evento.Cliente.CedulaORuc;
@@ -791,7 +854,20 @@ namespace Controlador
                             txt.Text = factura.Total.ToString("N2");
                             break;
                         case "txtDescuento":
-                            txt.Text = factura.Descuento;
+                            if (factura.Descuento > 0)
+                                txt.Text = factura.Descuento.ToString();
+                            else
+                            {
+                                txt.Text = "No Aplica";
+                            }
+                            break;
+                        case "txtDescuentoAplicado":
+                            if (factura.Descuento > 0)
+                                txt.Text = factura.DescuentoAplicado.ToString();
+                            else
+                            {
+                                txt.Text = "No Aplica";
+                            }
                             break;
                     }
                 }
@@ -813,16 +889,16 @@ namespace Controlador
             dgvDetalles.Rows.Clear();
             int indice = 0;
 
-            if (factura.Evento?.EventoInmueble != null)
+            if (factura.Evento != null)
             {
-                foreach (EventoInmueble eInm in factura.Evento.EventoInmueble)
+                foreach (DetalleFactura eInm in factura.Detalles)
                 {
                     dgvDetalles.Rows.Add();
-                    dgvDetalles.Rows[indice].Cells["colIdDetalle"].Value = eInm.ObtenerNumInmuebles();
-                    dgvDetalles.Rows[indice].Cells["colNombre"].Value = eInm.inmueble.nombreInmueble;
-                    dgvDetalles.Rows[indice].Cells["colCantidad"].Value = eInm.cantidadInmueble;
-                    dgvDetalles.Rows[indice].Cells["colPrecioUnitario"].Value = eInm.inmueble.precioInmueble.ToString("N2");
-                    dgvDetalles.Rows[indice].Cells["colSubtotal"].Value = eInm.CalcularMontoInmueble().ToString("N2");
+                    dgvDetalles.Rows[indice].Cells["colIdDetalle"].Value = eInm.NumDetalle;
+                    dgvDetalles.Rows[indice].Cells["colNombre"].Value = eInm.Descripcion;//inmueble.nombreInmueble;
+                    dgvDetalles.Rows[indice].Cells["colCantidad"].Value = eInm.Cantidad;
+                    dgvDetalles.Rows[indice].Cells["colPrecioUnitario"].Value = eInm.PrecioUnitario.ToString("N2");
+                    dgvDetalles.Rows[indice].Cells["colSubtotal"].Value = eInm.Subtotal.ToString("N2");
                     indice++;
                 }
             }
@@ -845,18 +921,20 @@ namespace Controlador
             }
 
             // Recalcular la factura con el nuevo descuento
-            factura.GenerarDetallesFactura();
-            factura.CalcularSubTotal();
-            
+            GenerarDetallesFactura(factura);
+            CalcularSubTotal(factura);
+
             // Aplicar el nuevo descuento
+
             try
             {
                 double subtotalOriginal = factura.SubTotal;
-                
+
                 if (!string.IsNullOrWhiteSpace(nuevoDescuento) && nuevoDescuento != "0" && nuevoDescuento != "0.00")
                 {
                     double porcentajeDescuento = double.Parse(nuevoDescuento);
-                    
+                    factura.Descuento = (int)porcentajeDescuento;
+
                     if (porcentajeDescuento > 1)
                     {
                         porcentajeDescuento = porcentajeDescuento / 100.0;
@@ -865,22 +943,19 @@ namespace Controlador
                     if (porcentajeDescuento >= 0 && porcentajeDescuento <= 1)
                     {
                         double descuentoMonto = subtotalOriginal * porcentajeDescuento;
-                        factura.Descuento = descuentoMonto.ToString("F2");
+                        factura.DescuentoAplicado = (int)descuentoMonto;
                         factura.SubTotal = subtotalOriginal - descuentoMonto;
-                    }
-                    else
-                    {
-                        factura.Descuento = "No aplica";
                     }
                 }
                 else
                 {
-                    factura.Descuento = "No aplica";
+                    MessageBox.Show("Descuento no válido, se aplicará '0%'.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    factura.Descuento = 0;
                 }
             }
             catch (Exception)
             {
-                factura.Descuento = "No aplica";
+                //
             }
 
             factura.CalcularIVA();
@@ -903,7 +978,19 @@ namespace Controlador
                             txt.Text = factura.Total.ToString("N2");
                             break;
                         case "txtDescuento":
-                            txt.Text = factura.Descuento;
+                            if(factura.Descuento > 0)
+                                txt.Text = factura.Descuento.ToString();
+                            else {
+                                txt.Text = "No Aplica";
+                            }
+                            break;
+                        case "txtDescuentoAplicado":
+                            if (factura.Descuento > 0)
+                                txt.Text = factura.DescuentoAplicado.ToString();
+                            else
+                            {
+                                txt.Text = "No Aplica";
+                            }
                             break;
                     }
                 }
@@ -927,6 +1014,7 @@ namespace Controlador
                 MessageBox.Show("Solo se pueden guardar cambios en facturas con estado Pendiente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+
 
             MessageBox.Show("Los cambios han sido guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return true;
@@ -973,7 +1061,7 @@ namespace Controlador
         public bool AnularFacturaEdicion(GroupBox groupBoxFactura)
         {
             Factura factura = ObtenerFacturaPorNumero(numeroEditarFactura);
-            
+
             if (factura == null)
             {
                 MessageBox.Show("No se encontró la factura.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -986,13 +1074,13 @@ namespace Controlador
                 return false;
             }
 
-            DialogResult resultado = MessageBox.Show("¿Está seguro de que desea anular esta factura?", 
+            DialogResult resultado = MessageBox.Show("¿Está seguro de que desea anular esta factura?",
                 "Confirmar anulación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (resultado == DialogResult.Yes)
             {
                 factura.AnularFactura();
-                
+
                 // Actualizar el estado en el formulario
                 foreach (Control c in groupBoxFactura.Controls)
                 {
@@ -1010,8 +1098,38 @@ namespace Controlador
             return false;
         }
 
-        private void Conectar()
+        public void RegistrarDetallesFacturaBDD(Factura factura)
         {
+            cn = new Conexion();
+            datosFac = new DatosFactura();
+            string msj = cn.Conectar();
+            string resp = "";
+            if (msj[0] == '1')
+            {
+                foreach (DetalleFactura detalle in factura.Detalles)
+                {
+                    detalle.IdFactura = IdFacturaDB;
+                    resp = datosFac.RegistrarDetalleFactura(detalle, cn.sql);
+                    if (resp[0] == '1')
+                    {
+                        //MessageBox.Show("Detalle de Factura guardado en BDD");
+                    }
+                    else if (resp[0] == '0')
+                    {
+                        MessageBox.Show(resp);
+                    }
+                }
+                cn.Desconectar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
+            }
+        }
+
+        public void Conectar()
+        {
+            cn = new Conexion();
             string res = cn.Conectar();
             if (res[0] == '1')
             {
@@ -1020,6 +1138,69 @@ namespace Controlador
             else if (res[0] == '0')
             {
                 MessageBox.Show(res, "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RegistrarFacturaBDD(Factura factura)
+        {
+            cn = new Conexion();
+            datosFac = new DatosFactura();
+            string msj = cn.Conectar();
+            string resp = "";
+            if (msj[0] == '1')
+            {
+                resp = datosFac.RegistrarFactura(factura, cn.sql);
+                if (resp[0] == '0')
+                {
+                    MessageBox.Show(resp);
+                }
+                else
+                {
+                    MessageBox.Show("Datos de Factura guardados en BDD");
+                    IdFacturaDB = int.Parse(resp);
+                    factura.IdFactura = IdFacturaDB;
+                }
+                cn.Desconectar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
+            }
+        }
+
+        private void ConsultarFacturasBDD()
+        {
+            cn = new Conexion();
+            datosFac = new DatosFactura();
+            string msj = cn.Conectar();
+            if (msj[0] == '1')
+            {
+                listaFacturas = datosFac.ConsultarFacturas(cn.sql);
+                if(listaFacturas.Count == 0)
+                {
+                    MessageBox.Show("No hay facturas registradas en la base de datos.");
+                }
+                cn.Desconectar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
+            }
+        }
+
+        private void EliminarFacturaBDD(string NumeroFactura)
+        {
+            cn = new Conexion();
+            datosFac = new DatosFactura();
+            string msj = cn.Conectar();
+            if (msj[0] == '1')
+            {
+                datosFac.EliminarFactura(NumeroFactura, cn.sql);
+                cn.Desconectar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
             }
         }
     }

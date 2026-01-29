@@ -1,4 +1,5 @@
-﻿using Modelo;
+﻿using Datos;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,11 @@ namespace Controlador
     {
         static List<Cliente> listaCliente = new List<Cliente>();
         private int contadorId;
-
+        Conexion Cn = null;
         public AdmCliente()
         {
             //listaCliente = new List<Cliente>();
+            ConsultarClientesBDD();
             contadorId = 1;
         }
 
@@ -157,8 +159,9 @@ namespace Controlador
                 }  int idCliente = listaCliente.Count + 1;
 
                 
-                Cliente cliente = new Cliente(idCliente, nombre, apellido, cedula, correo, telefono, direccion);
+                Cliente cliente = new Cliente(idCliente, nombre, apellido, cedula, telefono, correo, direccion);
                 listaCliente.Add(cliente);
+                RegistrarClienteBDD(cliente);
                 MessageBox.Show(" Cliente registrado con exito");
             }catch (Exception ex)
             {
@@ -200,7 +203,9 @@ namespace Controlador
                 + cedula + "?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (resultado == DialogResult.Yes)
             {
+                EliminarClienteBDD(ObtenerClientePorIdentificacion(cedula));
                 listaCliente.RemoveAt(indice);
+
                 MostrarClientes(dgvCliente);
                 MessageBox.Show("Cliente eliminado correctamente.", "Eliminación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -231,6 +236,77 @@ namespace Controlador
             else
             {
                 MessageBox.Show("No se encontró ningún cliente con la cédula o RUC proporcionada.");
+            }
+        }
+
+        public void Conectar()
+        {
+            Cn = new Conexion();
+            string res = Cn.Conectar();
+            if (res[0] == '1')
+            {
+                MessageBox.Show("Conexión exitosa");
+            }
+            else if (res[0] == '0')
+            {
+                MessageBox.Show(res, "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RegistrarClienteBDD(Cliente cliente)
+        {
+            Cn = new Conexion();
+            DatosCliente datosCli = new DatosCliente();
+            string msj = Cn.Conectar();
+            string resp = "";
+            if (msj[0] == '1')
+            {
+                resp = datosCli.RegistrarCLiente(cliente, Cn.sql);
+                if (resp[0] == '1')
+                {
+                    MessageBox.Show("Datos de cliente guardados en BDD");
+                }
+                else if (resp[0] == '0')
+                {
+                    MessageBox.Show(resp);
+                }
+                Cn.Desconectar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
+            }
+        }
+
+        public void ConsultarClientesBDD()
+        {
+            Cn = new Conexion();
+            DatosCliente datosCli = new DatosCliente();
+            string msj = Cn.Conectar();
+            if (msj[0] == '1')
+            {
+                listaCliente = datosCli.ListarClientes(Cn.sql);
+                Cn.Desconectar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
+            }
+        }
+
+        public void EliminarClienteBDD(Cliente cliente)
+        {
+            Cn = new Conexion();
+            DatosCliente datosCli = new DatosCliente();
+            string msj = Cn.Conectar();
+            if (msj[0] == '1')
+            {
+                datosCli.EliminarCliente(cliente, Cn.sql);
+                Cn.Desconectar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
             }
         }
     }
