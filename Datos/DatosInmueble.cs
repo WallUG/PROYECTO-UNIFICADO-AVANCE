@@ -28,13 +28,13 @@ namespace Datos//TODAS LAS SENTENCIAS
                 while (tablaVirtual.Read())
                 {
                     inmueble = new Inmueble("", "", "", 0, 0.0);
-                    inmueble.idInmueble = Convert.ToInt32(tablaVirtual["idInmueble"]);
-                    inmueble.nombreInmueble = tablaVirtual["nombreInmueble"].ToString().Trim();
-                    inmueble.tipoInmueble = tablaVirtual["tipoInmueble"].ToString().Trim();
-                    inmueble.cantidadInmuebleDisponible = Convert.ToInt32(tablaVirtual["cantidadInmuebleDisponible"]);
-                    inmueble.precioInmueble = Convert.ToDouble(tablaVirtual["precioInmueble"]);
-                    inmueble.inmuebleDisponible = Convert.ToBoolean(tablaVirtual["inmuebleDisponible"]);
-                    inmueble.numeroInmueble = tablaVirtual["numeroInmueble"].ToString().Trim();
+                    inmueble.idInmueble = Convert.ToInt32(tablaVirtual["IdInmueble"]);
+                    inmueble.nombreInmueble = tablaVirtual["NombreInmueble"].ToString().Trim();
+                    inmueble.tipoInmueble = tablaVirtual["TipoInmueble"].ToString().Trim();
+                    inmueble.cantidadInmuebleDisponible = Convert.ToInt32(tablaVirtual["CantidadInmuebleDisponible"]);
+                    inmueble.precioInmueble = Convert.ToDouble(tablaVirtual["PrecioInmueble"]);
+                    inmueble.inmuebleDisponible = Convert.ToBoolean(tablaVirtual["InmuebleDisponible"]);
+                    inmueble.numeroInmueble = tablaVirtual["NumeroInmueble"].ToString().Trim();
                     //inmueble.Estado = tablaVirtual["Estado"].ToString();//ESTADO
                     inmuebleL.Add(inmueble);
                 }
@@ -68,17 +68,17 @@ namespace Datos//TODAS LAS SENTENCIAS
         public string RegistrarInmueble(Inmueble inmu, SqlConnection sql)//nuevo (INSERT)
         {
             string msj = "";
-            string comando = "INSERT INTO Inmueble (nombreInmueble, tipoInmueble, cantidadInmuebleDisponible, precioInmueble, inmuebleDisponible, numeroInmueble, Estado)" +
-                             "VALUES (@nombreInmueble, @tipoInmueble, @cantidadInmuebleDisponible, @precioInmueble, @inmuebleDisponible, @numeroInmueble, @Estado)";//ESTADO
+            string comando = "INSERT INTO Inmueble (NumeroInmueble, NombreInmueble, TipoInmueble, CantidadInmuebleDisponible, PrecioInmueble, InmuebleDisponible, Estado)" +
+                             "VALUES (@NumeroInmueble, @NombreInmueble, @TipoInmueble, @CantidadInmuebleDisponible, @PrecioInmueble, @InmuebleDisponible, @Estado)";//ESTADO
             cmd = new SqlCommand(comando, sql);
             try
             {
-                cmd.Parameters.AddWithValue("@nombreInmueble", inmu.nombreInmueble);
-                cmd.Parameters.AddWithValue("@tipoInmueble", inmu.tipoInmueble);
-                cmd.Parameters.AddWithValue("@cantidadInmuebleDisponible", inmu.cantidadInmuebleDisponible);
-                cmd.Parameters.AddWithValue("@precioInmueble", inmu.precioInmueble);
-                cmd.Parameters.AddWithValue("@inmuebleDisponible", inmu.inmuebleDisponible);
-                cmd.Parameters.AddWithValue("@numeroInmueble", inmu.numeroInmueble);
+                cmd.Parameters.AddWithValue("@NumeroInmueble", inmu.numeroInmueble);
+                cmd.Parameters.AddWithValue("@NombreInmueble", inmu.nombreInmueble);
+                cmd.Parameters.AddWithValue("@TipoInmueble", inmu.tipoInmueble);
+                cmd.Parameters.AddWithValue("@CantidadInmuebleDisponible", inmu.cantidadInmuebleDisponible);
+                cmd.Parameters.AddWithValue("@PrecioInmueble", inmu.precioInmueble);
+                cmd.Parameters.AddWithValue("@InmuebleDisponible", inmu.inmuebleDisponible);
                 cmd.Parameters.AddWithValue("@Estado", 'A');//ESTADO
 
                 //cmd.Parameters.AddWithValue("@Estado", inmu.Estado);//ESTADO
