@@ -11,6 +11,7 @@ namespace Datos
     public class DatosReserva
     {
         SqlCommand cmd = null;
+        DatosEvento datosEvento = new DatosEvento();
         public List<Reserva> ConsultarReservas(SqlConnection cn)
         {
             List<Reserva> lista = new List<Reserva>();
@@ -26,7 +27,7 @@ namespace Datos
                 while (tablaVirtual.Read())
                 {
                     reserva = new Reserva();
-                    reserva.evento.IdEvento = Convert.ToInt32(tablaVirtual["Cliente"]);
+                    reserva.evento = datosEvento.BuscarEventoPorIDEvento(Convert.ToInt32(tablaVirtual["IdEvento"]), cmd.Connection);
                     reserva.IdReserva = Convert.ToInt32(tablaVirtual["idReserva"]);
                     reserva.CodigoReserva = tablaVirtual["CodigoReserva"].ToString();
                     reserva.FechaReserva = DateTime.Parse(tablaVirtual["FechaReserva"].ToString());
