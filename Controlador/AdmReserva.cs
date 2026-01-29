@@ -1,4 +1,5 @@
 ﻿//NICK ADRIAN ZAMBRANO ARTEAGA
+using Datos;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,12 @@ namespace Controlador
         static List<Reserva> listaReservas = new List<Reserva>();
         List<Evento> listaEvento = AdmEvento.ObtenerTodosLosEventos();
         Evento even = null;
+        Conexion Cn = null;
+        DatosReserva datosReser = null;
         //Inicializa la lista de reservas vacia
         public AdmReserva()
         {
-
+            ConsultarReservaBDD();
         }
 
         public static Reserva ObtenerReservaPorId(int id)
@@ -127,6 +130,7 @@ namespace Controlador
             nuevaReserva.HoraFin = horaFin.TimeOfDay;
             nuevaReserva.TipoSolicitud = tipSolicitud;
             listaReservas.Add(nuevaReserva);
+            RegistrarReservaBBD(nuevaReserva);
             return nuevaReserva.MostrarReserva();
         }
 
@@ -214,6 +218,7 @@ namespace Controlador
             {
                 dgvReservas.Rows.RemoveAt(indice);
 
+                EliminarReservaBDD(codigoReservaB);
                 listaReservas.RemoveAll(r => r.CodigoReserva == codigoReservaB);
 
                 MessageBox.Show("Registro de Reserva " + codigoReservaB + " se eliminó correctamente!");
@@ -325,5 +330,96 @@ namespace Controlador
             return "Reserva " + CodigoReserva + " actualizada exitosamente\n" + reservaExistente.MostrarReserva();
         }
 
+         public void Conectar()
+            {
+                Cn = new Conexion();
+                string msj = Cn.Conectar();
+                if (msj[0] == '1')
+                {
+                    MessageBox.Show("Conexión a la Base de Datos Exitosa");
+                    Cn.Desconectar();
+
+                }
+                else if (msj[0] == '0')
+                {
+                    MessageBox.Show(msj);
+                }
+            }
+
+        //Método para registrar una reserva en la base de datos
+        private void RegistrarReservaBBD(Reserva nuevaReserva)
+        {
+            Cn = new Conexion();
+            datosReser = new DatosReserva();
+            string msj = Cn.Conectar();
+            string resp = "";
+            if (msj[0] == '1')
+            {
+                resp = datosReser.RegistrarReserva(nuevaReserva, Cn.sql);
+                if (resp[0] == '1')
+                {
+                    MessageBox.Show("Reserva registrada en la BDD");
+                }
+                else
+                {
+                    MessageBox.Show(resp);
+                }
+                Cn.Desconectar();
+
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
+            }
+        }
+
+        //Método para eliminar una reserva en la base de datos
+        private void EliminarReservaBDD(string CodigoReserva)
+        {
+            Cn = new Conexion();
+            datosReser = new DatosReserva();
+            string msj = Cn.Conectar();
+            string resp = "";
+
+            if (msj[0] == '1')
+            {
+                resp = datosReser.EliminarReservaBBD(CodigoReserva, Cn.sql);
+
+                if (resp[0] == '1')
+                {
+                    MessageBox.Show("Reserva con código " + CodigoReserva + " eliminada en BDD");
+                }
+                else if (resp[0] == '0')
+                {
+                    MessageBox.Show(resp);
+                }
+                Cn.Desconectar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
+            }
+        }
+
+        private void ConsultarReservaBDD()
+        {
+            Cn = new Conexion();
+            datosReser = new DatosReserva();
+            string msj = Cn.Conectar();
+            if (msj[0] == '1')
+            {
+                listaReservas = datosReser.ConsultarReservas(Cn.sql);
+                if (listaReservas.Count == 0)
+                {
+                    MessageBox.Show("No existen registros de reservas en la BDD");
+                }
+                Cn.Desconectar();
+
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
+            }
+        }
     }
 }

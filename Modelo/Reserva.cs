@@ -18,6 +18,7 @@ namespace Modelo
         public TimeSpan HoraFin { get; set; }
         public string EstadoReserva { get; set; }
         public string TipoSolicitud { get; set; }
+        public string Estado { get; set; }
 
         private static int contadorCodigo = 1;
 
@@ -50,7 +51,7 @@ namespace Modelo
             TipoSolicitud = tipoSolicitud;
         }
 
-        //Mostraar datos 
+        //Mostraar datos CONSOLA
         public string MostrarReserva()
         {
             string mensaje = "\n===== RESERVA #" + CodigoReserva + " =====" +
