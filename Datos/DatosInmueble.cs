@@ -35,7 +35,7 @@ namespace Datos//TODAS LAS SENTENCIAS
                     inmueble.precioInmueble = Convert.ToDouble(tablaVirtual["PrecioInmueble"]);
                     inmueble.inmuebleDisponible = Convert.ToBoolean(tablaVirtual["InmuebleDisponible"]);
                     inmueble.numeroInmueble = tablaVirtual["NumeroInmueble"].ToString().Trim();
-                    //inmueble.Estado = tablaVirtual["Estado"].ToString();//ESTADO
+                    inmueble.Estado = tablaVirtual["Estado"].ToString();//ESTADO
                     inmuebleL.Add(inmueble);
                 }
             }
