@@ -63,6 +63,8 @@
             this.lblTipoEvento = new System.Windows.Forms.Label();
             this.lblIdEvento = new System.Windows.Forms.Label();
             this.groupBoxFactura = new System.Windows.Forms.GroupBox();
+            this.txtDescuentoAplicado = new System.Windows.Forms.TextBox();
+            this.lblDescuentoAplicado = new System.Windows.Forms.Label();
             this.txtEstadoFactura = new System.Windows.Forms.TextBox();
             this.btnEmitirFactura = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
@@ -85,14 +87,12 @@
             this.lblIdFactura = new System.Windows.Forms.Label();
             this.groupBoxDetalles = new System.Windows.Forms.GroupBox();
             this.dgvDetallesFactura = new System.Windows.Forms.DataGridView();
-            this.colIdDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.colNumDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.txtDescuentoAplicado = new System.Windows.Forms.TextBox();
-            this.lblDescuentoAplicado = new System.Windows.Forms.Label();
             this.groupBoxCliente.SuspendLayout();
             this.groupBoxEvento.SuspendLayout();
             this.groupBoxFactura.SuspendLayout();
@@ -494,6 +494,26 @@
             this.groupBoxFactura.TabStop = false;
             this.groupBoxFactura.Text = "Información de la Factura";
             // 
+            // txtDescuentoAplicado
+            // 
+            this.txtDescuentoAplicado.Location = new System.Drawing.Point(453, 222);
+            this.txtDescuentoAplicado.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDescuentoAplicado.Name = "txtDescuentoAplicado";
+            this.txtDescuentoAplicado.ReadOnly = true;
+            this.txtDescuentoAplicado.Size = new System.Drawing.Size(159, 22);
+            this.txtDescuentoAplicado.TabIndex = 19;
+            this.txtDescuentoAplicado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblDescuentoAplicado
+            // 
+            this.lblDescuentoAplicado.AutoSize = true;
+            this.lblDescuentoAplicado.Location = new System.Drawing.Point(313, 226);
+            this.lblDescuentoAplicado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDescuentoAplicado.Name = "lblDescuentoAplicado";
+            this.lblDescuentoAplicado.Size = new System.Drawing.Size(132, 16);
+            this.lblDescuentoAplicado.TabIndex = 18;
+            this.lblDescuentoAplicado.Text = "Descuento Aplicado:";
+            // 
             // txtEstadoFactura
             // 
             this.txtEstadoFactura.Location = new System.Drawing.Point(160, 126);
@@ -717,7 +737,7 @@
             this.dgvDetallesFactura.AllowUserToAddRows = false;
             this.dgvDetallesFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetallesFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colIdDetalle,
+            this.colNumDetalle,
             this.colNombre,
             this.colCantidad,
             this.colPrecioUnitario,
@@ -729,15 +749,26 @@
             this.dgvDetallesFactura.Size = new System.Drawing.Size(600, 271);
             this.dgvDetallesFactura.TabIndex = 0;
             // 
-            // colIdDetalle
+            // lblTitulo
             // 
-            this.colIdDetalle.Frozen = true;
-            this.colIdDetalle.HeaderText = "ID";
-            this.colIdDetalle.MinimumWidth = 6;
-            this.colIdDetalle.Name = "colIdDetalle";
-            this.colIdDetalle.ReadOnly = true;
-            this.colIdDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colIdDetalle.Width = 50;
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(520, 18);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(310, 31);
+            this.lblTitulo.TabIndex = 11;
+            this.lblTitulo.Text = "Módulo de Facturación";
+            // 
+            // colNumDetalle
+            // 
+            this.colNumDetalle.Frozen = true;
+            this.colNumDetalle.HeaderText = "Num";
+            this.colNumDetalle.MinimumWidth = 6;
+            this.colNumDetalle.Name = "colNumDetalle";
+            this.colNumDetalle.ReadOnly = true;
+            this.colNumDetalle.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNumDetalle.Width = 50;
             // 
             // colNombre
             // 
@@ -778,37 +809,6 @@
             this.colSubtotal.ReadOnly = true;
             this.colSubtotal.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colSubtotal.Width = 80;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(520, 18);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(310, 31);
-            this.lblTitulo.TabIndex = 11;
-            this.lblTitulo.Text = "Módulo de Facturación";
-            // 
-            // txtDescuentoAplicado
-            // 
-            this.txtDescuentoAplicado.Location = new System.Drawing.Point(453, 222);
-            this.txtDescuentoAplicado.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDescuentoAplicado.Name = "txtDescuentoAplicado";
-            this.txtDescuentoAplicado.ReadOnly = true;
-            this.txtDescuentoAplicado.Size = new System.Drawing.Size(159, 22);
-            this.txtDescuentoAplicado.TabIndex = 19;
-            this.txtDescuentoAplicado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lblDescuentoAplicado
-            // 
-            this.lblDescuentoAplicado.AutoSize = true;
-            this.lblDescuentoAplicado.Location = new System.Drawing.Point(313, 226);
-            this.lblDescuentoAplicado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDescuentoAplicado.Name = "lblDescuentoAplicado";
-            this.lblDescuentoAplicado.Size = new System.Drawing.Size(132, 16);
-            this.lblDescuentoAplicado.TabIndex = 18;
-            this.lblDescuentoAplicado.Text = "Descuento Aplicado:";
             // 
             // FrmRegistroFactura
             // 
@@ -895,17 +895,17 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.ComboBox cmbNumeroEvento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdDetalle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioUnitario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal;
         private System.Windows.Forms.TextBox txtEstadoEvento;
         private System.Windows.Forms.TextBox txtEstadoFactura;
         private System.Windows.Forms.TextBox txtReservaFecha;
         private System.Windows.Forms.Label lblReservaFecha;
         private System.Windows.Forms.TextBox txtDescuentoAplicado;
         private System.Windows.Forms.Label lblDescuentoAplicado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumDetalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioUnitario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal;
     }
 }
 

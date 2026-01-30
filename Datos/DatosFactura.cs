@@ -181,5 +181,30 @@ namespace Datos
             }
             return msj;
         }
+
+        public string ActualizarFactura(Factura factura, SqlConnection sql)
+        {
+            string msj = "";
+            string comando = "UPDATE Factura SET SubTotal=@SubTotal, Iva=@Iva, Descuento=@Descuento, Total=@Total, " +
+                "EstadoFactura=@EstadoFactura WHERE NumeroFactura=@NumeroFactura";
+            cmd = new SqlCommand(comando, sql);
+            cmd.Parameters.AddWithValue("@SubTotal", factura.SubTotal);
+            cmd.Parameters.AddWithValue("@Iva", factura.Iva);
+            cmd.Parameters.AddWithValue("@Descuento", factura.Descuento);
+            cmd.Parameters.AddWithValue("@Total", factura.Total);
+            cmd.Parameters.AddWithValue("@EstadoFactura", factura.Estado);
+            cmd.Parameters.AddWithValue("@NumeroFactura", factura.NumeroFactura);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                msj = "1";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                msj = "0" + ex.Message;
+            }
+            return msj;
+        }
     }
 }

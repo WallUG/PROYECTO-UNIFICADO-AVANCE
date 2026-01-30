@@ -36,7 +36,7 @@
             this.txtApellidoCliente = new System.Windows.Forms.TextBox();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.txtCedula = new System.Windows.Forms.TextBox();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
+            this.txtNumeroCliente = new System.Windows.Forms.TextBox();
             this.lblDireccionCliente = new System.Windows.Forms.Label();
             this.lblCorreoCliente = new System.Windows.Forms.Label();
             this.lblTelefonoCliente = new System.Windows.Forms.Label();
@@ -81,12 +81,12 @@
             this.lblIdFactura = new System.Windows.Forms.Label();
             this.groupBoxDetalles = new System.Windows.Forms.GroupBox();
             this.dgvDetallesFactura = new System.Windows.Forms.DataGridView();
-            this.colIdDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblInfoEdicion = new System.Windows.Forms.Label();
+            this.colNumDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblInfoEdicion = new System.Windows.Forms.Label();
             this.groupBoxCliente.SuspendLayout();
             this.groupBoxEvento.SuspendLayout();
             this.groupBoxFactura.SuspendLayout();
@@ -102,21 +102,9 @@
             this.lblTitulo.Location = new System.Drawing.Point(420, 15);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(270, 31);
+            this.lblTitulo.Size = new System.Drawing.Size(338, 31);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Editar Factura Pendiente";
-            // 
-            // lblInfoEdicion
-            // 
-            this.lblInfoEdicion.AutoSize = true;
-            this.lblInfoEdicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoEdicion.ForeColor = System.Drawing.Color.Gray;
-            this.lblInfoEdicion.Location = new System.Drawing.Point(380, 50);
-            this.lblInfoEdicion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblInfoEdicion.Name = "lblInfoEdicion";
-            this.lblInfoEdicion.Size = new System.Drawing.Size(350, 18);
-            this.lblInfoEdicion.TabIndex = 1;
-            this.lblInfoEdicion.Text = "Solo puede modificar el descuento en facturas pendientes";
             // 
             // groupBoxCliente
             // 
@@ -126,7 +114,7 @@
             this.groupBoxCliente.Controls.Add(this.txtApellidoCliente);
             this.groupBoxCliente.Controls.Add(this.txtNombreCliente);
             this.groupBoxCliente.Controls.Add(this.txtCedula);
-            this.groupBoxCliente.Controls.Add(this.txtIdCliente);
+            this.groupBoxCliente.Controls.Add(this.txtNumeroCliente);
             this.groupBoxCliente.Controls.Add(this.lblDireccionCliente);
             this.groupBoxCliente.Controls.Add(this.lblCorreoCliente);
             this.groupBoxCliente.Controls.Add(this.lblTelefonoCliente);
@@ -143,86 +131,85 @@
             this.groupBoxCliente.TabStop = false;
             this.groupBoxCliente.Text = "Información del Cliente (Solo lectura)";
             // 
-            // txtIdCliente
+            // txtDireccionCliente
             // 
-            this.txtIdCliente.Location = new System.Drawing.Point(120, 25);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.ReadOnly = true;
-            this.txtIdCliente.Size = new System.Drawing.Size(100, 22);
-            this.txtIdCliente.TabIndex = 0;
-            this.txtIdCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDireccionCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDireccionCliente.Location = new System.Drawing.Point(120, 175);
+            this.txtDireccionCliente.Name = "txtDireccionCliente";
+            this.txtDireccionCliente.ReadOnly = true;
+            this.txtDireccionCliente.Size = new System.Drawing.Size(380, 22);
+            this.txtDireccionCliente.TabIndex = 12;
             // 
-            // lblIdCliente
+            // txtCorreoCliente
             // 
-            this.lblIdCliente.AutoSize = true;
-            this.lblIdCliente.Location = new System.Drawing.Point(20, 28);
-            this.lblIdCliente.Name = "lblIdCliente";
-            this.lblIdCliente.Size = new System.Drawing.Size(67, 16);
-            this.lblIdCliente.TabIndex = 1;
-            this.lblIdCliente.Text = "ID Cliente:";
-            // 
-            // txtCedula
-            // 
-            this.txtCedula.Location = new System.Drawing.Point(120, 55);
-            this.txtCedula.Name = "txtCedula";
-            this.txtCedula.ReadOnly = true;
-            this.txtCedula.Size = new System.Drawing.Size(150, 22);
-            this.txtCedula.TabIndex = 2;
-            this.txtCedula.BackColor = System.Drawing.SystemColors.Control;
-            // 
-            // lblCedula
-            // 
-            this.lblCedula.AutoSize = true;
-            this.lblCedula.Location = new System.Drawing.Point(20, 58);
-            this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(53, 16);
-            this.lblCedula.TabIndex = 3;
-            this.lblCedula.Text = "Cédula:";
-            // 
-            // txtNombreCliente
-            // 
-            this.txtNombreCliente.Location = new System.Drawing.Point(120, 85);
-            this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.ReadOnly = true;
-            this.txtNombreCliente.Size = new System.Drawing.Size(380, 22);
-            this.txtNombreCliente.TabIndex = 4;
-            this.txtNombreCliente.BackColor = System.Drawing.SystemColors.Control;
-            // 
-            // lblNombreCliente
-            // 
-            this.lblNombreCliente.AutoSize = true;
-            this.lblNombreCliente.Location = new System.Drawing.Point(20, 88);
-            this.lblNombreCliente.Name = "lblNombreCliente";
-            this.lblNombreCliente.Size = new System.Drawing.Size(59, 16);
-            this.lblNombreCliente.TabIndex = 5;
-            this.lblNombreCliente.Text = "Nombre:";
-            // 
-            // txtApellidoCliente
-            // 
-            this.txtApellidoCliente.Location = new System.Drawing.Point(120, 115);
-            this.txtApellidoCliente.Name = "txtApellidoCliente";
-            this.txtApellidoCliente.ReadOnly = true;
-            this.txtApellidoCliente.Size = new System.Drawing.Size(380, 22);
-            this.txtApellidoCliente.TabIndex = 6;
-            this.txtApellidoCliente.BackColor = System.Drawing.SystemColors.Control;
-            // 
-            // lblApellidoCliente
-            // 
-            this.lblApellidoCliente.AutoSize = true;
-            this.lblApellidoCliente.Location = new System.Drawing.Point(20, 118);
-            this.lblApellidoCliente.Name = "lblApellidoCliente";
-            this.lblApellidoCliente.Size = new System.Drawing.Size(60, 16);
-            this.lblApellidoCliente.TabIndex = 7;
-            this.lblApellidoCliente.Text = "Apellido:";
+            this.txtCorreoCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCorreoCliente.Location = new System.Drawing.Point(300, 145);
+            this.txtCorreoCliente.Name = "txtCorreoCliente";
+            this.txtCorreoCliente.ReadOnly = true;
+            this.txtCorreoCliente.Size = new System.Drawing.Size(200, 22);
+            this.txtCorreoCliente.TabIndex = 10;
             // 
             // txtTelefonoCliente
             // 
+            this.txtTelefonoCliente.BackColor = System.Drawing.SystemColors.Control;
             this.txtTelefonoCliente.Location = new System.Drawing.Point(120, 145);
             this.txtTelefonoCliente.Name = "txtTelefonoCliente";
             this.txtTelefonoCliente.ReadOnly = true;
             this.txtTelefonoCliente.Size = new System.Drawing.Size(150, 22);
             this.txtTelefonoCliente.TabIndex = 8;
-            this.txtTelefonoCliente.BackColor = System.Drawing.SystemColors.Control;
+            // 
+            // txtApellidoCliente
+            // 
+            this.txtApellidoCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.txtApellidoCliente.Location = new System.Drawing.Point(120, 115);
+            this.txtApellidoCliente.Name = "txtApellidoCliente";
+            this.txtApellidoCliente.ReadOnly = true;
+            this.txtApellidoCliente.Size = new System.Drawing.Size(380, 22);
+            this.txtApellidoCliente.TabIndex = 6;
+            // 
+            // txtNombreCliente
+            // 
+            this.txtNombreCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNombreCliente.Location = new System.Drawing.Point(120, 85);
+            this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.ReadOnly = true;
+            this.txtNombreCliente.Size = new System.Drawing.Size(380, 22);
+            this.txtNombreCliente.TabIndex = 4;
+            // 
+            // txtCedula
+            // 
+            this.txtCedula.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCedula.Location = new System.Drawing.Point(120, 55);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.ReadOnly = true;
+            this.txtCedula.Size = new System.Drawing.Size(150, 22);
+            this.txtCedula.TabIndex = 2;
+            // 
+            // txtNumeroCliente
+            // 
+            this.txtNumeroCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNumeroCliente.Location = new System.Drawing.Point(120, 25);
+            this.txtNumeroCliente.Name = "txtNumeroCliente";
+            this.txtNumeroCliente.ReadOnly = true;
+            this.txtNumeroCliente.Size = new System.Drawing.Size(100, 22);
+            this.txtNumeroCliente.TabIndex = 0;
+            // 
+            // lblDireccionCliente
+            // 
+            this.lblDireccionCliente.AutoSize = true;
+            this.lblDireccionCliente.Location = new System.Drawing.Point(20, 178);
+            this.lblDireccionCliente.Name = "lblDireccionCliente";
+            this.lblDireccionCliente.Size = new System.Drawing.Size(67, 16);
+            this.lblDireccionCliente.TabIndex = 13;
+            this.lblDireccionCliente.Text = "Dirección:";
+            // 
+            // lblCorreoCliente
+            // 
+            this.lblCorreoCliente.AutoSize = true;
+            this.lblCorreoCliente.Location = new System.Drawing.Point(285, 148);
+            this.lblCorreoCliente.Name = "lblCorreoCliente";
+            this.lblCorreoCliente.Size = new System.Drawing.Size(0, 16);
+            this.lblCorreoCliente.TabIndex = 11;
             // 
             // lblTelefonoCliente
             // 
@@ -233,40 +220,41 @@
             this.lblTelefonoCliente.TabIndex = 9;
             this.lblTelefonoCliente.Text = "Teléfono:";
             // 
-            // txtCorreoCliente
+            // lblApellidoCliente
             // 
-            this.txtCorreoCliente.Location = new System.Drawing.Point(300, 145);
-            this.txtCorreoCliente.Name = "txtCorreoCliente";
-            this.txtCorreoCliente.ReadOnly = true;
-            this.txtCorreoCliente.Size = new System.Drawing.Size(200, 22);
-            this.txtCorreoCliente.TabIndex = 10;
-            this.txtCorreoCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.lblApellidoCliente.AutoSize = true;
+            this.lblApellidoCliente.Location = new System.Drawing.Point(20, 118);
+            this.lblApellidoCliente.Name = "lblApellidoCliente";
+            this.lblApellidoCliente.Size = new System.Drawing.Size(60, 16);
+            this.lblApellidoCliente.TabIndex = 7;
+            this.lblApellidoCliente.Text = "Apellido:";
             // 
-            // lblCorreoCliente
+            // lblNombreCliente
             // 
-            this.lblCorreoCliente.AutoSize = true;
-            this.lblCorreoCliente.Location = new System.Drawing.Point(285, 148);
-            this.lblCorreoCliente.Name = "lblCorreoCliente";
-            this.lblCorreoCliente.Size = new System.Drawing.Size(0, 16);
-            this.lblCorreoCliente.TabIndex = 11;
+            this.lblNombreCliente.AutoSize = true;
+            this.lblNombreCliente.Location = new System.Drawing.Point(20, 88);
+            this.lblNombreCliente.Name = "lblNombreCliente";
+            this.lblNombreCliente.Size = new System.Drawing.Size(59, 16);
+            this.lblNombreCliente.TabIndex = 5;
+            this.lblNombreCliente.Text = "Nombre:";
             // 
-            // txtDireccionCliente
+            // lblCedula
             // 
-            this.txtDireccionCliente.Location = new System.Drawing.Point(120, 175);
-            this.txtDireccionCliente.Name = "txtDireccionCliente";
-            this.txtDireccionCliente.ReadOnly = true;
-            this.txtDireccionCliente.Size = new System.Drawing.Size(380, 22);
-            this.txtDireccionCliente.TabIndex = 12;
-            this.txtDireccionCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCedula.AutoSize = true;
+            this.lblCedula.Location = new System.Drawing.Point(20, 58);
+            this.lblCedula.Name = "lblCedula";
+            this.lblCedula.Size = new System.Drawing.Size(53, 16);
+            this.lblCedula.TabIndex = 3;
+            this.lblCedula.Text = "Cédula:";
             // 
-            // lblDireccionCliente
+            // lblIdCliente
             // 
-            this.lblDireccionCliente.AutoSize = true;
-            this.lblDireccionCliente.Location = new System.Drawing.Point(20, 178);
-            this.lblDireccionCliente.Name = "lblDireccionCliente";
-            this.lblDireccionCliente.Size = new System.Drawing.Size(67, 16);
-            this.lblDireccionCliente.TabIndex = 13;
-            this.lblDireccionCliente.Text = "Dirección:";
+            this.lblIdCliente.AutoSize = true;
+            this.lblIdCliente.Location = new System.Drawing.Point(20, 28);
+            this.lblIdCliente.Name = "lblIdCliente";
+            this.lblIdCliente.Size = new System.Drawing.Size(102, 16);
+            this.lblIdCliente.TabIndex = 1;
+            this.lblIdCliente.Text = "Numero Cliente:";
             // 
             // groupBoxEvento
             // 
@@ -291,87 +279,69 @@
             this.groupBoxEvento.TabStop = false;
             this.groupBoxEvento.Text = "Información del Evento (Solo lectura)";
             // 
-            // txtNumeroEvento
+            // txtEstadoEvento
             // 
-            this.txtNumeroEvento.Location = new System.Drawing.Point(130, 25);
-            this.txtNumeroEvento.Name = "txtNumeroEvento";
-            this.txtNumeroEvento.ReadOnly = true;
-            this.txtNumeroEvento.Size = new System.Drawing.Size(100, 22);
-            this.txtNumeroEvento.TabIndex = 0;
-            this.txtNumeroEvento.BackColor = System.Drawing.SystemColors.Control;
+            this.txtEstadoEvento.BackColor = System.Drawing.SystemColors.Control;
+            this.txtEstadoEvento.Location = new System.Drawing.Point(310, 170);
+            this.txtEstadoEvento.Name = "txtEstadoEvento";
+            this.txtEstadoEvento.ReadOnly = true;
+            this.txtEstadoEvento.Size = new System.Drawing.Size(190, 22);
+            this.txtEstadoEvento.TabIndex = 10;
             // 
-            // lblNumeroEvento
+            // txtNumPersonasEvento
             // 
-            this.lblNumeroEvento.AutoSize = true;
-            this.lblNumeroEvento.Location = new System.Drawing.Point(20, 28);
-            this.lblNumeroEvento.Name = "lblNumeroEvento";
-            this.lblNumeroEvento.Size = new System.Drawing.Size(103, 16);
-            this.lblNumeroEvento.TabIndex = 1;
-            this.lblNumeroEvento.Text = "Número Evento:";
-            // 
-            // txtTipoEvento
-            // 
-            this.txtTipoEvento.Location = new System.Drawing.Point(130, 55);
-            this.txtTipoEvento.Name = "txtTipoEvento";
-            this.txtTipoEvento.ReadOnly = true;
-            this.txtTipoEvento.Size = new System.Drawing.Size(370, 22);
-            this.txtTipoEvento.TabIndex = 2;
-            this.txtTipoEvento.BackColor = System.Drawing.SystemColors.Control;
-            // 
-            // lblTipoEvento
-            // 
-            this.lblTipoEvento.AutoSize = true;
-            this.lblTipoEvento.Location = new System.Drawing.Point(20, 58);
-            this.lblTipoEvento.Name = "lblTipoEvento";
-            this.lblTipoEvento.Size = new System.Drawing.Size(83, 16);
-            this.lblTipoEvento.TabIndex = 3;
-            this.lblTipoEvento.Text = "Tipo Evento:";
-            // 
-            // txtNombreEvento
-            // 
-            this.txtNombreEvento.Location = new System.Drawing.Point(130, 85);
-            this.txtNombreEvento.Name = "txtNombreEvento";
-            this.txtNombreEvento.ReadOnly = true;
-            this.txtNombreEvento.Size = new System.Drawing.Size(370, 22);
-            this.txtNombreEvento.TabIndex = 4;
-            this.txtNombreEvento.BackColor = System.Drawing.SystemColors.Control;
-            // 
-            // lblNombreEvento
-            // 
-            this.lblNombreEvento.AutoSize = true;
-            this.lblNombreEvento.Location = new System.Drawing.Point(20, 88);
-            this.lblNombreEvento.Name = "lblNombreEvento";
-            this.lblNombreEvento.Size = new System.Drawing.Size(59, 16);
-            this.lblNombreEvento.TabIndex = 5;
-            this.lblNombreEvento.Text = "Nombre:";
+            this.txtNumPersonasEvento.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNumPersonasEvento.Location = new System.Drawing.Point(130, 170);
+            this.txtNumPersonasEvento.Name = "txtNumPersonasEvento";
+            this.txtNumPersonasEvento.ReadOnly = true;
+            this.txtNumPersonasEvento.Size = new System.Drawing.Size(100, 22);
+            this.txtNumPersonasEvento.TabIndex = 8;
             // 
             // txtDescripcionEvento
             // 
+            this.txtDescripcionEvento.BackColor = System.Drawing.SystemColors.Control;
             this.txtDescripcionEvento.Location = new System.Drawing.Point(130, 115);
             this.txtDescripcionEvento.Multiline = true;
             this.txtDescripcionEvento.Name = "txtDescripcionEvento";
             this.txtDescripcionEvento.ReadOnly = true;
             this.txtDescripcionEvento.Size = new System.Drawing.Size(370, 45);
             this.txtDescripcionEvento.TabIndex = 6;
-            this.txtDescripcionEvento.BackColor = System.Drawing.SystemColors.Control;
             // 
-            // lblDescripcionEvento
+            // txtNombreEvento
             // 
-            this.lblDescripcionEvento.AutoSize = true;
-            this.lblDescripcionEvento.Location = new System.Drawing.Point(20, 118);
-            this.lblDescripcionEvento.Name = "lblDescripcionEvento";
-            this.lblDescripcionEvento.Size = new System.Drawing.Size(82, 16);
-            this.lblDescripcionEvento.TabIndex = 7;
-            this.lblDescripcionEvento.Text = "Descripción:";
+            this.txtNombreEvento.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNombreEvento.Location = new System.Drawing.Point(130, 85);
+            this.txtNombreEvento.Name = "txtNombreEvento";
+            this.txtNombreEvento.ReadOnly = true;
+            this.txtNombreEvento.Size = new System.Drawing.Size(370, 22);
+            this.txtNombreEvento.TabIndex = 4;
             // 
-            // txtNumPersonasEvento
+            // txtTipoEvento
             // 
-            this.txtNumPersonasEvento.Location = new System.Drawing.Point(130, 170);
-            this.txtNumPersonasEvento.Name = "txtNumPersonasEvento";
-            this.txtNumPersonasEvento.ReadOnly = true;
-            this.txtNumPersonasEvento.Size = new System.Drawing.Size(100, 22);
-            this.txtNumPersonasEvento.TabIndex = 8;
-            this.txtNumPersonasEvento.BackColor = System.Drawing.SystemColors.Control;
+            this.txtTipoEvento.BackColor = System.Drawing.SystemColors.Control;
+            this.txtTipoEvento.Location = new System.Drawing.Point(130, 55);
+            this.txtTipoEvento.Name = "txtTipoEvento";
+            this.txtTipoEvento.ReadOnly = true;
+            this.txtTipoEvento.Size = new System.Drawing.Size(370, 22);
+            this.txtTipoEvento.TabIndex = 2;
+            // 
+            // txtNumeroEvento
+            // 
+            this.txtNumeroEvento.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNumeroEvento.Location = new System.Drawing.Point(130, 25);
+            this.txtNumeroEvento.Name = "txtNumeroEvento";
+            this.txtNumeroEvento.ReadOnly = true;
+            this.txtNumeroEvento.Size = new System.Drawing.Size(100, 22);
+            this.txtNumeroEvento.TabIndex = 0;
+            // 
+            // lblEstadoEvento
+            // 
+            this.lblEstadoEvento.AutoSize = true;
+            this.lblEstadoEvento.Location = new System.Drawing.Point(250, 173);
+            this.lblEstadoEvento.Name = "lblEstadoEvento";
+            this.lblEstadoEvento.Size = new System.Drawing.Size(53, 16);
+            this.lblEstadoEvento.TabIndex = 11;
+            this.lblEstadoEvento.Text = "Estado:";
             // 
             // lblNumPersonasEvento
             // 
@@ -382,23 +352,41 @@
             this.lblNumPersonasEvento.TabIndex = 9;
             this.lblNumPersonasEvento.Text = "Personas:";
             // 
-            // txtEstadoEvento
+            // lblDescripcionEvento
             // 
-            this.txtEstadoEvento.Location = new System.Drawing.Point(310, 170);
-            this.txtEstadoEvento.Name = "txtEstadoEvento";
-            this.txtEstadoEvento.ReadOnly = true;
-            this.txtEstadoEvento.Size = new System.Drawing.Size(190, 22);
-            this.txtEstadoEvento.TabIndex = 10;
-            this.txtEstadoEvento.BackColor = System.Drawing.SystemColors.Control;
+            this.lblDescripcionEvento.AutoSize = true;
+            this.lblDescripcionEvento.Location = new System.Drawing.Point(20, 118);
+            this.lblDescripcionEvento.Name = "lblDescripcionEvento";
+            this.lblDescripcionEvento.Size = new System.Drawing.Size(82, 16);
+            this.lblDescripcionEvento.TabIndex = 7;
+            this.lblDescripcionEvento.Text = "Descripción:";
             // 
-            // lblEstadoEvento
+            // lblNombreEvento
             // 
-            this.lblEstadoEvento.AutoSize = true;
-            this.lblEstadoEvento.Location = new System.Drawing.Point(250, 173);
-            this.lblEstadoEvento.Name = "lblEstadoEvento";
-            this.lblEstadoEvento.Size = new System.Drawing.Size(53, 16);
-            this.lblEstadoEvento.TabIndex = 11;
-            this.lblEstadoEvento.Text = "Estado:";
+            this.lblNombreEvento.AutoSize = true;
+            this.lblNombreEvento.Location = new System.Drawing.Point(20, 88);
+            this.lblNombreEvento.Name = "lblNombreEvento";
+            this.lblNombreEvento.Size = new System.Drawing.Size(59, 16);
+            this.lblNombreEvento.TabIndex = 5;
+            this.lblNombreEvento.Text = "Nombre:";
+            // 
+            // lblTipoEvento
+            // 
+            this.lblTipoEvento.AutoSize = true;
+            this.lblTipoEvento.Location = new System.Drawing.Point(20, 58);
+            this.lblTipoEvento.Name = "lblTipoEvento";
+            this.lblTipoEvento.Size = new System.Drawing.Size(83, 16);
+            this.lblTipoEvento.TabIndex = 3;
+            this.lblTipoEvento.Text = "Tipo Evento:";
+            // 
+            // lblNumeroEvento
+            // 
+            this.lblNumeroEvento.AutoSize = true;
+            this.lblNumeroEvento.Location = new System.Drawing.Point(20, 28);
+            this.lblNumeroEvento.Name = "lblNumeroEvento";
+            this.lblNumeroEvento.Size = new System.Drawing.Size(103, 16);
+            this.lblNumeroEvento.TabIndex = 1;
+            this.lblNumeroEvento.Text = "Número Evento:";
             // 
             // groupBoxFactura
             // 
@@ -432,117 +420,14 @@
             this.groupBoxFactura.TabStop = false;
             this.groupBoxFactura.Text = "Información de la Factura";
             // 
-            // txtIdFactura
-            // 
-            this.txtIdFactura.Location = new System.Drawing.Point(130, 25);
-            this.txtIdFactura.Name = "txtIdFactura";
-            this.txtIdFactura.ReadOnly = true;
-            this.txtIdFactura.Size = new System.Drawing.Size(100, 22);
-            this.txtIdFactura.TabIndex = 0;
-            this.txtIdFactura.BackColor = System.Drawing.SystemColors.Control;
-            // 
-            // lblIdFactura
-            // 
-            this.lblIdFactura.AutoSize = true;
-            this.lblIdFactura.Location = new System.Drawing.Point(20, 28);
-            this.lblIdFactura.Name = "lblIdFactura";
-            this.lblIdFactura.Size = new System.Drawing.Size(71, 16);
-            this.lblIdFactura.TabIndex = 1;
-            this.lblIdFactura.Text = "ID Factura:";
-            // 
-            // txtNumeroFactura
-            // 
-            this.txtNumeroFactura.Location = new System.Drawing.Point(130, 55);
-            this.txtNumeroFactura.Name = "txtNumeroFactura";
-            this.txtNumeroFactura.ReadOnly = true;
-            this.txtNumeroFactura.Size = new System.Drawing.Size(200, 22);
-            this.txtNumeroFactura.TabIndex = 2;
-            this.txtNumeroFactura.BackColor = System.Drawing.SystemColors.Control;
-            // 
-            // lblNumeroFactura
-            // 
-            this.lblNumeroFactura.AutoSize = true;
-            this.lblNumeroFactura.Location = new System.Drawing.Point(20, 58);
-            this.lblNumeroFactura.Name = "lblNumeroFactura";
-            this.lblNumeroFactura.Size = new System.Drawing.Size(106, 16);
-            this.lblNumeroFactura.TabIndex = 3;
-            this.lblNumeroFactura.Text = "Número Factura:";
-            // 
-            // dtpFechaEmision
-            // 
-            this.dtpFechaEmision.CustomFormat = "dddd, d \'de\' MMMM \'de\' yyyy HH:mm:ss";
-            this.dtpFechaEmision.Enabled = false;
-            this.dtpFechaEmision.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaEmision.Location = new System.Drawing.Point(130, 85);
-            this.dtpFechaEmision.Name = "dtpFechaEmision";
-            this.dtpFechaEmision.ShowUpDown = true;
-            this.dtpFechaEmision.Size = new System.Drawing.Size(280, 22);
-            this.dtpFechaEmision.TabIndex = 4;
-            // 
-            // lblFechaEmision
-            // 
-            this.lblFechaEmision.AutoSize = true;
-            this.lblFechaEmision.Location = new System.Drawing.Point(20, 88);
-            this.lblFechaEmision.Name = "lblFechaEmision";
-            this.lblFechaEmision.Size = new System.Drawing.Size(99, 16);
-            this.lblFechaEmision.TabIndex = 5;
-            this.lblFechaEmision.Text = "Fecha Emisión:";
-            // 
             // txtEstadoFactura
             // 
+            this.txtEstadoFactura.BackColor = System.Drawing.SystemColors.Control;
             this.txtEstadoFactura.Location = new System.Drawing.Point(130, 115);
             this.txtEstadoFactura.Name = "txtEstadoFactura";
             this.txtEstadoFactura.ReadOnly = true;
             this.txtEstadoFactura.Size = new System.Drawing.Size(120, 22);
             this.txtEstadoFactura.TabIndex = 6;
-            this.txtEstadoFactura.BackColor = System.Drawing.SystemColors.Control;
-            // 
-            // lblEstadoFactura
-            // 
-            this.lblEstadoFactura.AutoSize = true;
-            this.lblEstadoFactura.Location = new System.Drawing.Point(20, 118);
-            this.lblEstadoFactura.Name = "lblEstadoFactura";
-            this.lblEstadoFactura.Size = new System.Drawing.Size(53, 16);
-            this.lblEstadoFactura.TabIndex = 7;
-            this.lblEstadoFactura.Text = "Estado:";
-            // 
-            // txtSubtotal
-            // 
-            this.txtSubtotal.Location = new System.Drawing.Point(380, 115);
-            this.txtSubtotal.Name = "txtSubtotal";
-            this.txtSubtotal.ReadOnly = true;
-            this.txtSubtotal.Size = new System.Drawing.Size(120, 22);
-            this.txtSubtotal.TabIndex = 8;
-            this.txtSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtSubtotal.BackColor = System.Drawing.SystemColors.Control;
-            // 
-            // lblSubtotal
-            // 
-            this.lblSubtotal.AutoSize = true;
-            this.lblSubtotal.Location = new System.Drawing.Point(300, 118);
-            this.lblSubtotal.Name = "lblSubtotal";
-            this.lblSubtotal.Size = new System.Drawing.Size(59, 16);
-            this.lblSubtotal.TabIndex = 9;
-            this.lblSubtotal.Text = "Subtotal:";
-            // 
-            // txtDescuento
-            // 
-            this.txtDescuento.Location = new System.Drawing.Point(130, 155);
-            this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.Size = new System.Drawing.Size(120, 22);
-            this.txtDescuento.TabIndex = 10;
-            this.txtDescuento.Text = "0";
-            this.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
-            // 
-            // lblDescuento
-            // 
-            this.lblDescuento.AutoSize = true;
-            this.lblDescuento.Location = new System.Drawing.Point(20, 158);
-            this.lblDescuento.Name = "lblDescuento";
-            this.lblDescuento.Size = new System.Drawing.Size(94, 16);
-            this.lblDescuento.TabIndex = 11;
-            this.lblDescuento.Text = "Descuento (%):";
             // 
             // btnRecalcular
             // 
@@ -553,57 +438,6 @@
             this.btnRecalcular.Text = "Recalcular";
             this.btnRecalcular.UseVisualStyleBackColor = true;
             this.btnRecalcular.Click += new System.EventHandler(this.btnRecalcular_Click);
-            // 
-            // txtImpuestos
-            // 
-            this.txtImpuestos.Location = new System.Drawing.Point(380, 155);
-            this.txtImpuestos.Name = "txtImpuestos";
-            this.txtImpuestos.ReadOnly = true;
-            this.txtImpuestos.Size = new System.Drawing.Size(120, 22);
-            this.txtImpuestos.TabIndex = 13;
-            this.txtImpuestos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtImpuestos.BackColor = System.Drawing.SystemColors.Control;
-            // 
-            // lblImpuestos
-            // 
-            this.lblImpuestos.AutoSize = true;
-            this.lblImpuestos.Location = new System.Drawing.Point(300, 158);
-            this.lblImpuestos.Name = "lblImpuestos";
-            this.lblImpuestos.Size = new System.Drawing.Size(72, 16);
-            this.lblImpuestos.TabIndex = 14;
-            this.lblImpuestos.Text = "IVA (15%):";
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(380, 190);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(120, 30);
-            this.txtTotal.TabIndex = 15;
-            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTotal.BackColor = System.Drawing.Color.LightGreen;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(300, 195);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(57, 25);
-            this.lblTotal.TabIndex = 16;
-            this.lblTotal.Text = "Total:";
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.LightBlue;
-            this.btnGuardar.Location = new System.Drawing.Point(20, 270);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(110, 35);
-            this.btnGuardar.TabIndex = 17;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnEmitirFactura
             // 
@@ -637,6 +471,162 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // lblEstadoFactura
+            // 
+            this.lblEstadoFactura.AutoSize = true;
+            this.lblEstadoFactura.Location = new System.Drawing.Point(20, 118);
+            this.lblEstadoFactura.Name = "lblEstadoFactura";
+            this.lblEstadoFactura.Size = new System.Drawing.Size(53, 16);
+            this.lblEstadoFactura.TabIndex = 7;
+            this.lblEstadoFactura.Text = "Estado:";
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.LightBlue;
+            this.btnGuardar.Location = new System.Drawing.Point(20, 270);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(110, 35);
+            this.btnGuardar.TabIndex = 17;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.BackColor = System.Drawing.Color.LightGreen;
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(380, 190);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(120, 30);
+            this.txtTotal.TabIndex = 15;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtDescuento
+            // 
+            this.txtDescuento.Location = new System.Drawing.Point(130, 155);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(120, 22);
+            this.txtDescuento.TabIndex = 10;
+            this.txtDescuento.Text = "0";
+            this.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
+            // 
+            // txtSubtotal
+            // 
+            this.txtSubtotal.BackColor = System.Drawing.SystemColors.Control;
+            this.txtSubtotal.Location = new System.Drawing.Point(380, 115);
+            this.txtSubtotal.Name = "txtSubtotal";
+            this.txtSubtotal.ReadOnly = true;
+            this.txtSubtotal.Size = new System.Drawing.Size(120, 22);
+            this.txtSubtotal.TabIndex = 8;
+            this.txtSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtImpuestos
+            // 
+            this.txtImpuestos.BackColor = System.Drawing.SystemColors.Control;
+            this.txtImpuestos.Location = new System.Drawing.Point(380, 155);
+            this.txtImpuestos.Name = "txtImpuestos";
+            this.txtImpuestos.ReadOnly = true;
+            this.txtImpuestos.Size = new System.Drawing.Size(120, 22);
+            this.txtImpuestos.TabIndex = 13;
+            this.txtImpuestos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // dtpFechaEmision
+            // 
+            this.dtpFechaEmision.CustomFormat = "dddd, d \'de\' MMMM \'de\' yyyy HH:mm:ss";
+            this.dtpFechaEmision.Enabled = false;
+            this.dtpFechaEmision.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaEmision.Location = new System.Drawing.Point(130, 85);
+            this.dtpFechaEmision.Name = "dtpFechaEmision";
+            this.dtpFechaEmision.ShowUpDown = true;
+            this.dtpFechaEmision.Size = new System.Drawing.Size(280, 22);
+            this.dtpFechaEmision.TabIndex = 4;
+            // 
+            // txtNumeroFactura
+            // 
+            this.txtNumeroFactura.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNumeroFactura.Location = new System.Drawing.Point(130, 55);
+            this.txtNumeroFactura.Name = "txtNumeroFactura";
+            this.txtNumeroFactura.ReadOnly = true;
+            this.txtNumeroFactura.Size = new System.Drawing.Size(200, 22);
+            this.txtNumeroFactura.TabIndex = 2;
+            // 
+            // txtIdFactura
+            // 
+            this.txtIdFactura.BackColor = System.Drawing.SystemColors.Control;
+            this.txtIdFactura.Location = new System.Drawing.Point(130, 25);
+            this.txtIdFactura.Name = "txtIdFactura";
+            this.txtIdFactura.ReadOnly = true;
+            this.txtIdFactura.Size = new System.Drawing.Size(100, 22);
+            this.txtIdFactura.TabIndex = 0;
+            this.txtIdFactura.Visible = false;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(300, 195);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(68, 25);
+            this.lblTotal.TabIndex = 16;
+            this.lblTotal.Text = "Total:";
+            // 
+            // lblDescuento
+            // 
+            this.lblDescuento.AutoSize = true;
+            this.lblDescuento.Location = new System.Drawing.Point(20, 158);
+            this.lblDescuento.Name = "lblDescuento";
+            this.lblDescuento.Size = new System.Drawing.Size(98, 16);
+            this.lblDescuento.TabIndex = 11;
+            this.lblDescuento.Text = "Descuento (%):";
+            // 
+            // lblSubtotal
+            // 
+            this.lblSubtotal.AutoSize = true;
+            this.lblSubtotal.Location = new System.Drawing.Point(300, 118);
+            this.lblSubtotal.Name = "lblSubtotal";
+            this.lblSubtotal.Size = new System.Drawing.Size(59, 16);
+            this.lblSubtotal.TabIndex = 9;
+            this.lblSubtotal.Text = "Subtotal:";
+            // 
+            // lblImpuestos
+            // 
+            this.lblImpuestos.AutoSize = true;
+            this.lblImpuestos.Location = new System.Drawing.Point(300, 158);
+            this.lblImpuestos.Name = "lblImpuestos";
+            this.lblImpuestos.Size = new System.Drawing.Size(68, 16);
+            this.lblImpuestos.TabIndex = 14;
+            this.lblImpuestos.Text = "IVA (15%):";
+            // 
+            // lblFechaEmision
+            // 
+            this.lblFechaEmision.AutoSize = true;
+            this.lblFechaEmision.Location = new System.Drawing.Point(20, 88);
+            this.lblFechaEmision.Name = "lblFechaEmision";
+            this.lblFechaEmision.Size = new System.Drawing.Size(99, 16);
+            this.lblFechaEmision.TabIndex = 5;
+            this.lblFechaEmision.Text = "Fecha Emisión:";
+            // 
+            // lblNumeroFactura
+            // 
+            this.lblNumeroFactura.AutoSize = true;
+            this.lblNumeroFactura.Location = new System.Drawing.Point(20, 58);
+            this.lblNumeroFactura.Name = "lblNumeroFactura";
+            this.lblNumeroFactura.Size = new System.Drawing.Size(106, 16);
+            this.lblNumeroFactura.TabIndex = 3;
+            this.lblNumeroFactura.Text = "Número Factura:";
+            // 
+            // lblIdFactura
+            // 
+            this.lblIdFactura.AutoSize = true;
+            this.lblIdFactura.Location = new System.Drawing.Point(20, 28);
+            this.lblIdFactura.Name = "lblIdFactura";
+            this.lblIdFactura.Size = new System.Drawing.Size(71, 16);
+            this.lblIdFactura.TabIndex = 1;
+            this.lblIdFactura.Text = "ID Factura:";
+            this.lblIdFactura.Visible = false;
+            // 
             // groupBoxDetalles
             // 
             this.groupBoxDetalles.Controls.Add(this.dgvDetallesFactura);
@@ -655,7 +645,7 @@
             this.dgvDetallesFactura.AllowUserToDeleteRows = false;
             this.dgvDetallesFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetallesFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colIdDetalle,
+            this.colNumDetalle,
             this.colNombre,
             this.colCantidad,
             this.colPrecioUnitario,
@@ -667,13 +657,25 @@
             this.dgvDetallesFactura.Size = new System.Drawing.Size(490, 280);
             this.dgvDetallesFactura.TabIndex = 0;
             // 
-            // colIdDetalle
+            // lblInfoEdicion
             // 
-            this.colIdDetalle.HeaderText = "ID";
-            this.colIdDetalle.MinimumWidth = 6;
-            this.colIdDetalle.Name = "colIdDetalle";
-            this.colIdDetalle.ReadOnly = true;
-            this.colIdDetalle.Width = 50;
+            this.lblInfoEdicion.AutoSize = true;
+            this.lblInfoEdicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfoEdicion.ForeColor = System.Drawing.Color.Gray;
+            this.lblInfoEdicion.Location = new System.Drawing.Point(380, 50);
+            this.lblInfoEdicion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblInfoEdicion.Name = "lblInfoEdicion";
+            this.lblInfoEdicion.Size = new System.Drawing.Size(388, 18);
+            this.lblInfoEdicion.TabIndex = 1;
+            this.lblInfoEdicion.Text = "Solo puede modificar el descuento en facturas pendientes";
+            // 
+            // colNumDetalle
+            // 
+            this.colNumDetalle.HeaderText = "Num";
+            this.colNumDetalle.MinimumWidth = 6;
+            this.colNumDetalle.Name = "colNumDetalle";
+            this.colNumDetalle.ReadOnly = true;
+            this.colNumDetalle.Width = 50;
             // 
             // colNombre
             // 
@@ -735,6 +737,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesFactura)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -748,7 +751,7 @@
         private System.Windows.Forms.TextBox txtApellidoCliente;
         private System.Windows.Forms.TextBox txtNombreCliente;
         private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.TextBox txtIdCliente;
+        private System.Windows.Forms.TextBox txtNumeroCliente;
         private System.Windows.Forms.Label lblDireccionCliente;
         private System.Windows.Forms.Label lblCorreoCliente;
         private System.Windows.Forms.Label lblTelefonoCliente;
@@ -793,7 +796,7 @@
         private System.Windows.Forms.Label lblIdFactura;
         private System.Windows.Forms.GroupBox groupBoxDetalles;
         private System.Windows.Forms.DataGridView dgvDetallesFactura;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdDetalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumDetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioUnitario;

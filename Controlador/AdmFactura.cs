@@ -266,13 +266,16 @@ namespace Controlador
                 if (item.IdEvento == idEvento) {
                     foreach (EventoInmueble eInm in item.EventoInmueble)
                     {
-                        dgvDetallesFactura.Rows.Add();
-                        dgvDetallesFactura.Rows[indice].Cells["colIdDetalle"].Value = eInm.ObtenerNumInmuebles();
-                        dgvDetallesFactura.Rows[indice].Cells["colNombre"].Value = eInm.inmueble.nombreInmueble;
+                        foreach(Inmueble inm in eInm.listaInmuebles)
+                        {
+                                                    dgvDetallesFactura.Rows.Add();
+                        dgvDetallesFactura.Rows[indice].Cells["colNumDetalle"].Value = inm.numeroInmueble;
+                        dgvDetallesFactura.Rows[indice].Cells["colNombre"].Value = inm.nombreInmueble;
                         dgvDetallesFactura.Rows[indice].Cells["colCantidad"].Value = eInm.cantidadInmueble;
-                        dgvDetallesFactura.Rows[indice].Cells["colPrecioUnitario"].Value = eInm.inmueble.precioInmueble;
+                        dgvDetallesFactura.Rows[indice].Cells["colPrecioUnitario"].Value = inm.precioInmueble;
                         dgvDetallesFactura.Rows[indice].Cells["colSubtotal"].Value = eInm.CalcularMontoInmueble();
                         indice++;
+                        }
                     }
                 }
             }
@@ -894,7 +897,7 @@ namespace Controlador
                 foreach (DetalleFactura eInm in factura.Detalles)
                 {
                     dgvDetalles.Rows.Add();
-                    dgvDetalles.Rows[indice].Cells["colIdDetalle"].Value = eInm.NumDetalle;
+                    dgvDetalles.Rows[indice].Cells["colNumDetalle"].Value = eInm.NumDetalle;
                     dgvDetalles.Rows[indice].Cells["colNombre"].Value = eInm.Descripcion;//inmueble.nombreInmueble;
                     dgvDetalles.Rows[indice].Cells["colCantidad"].Value = eInm.Cantidad;
                     dgvDetalles.Rows[indice].Cells["colPrecioUnitario"].Value = eInm.PrecioUnitario.ToString("N2");
@@ -921,8 +924,8 @@ namespace Controlador
             }
 
             // Recalcular la factura con el nuevo descuento
-            GenerarDetallesFactura(factura);
             CalcularSubTotal(factura);
+            GenerarDetallesFactura(factura);
 
             // Aplicar el nuevo descuento
 
@@ -945,6 +948,7 @@ namespace Controlador
                         double descuentoMonto = subtotalOriginal * porcentajeDescuento;
                         factura.DescuentoAplicado = (int)descuentoMonto;
                         factura.SubTotal = subtotalOriginal - descuentoMonto;
+
                     }
                 }
                 else
@@ -960,6 +964,7 @@ namespace Controlador
 
             factura.CalcularIVA();
             factura.CalcularTotal();
+            ActualizarFacturaBDD(factura);
 
             // Actualizar los controles del formulario
             foreach (Control c in groupBoxFactura.Controls)
@@ -1138,6 +1143,31 @@ namespace Controlador
             else if (res[0] == '0')
             {
                 MessageBox.Show(res, "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ActualizarFacturaBDD(Factura factura)
+        {
+            cn = new Conexion();
+            datosFac = new DatosFactura();
+            string msj = cn.Conectar();
+            string resp = "";
+            if (msj[0] == '1')
+            {
+                resp = datosFac.ActualizarFactura(factura, cn.sql);
+                if (resp[0] == '0')
+                {
+                    MessageBox.Show(resp);
+                }
+                else
+                {
+                    MessageBox.Show("Datos de Factura actualizados en BDD");
+                }
+                cn.Desconectar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
             }
         }
 

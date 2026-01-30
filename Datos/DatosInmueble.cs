@@ -29,6 +29,7 @@ namespace Datos//TODAS LAS SENTENCIAS
                 {
                     inmueble = new Inmueble("", "", "", 0, 0.0);
                     inmueble.idInmueble = Convert.ToInt32(tablaVirtual["IdInmueble"]);
+                    inmueble.numeroInmueble = tablaVirtual["NumeroInmueble"].ToString().Trim();
                     inmueble.nombreInmueble = tablaVirtual["NombreInmueble"].ToString().Trim();
                     inmueble.tipoInmueble = tablaVirtual["TipoInmueble"].ToString().Trim();
                     inmueble.cantidadInmuebleDisponible = Convert.ToInt32(tablaVirtual["CantidadInmuebleDisponible"]);
