@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,9 @@ namespace Visual
     public partial class FrmListarFactura : Form
     {
         private AdmFactura adm = new AdmFactura();
+        private AdmlPdf ctrlPdf = new AdmlPdf();
+        // Usar ruta absoluta en la carpeta Documentos del usuario
+        private string rutaPdf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Facturas.pdf");
 
         public FrmListarFactura()
         {
@@ -59,6 +64,44 @@ namespace Visual
                 txtNumFactura.Enabled = true;
                 txtNumCedula.Enabled = false;
                 txtNumCedula.Clear();
+            }
+        }
+
+        private void BtnGenerarPdf_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Verificar si el archivo existe y está en uso
+                if (File.Exists(rutaPdf))
+                {
+                    try
+                    {
+                        // Intentar eliminar para verificar si está bloqueado
+                        File.Delete(rutaPdf);
+                    }
+                    catch (IOException)
+                    {
+                        MessageBox.Show("El archivo PDF está abierto por otra aplicación. Por favor, ciérrelo e intente nuevamente.",
+                                        "Archivo en uso",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
+                ctrlPdf.GenerarPDF(rutaPdf);
+                //Codigo para abrir PDF
+                ProcessStartInfo psi = new ProcessStartInfo();
+                psi.FileName = rutaPdf;
+                psi.UseShellExecute = true;
+                Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el PDF: " + ex.Message,
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
             }
         }
     }

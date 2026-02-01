@@ -256,5 +256,11 @@ namespace Visual
                 MessageBox.Show("No hay clientes registradas para editar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void moduloFacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAutorDinamico frmAutorDinamico = new FrmAutorDinamico();
+            frmAutorDinamico.ShowDialog();
+        }
     }
 }

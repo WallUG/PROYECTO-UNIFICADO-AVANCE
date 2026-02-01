@@ -23,11 +23,17 @@ namespace Controlador
         public List<Evento> listaEvento = AdmEvento.ObtenerTodosLosEventos();
         Conexion cn = new Conexion();
         DatosFactura datosFac = null;
+        Datos_Autor datosAutor = null;
         int IdFacturaDB;
 
         public AdmFactura()
         {
             ConsultarFacturasBDD();
+        }
+
+        public List<Factura> GetFacturas()
+        {
+            return listaFacturas;
         }
 
         public void BuscarCliente(ComboBox cmNumeroEvento, GroupBox groupBoxCliente, string cedula)
@@ -273,7 +279,7 @@ namespace Controlador
                         dgvDetallesFactura.Rows[indice].Cells["colNombre"].Value = inm.nombreInmueble;
                         dgvDetallesFactura.Rows[indice].Cells["colCantidad"].Value = eInm.cantidadInmueble;
                         dgvDetallesFactura.Rows[indice].Cells["colPrecioUnitario"].Value = inm.precioInmueble;
-                        dgvDetallesFactura.Rows[indice].Cells["colSubtotal"].Value = eInm.CalcularMontoInmueble();
+                        dgvDetallesFactura.Rows[indice].Cells["colSubtotal"].Value = eInm.cantidadInmueble * inm.precioInmueble;
                         indice++;
                         }
                     }
@@ -339,16 +345,19 @@ namespace Controlador
             {
                 foreach (EventoInmueble item in factura.Evento.EventoInmueble)
                 {
-                    string descripcion = item.inmueble.nombreInmueble + " - " + item.inmueble.tipoInmueble;
-                    DetalleFactura detalle = new DetalleFactura(
-                        idDetalle,
-                        descripcion,
-                        item.cantidadInmueble,
-                        item.inmueble.precioInmueble
-                    );
+                    foreach(Inmueble inm in item.listaInmuebles)
+                    {
+                        string descripcion = inm.nombreInmueble + " - " + inm.tipoInmueble;
+                        DetalleFactura detalle = new DetalleFactura(
+                            idDetalle,
+                            descripcion,
+                            item.cantidadInmueble,
+                            inm.precioInmueble
+                        );
 
-                    factura.Detalles.Add(detalle);
-                    idDetalle++;
+                        factura.Detalles.Add(detalle);
+                        idDetalle++;
+                    }
                 }
             }
         }
@@ -1132,6 +1141,26 @@ namespace Controlador
             }
         }
 
+        public void GenerarInfoAutor(Label lblNombreAutor, Label lblCarreraAutor, Label lblUniversidadAutor,Label Modulo, PictureBox picImagenAutor)
+        {
+            Autor autor = ObtenerAutorBDD();
+            if (autor != null)
+            {
+                lblNombreAutor.Text = autor.NombreAutor;
+                lblCarreraAutor.Text = autor.CarreraAutor;
+                lblUniversidadAutor.Text = autor.UniversidadAutor;
+                Modulo.Text = autor.ModuloAutor;
+                try
+                {
+                    picImagenAutor.Load(autor.UrlImagen);
+                }
+                catch (Exception)
+                {
+                    // Manejar error de carga de imagen si es necesario
+                }
+            }
+        }
+
         public void Conectar()
         {
             cn = new Conexion();
@@ -1232,6 +1261,24 @@ namespace Controlador
             {
                 MessageBox.Show(msj);
             }
+        }
+
+        public Autor ObtenerAutorBDD()
+        {
+            cn = new Conexion();
+            Autor autor = null;
+            datosAutor = new Datos_Autor();
+            string msj = cn.Conectar();
+            if (msj[0] == '1')
+            {
+                autor = datosAutor.Obtener_Autor_Factura(cn.sql);
+                cn.Desconectar();
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
+            }
+            return autor;
         }
     }
 }
