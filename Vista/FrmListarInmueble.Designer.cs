@@ -45,6 +45,7 @@
             this.rbTipoInmueble = new System.Windows.Forms.RadioButton();
             this.txtTituloVentana = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInmueble)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,19 +127,20 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(621, 39);
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnActualizar.Location = new System.Drawing.Point(589, 36);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(2);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(130, 55);
+            this.btnActualizar.Size = new System.Drawing.Size(162, 55);
             this.btnActualizar.TabIndex = 2;
-            this.btnActualizar.Text = "Aplicar filtros";
-            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Text = "APLICAR FILTROS";
+            this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // txtNumeroInmueble
             // 
             this.txtNumeroInmueble.Enabled = false;
-            this.txtNumeroInmueble.Location = new System.Drawing.Point(454, 74);
+            this.txtNumeroInmueble.Location = new System.Drawing.Point(454, 71);
             this.txtNumeroInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.txtNumeroInmueble.Name = "txtNumeroInmueble";
             this.txtNumeroInmueble.Size = new System.Drawing.Size(131, 20);
@@ -147,7 +149,7 @@
             // txtTipoInmueble
             // 
             this.txtTipoInmueble.Enabled = false;
-            this.txtTipoInmueble.Location = new System.Drawing.Point(454, 39);
+            this.txtTipoInmueble.Location = new System.Drawing.Point(454, 36);
             this.txtTipoInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.txtTipoInmueble.Name = "txtTipoInmueble";
             this.txtTipoInmueble.Size = new System.Drawing.Size(131, 20);
@@ -156,7 +158,7 @@
             // lbTipoInmueble
             // 
             this.lbTipoInmueble.AutoSize = true;
-            this.lbTipoInmueble.Location = new System.Drawing.Point(325, 41);
+            this.lbTipoInmueble.Location = new System.Drawing.Point(325, 38);
             this.lbTipoInmueble.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbTipoInmueble.Name = "lbTipoInmueble";
             this.lbTipoInmueble.Size = new System.Drawing.Size(89, 13);
@@ -166,7 +168,7 @@
             // lbNumeroInmueble
             // 
             this.lbNumeroInmueble.AutoSize = true;
-            this.lbNumeroInmueble.Location = new System.Drawing.Point(325, 77);
+            this.lbNumeroInmueble.Location = new System.Drawing.Point(325, 74);
             this.lbNumeroInmueble.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbNumeroInmueble.Name = "lbNumeroInmueble";
             this.lbNumeroInmueble.Size = new System.Drawing.Size(105, 13);
@@ -176,7 +178,7 @@
             // rbNumeroInmueble
             // 
             this.rbNumeroInmueble.AutoSize = true;
-            this.rbNumeroInmueble.Location = new System.Drawing.Point(106, 77);
+            this.rbNumeroInmueble.Location = new System.Drawing.Point(106, 74);
             this.rbNumeroInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.rbNumeroInmueble.Name = "rbNumeroInmueble";
             this.rbNumeroInmueble.Size = new System.Drawing.Size(123, 17);
@@ -189,7 +191,7 @@
             // rbTipoInmueble
             // 
             this.rbTipoInmueble.AutoSize = true;
-            this.rbTipoInmueble.Location = new System.Drawing.Point(106, 39);
+            this.rbTipoInmueble.Location = new System.Drawing.Point(106, 36);
             this.rbTipoInmueble.Margin = new System.Windows.Forms.Padding(2);
             this.rbTipoInmueble.Name = "rbTipoInmueble";
             this.rbTipoInmueble.Size = new System.Drawing.Size(107, 17);
@@ -203,7 +205,7 @@
             // 
             this.txtTituloVentana.AutoSize = true;
             this.txtTituloVentana.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTituloVentana.Location = new System.Drawing.Point(101, 9);
+            this.txtTituloVentana.Location = new System.Drawing.Point(101, 6);
             this.txtTituloVentana.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtTituloVentana.Name = "txtTituloVentana";
             this.txtTituloVentana.Size = new System.Drawing.Size(188, 25);
@@ -214,18 +216,31 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(323, 9);
+            this.label1.Location = new System.Drawing.Point(323, 6);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 25);
             this.label1.TabIndex = 28;
             this.label1.Text = "Filtros:";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.980198F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(367, 325);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(137, 38);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "GENERAR PDF";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btnGenerarPDF);
+            // 
             // FrmListarInmueble
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 333);
+            this.ClientSize = new System.Drawing.Size(860, 370);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTituloVentana);
             this.Controls.Add(this.rbNumeroInmueble);
@@ -263,5 +278,6 @@
         private System.Windows.Forms.RadioButton rbTipoInmueble;
         private System.Windows.Forms.Label txtTituloVentana;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }

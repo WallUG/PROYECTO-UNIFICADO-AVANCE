@@ -87,12 +87,13 @@
             this.lblIdFactura = new System.Windows.Forms.Label();
             this.groupBoxDetalles = new System.Windows.Forms.GroupBox();
             this.dgvDetallesFactura = new System.Windows.Forms.DataGridView();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.colNumDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.btnGenerarPDF = new System.Windows.Forms.Button();
             this.groupBoxCliente.SuspendLayout();
             this.groupBoxEvento.SuspendLayout();
             this.groupBoxFactura.SuspendLayout();
@@ -463,6 +464,7 @@
             // 
             // groupBoxFactura
             // 
+            this.groupBoxFactura.Controls.Add(this.btnGenerarPDF);
             this.groupBoxFactura.Controls.Add(this.txtDescuentoAplicado);
             this.groupBoxFactura.Controls.Add(this.lblDescuentoAplicado);
             this.groupBoxFactura.Controls.Add(this.txtEstadoFactura);
@@ -749,17 +751,6 @@
             this.dgvDetallesFactura.Size = new System.Drawing.Size(600, 271);
             this.dgvDetallesFactura.TabIndex = 0;
             // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(520, 18);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(310, 31);
-            this.lblTitulo.TabIndex = 11;
-            this.lblTitulo.Text = "Módulo de Facturación";
-            // 
             // colNumDetalle
             // 
             this.colNumDetalle.Frozen = true;
@@ -809,6 +800,28 @@
             this.colSubtotal.ReadOnly = true;
             this.colSubtotal.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.colSubtotal.Width = 80;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(520, 18);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(310, 31);
+            this.lblTitulo.TabIndex = 11;
+            this.lblTitulo.Text = "Módulo de Facturación";
+            // 
+            // btnGenerarPDF
+            // 
+            this.btnGenerarPDF.Location = new System.Drawing.Point(36, 249);
+            this.btnGenerarPDF.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGenerarPDF.Name = "btnGenerarPDF";
+            this.btnGenerarPDF.Size = new System.Drawing.Size(120, 37);
+            this.btnGenerarPDF.TabIndex = 20;
+            this.btnGenerarPDF.Text = "Generar PDF";
+            this.btnGenerarPDF.UseVisualStyleBackColor = true;
+            this.btnGenerarPDF.Click += new System.EventHandler(this.btnGenerarPDF_Click);
             // 
             // FrmRegistroFactura
             // 
@@ -906,6 +919,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioUnitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal;
+        private System.Windows.Forms.Button btnGenerarPDF;
     }
 }
 

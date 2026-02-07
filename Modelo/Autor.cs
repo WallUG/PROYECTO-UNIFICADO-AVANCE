@@ -1,32 +1,33 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Modelo
 {
     public class Autor
     {
-        public int IdAutor { get; set; }
-        public string NombreAutor { get; set; }
-        public string CarreraAutor { get; set; }
-        public string UniversidadAutor { get; set; }
-        public string ModuloAutor { get; set; }
-        public string UrlImagen { get; set; }
+        // Propiedades de la BDD
+        public int idAutor { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Correo { get; set; }
+        public string Carrera { get; set; }
+        public string Descripcion { get; set; }
+        public string Foto { get; set; }
+        // Constructor vacío
+        public Autor() { }
 
-        public Autor()
+        // Constructor lleno
+        public Autor(string nombre, string apellido, string correo, string carrera, string descripcion, string foto)
         {
-        }
-
-        public Autor(string nombreAutor, string carreraAutor, string universidadAutor, string moduloAutor, string urlImagen)
-        {
-            NombreAutor = nombreAutor;
-            CarreraAutor = carreraAutor;
-            UniversidadAutor = universidadAutor;
-            ModuloAutor = moduloAutor;
-            UrlImagen = urlImagen;
-        }
-
-        public override string ToString()
-        {
-            return $"{NombreAutor}\n{CarreraAutor}\n{UniversidadAutor}\nM�dulo: {ModuloAutor}";
+            Nombre = nombre;
+            Apellido = apellido;
+            Correo = correo;
+            Carrera = carrera;
+            Descripcion = descripcion;
+            Foto = foto;
         }
     }
 }

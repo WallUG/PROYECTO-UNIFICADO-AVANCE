@@ -74,5 +74,10 @@ namespace Vista
                 txtNumeroInmueble.Clear(); // Limpia el campo al deshabilitar
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

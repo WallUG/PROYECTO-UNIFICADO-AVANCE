@@ -16,7 +16,7 @@ namespace Visual
     public partial class FrmListarFactura : Form
     {
         private AdmFactura adm = new AdmFactura();
-        private AdmlPdf ctrlPdf = new AdmlPdf();
+        private AdmPDF ctrlPdf = new AdmPDF();
         // Usar ruta absoluta en la carpeta Documentos del usuario
         private string rutaPdf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Facturas.pdf");
 

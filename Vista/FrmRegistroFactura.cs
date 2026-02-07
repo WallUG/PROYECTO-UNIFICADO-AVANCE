@@ -14,6 +14,8 @@ namespace Vista
     public partial class FrmRegistroFactura : Form
     {
         AdmFactura adm = new AdmFactura();
+        AdmPDF admPdf = new AdmPDF();
+
         public FrmRegistroFactura()
         {
             InitializeComponent();
@@ -107,6 +109,11 @@ namespace Vista
             {
                 adm.AnularFactura(groupBoxFactura, txtIdFactura.Text);
             }
+        }
+
+        private void btnGenerarPDF_Click(object sender, EventArgs e)
+        {
+            admPdf.GenerarPDFRegistro("Factura_" + txtNumeroFactura.Text + ".pdf", txtNumeroFactura.Text);
         }
     }
 }

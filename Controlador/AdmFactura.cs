@@ -23,7 +23,7 @@ namespace Controlador
         public List<Evento> listaEvento = AdmEvento.ObtenerTodosLosEventos();
         Conexion cn = new Conexion();
         DatosFactura datosFac = null;
-        Datos_Autor datosAutor = null;
+        DatosAutor datosAutor = null;
         int IdFacturaDB;
 
         public AdmFactura()
@@ -1141,18 +1141,18 @@ namespace Controlador
             }
         }
 
-        public void GenerarInfoAutor(Label lblNombreAutor, Label lblCarreraAutor, Label lblUniversidadAutor,Label Modulo, PictureBox picImagenAutor)
+        public void GenerarInfoAutor(Label lblNombreAutor, Label lblApellidoAutor, Label lblCarreraAutor,Label lblDescripcionAutor, PictureBox picImagenAutor)
         {
             Autor autor = ObtenerAutorBDD();
             if (autor != null)
             {
-                lblNombreAutor.Text = autor.NombreAutor;
-                lblCarreraAutor.Text = autor.CarreraAutor;
-                lblUniversidadAutor.Text = autor.UniversidadAutor;
-                Modulo.Text = autor.ModuloAutor;
+                lblNombreAutor.Text = autor.Nombre;
+                lblApellidoAutor.Text = autor.Apellido;
+                lblCarreraAutor.Text = autor.Carrera;
+                lblDescripcionAutor.Text = autor.Descripcion;
                 try
                 {
-                    picImagenAutor.Load(autor.UrlImagen);
+                    picImagenAutor.Load(autor.Foto);
                 }
                 catch (Exception)
                 {
@@ -1267,11 +1267,15 @@ namespace Controlador
         {
             cn = new Conexion();
             Autor autor = null;
-            datosAutor = new Datos_Autor();
+            datosAutor = new DatosAutor();
             string msj = cn.Conectar();
             if (msj[0] == '1')
             {
-                autor = datosAutor.Obtener_Autor_Factura(cn.sql);
+                autor = datosAutor.ObtenerEstudiante(cn.sql);
+                if (autor == null)
+                {
+                    MessageBox.Show("No se encontraron datos del autor en la base de datos.");
+                }
                 cn.Desconectar();
             }
             else if (msj[0] == '0')

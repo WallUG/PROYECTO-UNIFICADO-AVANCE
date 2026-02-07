@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBoxResultado = new System.Windows.Forms.GroupBox();
-            this.txtContenido = new System.Windows.Forms.TextBox();
             this.groupBoxInmueble = new System.Windows.Forms.GroupBox();
             this.lblTipo = new System.Windows.Forms.Label();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
@@ -44,31 +42,10 @@
             this.nudPrecio = new System.Windows.Forms.NumericUpDown();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.groupBoxResultado.SuspendLayout();
             this.groupBoxInmueble.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecio)).BeginInit();
             this.SuspendLayout();
-            // 
-            // groupBoxResultado
-            // 
-            this.groupBoxResultado.Controls.Add(this.txtContenido);
-            this.groupBoxResultado.Location = new System.Drawing.Point(13, 320);
-            this.groupBoxResultado.Name = "groupBoxResultado";
-            this.groupBoxResultado.Size = new System.Drawing.Size(435, 158);
-            this.groupBoxResultado.TabIndex = 21;
-            this.groupBoxResultado.TabStop = false;
-            this.groupBoxResultado.Text = "Resultado del Registro";
-            // 
-            // txtContenido
-            // 
-            this.txtContenido.Location = new System.Drawing.Point(15, 25);
-            this.txtContenido.Multiline = true;
-            this.txtContenido.Name = "txtContenido";
-            this.txtContenido.ReadOnly = true;
-            this.txtContenido.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtContenido.Size = new System.Drawing.Size(406, 123);
-            this.txtContenido.TabIndex = 13;
             // 
             // groupBoxInmueble
             // 
@@ -213,12 +190,14 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnGuardar.Location = new System.Drawing.Point(180, 219);
             this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnGuardar.Size = new System.Drawing.Size(90, 30);
             this.btnGuardar.TabIndex = 12;
             this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // lblTitulo
@@ -235,14 +214,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 489);
-            this.Controls.Add(this.groupBoxResultado);
+            this.ClientSize = new System.Drawing.Size(462, 325);
             this.Controls.Add(this.groupBoxInmueble);
             this.Controls.Add(this.lblTitulo);
             this.Name = "FrmEditarDetallesInmueble";
             this.Text = "FrmEditarDetalleInmueble";
-            this.groupBoxResultado.ResumeLayout(false);
-            this.groupBoxResultado.PerformLayout();
             this.groupBoxInmueble.ResumeLayout(false);
             this.groupBoxInmueble.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
@@ -253,9 +229,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBoxResultado;
-        private System.Windows.Forms.TextBox txtContenido;
         private System.Windows.Forms.GroupBox groupBoxInmueble;
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.ComboBox cmbTipo;

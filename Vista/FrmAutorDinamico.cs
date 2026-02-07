@@ -11,9 +11,9 @@ namespace Vista
         // Componentes dinámicos
         private PictureBox pbFotoAutor;
         private Label lblNombre;
+        private Label lblApellido;
         private Label lblCarrera;
-        private Label lblUniversidad;
-        private Label lblModulo;
+        private Label lblDescripcion;
         private Label lblTitulo;
         private Panel panelContenedor;
         private Button btnCerrar;
@@ -50,7 +50,7 @@ namespace Vista
             try
             {
                 AdmFactura adm = new AdmFactura();
-                adm.GenerarInfoAutor(lblNombre, lblCarrera, lblUniversidad, lblModulo, pbFotoAutor);
+                adm.GenerarInfoAutor(lblNombre, lblApellido, lblCarrera, lblDescripcion, pbFotoAutor);
 
             }
             catch (Exception ex)
@@ -97,20 +97,6 @@ namespace Vista
             CargarImagenDesdeUrl();
             panelContenedor.Controls.Add(pbFotoAutor);
 
-            // Botón para cargar foto
-            btnCargarFoto = new Button
-            {
-                Text = "Cargar Foto",
-                Size = new Size(100, 30),
-                Location = new Point(150, 245),
-                Font = new Font("Segoe UI", 9),
-                BackColor = Color.LightSteelBlue,
-                FlatStyle = FlatStyle.Flat,
-                Cursor = Cursors.Hand
-            };
-            btnCargarFoto.Click += BtnCargarFoto_Click;
-            panelContenedor.Controls.Add(btnCargarFoto);
-
             // Label para el nombre (desde la BDD)
             lblNombre = new Label
             {
@@ -125,7 +111,7 @@ namespace Vista
             panelContenedor.Controls.Add(lblNombre);
 
             // Label para la carrera (desde la BDD)
-            lblCarrera = new Label
+            lblApellido = new Label
             {
                 Text = carreraAutor,
                 Font = new Font("Segoe UI", 12, FontStyle.Regular),
@@ -135,10 +121,10 @@ namespace Vista
                 Location = new Point(10, 330),
                 TextAlign = ContentAlignment.MiddleCenter
             };
-            panelContenedor.Controls.Add(lblCarrera);
+            panelContenedor.Controls.Add(lblApellido);
 
             // Label para la universidad (desde la BDD)
-            lblUniversidad = new Label
+            lblCarrera = new Label
             {
                 Text = universidadAutor,
                 Font = new Font("Segoe UI", 12, FontStyle.Regular),
@@ -148,10 +134,10 @@ namespace Vista
                 Location = new Point(10, 365),
                 TextAlign = ContentAlignment.MiddleCenter
             };
-            panelContenedor.Controls.Add(lblUniversidad);
+            panelContenedor.Controls.Add(lblCarrera);
 
             // Label para el módulo (desde la BDD)
-            lblModulo = new Label
+            lblDescripcion = new Label
             {
                 Text = "Autor del Módulo: " + moduloAutor,
                 Font = new Font("Segoe UI", 11, FontStyle.Italic),
@@ -161,7 +147,7 @@ namespace Vista
                 Location = new Point(10, 400),
                 TextAlign = ContentAlignment.MiddleCenter
             };
-            panelContenedor.Controls.Add(lblModulo);
+            panelContenedor.Controls.Add(lblDescripcion);
 
             // Botón cerrar
             btnCerrar = new Button
@@ -257,42 +243,6 @@ namespace Vista
                     new StringFormat { Alignment = StringAlignment.Center });
             }
             pbFotoAutor.Image = placeholder;
-        }
-
-        private void BtnCargarFoto_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Title = "Seleccionar Fotografía del Autor";
-                openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp;*.gif|Todos los archivos|*.*";
-                openFileDialog.FilterIndex = 1;
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        // Liberar imagen anterior si existe
-                        if (pbFotoAutor.Image != null)
-                        {
-                            pbFotoAutor.Image.Dispose();
-                        }
-
-                        // Cargar nueva imagen usando FileStream
-                        using (FileStream fs = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read))
-                        {
-                            pbFotoAutor.Image = Image.FromStream(fs);
-                        }
-
-                        MessageBox.Show("Fotografía cargada exitosamente.", "Éxito",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error al cargar la imagen: " + ex.Message, "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)

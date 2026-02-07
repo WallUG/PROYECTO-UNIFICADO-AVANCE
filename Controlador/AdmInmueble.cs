@@ -78,6 +78,11 @@ namespace Controlador
             return inmuebleL;
         }
 
+        public  List<Inmueble> ObtenerListaInmuebles()
+        {
+            return inmuebleL;
+        }
+
         public void LlenarCombo(ComboBox cmbTipo)
         {
             foreach (string tipo in tipoIn)

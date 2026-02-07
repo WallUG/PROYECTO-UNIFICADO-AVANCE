@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -69,6 +70,37 @@ namespace Vista
                 txtNumeroInmueble.Enabled = false;
                 txtNumeroInmueble.Clear(); // Limpia el campo al deshabilitar
             }
+        }
+
+        private void btnGenerarPDF(object sender, EventArgs e)
+        {
+            //Preguntar dónde guardar el archivo PDF
+            SaveFileDialog guardar = new SaveFileDialog();
+            guardar.Filter = "Archivos PDF (*.pdf)|*.pdf";
+            guardar.FileName = "ListadoInmuebles.pdf";
+
+            //if (guardar.ShowDialog() == DialogResult.OK)
+            //{
+                try
+                {
+                    //Llama a la logica para generar el PDF
+                    AdmPDF control = new AdmPDF();
+                    control.GenerarPDFInmueble(guardar.FileName);
+
+                    MessageBox.Show("PDF Generado con exito", "PDF", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //Abrir el PDF automáticamente después de crearlo
+                    ProcessStartInfo psi = new ProcessStartInfo();
+                    psi.FileName = guardar.FileName;
+                    psi.UseShellExecute = true;
+                    Process.Start(psi);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al crear el PDF: " + ex.Message);
+                }
+            //}
+
         }
 
     }
