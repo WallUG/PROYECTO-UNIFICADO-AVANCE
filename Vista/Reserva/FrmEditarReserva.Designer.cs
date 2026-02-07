@@ -48,8 +48,6 @@
             this.colHoraInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHoraFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtCodigoEdicion = new System.Windows.Forms.TextBox();
-            this.lblCodigo = new System.Windows.Forms.Label();
             this.lblFechReserva = new System.Windows.Forms.Label();
             this.dtpFechRerservaEdicion = new System.Windows.Forms.DateTimePicker();
             this.lblHoraInicio = new System.Windows.Forms.Label();
@@ -58,6 +56,14 @@
             this.dtpHoraFinEdicion = new System.Windows.Forms.DateTimePicker();
             this.lblTipoSolicitud = new System.Windows.Forms.Label();
             this.cmbTipoSolicitudEdicion = new System.Windows.Forms.ComboBox();
+            this.txtCodigoEdicion = new System.Windows.Forms.TextBox();
+            this.lblCodigo = new System.Windows.Forms.Label();
+            this.lblFechaHastaFiltro = new System.Windows.Forms.Label();
+            this.lblFechaDesdeFiltro = new System.Windows.Forms.Label();
+            this.dtpHastaFiltroEdit = new System.Windows.Forms.DateTimePicker();
+            this.dtpDesdeFiltroEdit = new System.Windows.Forms.DateTimePicker();
+            this.rdbFiltrarFecha = new System.Windows.Forms.RadioButton();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.grpFiltro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -69,9 +75,10 @@
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.Color.White;
-            this.btnActualizar.Location = new System.Drawing.Point(593, 182);
+            this.btnActualizar.Location = new System.Drawing.Point(791, 224);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(114, 52);
+            this.btnActualizar.Size = new System.Drawing.Size(152, 64);
             this.btnActualizar.TabIndex = 43;
             this.btnActualizar.Text = "Guardar cambios";
             this.btnActualizar.UseVisualStyleBackColor = false;
@@ -79,6 +86,11 @@
             // 
             // grpFiltro
             // 
+            this.grpFiltro.Controls.Add(this.rdbFiltrarFecha);
+            this.grpFiltro.Controls.Add(this.lblFechaHastaFiltro);
+            this.grpFiltro.Controls.Add(this.lblFechaDesdeFiltro);
+            this.grpFiltro.Controls.Add(this.dtpHastaFiltroEdit);
+            this.grpFiltro.Controls.Add(this.dtpDesdeFiltroEdit);
             this.grpFiltro.Controls.Add(this.cmbHasta);
             this.grpFiltro.Controls.Add(this.cmbDesde);
             this.grpFiltro.Controls.Add(this.lblHasta);
@@ -86,9 +98,11 @@
             this.grpFiltro.Controls.Add(this.lblDesde);
             this.grpFiltro.Controls.Add(this.rdbFiltrar);
             this.grpFiltro.Controls.Add(this.rdbTodos);
-            this.grpFiltro.Location = new System.Drawing.Point(256, 12);
+            this.grpFiltro.Location = new System.Drawing.Point(341, 15);
+            this.grpFiltro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpFiltro.Name = "grpFiltro";
-            this.grpFiltro.Size = new System.Drawing.Size(454, 168);
+            this.grpFiltro.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpFiltro.Size = new System.Drawing.Size(605, 207);
             this.grpFiltro.TabIndex = 44;
             this.grpFiltro.TabStop = false;
             this.grpFiltro.Text = "Lista de Busqueda";
@@ -98,9 +112,10 @@
             this.cmbHasta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHasta.Enabled = false;
             this.cmbHasta.FormattingEnabled = true;
-            this.cmbHasta.Location = new System.Drawing.Point(198, 101);
+            this.cmbHasta.Location = new System.Drawing.Point(264, 124);
+            this.cmbHasta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbHasta.Name = "cmbHasta";
-            this.cmbHasta.Size = new System.Drawing.Size(88, 21);
+            this.cmbHasta.Size = new System.Drawing.Size(116, 24);
             this.cmbHasta.TabIndex = 21;
             // 
             // cmbDesde
@@ -108,26 +123,28 @@
             this.cmbDesde.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDesde.Enabled = false;
             this.cmbDesde.FormattingEnabled = true;
-            this.cmbDesde.Location = new System.Drawing.Point(51, 104);
+            this.cmbDesde.Location = new System.Drawing.Point(68, 128);
+            this.cmbDesde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbDesde.Name = "cmbDesde";
-            this.cmbDesde.Size = new System.Drawing.Size(88, 21);
+            this.cmbDesde.Size = new System.Drawing.Size(116, 24);
             this.cmbDesde.TabIndex = 20;
             // 
             // lblHasta
             // 
             this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(154, 103);
+            this.lblHasta.Location = new System.Drawing.Point(205, 127);
+            this.lblHasta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(38, 13);
+            this.lblHasta.Size = new System.Drawing.Size(46, 16);
             this.lblHasta.TabIndex = 19;
             this.lblHasta.Text = "Hasta:";
             // 
             // btnAplicarFiltro
             // 
-            this.btnAplicarFiltro.Location = new System.Drawing.Point(324, 100);
-            this.btnAplicarFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAplicarFiltro.Location = new System.Drawing.Point(432, 123);
+            this.btnAplicarFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAplicarFiltro.Name = "btnAplicarFiltro";
-            this.btnAplicarFiltro.Size = new System.Drawing.Size(97, 25);
+            this.btnAplicarFiltro.Size = new System.Drawing.Size(129, 31);
             this.btnAplicarFiltro.TabIndex = 15;
             this.btnAplicarFiltro.Text = "Aplicar Filtro";
             this.btnAplicarFiltro.UseVisualStyleBackColor = true;
@@ -136,18 +153,20 @@
             // lblDesde
             // 
             this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(7, 106);
+            this.lblDesde.Location = new System.Drawing.Point(9, 130);
+            this.lblDesde.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(41, 13);
+            this.lblDesde.Size = new System.Drawing.Size(51, 16);
             this.lblDesde.TabIndex = 2;
             this.lblDesde.Text = "Desde:";
             // 
             // rdbFiltrar
             // 
             this.rdbFiltrar.AutoSize = true;
-            this.rdbFiltrar.Location = new System.Drawing.Point(7, 64);
+            this.rdbFiltrar.Location = new System.Drawing.Point(9, 55);
+            this.rdbFiltrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdbFiltrar.Name = "rdbFiltrar";
-            this.rdbFiltrar.Size = new System.Drawing.Size(104, 17);
+            this.rdbFiltrar.Size = new System.Drawing.Size(131, 20);
             this.rdbFiltrar.TabIndex = 1;
             this.rdbFiltrar.TabStop = true;
             this.rdbFiltrar.Text = "Filtrar por Codigo";
@@ -158,9 +177,10 @@
             // 
             this.rdbTodos.AutoSize = true;
             this.rdbTodos.Checked = true;
-            this.rdbTodos.Location = new System.Drawing.Point(7, 22);
+            this.rdbTodos.Location = new System.Drawing.Point(9, 27);
+            this.rdbTodos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdbTodos.Name = "rdbTodos";
-            this.rdbTodos.Size = new System.Drawing.Size(65, 17);
+            this.rdbTodos.Size = new System.Drawing.Size(79, 20);
             this.rdbTodos.TabIndex = 0;
             this.rdbTodos.TabStop = true;
             this.rdbTodos.Text = "Ver todo";
@@ -182,10 +202,12 @@
             this.colFechaReserva,
             this.colHoraInicio,
             this.colHoraFin});
-            this.dgvReservas.Location = new System.Drawing.Point(94, 199);
+            this.dgvReservas.Location = new System.Drawing.Point(125, 245);
+            this.dgvReservas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvReservas.Name = "dgvReservas";
             this.dgvReservas.ReadOnly = true;
-            this.dgvReservas.Size = new System.Drawing.Size(839, 150);
+            this.dgvReservas.RowHeadersWidth = 51;
+            this.dgvReservas.Size = new System.Drawing.Size(1119, 185);
             this.dgvReservas.TabIndex = 22;
             this.dgvReservas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReservas_CellContentClick);
             this.dgvReservas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReservas_CellContentClick);
@@ -193,56 +215,74 @@
             // colCodigo
             // 
             this.colCodigo.HeaderText = "Codigo Reserva";
+            this.colCodigo.MinimumWidth = 6;
             this.colCodigo.Name = "colCodigo";
             this.colCodigo.ReadOnly = true;
+            this.colCodigo.Width = 125;
             // 
             // colNro
             // 
             this.colNro.HeaderText = "Nro";
+            this.colNro.MinimumWidth = 6;
             this.colNro.Name = "colNro";
             this.colNro.ReadOnly = true;
+            this.colNro.Width = 125;
             // 
             // colCliente
             // 
             this.colCliente.HeaderText = "Cliente";
+            this.colCliente.MinimumWidth = 6;
             this.colCliente.Name = "colCliente";
             this.colCliente.ReadOnly = true;
+            this.colCliente.Width = 125;
             // 
             // colNombreEvento
             // 
             this.colNombreEvento.HeaderText = "Nombre del Evento";
+            this.colNombreEvento.MinimumWidth = 6;
             this.colNombreEvento.Name = "colNombreEvento";
             this.colNombreEvento.ReadOnly = true;
+            this.colNombreEvento.Width = 125;
             // 
             // colTipoEvento
             // 
             this.colTipoEvento.HeaderText = "Tipo de Evento";
+            this.colTipoEvento.MinimumWidth = 6;
             this.colTipoEvento.Name = "colTipoEvento";
             this.colTipoEvento.ReadOnly = true;
+            this.colTipoEvento.Width = 125;
             // 
             // colCantPersonas
             // 
             this.colCantPersonas.HeaderText = "Cantidad de Personas";
+            this.colCantPersonas.MinimumWidth = 6;
             this.colCantPersonas.Name = "colCantPersonas";
             this.colCantPersonas.ReadOnly = true;
+            this.colCantPersonas.Width = 125;
             // 
             // colFechaReserva
             // 
             this.colFechaReserva.HeaderText = "Fecha Reserva";
+            this.colFechaReserva.MinimumWidth = 6;
             this.colFechaReserva.Name = "colFechaReserva";
             this.colFechaReserva.ReadOnly = true;
+            this.colFechaReserva.Width = 125;
             // 
             // colHoraInicio
             // 
             this.colHoraInicio.HeaderText = "Hora Inicio";
+            this.colHoraInicio.MinimumWidth = 6;
             this.colHoraInicio.Name = "colHoraInicio";
             this.colHoraInicio.ReadOnly = true;
+            this.colHoraInicio.Width = 125;
             // 
             // colHoraFin
             // 
             this.colHoraFin.HeaderText = "Hora fin";
+            this.colHoraFin.MinimumWidth = 6;
             this.colHoraFin.Name = "colHoraFin";
             this.colHoraFin.ReadOnly = true;
+            this.colHoraFin.Width = 125;
             // 
             // groupBox1
             // 
@@ -257,94 +297,85 @@
             this.groupBox1.Controls.Add(this.txtCodigoEdicion);
             this.groupBox1.Controls.Add(this.lblCodigo);
             this.groupBox1.Controls.Add(this.btnActualizar);
-            this.groupBox1.Location = new System.Drawing.Point(137, 387);
+            this.groupBox1.Location = new System.Drawing.Point(183, 476);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(727, 259);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(969, 319);
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS DE LA RESERVA SELECCIONADA";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // txtCodigoEdicion
-            // 
-            this.txtCodigoEdicion.Location = new System.Drawing.Point(166, 30);
-            this.txtCodigoEdicion.Name = "txtCodigoEdicion";
-            this.txtCodigoEdicion.ReadOnly = true;
-            this.txtCodigoEdicion.Size = new System.Drawing.Size(200, 20);
-            this.txtCodigoEdicion.TabIndex = 45;
-            // 
-            // lblCodigo
-            // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.Location = new System.Drawing.Point(6, 30);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(139, 19);
-            this.lblCodigo.TabIndex = 44;
-            this.lblCodigo.Text = "Codigo Reserva:";
-            // 
             // lblFechReserva
             // 
             this.lblFechReserva.AutoSize = true;
-            this.lblFechReserva.Location = new System.Drawing.Point(17, 84);
+            this.lblFechReserva.Location = new System.Drawing.Point(23, 103);
+            this.lblFechReserva.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechReserva.Name = "lblFechReserva";
-            this.lblFechReserva.Size = new System.Drawing.Size(98, 13);
+            this.lblFechReserva.Size = new System.Drawing.Size(122, 16);
             this.lblFechReserva.TabIndex = 46;
             this.lblFechReserva.Text = "Fecha de Reserva:";
             // 
             // dtpFechRerservaEdicion
             // 
-            this.dtpFechRerservaEdicion.Location = new System.Drawing.Point(122, 81);
+            this.dtpFechRerservaEdicion.Location = new System.Drawing.Point(163, 100);
+            this.dtpFechRerservaEdicion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpFechRerservaEdicion.MaxDate = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             this.dtpFechRerservaEdicion.MinDate = new System.DateTime(2025, 1, 1, 0, 0, 0, 0);
             this.dtpFechRerservaEdicion.Name = "dtpFechRerservaEdicion";
-            this.dtpFechRerservaEdicion.Size = new System.Drawing.Size(301, 20);
+            this.dtpFechRerservaEdicion.Size = new System.Drawing.Size(400, 22);
             this.dtpFechRerservaEdicion.TabIndex = 51;
             // 
             // lblHoraInicio
             // 
             this.lblHoraInicio.AutoSize = true;
-            this.lblHoraInicio.Location = new System.Drawing.Point(17, 111);
+            this.lblHoraInicio.Location = new System.Drawing.Point(23, 137);
+            this.lblHoraInicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHoraInicio.Name = "lblHoraInicio";
-            this.lblHoraInicio.Size = new System.Drawing.Size(76, 13);
+            this.lblHoraInicio.Size = new System.Drawing.Size(93, 16);
             this.lblHoraInicio.TabIndex = 48;
             this.lblHoraInicio.Text = "Hora de Inicio:";
             // 
             // dtpHoraInicioEdicion
             // 
             this.dtpHoraInicioEdicion.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraInicioEdicion.Location = new System.Drawing.Point(122, 109);
+            this.dtpHoraInicioEdicion.Location = new System.Drawing.Point(163, 134);
+            this.dtpHoraInicioEdicion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpHoraInicioEdicion.MaxDate = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             this.dtpHoraInicioEdicion.MinDate = new System.DateTime(2025, 1, 1, 0, 0, 0, 0);
             this.dtpHoraInicioEdicion.Name = "dtpHoraInicioEdicion";
-            this.dtpHoraInicioEdicion.Size = new System.Drawing.Size(121, 20);
+            this.dtpHoraInicioEdicion.Size = new System.Drawing.Size(160, 22);
             this.dtpHoraInicioEdicion.TabIndex = 52;
             // 
             // lblHoraFin
             // 
             this.lblHoraFin.AutoSize = true;
-            this.lblHoraFin.Location = new System.Drawing.Point(17, 139);
+            this.lblHoraFin.Location = new System.Drawing.Point(23, 171);
+            this.lblHoraFin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHoraFin.Name = "lblHoraFin";
-            this.lblHoraFin.Size = new System.Drawing.Size(65, 13);
+            this.lblHoraFin.Size = new System.Drawing.Size(80, 16);
             this.lblHoraFin.TabIndex = 47;
             this.lblHoraFin.Text = "Hora de Fin:";
             // 
             // dtpHoraFinEdicion
             // 
             this.dtpHoraFinEdicion.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraFinEdicion.Location = new System.Drawing.Point(122, 137);
+            this.dtpHoraFinEdicion.Location = new System.Drawing.Point(163, 169);
+            this.dtpHoraFinEdicion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpHoraFinEdicion.MaxDate = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             this.dtpHoraFinEdicion.MinDate = new System.DateTime(2025, 1, 1, 0, 0, 0, 0);
             this.dtpHoraFinEdicion.Name = "dtpHoraFinEdicion";
-            this.dtpHoraFinEdicion.Size = new System.Drawing.Size(121, 20);
+            this.dtpHoraFinEdicion.Size = new System.Drawing.Size(160, 22);
             this.dtpHoraFinEdicion.TabIndex = 53;
             // 
             // lblTipoSolicitud
             // 
             this.lblTipoSolicitud.AutoSize = true;
-            this.lblTipoSolicitud.Location = new System.Drawing.Point(17, 167);
+            this.lblTipoSolicitud.Location = new System.Drawing.Point(23, 206);
+            this.lblTipoSolicitud.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipoSolicitud.Name = "lblTipoSolicitud";
-            this.lblTipoSolicitud.Size = new System.Drawing.Size(89, 13);
+            this.lblTipoSolicitud.Size = new System.Drawing.Size(111, 16);
             this.lblTipoSolicitud.TabIndex = 49;
             this.lblTipoSolicitud.Text = "Tipo de Solicitud:";
             // 
@@ -352,19 +383,106 @@
             // 
             this.cmbTipoSolicitudEdicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoSolicitudEdicion.FormattingEnabled = true;
-            this.cmbTipoSolicitudEdicion.Location = new System.Drawing.Point(122, 164);
+            this.cmbTipoSolicitudEdicion.Location = new System.Drawing.Point(163, 202);
+            this.cmbTipoSolicitudEdicion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbTipoSolicitudEdicion.Name = "cmbTipoSolicitudEdicion";
-            this.cmbTipoSolicitudEdicion.Size = new System.Drawing.Size(301, 21);
+            this.cmbTipoSolicitudEdicion.Size = new System.Drawing.Size(400, 24);
             this.cmbTipoSolicitudEdicion.TabIndex = 50;
+            // 
+            // txtCodigoEdicion
+            // 
+            this.txtCodigoEdicion.Location = new System.Drawing.Point(221, 37);
+            this.txtCodigoEdicion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigoEdicion.Name = "txtCodigoEdicion";
+            this.txtCodigoEdicion.ReadOnly = true;
+            this.txtCodigoEdicion.Size = new System.Drawing.Size(265, 22);
+            this.txtCodigoEdicion.TabIndex = 45;
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.Location = new System.Drawing.Point(8, 37);
+            this.lblCodigo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(172, 24);
+            this.lblCodigo.TabIndex = 44;
+            this.lblCodigo.Text = "Codigo Reserva:";
+            // 
+            // lblFechaHastaFiltro
+            // 
+            this.lblFechaHastaFiltro.AutoSize = true;
+            this.lblFechaHastaFiltro.Location = new System.Drawing.Point(205, 165);
+            this.lblFechaHastaFiltro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFechaHastaFiltro.Name = "lblFechaHastaFiltro";
+            this.lblFechaHastaFiltro.Size = new System.Drawing.Size(46, 16);
+            this.lblFechaHastaFiltro.TabIndex = 32;
+            this.lblFechaHastaFiltro.Text = "Hasta:";
+            // 
+            // lblFechaDesdeFiltro
+            // 
+            this.lblFechaDesdeFiltro.AutoSize = true;
+            this.lblFechaDesdeFiltro.Location = new System.Drawing.Point(9, 165);
+            this.lblFechaDesdeFiltro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFechaDesdeFiltro.Name = "lblFechaDesdeFiltro";
+            this.lblFechaDesdeFiltro.Size = new System.Drawing.Size(51, 16);
+            this.lblFechaDesdeFiltro.TabIndex = 31;
+            this.lblFechaDesdeFiltro.Text = "Desde:";
+            // 
+            // dtpHastaFiltroEdit
+            // 
+            this.dtpHastaFiltroEdit.Enabled = false;
+            this.dtpHastaFiltroEdit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHastaFiltroEdit.Location = new System.Drawing.Point(264, 160);
+            this.dtpHastaFiltroEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpHastaFiltroEdit.Name = "dtpHastaFiltroEdit";
+            this.dtpHastaFiltroEdit.Size = new System.Drawing.Size(116, 22);
+            this.dtpHastaFiltroEdit.TabIndex = 30;
+            // 
+            // dtpDesdeFiltroEdit
+            // 
+            this.dtpDesdeFiltroEdit.Enabled = false;
+            this.dtpDesdeFiltroEdit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDesdeFiltroEdit.Location = new System.Drawing.Point(68, 160);
+            this.dtpDesdeFiltroEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpDesdeFiltroEdit.Name = "dtpDesdeFiltroEdit";
+            this.dtpDesdeFiltroEdit.Size = new System.Drawing.Size(116, 22);
+            this.dtpDesdeFiltroEdit.TabIndex = 29;
+            // 
+            // rdbFiltrarFecha
+            // 
+            this.rdbFiltrarFecha.AutoSize = true;
+            this.rdbFiltrarFecha.Location = new System.Drawing.Point(9, 83);
+            this.rdbFiltrarFecha.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbFiltrarFecha.Name = "rdbFiltrarFecha";
+            this.rdbFiltrarFecha.Size = new System.Drawing.Size(125, 20);
+            this.rdbFiltrarFecha.TabIndex = 33;
+            this.rdbFiltrarFecha.Text = "Filtrar por Fecha";
+            this.rdbFiltrarFecha.UseVisualStyleBackColor = true;
+            this.rdbFiltrarFecha.CheckedChanged += new System.EventHandler(this.rdbFiltrarFecha_CheckedChanged);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.Location = new System.Drawing.Point(570, 438);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(129, 31);
+            this.btnImprimir.TabIndex = 46;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // FrmEditarReserva
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 749);
+            this.ClientSize = new System.Drawing.Size(1443, 922);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvReservas);
             this.Controls.Add(this.grpFiltro);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "FrmEditarReserva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -409,5 +527,11 @@
         private System.Windows.Forms.DateTimePicker dtpHoraFinEdicion;
         private System.Windows.Forms.Label lblTipoSolicitud;
         private System.Windows.Forms.ComboBox cmbTipoSolicitudEdicion;
+        private System.Windows.Forms.Label lblFechaHastaFiltro;
+        private System.Windows.Forms.Label lblFechaDesdeFiltro;
+        private System.Windows.Forms.DateTimePicker dtpHastaFiltroEdit;
+        private System.Windows.Forms.DateTimePicker dtpDesdeFiltroEdit;
+        private System.Windows.Forms.RadioButton rdbFiltrarFecha;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

@@ -34,6 +34,11 @@ namespace Controlador
             return listaReservas;
         }
 
+        public  List<Reserva> ObtenerListaReservas()
+        {
+            return listaReservas;
+        }
+
         // Metodo para mostrar todas las reservas
         public string MostrarTodasReservas()
         {
@@ -419,6 +424,37 @@ namespace Controlador
             else if (msj[0] == '0')
             {
                 MessageBox.Show(msj);
+            }
+        }
+
+        // Método para filtrar reservas por rango de fechas
+        public void FiltrarXFecha(DateTime fechaDesde, DateTime fechaHasta, DataGridView dgvReservas)
+        {
+            // Normalizar rangos (incluir todo el día 'hasta')
+            DateTime desde = fechaDesde.Date;
+            DateTime hasta = fechaHasta.Date;
+
+            dgvReservas.Rows.Clear();
+
+            int nro = 1;
+            foreach (Reserva r in listaReservas)
+            {
+                DateTime fecha = r.FechaReserva.Date;
+                if (fecha >= desde && fecha <= hasta)
+                {
+
+                    dgvReservas.Rows.Add(
+                        nro++,
+                        r.CodigoReserva ?? "",
+                        r.evento.Cliente.Nombre ?? "",
+                        r.evento.NombreEvento ?? "",
+                        r.evento.TipoEvento ?? "",
+                        r.evento.NumPersonasEvento,
+                        r.FechaReserva != DateTime.MinValue ? r.FechaReserva.ToString("dd/MM/yyyy") : "",
+                        r.HoraInicio.ToString(@"hh\:mm"),
+                        r.HoraFin.ToString(@"hh\:mm")
+                    );
+                }
             }
         }
     }

@@ -22,30 +22,30 @@ namespace Controlador
         public string Descripcion = "";
         public string Foto = "";
 
-        public AdmAutor()
+        public AdmAutor(string Modulo)
         {
-            CargarDatosBDD();
+            CargarDatosBDD(Modulo);
         }
 
         //
-        private void CargarDatosBDD()
+        private void CargarDatosBDD(string Modulo)
         {
             string mensaje = conexion.Conectar();
 
             if (mensaje[0] == '1')
             {
                 // Pedimos el objeto a la capa Datos
-                Autor obj = datosEst.ObtenerEstudiante(conexion.sql);
+                Autor autor = datosEst.ObtenerEstudiante(conexion.sql, Modulo);
 
-                if (obj != null)
+                if (autor != null)
                 {
                     //Asignamos los valores a las variables públicas
-                    this.Nombre = obj.Nombre;
-                    this.Apellido = obj.Apellido;
-                    this.Correo = obj.Correo;
-                    this.carrera = obj.Carrera;
-                    this.Descripcion = obj.Descripcion;
-                    this.Foto = obj.Foto;
+                    this.Nombre = autor.Nombre;
+                    this.Apellido = autor.Apellido;
+                    this.Correo = autor.Correo;
+                    this.carrera = autor.Carrera;
+                    this.Descripcion = autor.Descripcion;
+                    this.Foto = autor.Foto;
                 }
 
                 conexion.Desconectar();

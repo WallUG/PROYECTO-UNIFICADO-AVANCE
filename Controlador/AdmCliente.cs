@@ -57,6 +57,11 @@ namespace Controlador
             return listaCliente;
         }
 
+        public  List<Cliente> ObtenerListaClientes()
+        {
+            return listaCliente;
+        }
+
         public int ObtenerCantidadClientes()
         {
             return listaCliente.Count;

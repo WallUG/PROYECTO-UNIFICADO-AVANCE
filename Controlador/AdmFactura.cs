@@ -1143,7 +1143,7 @@ namespace Controlador
 
         public void GenerarInfoAutor(Label lblNombreAutor, Label lblApellidoAutor, Label lblCarreraAutor,Label lblDescripcionAutor, PictureBox picImagenAutor)
         {
-            Autor autor = ObtenerAutorBDD();
+            Autor autor = ObtenerAutorBDD("Factura");
             if (autor != null)
             {
                 lblNombreAutor.Text = autor.Nombre;
@@ -1263,7 +1263,7 @@ namespace Controlador
             }
         }
 
-        public Autor ObtenerAutorBDD()
+        public Autor ObtenerAutorBDD(string Modulo)
         {
             cn = new Conexion();
             Autor autor = null;
@@ -1271,7 +1271,7 @@ namespace Controlador
             string msj = cn.Conectar();
             if (msj[0] == '1')
             {
-                autor = datosAutor.ObtenerEstudiante(cn.sql);
+                autor = datosAutor.ObtenerEstudiante(cn.sql, Modulo);
                 if (autor == null)
                 {
                     MessageBox.Show("No se encontraron datos del autor en la base de datos.");

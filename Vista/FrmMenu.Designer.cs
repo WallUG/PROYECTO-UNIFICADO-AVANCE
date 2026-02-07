@@ -55,6 +55,8 @@
             this.listarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator20 = new System.Windows.Forms.ToolStripSeparator();
+            this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.reservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,6 +83,10 @@
             this.mniAutor = new System.Windows.Forms.ToolStripMenuItem();
             this.autorDinamicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moduloFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moduloReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moduloInmuebleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moduloClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moduloEventoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -251,6 +257,8 @@
             this.listarToolStripMenuItem2,
             this.toolStripSeparator6,
             this.eliminarToolStripMenuItem,
+            this.toolStripSeparator20,
+            this.editarToolStripMenuItem1,
             this.toolStripSeparator15,
             this.salirToolStripMenuItem2});
             this.inmuebleToolStripMenuItem.Name = "inmuebleToolStripMenuItem";
@@ -287,6 +295,18 @@
             this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.mniEliminarInmueble_Click);
+            // 
+            // toolStripSeparator20
+            // 
+            this.toolStripSeparator20.Name = "toolStripSeparator20";
+            this.toolStripSeparator20.Size = new System.Drawing.Size(148, 6);
+            // 
+            // editarToolStripMenuItem1
+            // 
+            this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(151, 26);
+            this.editarToolStripMenuItem1.Text = "Editar";
+            this.editarToolStripMenuItem1.Click += new System.EventHandler(this.editarToolStripMenuItem1_Click);
             // 
             // toolStripSeparator15
             // 
@@ -462,7 +482,11 @@
             // autorDinamicoToolStripMenuItem
             // 
             this.autorDinamicoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.moduloFacturaToolStripMenuItem});
+            this.moduloFacturaToolStripMenuItem,
+            this.moduloReservaToolStripMenuItem,
+            this.moduloInmuebleToolStripMenuItem,
+            this.moduloClienteToolStripMenuItem,
+            this.moduloEventoToolStripMenuItem});
             this.autorDinamicoToolStripMenuItem.Name = "autorDinamicoToolStripMenuItem";
             this.autorDinamicoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.autorDinamicoToolStripMenuItem.Text = "Autor Dinamico";
@@ -473,6 +497,34 @@
             this.moduloFacturaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.moduloFacturaToolStripMenuItem.Text = "Modulo Factura";
             this.moduloFacturaToolStripMenuItem.Click += new System.EventHandler(this.moduloFacturaToolStripMenuItem_Click);
+            // 
+            // moduloReservaToolStripMenuItem
+            // 
+            this.moduloReservaToolStripMenuItem.Name = "moduloReservaToolStripMenuItem";
+            this.moduloReservaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.moduloReservaToolStripMenuItem.Text = "Modulo Reserva";
+            this.moduloReservaToolStripMenuItem.Click += new System.EventHandler(this.moduloReservaToolStripMenuItem_Click);
+            // 
+            // moduloInmuebleToolStripMenuItem
+            // 
+            this.moduloInmuebleToolStripMenuItem.Name = "moduloInmuebleToolStripMenuItem";
+            this.moduloInmuebleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.moduloInmuebleToolStripMenuItem.Text = "Modulo Inmueble";
+            this.moduloInmuebleToolStripMenuItem.Click += new System.EventHandler(this.moduloInmuebleToolStripMenuItem_Click);
+            // 
+            // moduloClienteToolStripMenuItem
+            // 
+            this.moduloClienteToolStripMenuItem.Name = "moduloClienteToolStripMenuItem";
+            this.moduloClienteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.moduloClienteToolStripMenuItem.Text = "Modulo Cliente";
+            this.moduloClienteToolStripMenuItem.Click += new System.EventHandler(this.moduloClienteToolStripMenuItem_Click);
+            // 
+            // moduloEventoToolStripMenuItem
+            // 
+            this.moduloEventoToolStripMenuItem.Name = "moduloEventoToolStripMenuItem";
+            this.moduloEventoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.moduloEventoToolStripMenuItem.Text = "Modulo Evento";
+            this.moduloEventoToolStripMenuItem.Click += new System.EventHandler(this.moduloEventoToolStripMenuItem_Click);
             // 
             // FrmMenu
             // 
@@ -549,5 +601,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
         private System.Windows.Forms.ToolStripMenuItem autorDinamicoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem moduloFacturaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator20;
+        private System.Windows.Forms.ToolStripMenuItem moduloReservaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem moduloInmuebleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem moduloClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem moduloEventoToolStripMenuItem;
     }
 }

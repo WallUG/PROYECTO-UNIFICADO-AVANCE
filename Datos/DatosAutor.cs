@@ -13,11 +13,12 @@ namespace Datos
             SqlCommand cmd = null;
 
             // METODO PARA CONSULTAR ESTUDIANTE-AUTOR (SELECT)
-            public Autor ObtenerEstudiante(SqlConnection sql)
+            public Autor ObtenerEstudiante(SqlConnection sql, string Modulos)
             {
                 Autor est = null;
-                string comando = "SELECT TOP 1 * FROM Autor";
+                string comando = "SELECT * FROM Autores WHERE Modulo = @Modulo";
                 cmd = new SqlCommand(comando, sql);
+                cmd.Parameters.AddWithValue("@Modulo", Modulos);
 
                 try
                 {

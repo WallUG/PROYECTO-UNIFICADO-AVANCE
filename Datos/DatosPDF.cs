@@ -522,6 +522,96 @@ namespace Datos
                         writer.Close();
             }
         }
+
+        public void GenerarPDFListaReservas(string rutaPdf, List<Reserva> reservas)
+        {
+            PdfWriter writer = null;
+            PdfDocument pdf = null;
+            Document document = null;
+            try
+            {
+                writer = new PdfWriter(rutaPdf);
+                pdf = new PdfDocument(writer);
+                document = new Document(pdf, iText.Kernel.Geom.PageSize.A4);
+                PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+                PdfFont normalFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
+                document.Add(new Paragraph("Lista de Reservas")
+                    .SetFont(boldFont)
+                    .SetFontColor(ColorConstants.BLUE)
+                    .SetFontSize(16));
+                document.Add(new Paragraph("\n"));
+                Table table = new Table(6).UseAllAvailableWidth();
+                table.AddHeaderCell(new Cell().Add(new Paragraph("ID").SetFont(boldFont)));
+                table.AddHeaderCell(new Cell().Add(new Paragraph("Código").SetFont(boldFont)));
+                table.AddHeaderCell(new Cell().Add(new Paragraph("Evento").SetFont(boldFont)));
+                table.AddHeaderCell(new Cell().Add(new Paragraph("Fecha").SetFont(boldFont)));
+                table.AddHeaderCell(new Cell().Add(new Paragraph("Hora Inicio").SetFont(boldFont)));
+                table.AddHeaderCell(new Cell().Add(new Paragraph("Hora Fin").SetFont(boldFont)));
+                foreach (Reserva reserva in reservas)
+                {
+                    table.AddCell(reserva.IdReserva.ToString());
+                    table.AddCell(reserva.CodigoReserva ?? "N/A");
+                    table.AddCell(reserva.evento != null ? reserva.evento.NombreEvento : "N/A");
+                    table.AddCell(reserva.FechaReserva.ToString("dd/MM/yyyy"));
+                    table.AddCell(reserva.HoraInicio.ToString(@"hh\:mm"));
+                    table.AddCell(reserva.HoraFin.ToString(@"hh\:mm"));
+                }
+                document.Add(table);
+            }
+            finally
+            {
+                if (document != null)
+                    document.Close();
+                else if (pdf != null)
+                    pdf.Close();
+                if (writer != null)
+                    writer.Close();
+            }
+        }
+
+        public void GenerarPDFListaClientes(string rutaPdf, List<Cliente> clientes)
+        {
+            PdfWriter writer = null;
+            PdfDocument pdf = null;
+            Document document = null;
+            try
+            {
+                writer = new PdfWriter(rutaPdf);
+                pdf = new PdfDocument(writer);
+                document = new Document(pdf, iText.Kernel.Geom.PageSize.A4);
+                PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+                PdfFont normalFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
+                document.Add(new Paragraph("Lista de Clientes")
+                    .SetFont(boldFont)
+                    .SetFontColor(ColorConstants.BLUE)
+                    .SetFontSize(16));
+                document.Add(new Paragraph("\n"));
+                Table table = new Table(5).UseAllAvailableWidth();
+                table.AddHeaderCell(new Cell().Add(new Paragraph("Nro Cliente").SetFont(boldFont)));
+                table.AddHeaderCell(new Cell().Add(new Paragraph("Nombre").SetFont(boldFont)));
+                table.AddHeaderCell(new Cell().Add(new Paragraph("Cédula/RUC").SetFont(boldFont)));
+                table.AddHeaderCell(new Cell().Add(new Paragraph("Teléfono").SetFont(boldFont)));
+                table.AddHeaderCell(new Cell().Add(new Paragraph("Correo Electrónico").SetFont(boldFont)));
+                foreach (Cliente cliente in clientes)
+                {
+                    table.AddCell(cliente.NumeroCliente.ToString());
+                    table.AddCell(cliente.ObtenerNombreCompleto());
+                    table.AddCell(cliente.CedulaORuc ?? "N/A");
+                    table.AddCell(cliente.Telefono ?? "N/A");
+                    table.AddCell(cliente.CorreoElectronico ?? "N/A");
+                }
+                document.Add(table);
+            }
+            finally
+            {
+                if (document != null)
+                    document.Close();
+                else if (pdf != null)
+                    pdf.Close();
+                if (writer != null)
+                    writer.Close();
+            }
+        }
     }
 
 }

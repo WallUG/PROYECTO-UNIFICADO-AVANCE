@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,8 @@ namespace Visual
     public partial class FrmEditarReserva : Form
     {
         AdmReserva admReser = new AdmReserva();
+        AdmPDF admPDF = new AdmPDF();
+
         public FrmEditarReserva()
         {
             InitializeComponent();
@@ -56,16 +60,104 @@ namespace Visual
         }
         private void btnAplicarFiltro_Click(object sender, EventArgs e)
         {
-            string codigoD = cmbDesde.Text;
-            string codigoH = cmbHasta.Text;
-
-            if (string.IsNullOrEmpty(codigoD) || string.IsNullOrEmpty(codigoH))
+            if (rdbFiltrar.Checked)
             {
-                MessageBox.Show("Seleccione el rango Desde y Hasta.");
+                string codigoD = cmbDesde.Text;
+                string codigoH = cmbHasta.Text;
+
+                if (string.IsNullOrEmpty(codigoD) || string.IsNullOrEmpty(codigoH))
+                {
+                    MessageBox.Show("Seleccione el rango Desde y Hasta.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                admReser.FiltrarXCodigo(codigoD, codigoH, dgvReservas);
                 return;
             }
-            admReser.FiltrarXCodigo(codigoD, codigoH, dgvReservas);
+
+            if (rdbFiltrarFecha.Checked)
+            {
+                DateTime desde = dtpDesdeFiltroEdit.Value.Date;
+                DateTime hasta = dtpHastaFiltroEdit.Value.Date;
+
+                if (desde > hasta)
+                {
+                    MessageBox.Show("La fecha 'Desde' no puede ser mayor que la fecha 'Hasta'.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                admReser.FiltrarXFecha(desde, hasta, dgvReservas);
+                return;
+            }
+
+            if (rdbTodos.Checked)
+            {
+                admReser.LlenarTabla(dgvReservas);
+            }
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvReservas.Rows.Count == 0)
+                {
+                    MessageBox.Show("No hay datos para generar el reporte.",
+                        "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                string nombreArchivo = $"Reporte_Reservas_Edit_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+                string rutaPdf = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                    nombreArchivo
+                );
+
+                admPDF.GenerarPDFReservas(rutaPdf);
+
+                if (File.Exists(rutaPdf))
+                {
+                    MessageBox.Show($"Reporte generado con éxito:\n{rutaPdf}",
+                        "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = rutaPdf,
+                        UseShellExecute = true
+                    });
+                }
+                else
+                {
+                    MessageBox.Show("El archivo PDF no se pudo crear.",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al generar el PDF:\n{ex.Message}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void rdbFiltrarFecha_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbFiltrarFecha.Checked)
+            {
+                ConfigurarFiltros(true);
+
+                // Deshabilitar combos de código cuando filtramos por fecha
+                cmbDesde.Enabled = false;
+                cmbHasta.Enabled = false;
+                cmbDesde.Items.Clear();
+                cmbHasta.Items.Clear();
+
+                // Habilitar fechas
+                dtpDesdeFiltroEdit.Enabled = true;
+                dtpHastaFiltroEdit.Enabled = true;
+
+                dgvReservas.Rows.Clear();
+            }
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (dgvReservas.SelectedRows.Count == 1)

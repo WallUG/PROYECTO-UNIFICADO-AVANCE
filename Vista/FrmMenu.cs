@@ -9,6 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vista;
+using Vista.Cliente;
+using Vista.Evento;
+using Vista.Factura;
+using Vista.Inmueble;
 
 namespace Visual
 {
@@ -259,8 +263,38 @@ namespace Visual
 
         private void moduloFacturaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAutorDinamico frmAutorDinamico = new FrmAutorDinamico();
+            FrmDinamicoAutorFactura frmAutorDinamico = new FrmDinamicoAutorFactura();
             frmAutorDinamico.ShowDialog();
+        }
+
+        private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmEditarInmueble frmEditarInmueble = new FrmEditarInmueble();
+            frmEditarInmueble.ShowDialog();
+        }
+
+        private void moduloReservaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDinamicoAutorReserva frmAutorDinamicoReserva = new FrmDinamicoAutorReserva();
+            frmAutorDinamicoReserva.ShowDialog();
+        }
+
+        private void moduloInmuebleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDinamicoAutorInmueble frmAutorDinamicoInmueble = new FrmDinamicoAutorInmueble();
+            frmAutorDinamicoInmueble.ShowDialog();
+        }
+
+        private void moduloEventoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDinamicoAutorEvento frmAutorDinamicoEvento = new FrmDinamicoAutorEvento();
+            frmAutorDinamicoEvento.ShowDialog();
+        }
+
+        private void moduloClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDinamicoAutorCliente frmDinamicoAutorCliente = new FrmDinamicoAutorCliente();
+            frmDinamicoAutorCliente.ShowDialog();
         }
     }
 }

@@ -13,12 +13,26 @@ namespace Controlador
     {
         AdmFactura ctrFac = new AdmFactura();
         AdmInmueble admInmueble = new AdmInmueble();
+        AdmCliente ctrCliente = new AdmCliente();
+        AdmReserva admReserva = new AdmReserva();
         DatosPDF datosPdf = new DatosPDF();
 
         public void GenerarPDF(string rutaPdf)
         {
             List<Factura> facturas = ctrFac.GetFacturas();
             datosPdf.GenerarPDF(rutaPdf, facturas);
+        }
+
+        public void GenerarPDFClientes(string rutaPdf)
+        {
+            List<Cliente> clientes = ctrCliente.ObtenerListaClientes();
+            datosPdf.GenerarPDFListaClientes(rutaPdf, clientes);
+        }
+
+        public void GenerarPDFReservas(string rutaPdf)
+        {
+            List<Reserva> reservas = admReserva.ObtenerListaReservas();
+            datosPdf.GenerarPDFListaReservas(rutaPdf, reservas);
         }
 
         public void GenerarPDFInmueble(string rutaPdf)

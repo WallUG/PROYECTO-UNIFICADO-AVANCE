@@ -1,6 +1,6 @@
-﻿namespace Vista
+﻿namespace Visual
 {
-    partial class FrmDinamicoAUTOR
+    partial class FrmDinamicoAutorReserva
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FrmDinamicoAUTOR";
+            this.Text = "FrmDinamicoAutor";
         }
 
         #endregion

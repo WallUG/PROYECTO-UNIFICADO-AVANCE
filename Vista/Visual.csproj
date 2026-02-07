@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cliente\FrmDinamicoAutorCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cliente\FrmDinamicoAutorCliente.Designer.cs">
+      <DependentUpon>FrmDinamicoAutorCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Evento\FrmDinamicoAutorEvento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Evento\FrmDinamicoAutorEvento.Designer.cs">
+      <DependentUpon>FrmDinamicoAutorEvento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Factura\FrmDinamicoAutorFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Factura\FrmDinamicoAutorFactura.Designer.cs">
+      <DependentUpon>FrmDinamicoAutorFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAutorDinamico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,136 +82,142 @@
     <Compile Include="FrmBienvenida.Designer.cs">
       <DependentUpon>FrmBienvenida.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDinamicoAUTOR.cs">
+    <Compile Include="Cliente\FrmEditarCLiente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDinamicoAUTOR.Designer.cs">
-      <DependentUpon>FrmDinamicoAUTOR.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmEditarCLiente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmEditarCLiente.Designer.cs">
+    <Compile Include="Cliente\FrmEditarCLiente.Designer.cs">
       <DependentUpon>FrmEditarCLiente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEditarDetallesEvento.cs">
+    <Compile Include="Evento\FrmEditarDetallesEvento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEditarDetallesEvento.Designer.cs">
+    <Compile Include="Evento\FrmEditarDetallesEvento.Designer.cs">
       <DependentUpon>FrmEditarDetallesEvento.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEditarDetallesFactura.cs">
+    <Compile Include="Factura\FrmEditarDetallesFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEditarDetallesFactura.Designer.cs">
+    <Compile Include="Factura\FrmEditarDetallesFactura.Designer.cs">
       <DependentUpon>FrmEditarDetallesFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEditarDetallesInmueble.cs">
+    <Compile Include="Inmueble\FrmDinamicoAutorInmueble.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEditarDetallesInmueble.Designer.cs">
+    <Compile Include="Inmueble\FrmDinamicoAutorInmueble.Designer.cs">
+      <DependentUpon>FrmDinamicoAutorInmueble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inmueble\FrmEditarDetallesInmueble.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inmueble\FrmEditarDetallesInmueble.Designer.cs">
       <DependentUpon>FrmEditarDetallesInmueble.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEditarEvento.cs">
+    <Compile Include="Evento\FrmEditarEvento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEditarEvento.Designer.cs">
+    <Compile Include="Evento\FrmEditarEvento.Designer.cs">
       <DependentUpon>FrmEditarEvento.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEditarFactura.cs">
+    <Compile Include="Factura\FrmEditarFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEditarFactura.Designer.cs">
+    <Compile Include="Factura\FrmEditarFactura.Designer.cs">
       <DependentUpon>FrmEditarFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEditarInmueble.cs">
+    <Compile Include="Inmueble\FrmEditarInmueble.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEditarInmueble.Designer.cs">
+    <Compile Include="Inmueble\FrmEditarInmueble.Designer.cs">
       <DependentUpon>FrmEditarInmueble.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEditarReserva.cs">
+    <Compile Include="Reserva\FrmDinamicoAutorReserva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEditarReserva.Designer.cs">
+    <Compile Include="Reserva\FrmDinamicoAutorReserva.Designer.cs">
+      <DependentUpon>FrmDinamicoAutorReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reserva\FrmEditarReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reserva\FrmEditarReserva.Designer.cs">
       <DependentUpon>FrmEditarReserva.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEliminarCliente.cs">
+    <Compile Include="Cliente\FrmEliminarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEliminarCliente.Designer.cs">
+    <Compile Include="Cliente\FrmEliminarCliente.Designer.cs">
       <DependentUpon>FrmEliminarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEliminarEvento.cs">
+    <Compile Include="Evento\FrmEliminarEvento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEliminarEvento.Designer.cs">
+    <Compile Include="Evento\FrmEliminarEvento.Designer.cs">
       <DependentUpon>FrmEliminarEvento.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEliminarFactura.cs">
+    <Compile Include="Factura\FrmEliminarFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEliminarFactura.Designer.cs">
+    <Compile Include="Factura\FrmEliminarFactura.Designer.cs">
       <DependentUpon>FrmEliminarFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEliminarInmueble.cs">
+    <Compile Include="Inmueble\FrmEliminarInmueble.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEliminarInmueble.Designer.cs">
+    <Compile Include="Inmueble\FrmEliminarInmueble.Designer.cs">
       <DependentUpon>FrmEliminarInmueble.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEliminarReserva.cs">
+    <Compile Include="Reserva\FrmEliminarReserva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEliminarReserva.Designer.cs">
+    <Compile Include="Reserva\FrmEliminarReserva.Designer.cs">
       <DependentUpon>FrmEliminarReserva.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmListarCliente.cs">
+    <Compile Include="Cliente\FrmListarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmListarCliente.Designer.cs">
+    <Compile Include="Cliente\FrmListarCliente.Designer.cs">
       <DependentUpon>FrmListarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmListarEvento.cs">
+    <Compile Include="Evento\FrmListarEvento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmListarEvento.Designer.cs">
+    <Compile Include="Evento\FrmListarEvento.Designer.cs">
       <DependentUpon>FrmListarEvento.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRegistrarEvento.cs">
+    <Compile Include="Evento\FrmRegistrarEvento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRegistrarEvento.Designer.cs">
+    <Compile Include="Evento\FrmRegistrarEvento.Designer.cs">
       <DependentUpon>FrmRegistrarEvento.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRegistroCliente.cs">
+    <Compile Include="Cliente\FrmRegistroCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRegistroCliente.Designer.cs">
+    <Compile Include="Cliente\FrmRegistroCliente.Designer.cs">
       <DependentUpon>FrmRegistroCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRegistroFactura.cs">
+    <Compile Include="Factura\FrmRegistroFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRegistroFactura.Designer.cs">
+    <Compile Include="Factura\FrmRegistroFactura.Designer.cs">
       <DependentUpon>FrmRegistroFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmListarFactura.cs">
+    <Compile Include="Factura\FrmListarFactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmListarFactura.Designer.cs">
+    <Compile Include="Factura\FrmListarFactura.Designer.cs">
       <DependentUpon>FrmListarFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmListarInmueble.cs">
+    <Compile Include="Inmueble\FrmListarInmueble.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmListarInmueble.Designer.cs">
+    <Compile Include="Inmueble\FrmListarInmueble.Designer.cs">
       <DependentUpon>FrmListarInmueble.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmListarReserva.cs">
+    <Compile Include="Reserva\FrmListarReserva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmListarReserva.Designer.cs">
+    <Compile Include="Reserva\FrmListarReserva.Designer.cs">
       <DependentUpon>FrmListarReserva.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMenu.cs">
@@ -202,20 +226,23 @@
     <Compile Include="FrmMenu.Designer.cs">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRegistroInmueble.cs">
+    <Compile Include="Inmueble\FrmRegistroInmueble.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRegistroInmueble.Designer.cs">
+    <Compile Include="Inmueble\FrmRegistroInmueble.Designer.cs">
       <DependentUpon>FrmRegistroInmueble.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmRegistroReserva.cs">
+    <Compile Include="Reserva\FrmRegistroReserva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRegistroReserva.Designer.cs">
+    <Compile Include="Reserva\FrmRegistroReserva.Designer.cs">
       <DependentUpon>FrmRegistroReserva.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Evento\FrmDinamicoAutorEvento.resx">
+      <DependentUpon>FrmDinamicoAutorEvento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAutorDinamico.resx">
       <DependentUpon>FrmAutorDinamico.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,76 +252,79 @@
     <EmbeddedResource Include="FrmBienvenida.resx">
       <DependentUpon>FrmBienvenida.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEditarCLiente.resx">
+    <EmbeddedResource Include="Cliente\FrmEditarCLiente.resx">
       <DependentUpon>FrmEditarCLiente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEditarDetallesEvento.resx">
+    <EmbeddedResource Include="Evento\FrmEditarDetallesEvento.resx">
       <DependentUpon>FrmEditarDetallesEvento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEditarDetallesFactura.resx">
+    <EmbeddedResource Include="Factura\FrmEditarDetallesFactura.resx">
       <DependentUpon>FrmEditarDetallesFactura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEditarDetallesInmueble.resx">
+    <EmbeddedResource Include="Inmueble\FrmDinamicoAutorInmueble.resx">
+      <DependentUpon>FrmDinamicoAutorInmueble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inmueble\FrmEditarDetallesInmueble.resx">
       <DependentUpon>FrmEditarDetallesInmueble.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEditarEvento.resx">
+    <EmbeddedResource Include="Evento\FrmEditarEvento.resx">
       <DependentUpon>FrmEditarEvento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEditarFactura.resx">
+    <EmbeddedResource Include="Factura\FrmEditarFactura.resx">
       <DependentUpon>FrmEditarFactura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEditarInmueble.resx">
+    <EmbeddedResource Include="Inmueble\FrmEditarInmueble.resx">
       <DependentUpon>FrmEditarInmueble.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEditarReserva.resx">
+    <EmbeddedResource Include="Reserva\FrmEditarReserva.resx">
       <DependentUpon>FrmEditarReserva.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEliminarCliente.resx">
+    <EmbeddedResource Include="Cliente\FrmEliminarCliente.resx">
       <DependentUpon>FrmEliminarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEliminarEvento.resx">
+    <EmbeddedResource Include="Evento\FrmEliminarEvento.resx">
       <DependentUpon>FrmEliminarEvento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEliminarFactura.resx">
+    <EmbeddedResource Include="Factura\FrmEliminarFactura.resx">
       <DependentUpon>FrmEliminarFactura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEliminarInmueble.resx">
+    <EmbeddedResource Include="Inmueble\FrmEliminarInmueble.resx">
       <DependentUpon>FrmEliminarInmueble.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEliminarReserva.resx">
+    <EmbeddedResource Include="Reserva\FrmEliminarReserva.resx">
       <DependentUpon>FrmEliminarReserva.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmListarCliente.resx">
+    <EmbeddedResource Include="Cliente\FrmListarCliente.resx">
       <DependentUpon>FrmListarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmListarEvento.resx">
+    <EmbeddedResource Include="Evento\FrmListarEvento.resx">
       <DependentUpon>FrmListarEvento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegistrarEvento.resx">
+    <EmbeddedResource Include="Evento\FrmRegistrarEvento.resx">
       <DependentUpon>FrmRegistrarEvento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegistroCliente.resx">
+    <EmbeddedResource Include="Cliente\FrmRegistroCliente.resx">
       <DependentUpon>FrmRegistroCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegistroFactura.resx">
+    <EmbeddedResource Include="Factura\FrmRegistroFactura.resx">
       <DependentUpon>FrmRegistroFactura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmListarFactura.resx">
+    <EmbeddedResource Include="Factura\FrmListarFactura.resx">
       <DependentUpon>FrmListarFactura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmListarInmueble.resx">
+    <EmbeddedResource Include="Inmueble\FrmListarInmueble.resx">
       <DependentUpon>FrmListarInmueble.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmListarReserva.resx">
+    <EmbeddedResource Include="Reserva\FrmListarReserva.resx">
       <DependentUpon>FrmListarReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegistroInmueble.resx">
+    <EmbeddedResource Include="Inmueble\FrmRegistroInmueble.resx">
       <DependentUpon>FrmRegistroInmueble.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegistroReserva.resx">
+    <EmbeddedResource Include="Reserva\FrmRegistroReserva.resx">
       <DependentUpon>FrmRegistroReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -329,7 +359,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="mi_foto.jpg" />
     <Content Include="Pluas.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
