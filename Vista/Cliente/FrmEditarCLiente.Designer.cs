@@ -34,12 +34,6 @@
             this.lblBuscarxcedula = new System.Windows.Forms.Label();
             this.tnFiltrar = new System.Windows.Forms.Button();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colApellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtCorreoElectronico = new System.Windows.Forms.TextBox();
             this.lblCorreoElectronico = new System.Windows.Forms.Label();
@@ -49,6 +43,11 @@
             this.LblApellidos = new System.Windows.Forms.Label();
             this.lllbNombres = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colApellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,7 +105,6 @@
             // 
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colId,
             this.colNombre,
             this.colApellidos,
             this.colCedula,
@@ -119,61 +117,6 @@
             this.dgvCliente.RowTemplate.Height = 24;
             this.dgvCliente.Size = new System.Drawing.Size(1191, 217);
             this.dgvCliente.TabIndex = 28;
-            // 
-            // colId
-            // 
-            this.colId.FillWeight = 200F;
-            this.colId.Frozen = true;
-            this.colId.HeaderText = "ID";
-            this.colId.MinimumWidth = 6;
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
-            this.colId.Width = 150;
-            // 
-            // colNombre
-            // 
-            this.colNombre.FillWeight = 200F;
-            this.colNombre.HeaderText = "Nombre";
-            this.colNombre.MinimumWidth = 6;
-            this.colNombre.Name = "colNombre";
-            this.colNombre.ReadOnly = true;
-            this.colNombre.Width = 250;
-            // 
-            // colApellidos
-            // 
-            this.colApellidos.FillWeight = 200F;
-            this.colApellidos.HeaderText = "Apellidos";
-            this.colApellidos.MinimumWidth = 6;
-            this.colApellidos.Name = "colApellidos";
-            this.colApellidos.ReadOnly = true;
-            this.colApellidos.Width = 200;
-            // 
-            // colCedula
-            // 
-            this.colCedula.FillWeight = 200F;
-            this.colCedula.HeaderText = "Cedula";
-            this.colCedula.MinimumWidth = 6;
-            this.colCedula.Name = "colCedula";
-            this.colCedula.ReadOnly = true;
-            this.colCedula.Width = 200;
-            // 
-            // colTelefono
-            // 
-            this.colTelefono.FillWeight = 200F;
-            this.colTelefono.HeaderText = "Telefono cel";
-            this.colTelefono.MinimumWidth = 6;
-            this.colTelefono.Name = "colTelefono";
-            this.colTelefono.ReadOnly = true;
-            this.colTelefono.Width = 250;
-            // 
-            // colCorreo
-            // 
-            this.colCorreo.FillWeight = 200F;
-            this.colCorreo.HeaderText = "Correo";
-            this.colCorreo.MinimumWidth = 6;
-            this.colCorreo.Name = "colCorreo";
-            this.colCorreo.ReadOnly = true;
-            this.colCorreo.Width = 175;
             // 
             // txtNombre
             // 
@@ -264,6 +207,51 @@
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
+            // colNombre
+            // 
+            this.colNombre.FillWeight = 200F;
+            this.colNombre.HeaderText = "Nombre";
+            this.colNombre.MinimumWidth = 6;
+            this.colNombre.Name = "colNombre";
+            this.colNombre.ReadOnly = true;
+            this.colNombre.Width = 250;
+            // 
+            // colApellidos
+            // 
+            this.colApellidos.FillWeight = 200F;
+            this.colApellidos.HeaderText = "Apellidos";
+            this.colApellidos.MinimumWidth = 6;
+            this.colApellidos.Name = "colApellidos";
+            this.colApellidos.ReadOnly = true;
+            this.colApellidos.Width = 200;
+            // 
+            // colCedula
+            // 
+            this.colCedula.FillWeight = 200F;
+            this.colCedula.HeaderText = "Cedula";
+            this.colCedula.MinimumWidth = 6;
+            this.colCedula.Name = "colCedula";
+            this.colCedula.ReadOnly = true;
+            this.colCedula.Width = 200;
+            // 
+            // colTelefono
+            // 
+            this.colTelefono.FillWeight = 200F;
+            this.colTelefono.HeaderText = "Telefono cel";
+            this.colTelefono.MinimumWidth = 6;
+            this.colTelefono.Name = "colTelefono";
+            this.colTelefono.ReadOnly = true;
+            this.colTelefono.Width = 250;
+            // 
+            // colCorreo
+            // 
+            this.colCorreo.FillWeight = 200F;
+            this.colCorreo.HeaderText = "Correo";
+            this.colCorreo.MinimumWidth = 6;
+            this.colCorreo.Name = "colCorreo";
+            this.colCorreo.ReadOnly = true;
+            this.colCorreo.Width = 175;
+            // 
             // FrmEditarCLiente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -300,12 +288,6 @@
         private System.Windows.Forms.Label lblBuscarxcedula;
         private System.Windows.Forms.Button tnFiltrar;
         private System.Windows.Forms.DataGridView dgvCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colApellidos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCedula;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCorreo;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtCorreoElectronico;
         private System.Windows.Forms.Label lblCorreoElectronico;
@@ -315,5 +297,10 @@
         private System.Windows.Forms.Label LblApellidos;
         private System.Windows.Forms.Label lllbNombres;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colApellidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCorreo;
     }
 }
