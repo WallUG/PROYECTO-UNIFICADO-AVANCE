@@ -189,9 +189,9 @@ namespace Controlador
                         }
                     }
 
+                    bool ingreso = false;
                     foreach (Reserva resr in listaReserva)
                     {
-                        bool ingreso = false;
                         if (resr.evento.IdEvento == idEvento)
                         {
                             foreach (Control c in groupBoxEvento.Controls)
@@ -201,7 +201,7 @@ namespace Controlador
                                     switch (txt.Name)
                                     {
                                         case "txtReservaFecha":
-                                            txt.Text = resr.FechaReserva.ToString();
+                                            txt.Text = resr.FechaReserva.ToString("dd/MM/yyyy");
                                             ingreso = true;
                                             break;
                                     }
@@ -209,10 +209,11 @@ namespace Controlador
                             }
                             break;
                         }
-                        if(!ingreso)
-                        {
-                            MessageBox.Show("No hay reserva asociada a este evento");
-                        }
+                    }
+
+                    if (!ingreso)
+                    {
+                        MessageBox.Show("No hay reserva asociada a este evento");
                     }
 
 

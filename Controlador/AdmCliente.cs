@@ -188,7 +188,7 @@ namespace Controlador
             foreach (Cliente cliente in listaCliente)
             {
                 dgvCliente.Rows.Add();
-                dgvCliente.Rows[indice].Cells["colId"].Value = cliente.Id;
+                //dgvCliente.Rows[indice].Cells["colId"].Value = cliente.Id;
                 dgvCliente.Rows[indice].Cells["colNombre"].Value = cliente.Nombre;
                 dgvCliente.Rows[indice].Cells["colApellidos"].Value = cliente.Apellido;
                 dgvCliente.Rows[indice].Cells["colCedula"].Value = cliente.CedulaORuc;
