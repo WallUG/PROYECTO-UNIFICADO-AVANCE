@@ -16,11 +16,14 @@ namespace Controlador
 {
     public class AdmFactura
     {
+        AdmCliente admCliente = new AdmCliente();
+        AdmReserva admReserva = new AdmReserva();
+        AdmEvento admEvento = new AdmEvento();
         public static List<Factura> listaFacturas = new List<Factura>();
         static string numeroEditarFactura;
-        public List<Cliente> listaCliente = AdmCliente.ObtenerTodosLosClientes();
-        public List<Reserva> listaReserva = AdmReserva.ObtenerTodosLasReservas();
-        public List<Evento> listaEvento = AdmEvento.ObtenerTodosLosEventos();
+        public List<Cliente> listaCliente = null;
+        public List<Reserva> listaReserva = null;
+        public List<Evento> listaEvento = null;
         Conexion cn = new Conexion();
         DatosFactura datosFac = null;
         DatosAutor datosAutor = null;
@@ -28,6 +31,9 @@ namespace Controlador
 
         public AdmFactura()
         {
+            listaCliente = admCliente.ObtenerListaClientes();
+            listaReserva = admReserva.ObtenerListaReservas();
+            listaEvento = admEvento.ObtenerListaEventos();
             ConsultarFacturasBDD();
         }
 
