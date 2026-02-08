@@ -1066,7 +1066,9 @@ namespace Controlador
             }
 
             factura.EmitirFactura();
-            
+            ActualizarFacturaBDD(factura);
+
+
             // Actualizar el estado en el formulario
             foreach (Control c in groupBoxFactura.Controls)
             {
@@ -1103,6 +1105,7 @@ namespace Controlador
             if (resultado == DialogResult.Yes)
             {
                 factura.AnularFactura();
+                ActualizarFacturaBDD(factura);
 
                 // Actualizar el estado en el formulario
                 foreach (Control c in groupBoxFactura.Controls)
