@@ -93,7 +93,6 @@
             this.colPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.btnGenerarPDF = new System.Windows.Forms.Button();
             this.groupBoxCliente.SuspendLayout();
             this.groupBoxEvento.SuspendLayout();
             this.groupBoxFactura.SuspendLayout();
@@ -464,7 +463,6 @@
             // 
             // groupBoxFactura
             // 
-            this.groupBoxFactura.Controls.Add(this.btnGenerarPDF);
             this.groupBoxFactura.Controls.Add(this.txtDescuentoAplicado);
             this.groupBoxFactura.Controls.Add(this.lblDescuentoAplicado);
             this.groupBoxFactura.Controls.Add(this.txtEstadoFactura);
@@ -650,6 +648,7 @@
             this.txtIdFactura.ReadOnly = true;
             this.txtIdFactura.Size = new System.Drawing.Size(145, 22);
             this.txtIdFactura.TabIndex = 8;
+            this.txtIdFactura.Visible = false;
             // 
             // lblTotal
             // 
@@ -721,6 +720,7 @@
             this.lblIdFactura.Size = new System.Drawing.Size(71, 16);
             this.lblIdFactura.TabIndex = 0;
             this.lblIdFactura.Text = "ID Factura:";
+            this.lblIdFactura.Visible = false;
             // 
             // groupBoxDetalles
             // 
@@ -811,17 +811,6 @@
             this.lblTitulo.Size = new System.Drawing.Size(310, 31);
             this.lblTitulo.TabIndex = 11;
             this.lblTitulo.Text = "Módulo de Facturación";
-            // 
-            // btnGenerarPDF
-            // 
-            this.btnGenerarPDF.Location = new System.Drawing.Point(36, 249);
-            this.btnGenerarPDF.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGenerarPDF.Name = "btnGenerarPDF";
-            this.btnGenerarPDF.Size = new System.Drawing.Size(120, 37);
-            this.btnGenerarPDF.TabIndex = 20;
-            this.btnGenerarPDF.Text = "Generar PDF";
-            this.btnGenerarPDF.UseVisualStyleBackColor = true;
-            this.btnGenerarPDF.Click += new System.EventHandler(this.btnGenerarPDF_Click);
             // 
             // FrmRegistroFactura
             // 
@@ -919,7 +908,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioUnitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal;
-        private System.Windows.Forms.Button btnGenerarPDF;
     }
 }
 

@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +17,8 @@ namespace Vista
     public partial class FrmListarEvento : Form
     {
         private AdmEvento admEvento = new AdmEvento();
-        
+        AdmPDF admPdf = new AdmPDF();
+
         public FrmListarEvento()
         {
             InitializeComponent();
@@ -98,6 +101,45 @@ namespace Vista
             if (!esDigito && !esBackspace)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btnGenerarPDF_Click(object sender, EventArgs e)
+        {
+            string rutaPdf = "Evento_" + ".pdf";
+            try
+            {
+                // Verificar si el archivo existe y está en uso
+                if (File.Exists(rutaPdf))
+                {
+                    try
+                    {
+                        // Intentar eliminar para verificar si está bloqueado
+                        File.Delete(rutaPdf);
+                    }
+                    catch (IOException)
+                    {
+                        MessageBox.Show("El archivo PDF está abierto por otra aplicación. Por favor, ciérrelo e intente nuevamente.",
+                                        "Archivo en uso",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
+                admPdf.GenerarPDFEvento(rutaPdf);
+                //Codigo para abrir PDF
+                ProcessStartInfo psi = new ProcessStartInfo();
+                psi.FileName = rutaPdf;
+                psi.UseShellExecute = true;
+                Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el PDF: " + ex.Message,
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
             }
         }
     }

@@ -104,7 +104,7 @@ namespace Datos
                 //table.AddHeaderCell(new Cell().Add(new Paragraph("Estado").SetFont(boldFont)));
                 //table.AddHeaderCell(new Cell().Add(new Paragraph("Valor Consulta").SetFont(boldFont)));
 
-                table.AddCell(Convert.ToInt32(factura.NumeroFactura).ToString());
+                table.AddCell(factura.NumeroFactura);
                 table.AddCell(factura.Evento.NombreEvento);
                 table.AddCell(factura.Evento.NumPersonasEvento.ToString());
                 table.AddCell(factura.Evento.Cliente.Nombre);
@@ -599,6 +599,50 @@ namespace Datos
                     table.AddCell(cliente.CedulaORuc ?? "N/A");
                     table.AddCell(cliente.Telefono ?? "N/A");
                     table.AddCell(cliente.CorreoElectronico ?? "N/A");
+                }
+                document.Add(table);
+            }
+            finally
+            {
+                if (document != null)
+                    document.Close();
+                else if (pdf != null)
+                    pdf.Close();
+                if (writer != null)
+                    writer.Close();
+            }
+        }
+
+        public void GenerarPDFListaEventos(string rutaPdf, List<Evento> eventos)
+        {
+            PdfWriter writer = null;
+            PdfDocument pdf = null;
+            Document document = null;
+            try
+            {
+                writer = new PdfWriter(rutaPdf);
+                pdf = new PdfDocument(writer);
+                document = new Document(pdf, iText.Kernel.Geom.PageSize.A4);
+                PdfFont boldFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+                PdfFont normalFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
+                document.Add(new Paragraph("Lista de Eventos")
+                    .SetFont(boldFont)
+                    .SetFontColor(ColorConstants.BLUE)
+                    .SetFontSize(16));
+                document.Add(new Paragraph("\n"));
+                Table table = new Table(5).UseAllAvailableWidth();
+                table.AddHeaderCell(new Cell().Add(new Paragraph("Nro Evento").SetFont(boldFont)));
+                table.AddHeaderCell(new Cell().Add(new Paragraph("Nombre").SetFont(boldFont)));
+                table.AddHeaderCell(new Cell().Add(new Paragraph("Tipo").SetFont(boldFont)));
+                table.AddHeaderCell(new Cell().Add(new Paragraph("Direccion").SetFont(boldFont)));
+                table.AddHeaderCell(new Cell().Add(new Paragraph("Cliente").SetFont(boldFont)));
+                foreach (Evento evento in eventos)
+                {
+                    table.AddCell(evento.NumEventos.ToString());
+                    table.AddCell(evento.NombreEvento ?? "N/A");
+                    table.AddCell(evento.TipoEvento ?? "N/A");
+                    table.AddCell(evento.DireccionEvento);
+                    table.AddCell(evento.Cliente != null ? evento.Cliente.ObtenerNombreCompleto() : "N/A");
                 }
                 document.Add(table);
             }

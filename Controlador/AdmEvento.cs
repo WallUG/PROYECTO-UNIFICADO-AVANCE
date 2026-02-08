@@ -144,6 +144,11 @@ namespace Controlador
             return listaEventos;
         }
 
+        public List<Evento> ObtenerListaEventos()
+        {
+            return listaEventos;
+        }
+
         public void LlenarComboTipo(ComboBox cmbTipoInmueble)
         {
             string[] tiposInmueble = AdmEventoInmueble.ObtenerTiposInmueble();

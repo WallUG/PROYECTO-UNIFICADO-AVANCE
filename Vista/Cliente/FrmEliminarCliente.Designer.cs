@@ -43,6 +43,7 @@
             this.tnFiltrar = new System.Windows.Forms.Button();
             this.lblFiltro = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnGenerarPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,10 +52,10 @@
             this.lblEliminarClientesClientes.AutoSize = true;
             this.lblEliminarClientesClientes.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.lblEliminarClientesClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEliminarClientesClientes.Location = new System.Drawing.Point(576, 25);
+            this.lblEliminarClientesClientes.Location = new System.Drawing.Point(512, 20);
             this.lblEliminarClientesClientes.Name = "lblEliminarClientesClientes";
             this.lblEliminarClientesClientes.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblEliminarClientesClientes.Size = new System.Drawing.Size(314, 32);
+            this.lblEliminarClientesClientes.Size = new System.Drawing.Size(272, 29);
             this.lblEliminarClientesClientes.TabIndex = 3;
             this.lblEliminarClientesClientes.Text = "ELIMINAR CLIENTES ";
             // 
@@ -68,12 +69,11 @@
             this.colCedula,
             this.colTelefono,
             this.colCorreo});
-            this.dgvClientes.Location = new System.Drawing.Point(83, 311);
-            this.dgvClientes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgvClientes.Location = new System.Drawing.Point(74, 249);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.RowHeadersWidth = 51;
             this.dgvClientes.RowTemplate.Height = 24;
-            this.dgvClientes.Size = new System.Drawing.Size(1191, 217);
+            this.dgvClientes.Size = new System.Drawing.Size(1059, 174);
             this.dgvClientes.TabIndex = 2;
             // 
             // colId
@@ -133,9 +133,10 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(627, 550);
+            this.btnEliminar.Location = new System.Drawing.Point(483, 428);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(150, 52);
+            this.btnEliminar.Size = new System.Drawing.Size(133, 42);
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -145,27 +146,28 @@
             // 
             this.lblFiltros.AutoSize = true;
             this.lblFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltros.Location = new System.Drawing.Point(347, 101);
+            this.lblFiltros.Location = new System.Drawing.Point(308, 81);
             this.lblFiltros.Name = "lblFiltros";
-            this.lblFiltros.Size = new System.Drawing.Size(112, 29);
+            this.lblFiltros.Size = new System.Drawing.Size(95, 25);
             this.lblFiltros.TabIndex = 19;
             this.lblFiltros.Text = "FILTRO:";
             // 
             // txtBuscarxcedula
             // 
-            this.txtBuscarxcedula.Location = new System.Drawing.Point(627, 167);
+            this.txtBuscarxcedula.Location = new System.Drawing.Point(557, 134);
+            this.txtBuscarxcedula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuscarxcedula.MaxLength = 12;
             this.txtBuscarxcedula.Name = "txtBuscarxcedula";
-            this.txtBuscarxcedula.Size = new System.Drawing.Size(236, 26);
+            this.txtBuscarxcedula.Size = new System.Drawing.Size(210, 22);
             this.txtBuscarxcedula.TabIndex = 17;
             // 
             // lblBuscarxcedula
             // 
             this.lblBuscarxcedula.AutoSize = true;
             this.lblBuscarxcedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuscarxcedula.Location = new System.Drawing.Point(357, 173);
+            this.lblBuscarxcedula.Location = new System.Drawing.Point(317, 138);
             this.lblBuscarxcedula.Name = "lblBuscarxcedula";
-            this.lblBuscarxcedula.Size = new System.Drawing.Size(207, 20);
+            this.lblBuscarxcedula.Size = new System.Drawing.Size(179, 17);
             this.lblBuscarxcedula.TabIndex = 15;
             this.lblBuscarxcedula.Text = "BUSCAR POR CEDULA:\r\n";
             // 
@@ -173,9 +175,10 @@
             // 
             this.tnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tnFiltrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.tnFiltrar.Location = new System.Drawing.Point(643, 231);
+            this.tnFiltrar.Location = new System.Drawing.Point(572, 185);
+            this.tnFiltrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tnFiltrar.Name = "tnFiltrar";
-            this.tnFiltrar.Size = new System.Drawing.Size(134, 52);
+            this.tnFiltrar.Size = new System.Drawing.Size(119, 42);
             this.tnFiltrar.TabIndex = 14;
             this.tnFiltrar.Text = "FILTRAR";
             this.tnFiltrar.UseVisualStyleBackColor = true;
@@ -185,16 +188,28 @@
             // 
             this.lblFiltro.AutoSize = true;
             this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltro.Location = new System.Drawing.Point(282, 138);
+            this.lblFiltro.Location = new System.Drawing.Point(251, 110);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(0, 29);
+            this.lblFiltro.Size = new System.Drawing.Size(0, 25);
             this.lblFiltro.TabIndex = 11;
+            // 
+            // btnGenerarPDF
+            // 
+            this.btnGenerarPDF.Location = new System.Drawing.Point(634, 428);
+            this.btnGenerarPDF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGenerarPDF.Name = "btnGenerarPDF";
+            this.btnGenerarPDF.Size = new System.Drawing.Size(133, 42);
+            this.btnGenerarPDF.TabIndex = 20;
+            this.btnGenerarPDF.Text = "Generar PDF";
+            this.btnGenerarPDF.UseVisualStyleBackColor = true;
+            this.btnGenerarPDF.Click += new System.EventHandler(this.btnGenerarPDF_Click);
             // 
             // FrmEliminarCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1432, 659);
+            this.ClientSize = new System.Drawing.Size(1273, 527);
+            this.Controls.Add(this.btnGenerarPDF);
             this.Controls.Add(this.lblFiltros);
             this.Controls.Add(this.txtBuscarxcedula);
             this.Controls.Add(this.lblBuscarxcedula);
@@ -203,6 +218,7 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.lblEliminarClientesClientes);
             this.Controls.Add(this.dgvClientes);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmEliminarCliente";
             this.Text = "FrmEliminarCliente";
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
@@ -228,5 +244,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCorreo;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button btnGenerarPDF;
     }
 }

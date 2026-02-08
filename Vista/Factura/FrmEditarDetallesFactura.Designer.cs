@@ -81,12 +81,13 @@
             this.lblIdFactura = new System.Windows.Forms.Label();
             this.groupBoxDetalles = new System.Windows.Forms.GroupBox();
             this.dgvDetallesFactura = new System.Windows.Forms.DataGridView();
-            this.lblInfoEdicion = new System.Windows.Forms.Label();
             this.colNumDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblInfoEdicion = new System.Windows.Forms.Label();
+            this.btnGenerarPDF = new System.Windows.Forms.Button();
             this.groupBoxCliente.SuspendLayout();
             this.groupBoxEvento.SuspendLayout();
             this.groupBoxFactura.SuspendLayout();
@@ -390,6 +391,7 @@
             // 
             // groupBoxFactura
             // 
+            this.groupBoxFactura.Controls.Add(this.btnGenerarPDF);
             this.groupBoxFactura.Controls.Add(this.txtEstadoFactura);
             this.groupBoxFactura.Controls.Add(this.btnRecalcular);
             this.groupBoxFactura.Controls.Add(this.btnEmitirFactura);
@@ -657,18 +659,6 @@
             this.dgvDetallesFactura.Size = new System.Drawing.Size(490, 280);
             this.dgvDetallesFactura.TabIndex = 0;
             // 
-            // lblInfoEdicion
-            // 
-            this.lblInfoEdicion.AutoSize = true;
-            this.lblInfoEdicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoEdicion.ForeColor = System.Drawing.Color.Gray;
-            this.lblInfoEdicion.Location = new System.Drawing.Point(380, 50);
-            this.lblInfoEdicion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblInfoEdicion.Name = "lblInfoEdicion";
-            this.lblInfoEdicion.Size = new System.Drawing.Size(388, 18);
-            this.lblInfoEdicion.TabIndex = 1;
-            this.lblInfoEdicion.Text = "Solo puede modificar el descuento en facturas pendientes";
-            // 
             // colNumDetalle
             // 
             this.colNumDetalle.HeaderText = "Num";
@@ -708,6 +698,29 @@
             this.colSubtotal.Name = "colSubtotal";
             this.colSubtotal.ReadOnly = true;
             this.colSubtotal.Width = 80;
+            // 
+            // lblInfoEdicion
+            // 
+            this.lblInfoEdicion.AutoSize = true;
+            this.lblInfoEdicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfoEdicion.ForeColor = System.Drawing.Color.Gray;
+            this.lblInfoEdicion.Location = new System.Drawing.Point(380, 50);
+            this.lblInfoEdicion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblInfoEdicion.Name = "lblInfoEdicion";
+            this.lblInfoEdicion.Size = new System.Drawing.Size(388, 18);
+            this.lblInfoEdicion.TabIndex = 1;
+            this.lblInfoEdicion.Text = "Solo puede modificar el descuento en facturas pendientes";
+            // 
+            // btnGenerarPDF
+            // 
+            this.btnGenerarPDF.Location = new System.Drawing.Point(23, 222);
+            this.btnGenerarPDF.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGenerarPDF.Name = "btnGenerarPDF";
+            this.btnGenerarPDF.Size = new System.Drawing.Size(107, 28);
+            this.btnGenerarPDF.TabIndex = 21;
+            this.btnGenerarPDF.Text = "Generar PDF";
+            this.btnGenerarPDF.UseVisualStyleBackColor = true;
+            this.btnGenerarPDF.Click += new System.EventHandler(this.btnGenerarPDF_Click);
             // 
             // FrmEditarDetallesFactura
             // 
@@ -801,5 +814,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioUnitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal;
+        private System.Windows.Forms.Button btnGenerarPDF;
     }
 }

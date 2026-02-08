@@ -15,6 +15,7 @@ namespace Controlador
         AdmInmueble admInmueble = new AdmInmueble();
         AdmCliente ctrCliente = new AdmCliente();
         AdmReserva admReserva = new AdmReserva();
+        AdmEvento admEvento = new AdmEvento();
         DatosPDF datosPdf = new DatosPDF();
 
         public void GenerarPDF(string rutaPdf)
@@ -45,6 +46,12 @@ namespace Controlador
         {
             Factura factura = ctrFac.ObtenerFacturaPorNumero(num);
             datosPdf.GenerarPDFUni(rutaPdf, factura);
+        }
+
+        public void GenerarPDFEvento(string rutaPdf)
+        {
+            List<Evento> eventos = admEvento.ObtenerListaEventos();
+            datosPdf.GenerarPDFListaEventos(rutaPdf, eventos);
         }
 
         public bool ExistePDF(string rutaPdf)

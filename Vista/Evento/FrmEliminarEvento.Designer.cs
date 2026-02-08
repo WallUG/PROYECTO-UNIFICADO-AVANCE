@@ -51,6 +51,7 @@
             this.rdbNumEventos = new System.Windows.Forms.RadioButton();
             this.rdbCedulaORuc = new System.Windows.Forms.RadioButton();
             this.btnActualizarListaEvento = new System.Windows.Forms.Button();
+            this.btnGenerarPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).BeginInit();
             this.gbBuscarPor.SuspendLayout();
             this.gbFiltrarPor.SuspendLayout();
@@ -312,6 +313,18 @@
             this.btnActualizarListaEvento.UseVisualStyleBackColor = true;
             this.btnActualizarListaEvento.Click += new System.EventHandler(this.btnActualizarListaEvento_Click);
             // 
+            // btnGenerarPDF
+            // 
+            this.btnGenerarPDF.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerarPDF.ForeColor = System.Drawing.Color.Blue;
+            this.btnGenerarPDF.Location = new System.Drawing.Point(837, 613);
+            this.btnGenerarPDF.Name = "btnGenerarPDF";
+            this.btnGenerarPDF.Size = new System.Drawing.Size(162, 46);
+            this.btnGenerarPDF.TabIndex = 31;
+            this.btnGenerarPDF.Text = "Generar PDF";
+            this.btnGenerarPDF.UseVisualStyleBackColor = true;
+            this.btnGenerarPDF.Click += new System.EventHandler(this.btnGenerarPDF_Click);
+            // 
             // FrmEliminarEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -319,6 +332,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1488, 681);
+            this.Controls.Add(this.btnGenerarPDF);
             this.Controls.Add(this.btnActualizarListaEvento);
             this.Controls.Add(this.gbBuscarPor);
             this.Controls.Add(this.gbFiltrarPor);
@@ -365,5 +379,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDireccionEvento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstadoEvento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumModificacionesEvento;
+        private System.Windows.Forms.Button btnGenerarPDF;
     }
 }

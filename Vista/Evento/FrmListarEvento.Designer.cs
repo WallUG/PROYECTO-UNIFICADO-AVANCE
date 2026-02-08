@@ -48,8 +48,9 @@
             this.rdbCedulaORuc = new System.Windows.Forms.RadioButton();
             this.gbFiltrarPor = new System.Windows.Forms.GroupBox();
             this.gbBuscarPor = new System.Windows.Forms.GroupBox();
-            this.btnFiltrar = new System.Windows.Forms.Button();
             this.txtCiRucCliente = new System.Windows.Forms.TextBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.btnGenerarPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventos)).BeginInit();
             this.gbFiltrarPor.SuspendLayout();
             this.gbBuscarPor.SuspendLayout();
@@ -275,6 +276,17 @@
             this.gbBuscarPor.TabStop = false;
             this.gbBuscarPor.Text = "Buscar por:";
             // 
+            // txtCiRucCliente
+            // 
+            this.txtCiRucCliente.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCiRucCliente.Location = new System.Drawing.Point(253, 80);
+            this.txtCiRucCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCiRucCliente.MaxLength = 13;
+            this.txtCiRucCliente.Name = "txtCiRucCliente";
+            this.txtCiRucCliente.Size = new System.Drawing.Size(160, 27);
+            this.txtCiRucCliente.TabIndex = 24;
+            this.txtCiRucCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCiRucCliente_KeyPress);
+            // 
             // btnFiltrar
             // 
             this.btnFiltrar.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -287,16 +299,16 @@
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
-            // txtCiRucCliente
+            // btnGenerarPDF
             // 
-            this.txtCiRucCliente.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCiRucCliente.Location = new System.Drawing.Point(253, 80);
-            this.txtCiRucCliente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtCiRucCliente.MaxLength = 13;
-            this.txtCiRucCliente.Name = "txtCiRucCliente";
-            this.txtCiRucCliente.Size = new System.Drawing.Size(160, 27);
-            this.txtCiRucCliente.TabIndex = 24;
-            this.txtCiRucCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCiRucCliente_KeyPress);
+            this.btnGenerarPDF.Location = new System.Drawing.Point(840, 675);
+            this.btnGenerarPDF.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGenerarPDF.Name = "btnGenerarPDF";
+            this.btnGenerarPDF.Size = new System.Drawing.Size(139, 46);
+            this.btnGenerarPDF.TabIndex = 28;
+            this.btnGenerarPDF.Text = "Generar PDF";
+            this.btnGenerarPDF.UseVisualStyleBackColor = true;
+            this.btnGenerarPDF.Click += new System.EventHandler(this.btnGenerarPDF_Click);
             // 
             // FrmListarEvento
             // 
@@ -304,6 +316,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1493, 751);
+            this.Controls.Add(this.btnGenerarPDF);
             this.Controls.Add(this.gbBuscarPor);
             this.Controls.Add(this.gbFiltrarPor);
             this.Controls.Add(this.btnActualizarListaEvento);
@@ -348,5 +361,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstadoEvento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumModificacionesEvento;
         private System.Windows.Forms.TextBox txtCiRucCliente;
+        private System.Windows.Forms.Button btnGenerarPDF;
     }
 }
