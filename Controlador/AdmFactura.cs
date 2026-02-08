@@ -191,6 +191,7 @@ namespace Controlador
 
                     foreach (Reserva resr in listaReserva)
                     {
+                        bool ingreso = false;
                         if (resr.evento.IdEvento == idEvento)
                         {
                             foreach (Control c in groupBoxEvento.Controls)
@@ -201,13 +202,14 @@ namespace Controlador
                                     {
                                         case "txtReservaFecha":
                                             txt.Text = resr.FechaReserva.ToString();
+                                            ingreso = true;
                                             break;
                                     }
                                 }
                             }
                             break;
                         }
-                        else
+                        if(!ingreso)
                         {
                             MessageBox.Show("No hay reserva asociada a este evento");
                         }
