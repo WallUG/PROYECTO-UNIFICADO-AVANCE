@@ -12,6 +12,38 @@ namespace Datos//TODAS LAS SENTENCIAS
     {
         SqlCommand cmd = null;
 
+        public string EditarInmueble(Inmueble inmu, SqlConnection sql)//nuevo (UPDATE)
+        {
+            string msj = "";
+            string comando = "UPDATE Inmueble SET nombreInmueble=@nombreInmueble, tipoInmueble=@tipoInmueble, cantidadInmuebleDisponible=@cantidadInmuebleDisponible, " +
+                             "precioInmueble=@precioInmueble, inmuebleDisponible=@inmuebleDisponible WHERE numeroInmueble=@numeroInmueble";
+            cmd = new SqlCommand(comando, sql);
+            try
+            {
+                cmd.Parameters.AddWithValue("@nombreInmueble", inmu.nombreInmueble);
+                cmd.Parameters.AddWithValue("@tipoInmueble", inmu.tipoInmueble);
+                cmd.Parameters.AddWithValue("@cantidadInmuebleDisponible", inmu.cantidadInmuebleDisponible);
+                cmd.Parameters.AddWithValue("@precioInmueble", inmu.precioInmueble);
+                cmd.Parameters.AddWithValue("@inmuebleDisponible", inmu.inmuebleDisponible);
+                cmd.Parameters.AddWithValue("@numeroInmueble", inmu.numeroInmueble);
+                //cmd.Parameters.AddWithValue("@Estado", DateTime.Now("yyyy/mm/dd"));//Fecha
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                if (filasAfectadas > 0)
+                {
+                    msj = "1- Inmueble editado exitosamente.";
+                }
+                else
+                {
+                    msj = "0- No se pudo editar el inmueble.";
+                }
+            }
+            catch (Exception e)
+            {
+                msj = "0- Error al editar el inmueble: " + e.Message;
+            }
+            return msj;
+        }
+
         public List<Inmueble> ConsultarInmueble(Inmueble inmu, SqlConnection sql)//nuevo (SELECT)
         {
             List<Inmueble> inmuebleL = new List<Inmueble>();

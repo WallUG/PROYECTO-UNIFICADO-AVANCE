@@ -413,6 +413,7 @@ namespace Controlador
                 inm.cantidadInmuebleDisponible = cantidad;
                 inm.precioInmueble = precio;
                 inm.inmuebleDisponible = disponible;
+                EditarInmuebleBB(inm);
                 MessageBox.Show("Inmueble modificado correctamente.", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -470,8 +471,37 @@ namespace Controlador
             }
         }
 
-    }
+        //PARA EL EDITAR BDD
+        public string EditarInmuebleBB(Inmueble inmu)//Nuevo metodo BB
+        {
+            conexion = new Conexion();
+            string res = conexion.Conectar();
+            datosInmueble = new DatosInmueble();//
+            string resp = "";//
+            if (res[0] == '1')
+            {
+                //Registrar Inmueble en la BB
+                resp = datosInmueble.EditarInmueble(inmu, conexion.sql);//nuevo
+                if (resp[0] == '1')
+                {
+                    //MessageBox.Show("Datos de Inmueble editado en BDD"); ;
+                }
+                else if (resp[0] == '0')
+                {
+                    MessageBox.Show(resp, "Error al editar en BDD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                conexion.Desconectar();
+                return resp;
+            }
+            else if (res[0] == '0')
+            {
+                MessageBox.Show(res, "Error de conexión a la Base de Datos!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return res;
+            }
+            return res;
 
- }
+        }
+    }
+}
 
 
