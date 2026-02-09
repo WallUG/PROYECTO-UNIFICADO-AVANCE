@@ -51,6 +51,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbNumeroFactura = new System.Windows.Forms.Label();
             this.btnGenerarPdf = new System.Windows.Forms.Button();
+            this.txtFiltroAplicado = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,7 +166,7 @@
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(120, 35);
             this.btnActualizar.TabIndex = 1;
-            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.Text = "Buscar";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
@@ -267,11 +268,21 @@
             this.btnGenerarPdf.UseVisualStyleBackColor = true;
             this.btnGenerarPdf.Click += new System.EventHandler(this.BtnGenerarPdf_Click);
             // 
+            // txtFiltroAplicado
+            // 
+            this.txtFiltroAplicado.Enabled = false;
+            this.txtFiltroAplicado.Location = new System.Drawing.Point(1138, 62);
+            this.txtFiltroAplicado.Name = "txtFiltroAplicado";
+            this.txtFiltroAplicado.Size = new System.Drawing.Size(184, 22);
+            this.txtFiltroAplicado.TabIndex = 23;
+            this.txtFiltroAplicado.Visible = false;
+            // 
             // FrmListarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 507);
+            this.Controls.Add(this.txtFiltroAplicado);
             this.Controls.Add(this.btnGenerarPdf);
             this.Controls.Add(this.txtNumFactura);
             this.Controls.Add(this.txtNumCedula);
@@ -319,5 +330,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbNumeroFactura;
         private System.Windows.Forms.Button btnGenerarPdf;
+        private System.Windows.Forms.TextBox txtFiltroAplicado;
     }
 }

@@ -1296,5 +1296,58 @@ namespace Controlador
             }
             return autor;
         }
+
+        public List<Factura> ObtenerListaFacturasFiltro(string filtroAplicado)
+        {
+            List<Factura> facturasFiltradas = new List<Factura>();
+
+            string filtro = null;
+            if(filtroAplicado[0] == '1')
+            {
+                for(int i = 1; i < filtroAplicado.Length; i++)
+                {
+                    filtro += filtroAplicado[i];
+                }
+            }else if(filtroAplicado[0] == '2')
+            {
+                for (int i = 1; i < filtroAplicado.Length; i++)
+                {
+                    filtro += filtroAplicado[i];
+                }
+            }
+            else
+            {
+                MessageBox.Show("Filtro no aplicado se generara PDF sin filtro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            switch(filtroAplicado[0].ToString())
+            {
+                case "1":
+                    facturasFiltradas = ObtenerLista(filtro);
+                    break;
+                case "2":
+                    facturasFiltradas = ObtenerLista(filtro);
+                    break;
+                case "0":
+                    facturasFiltradas = listaFacturas;
+                    break;
+            }
+
+            return facturasFiltradas;
+        }
+
+        private List<Factura> ObtenerLista(string filtra)
+        {
+            List<Factura> facturasFiltradas = new List<Factura>();
+            foreach (Factura factura in listaFacturas)
+            {
+                if (factura.Evento.Cliente.CedulaORuc == filtra ||
+                    factura.NumeroFactura == filtra)
+                {
+                    facturasFiltradas.Add(factura);
+                }
+            }
+            return facturasFiltradas;
+        }
     }
 }

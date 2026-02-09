@@ -18,9 +18,9 @@ namespace Controlador
         AdmEvento admEvento = new AdmEvento();
         DatosPDF datosPdf = new DatosPDF();
 
-        public void GenerarPDF(string rutaPdf)
+        public void GenerarPDF(string rutaPdf, string filtroAplicado)
         {
-            List<Factura> facturas = ctrFac.GetFacturas();
+            List<Factura> facturas = ctrFac.ObtenerListaFacturasFiltro(filtroAplicado);
             datosPdf.GenerarPDF(rutaPdf, facturas);
         }
 

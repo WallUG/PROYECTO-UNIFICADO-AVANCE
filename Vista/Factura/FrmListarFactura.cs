@@ -57,12 +57,16 @@ namespace Visual
             {
                 txtNumCedula.Enabled = true;
                 txtNumFactura.Enabled = false;
+                txtFiltroAplicado.Clear();
+                txtFiltroAplicado.Text = "1"; // Indica que se aplicará el filtro por número de cédula
                 txtNumFactura.Clear();
             }
             else if (rbNumFactura.Checked)
             {
                 txtNumFactura.Enabled = true;
                 txtNumCedula.Enabled = false;
+                txtFiltroAplicado.Clear();
+                txtFiltroAplicado.Text = "2" ; // Indica que se aplicará el filtro por número de factura
                 txtNumCedula.Clear();
             }
         }
@@ -89,7 +93,7 @@ namespace Visual
                     }
                 }
 
-                ctrlPdf.GenerarPDF(rutaPdf);
+                ctrlPdf.GenerarPDF(rutaPdf, ObtenerFiltro());
                 //Codigo para abrir PDF
                 ProcessStartInfo psi = new ProcessStartInfo();
                 psi.FileName = rutaPdf;
@@ -103,6 +107,20 @@ namespace Visual
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
             }
+        }
+
+
+        public string ObtenerFiltro()
+        {
+            if(txtNumCedula.Enabled)
+            {
+                return "1" + txtNumCedula.Text;
+            }
+            else if(txtNumFactura.Enabled)
+            {
+                return "1" + txtNumFactura.Text;
+            }
+            return "0"; // Indica que no se aplicará ningún filtro
         }
     }
 }
