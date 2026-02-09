@@ -97,6 +97,7 @@ namespace Visual
 
         private void mniListarFactura_Click(object sender, EventArgs e)
         {
+            admFactura.ConsultarFacturasBDD();
             if (admFactura.GetCantidadLista() > 0)
             {
                 FrmListarFactura frmLisFactura = new FrmListarFactura();

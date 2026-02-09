@@ -29,7 +29,7 @@ namespace Visual
             DateTime horaFinsh = dtpHoraFin.Value;
             string contenido= "";
 
-            if (!admReser.EsVacio(cliente, nombEvent, tipEvents, cantPersonass, fecha, horaIni, horaFinsh,tipSolicitudd))
+            if (!admReser.EsVacio(fecha, horaIni, horaFinsh,tipSolicitudd))
             {
 
                 // Verificar que la hora de inicio sea menor que la hora de fin

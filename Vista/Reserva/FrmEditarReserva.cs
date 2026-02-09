@@ -165,7 +165,7 @@ namespace Visual
                 int indice = dgvReservas.CurrentRow.Index;
 
                 
-                admReser.EditarReserva(indice, dgvReservas);
+                //admReser.EditarReserva(indice, dgvReservas);
 
     
                 if (rdbFiltrar.Checked)
@@ -174,7 +174,7 @@ namespace Visual
                     admReser.LlenarComboCodigos(cmbDesde);
                     admReser.LlenarComboCodigos(cmbHasta);
 
-                    btnBuscar_Click(sender, e);
+                    //btnBuscar_Click(sender, e);
                 }
                 else
                 {
@@ -209,29 +209,48 @@ namespace Visual
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-                if (string.IsNullOrEmpty(txtCodigoEdicion.Text))
-                {
-                    MessageBox.Show("Por favor, seleccione una reserva de la tabla primero.");
-                    return;
-                }
+            // 1. Validar que tengamos una reserva cargada
+            if (string.IsNullOrEmpty(txtCodigoEdicion.Text))
+            {
+                MessageBox.Show("Por favor, seleccione una reserva de la tabla primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-                string CodigoReserva = txtCodigoEdicion.Text;
-                DateTime fecha = dtpFechRerservaEdicion.Value;
-                DateTime horaIni = dtpHoraInicioEdicion.Value;
-                DateTime horaFin = dtpHoraFinEdicion.Value;
-                string tipSolicitud = cmbTipoSolicitudEdicion.Text;
+            // 2. Validar campos obligatorios
+            if (admReser.EsVacio( dtpFechRerservaEdicion.Value, dtpHoraInicioEdicion.Value,
+                dtpHoraFinEdicion.Value, cmbTipoSolicitudEdicion.Text))
+            {
+                return;
+            }
 
-               string resultado = admReser.ActualizarReserva(CodigoReserva, fecha, horaIni, horaFin, tipSolicitud);
-                MessageBox.Show(resultado);
+            // 3. Recolectar datos nuevos
+            string codigo = txtCodigoEdicion.Text;
+            //string cliente = cmbClientesEdicion.Text;
+            //string nombreEvento = cmbNombEventoEdicion.Text;
+            //string tipoEvento = cmbTipoEventoEdicion.Text;
+            string tipoSolicitud = cmbTipoSolicitudEdicion.Text;
+            int cantidadPersonas = (int)nudCantPersonasEdicion.Value;
+            DateTime fecha = dtpFechRerservaEdicion.Value;
+            DateTime horaInicio = dtpHoraInicioEdicion.Value;
+            DateTime horaFin = dtpHoraFinEdicion.Value;
 
-                if (rdbFiltrar.Checked)
-                {
-                    btnBuscar_Click(sender, e);
-                }
-                else
-                {
-                    admReser.LlenarTabla(dgvReservas);
-                }
+            // 4. Llamar al método ActualizarReserva
+            string resultado = admReser.ActualizarReserva(codigo, fecha, horaInicio, horaFin, tipoSolicitud);
+
+            // 5. Mostrar resultado
+            MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // 6. Refrescar tabla
+            if (rdbFiltrar.Checked || rdbFiltrarFecha.Checked)
+            {
+                btnAplicarFiltro_Click(sender, e); // Re-aplicar filtro
+            }
+            else
+            {
+                admReser.LlenarTabla(dgvReservas);
+            }
+
+            // 7. Limpiar campos
             LimpiarCampos();
         }
         public void LimpiarCampos()

@@ -94,5 +94,33 @@ namespace Datos
             }
             return msj;
         }
+
+        public string EditarReservaBBD(Reserva reservaEditada, SqlConnection cn)
+        {
+            string msj = "";
+            string comando = "UPDATE Reserva SET IdEvento = @IdEvento," +
+                " FechaReserva = @FechaReserva, HoraInicio = @HoraInicio, HoraFin = @HoraFin, EstadoReserva = @EstadoReserva, TipoSolicitud = @TipoSolicitud, FechaCreacion = @FechaCreacion, Estado = @Estado WHERE CodigoReserva = @CodigoReserva";
+            cmd = new SqlCommand(comando, cn);
+            cmd.Parameters.AddWithValue("@CodigoReserva", reservaEditada.CodigoReserva);
+            cmd.Parameters.AddWithValue("@IdEvento", reservaEditada.evento.IdEvento);
+            cmd.Parameters.AddWithValue("@FechaReserva", reservaEditada.FechaReserva.ToString("yyyy-MM-dd"));
+            cmd.Parameters.AddWithValue("@HoraInicio", reservaEditada.HoraInicio);
+            cmd.Parameters.AddWithValue("@HoraFin", reservaEditada.HoraFin);
+            cmd.Parameters.AddWithValue("@EstadoReserva", reservaEditada.EstadoReserva);
+            cmd.Parameters.AddWithValue("@TipoSolicitud", reservaEditada.TipoSolicitud);
+            cmd.Parameters.AddWithValue("@FechaCreacion", DateTime.Now);
+            cmd.Parameters.AddWithValue("@Estado", 'A'); //Eliminado lógico
+            try
+            {
+                cmd.ExecuteNonQuery();
+                msj = "1";
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                msj = "0" + ex.Message;
+            }
+            return msj;
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace Vista
     public partial class FrmEditarCLiente : Form
     {
         AdmCliente admCliente = new AdmCliente();
-       
+
         public FrmEditarCLiente()
         {
             InitializeComponent();

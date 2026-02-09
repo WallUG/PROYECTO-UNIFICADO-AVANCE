@@ -89,11 +89,10 @@ namespace Controlador
                 cmbIdEvento.Items.Add(nomEven.NumEventos);
             }
         }
-        public bool EsVacio(string cliente, string nombEvent, string tipEvents,
-                            int cantPersonass, DateTime fecha, DateTime horaIni,
+        public bool EsVacio( DateTime fecha, DateTime horaIni,
                             DateTime horaFinsh, string tipSolicitudd)
         {
-            if (string.IsNullOrEmpty(cliente) || string.IsNullOrEmpty(nombEvent) || string.IsNullOrEmpty(tipEvents) || string.IsNullOrEmpty(tipSolicitudd))
+            if ( string.IsNullOrEmpty(tipSolicitudd))
             {
                 MessageBox.Show("Error: Se necesita todos los campos llenos");
                 return true;
@@ -312,7 +311,8 @@ namespace Controlador
             return null;
         }
 
-        public string ActualizarReserva(string CodigoReserva, DateTime fecha, DateTime horaIni, DateTime horaFin, string tipSolicitud)
+        public string ActualizarReserva(string CodigoReserva, DateTime fecha,
+                                        DateTime horaIni, DateTime horaFin, string tipSolicitud)
         {
             // Buscar la reserva que queremos modificar
             Reserva reservaExistente = BuscarReservaPorNumero(CodigoReserva);
@@ -327,15 +327,29 @@ namespace Controlador
                 return "Error...La hora de inicio debe ser antes de la hora de fin";
             }
 
+            //reservaExistente.evento.Cliente.Nombre = cliente;
+            //reservaExistente.evento.NombreEvento = nombEvent;
+            //reservaExistente.evento.TipoEvento = tipEvents;
+            //reservaExistente.evento.NumEventos = cantPersonas;
             reservaExistente.FechaReserva = fecha;
             reservaExistente.HoraInicio = horaIni.TimeOfDay;
             reservaExistente.HoraFin = horaFin.TimeOfDay;
             reservaExistente.TipoSolicitud = tipSolicitud;
 
-            return "Reserva " + CodigoReserva + " actualizada exitosamente\n" + reservaExistente.MostrarReserva();
+            // Actualizar en la base de datos
+            string respuestaBDD = EditarReservaBDD(reservaExistente);
+
+            if (respuestaBDD[0] == '1')
+            {
+                return "Reserva " + CodigoReserva + " actualizada exitosamente\n" + reservaExistente.MostrarReserva();
+            }
+            else
+            {
+                return "Error al actualizar en la base de datos: " + respuestaBDD;
+            }
         }
 
-         public void Conectar()
+        public void Conectar()
             {
                 Cn = new Conexion();
                 string msj = Cn.Conectar();
@@ -404,6 +418,35 @@ namespace Controlador
             {
                 MessageBox.Show(msj);
             }
+        }
+
+        // Método para editar una reserva en la base de datos
+        private string EditarReservaBDD(Reserva reservaActualizada)
+        {
+            Cn = new Conexion();
+            datosReser = new DatosReserva();
+            string msj = Cn.Conectar();
+            string resp = "";
+            if (msj[0] == '1')
+            {
+                resp = datosReser.EditarReservaBBD(reservaActualizada, Cn.sql);
+                if (resp[0] == '1')
+                {
+                    MessageBox.Show("Datos de la Reserva " + reservaActualizada.CodigoReserva + " editados con exito en BDD");
+                }
+                else if (resp[0] == '0')
+                {
+                    MessageBox.Show(resp);
+                }
+                Cn.Desconectar();
+                return resp;
+            }
+            else if (msj[0] == '0')
+            {
+                MessageBox.Show(msj);
+                return msj;
+            }
+            return "Error desconocido al editar la reserva en BDD";
         }
 
         private void ConsultarReservaBDD()

@@ -49,7 +49,7 @@ namespace Vista
             else
             {
                 adm.cargarEventoPorId(groupBoxEvento, groupBoxFactura, dgvDetallesFactura, Convert.ToInt16(cmbNumeroEvento.SelectedItem));
-                //adm.limpiarDatos(groupBoxFactura);
+                adm.limpiarDatos(groupBoxFactura);
                 //btnGuardar.Enabled = true;
             }
         }
@@ -109,11 +109,6 @@ namespace Vista
             {
                 adm.AnularFactura(groupBoxFactura, txtIdFactura.Text);
             }
-        }
-
-        private void btnGenerarPDF_Click(object sender, EventArgs e)
-        {
-            admPdf.GenerarPDFRegistro("Factura_" + txtNumeroFactura.Text + ".pdf", txtNumeroFactura.Text);
         }
     }
 }

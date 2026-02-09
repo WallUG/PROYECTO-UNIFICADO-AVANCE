@@ -152,7 +152,7 @@ namespace Vista
                 txtDescuento.Text = "0";
             }
 
-            admFactura.ActualizarDescuentoFactura(txtDescuento.Text, groupBoxFactura);
+            //admFactura.ActualizarDescuentoFactura(txtDescuento.Text, groupBoxFactura);
             
             bool resultado = admFactura.GuardarCambiosFactura(txtDescuento.Text);
             

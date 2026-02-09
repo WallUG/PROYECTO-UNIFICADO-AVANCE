@@ -112,13 +112,13 @@ namespace Visual
 
         public string ObtenerFiltro()
         {
-            if(txtNumCedula.Enabled)
+            if(txtNumCedula.Enabled && string.IsNullOrEmpty(txtNumCedula.Text))
             {
                 return "1" + txtNumCedula.Text;
             }
-            else if(txtNumFactura.Enabled)
+            else if(txtNumFactura.Enabled && string.IsNullOrEmpty(txtNumFactura.Text))
             {
-                return "1" + txtNumFactura.Text;
+                return "2" + txtNumFactura.Text;
             }
             return "0"; // Indica que no se aplicará ningún filtro
         }

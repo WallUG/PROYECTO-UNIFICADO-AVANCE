@@ -19,7 +19,7 @@ namespace Controlador
         AdmCliente admCliente = new AdmCliente();
         AdmReserva admReserva = new AdmReserva();
         AdmEvento admEvento = new AdmEvento();
-        public static List<Factura> listaFacturas = new List<Factura>();
+        public List<Factura> listaFacturas = new List<Factura>();
         static string numeroEditarFactura;
         public List<Cliente> listaCliente = null;
         public List<Reserva> listaReserva = null;
@@ -298,6 +298,7 @@ namespace Controlador
 
         public void CargarTablaFacturas(DataGridView dgvFacturas)
         {
+            ConsultarFacturasBDD();
             dgvFacturas.Rows.Clear();
             int indice = 0;
 
@@ -420,11 +421,13 @@ namespace Controlador
                         int nuevoIndice = listaFacturas.Count + 1;
                         factura = new Factura(item);
                         //listaFacturas.Add(factura);
+                        ConsultarFacturasBDD();
                         MessageBox.Show("Descuento de: " + descuento);
                         GenerarDetallesFactura(factura);
                         CalcularSubTotal(factura);
                         factura.GenerarFactura(descuento);
                         factura.NumeroFactura = GenerarNumeroFacturaAuto(listaFacturas, 1, nuevoIndice);
+                        factura.Secuencial = nuevoIndice;
                         RegistrarFacturaBDD(factura);
                         RegistrarDetallesFacturaBDD(factura);
                     }
@@ -982,7 +985,7 @@ namespace Controlador
 
             factura.CalcularIVA();
             factura.CalcularTotal();
-            ActualizarFacturaBDD(factura);
+            //ActualizarFacturaBDD(factura);
 
             // Actualizar los controles del formulario
             foreach (Control c in groupBoxFactura.Controls)
@@ -1025,7 +1028,8 @@ namespace Controlador
         public bool GuardarCambiosFactura(string nuevoDescuento)
         {
             Factura factura = ObtenerFacturaPorNumero(numeroEditarFactura);
-            
+            ActualizarFacturaBDD(factura);
+
             if (factura == null)
             {
                 MessageBox.Show("No se encontró la factura.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1239,7 +1243,7 @@ namespace Controlador
             }
         }
 
-        private void ConsultarFacturasBDD()
+        public void ConsultarFacturasBDD()
         {
             cn = new Conexion();
             datosFac = new DatosFactura();
